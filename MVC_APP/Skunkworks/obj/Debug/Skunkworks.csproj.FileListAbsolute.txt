@@ -1,0 +1,197 @@
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Skunkworks.dll.config
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Skunkworks.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Skunkworks.pdb
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csc.exe
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csc.exe.config
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csc.rsp
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csi.exe
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csi.exe.config
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\csi.rsp
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Buffers.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Memory.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\vbc.exe
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\vbc.exe.config
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\vbc.rsp
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Antlr3.Runtime.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Newtonsoft.Json.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Helpers.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Mvc.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Optimization.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Razor.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\WebGrease.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Newtonsoft.Json.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Helpers.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Mvc.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Optimization.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.Razor.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.xml
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\bin\Antlr3.Runtime.pdb
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.AssemblyReference.cache
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CoreCompileInputs.cache
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CopyComplete
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\obj\Debug\Skunkworks.dll
+C:\Users\ManageIT\source\repos\Skunkworks\Skunkworks\obj\Debug\Skunkworks.pdb
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.dll.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.pdb
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.exe
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.exe.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.rsp
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.exe
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.exe.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.rsp
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CSharp.Core.targets
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.targets
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Buffers.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Collections.Immutable.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Memory.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Numerics.Vectors.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Reflection.Metadata.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Text.Encoding.CodePages.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Threading.Tasks.Extensions.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.exe
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.exe.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.rsp
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Antlr3.Runtime.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.SqlServer.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.Web.Infrastructure.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Newtonsoft.Json.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Helpers.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Mvc.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Optimization.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Razor.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\WebGrease.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.pdb
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.dll.config
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.SqlServer.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Newtonsoft.Json.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Helpers.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Mvc.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Optimization.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Razor.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.xml
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Antlr3.Runtime.pdb
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.AssemblyReference.cache
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CoreCompileInputs.cache
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CopyComplete
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.dll
+\\DESKTOP-OJ3VL81\ManageIT2\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.pdb
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.dll.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.pdb
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.exe
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.exe.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csc.rsp
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.exe
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.exe.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\csi.rsp
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.Managed.Core.targets
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Buffers.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Collections.Immutable.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Memory.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Numerics.Vectors.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Reflection.Metadata.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.exe
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.exe.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\vbc.rsp
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\roslyn\VBCSCompiler.exe.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Antlr3.Runtime.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.SqlServer.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.Web.Infrastructure.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Newtonsoft.Json.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Helpers.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Mvc.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Optimization.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Razor.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\WebGrease.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.pdb
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Skunkworks.data.dll.config
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\EntityFramework.SqlServer.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Newtonsoft.Json.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Helpers.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Mvc.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Optimization.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.Razor.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Deployment.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\System.Web.WebPages.Razor.xml
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\bin\Antlr3.Runtime.pdb
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.AssemblyReference.cache
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CoreCompileInputs.cache
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.csproj.CopyComplete
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.dll
+G:\ManageIT\Management\Locker\Customers\Web Design\SkunkWorks\Skunkworks\Skunkworks\obj\Debug\Skunkworks.pdb

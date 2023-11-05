@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Skunkworks.data.Entities.User>
+
+@{
+    ViewBag.Title = "ManageUsers";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    @Html.Partial("_Navbar")
+
+
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Manage User Accounts</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li class="breadcrumb-item ">Users</li>
+                    <li class="breadcrumb-item active">Manage User Accounts</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">All users</h5>
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Job Title</th>
+                                <th scope="col">IsAdmin</th>
+                                <th scope="col">City</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@for (int i = 0; i < 50; i++)
+                            {*@
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.Id)</th>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.City)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditUser", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                            @*}*@
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+</body>
+
+</html>
+
+
+
+

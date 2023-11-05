@@ -1,0 +1,36 @@
+﻿@model List<Skunkworks.data.Entities.Projects>
+
+<div class="col-12">
+    <div class="card recent-sales overflow-auto">
+
+        <div class="card-body">
+            <h5 class="card-title">Recent Projects </h5>
+
+            <table class="table table-borderless datatable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Stakeholder</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Budget</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var item in Model)
+                        {
+                            <th scope="row"><a href="#">@Html.DisplayFor(modelItem => item.Id)</a></th>
+                            <td>@Html.DisplayFor(modelItem => item.UserId)</td>
+                            <td><a href="#" class="text-primary">@Html.DisplayFor(modelItem => item.Name)</a></td>
+                            <td>@Html.DisplayFor(modelItem => item.Budget)</td>
+                            <td><span class="badge bg-success">@Html.DisplayFor(modelItem => item.Status)</span></td>
+                        }
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

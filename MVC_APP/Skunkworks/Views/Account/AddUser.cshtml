@@ -1,0 +1,157 @@
+﻿@model Skunkworks.data.Models.RegistrationModelAdmin
+
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<h2>EditUser</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+
+
+    <body>
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="header fixed-top d-flex align-items-center">
+            @Html.Partial("_Navbar")
+        </header><!-- End Header -->
+
+
+        <main id="main" class="main">
+
+            <div class="pagetitle">
+                <h1>Profile</h1>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="@Url.Action("index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item">Users</li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section profile">
+                <div class="row">
+                    <div class="col-xl-4">
+
+                        <div class="card">
+                            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                                @*<img src="/Content/img/profile-img.jpg" alt="Profile" class="rounded-circle">*@
+                                @{Html.RenderAction("ProfileImage", "Account"); }
+                                <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
+
+                                <div class="social-links mt-2">
+                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-8">
+
+                        <div class="card">
+                            <div class="card-body pt-3">
+                                <!-- Bordered Tabs -->
+                                @using (Html.BeginForm("AddUser", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="tab-content pt-2">
+
+                                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                            <h5 class="card-title">About</h5>
+
+
+                                            <h5 class="card-title">User Details</h5>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label ">First Name</div>
+                                                <div class="col-lg-9 col-md-8">
+                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label ">Last Name</div>
+                                                <div class="col-lg-9 col-md-8">
+                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">City</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">Address</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.StreetNameAndNumber, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">Phone</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">Email</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">Password</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 label">Confirm Password</div>
+                                                <div class="col-lg-9 col-md-8">@Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })</div>
+                                            </div>
+
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                }<!-- End Bordered Tabs -->
+
+                            </div>
+                        </div>
+
+                        <div>
+                            @Html.ActionLink("Back to List", "ManageUsers")
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main><!-- End #main -->
+        @if (ViewBag.Message != null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+            </script>
+        }
+
+    </body>
+
+</html>
+
+
+}
+
+

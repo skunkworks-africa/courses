@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@{
+    ViewBag.Title = "VerifyAccount";
+}
+
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+{
+
+    <section>
+        <div>
+            <div class="container_11">
+                <div class="main-block">
+                    <article>
+                        <ul class="menu">
+                            <strong>Success!</strong> Your account has been activated successfully. Click here to @Html.ActionLink("Login", "Login", "Account")
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="alert alert-success">
+
+    </div>
+}
+else
+{
+    <section>
+        <div>
+            <div class="container_11">
+                <div class="main-block">
+                    <article>
+                        <ul class="menu">
+                            <ui>
+                                <strong>Error!</strong> @ViewBag.Message
+                            </ui>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </section>
+}

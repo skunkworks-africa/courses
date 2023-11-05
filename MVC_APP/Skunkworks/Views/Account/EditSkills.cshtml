@@ -1,0 +1,100 @@
+﻿@model Skunkworks.data.Entities.Skills
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        @Html.Partial("_Navbar")
+    </header><!-- End Header -->
+
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Edit Skills</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("index", "Home")">Home</a></li>
+                    <li class="breadcrumb-item">Users</li>
+                    <li class="breadcrumb-item active">Edit Skills</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section profile">
+            <div class="row">
+                
+
+                <div class="col-xl-8">
+
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <!-- Bordered Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                                </li>
+
+                           
+
+                            </ul>
+                            <div class="tab-content pt-2">
+
+                                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                    <h5 class="card-title">Edit this skill</h5>
+                                    <p class="small fst-italic">@Html.DisplayFor(model => model.Name)</p>
+
+                                    @using (Html.BeginForm("EditSkills", "Account", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(x => x.Id)
+                                        <form>
+
+                                            <div class="row mb-3">
+                                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                                                <div class="col-md-8 col-lg-9">
+                                                    @Html.EditorFor(model => model.Name)
+                                                </div>
+                                            </div>
+                                           
+
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            </div>
+                                            @*</form>*@
+                                            <!-- End Profile Edit Form -->
+                                        </form>
+                                    }
+                                </div>
+
+                            </div><!-- End Bordered Tabs -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
+</body>
+
+</html>

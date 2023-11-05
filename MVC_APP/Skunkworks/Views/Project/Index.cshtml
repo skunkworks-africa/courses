@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Skunkworks.data.Entities.Projects>
+
+@{
+    ViewBag.Title = "ManageSkills";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    @Html.Partial("_Navbar")
+
+
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Manage Skills</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li class="breadcrumb-item ">Users</li>
+                    <li class="breadcrumb-item active">Manage Skills</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">All Skills</h5>
+                    @*<a href="@Url.Action("AddSkills", "Account")" class="btn btn-primary">Add</a>*@
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{int i = 0; }
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => i)</th>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditProject", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "DeleteProject", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+</body>
+
+</html>
+
+
+
+
