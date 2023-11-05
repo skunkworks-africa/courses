@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skunkworks", "Skunkworks\Skunkworks.csproj", "{12CF8FD8-2CF7-407C-852A-8E7CB630BE0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skunkworks.data", "Skunkworks.data\Skunkworks.data.csproj", "{53E854AC-072B-4A19-B66D-D12EE2CAD50F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12CF8FD8-2CF7-407C-852A-8E7CB630BE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CF8FD8-2CF7-407C-852A-8E7CB630BE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CF8FD8-2CF7-407C-852A-8E7CB630BE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CF8FD8-2CF7-407C-852A-8E7CB630BE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E854AC-072B-4A19-B66D-D12EE2CAD50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E854AC-072B-4A19-B66D-D12EE2CAD50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E854AC-072B-4A19-B66D-D12EE2CAD50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E854AC-072B-4A19-B66D-D12EE2CAD50F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22710044-85AC-4435-A9B7-88E95DD22800}
+	EndGlobalSection
+EndGlobal
