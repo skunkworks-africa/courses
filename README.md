@@ -1,30 +1,38 @@
-# LMS for Skunkworks Academy
+# Skunkworks EdTech Course Catalog
 
-Skunkworks Academy's Learning Management System (LMS) aims to provide a streamlined platform for managing educational courses, instructor and student interactions, and other related features. This repository contains all the necessary documentation, code, and resources for setting up and running the LMS.
+Welcome to the Skunkworks EdTech Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+## Course Offerings
 
-## Project Overview
+### Software Development
+- **Advanced Secure Software Development for GitHub**: Security practices for GitHub.
+- **Comprehensive Course on Developing and Deploying a Web Scraping App with Python and Microsoft Azure**: Techniques in Python and Azure for web scraping.
 
-For a detailed project overview including objectives, architectural planning, design, development, and implementation strategies, please refer to the [Project Overview Document](./Documentation/Project_Overview.md).
+[... More courses ...]
 
-## Getting Started
+### Cloud Computing
+- **Cloud Integration in Modern Businesses**: Integrate cloud services into business processes.
 
-### Prerequisites
+[... More courses ...]
 
-- A list of software, hardware, and other resources required to set up and run the LMS.
+### Data Analytics & Business Intelligence
+- **Mastering Data Analytics for Business Growth**: Utilize data analytics for business insights.
 
-### Installation
+[... More courses ...]
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/skunkworks-pty-ltd/skunkworks-academy.git
+### DevOps & Agile Methodologies
+- **Agile Foundations AGF101**: Introduction to Agile principles.
+
+[... More courses ...]
+
+### Cybersecurity
+- **Cybersecurity Engineer**: Fundamental to advanced cybersecurity skills.
+
+[... More courses ...]
+
+## Installation
+
+To clone this repository, run the following command in your terminal:
+
+```bash
+git clone https://github.com/skunkworksza/course-catalog.git
