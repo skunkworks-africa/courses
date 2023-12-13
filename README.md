@@ -8,7 +8,7 @@ Welcome to the Skunkworks EdTech Course Catalog. This repository is your one-sto
 - **Advanced Secure Software Development for GitHub**: Security practices for GitHub.
 - **Comprehensive Course on Developing and Deploying a Web Scraping App with Python and Microsoft Azure**: Techniques in Python and Azure for web scraping.
 
-#[... More courses ...]
+[... More courses ...]
 
 ### Cloud Computing
 - **Cloud Integration in Modern Businesses**: Integrate cloud services into business processes.
