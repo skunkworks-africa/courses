@@ -10,7 +10,7 @@ In this comprehensive course, you'll embark on a journey to master secure coding
 
 Throughout the five-day program, you will dive into each vulnerability, understand its significance, and learn how to mitigate it effectively. From the basics of secure coding to hands-on coding challenges and a capstone project, you'll gain practical experience that will enhance your ability to write secure code. This course follows Bloom's Taxonomy, ensuring a well-structured learning experience that spans from acquiring knowledge to evaluating coding practices.
 
-By the end of this course, you'll be well-equipped to identify and address common security risks, construct secure code segments, and evaluate your coding practices for potential security issues. Join us in this journey to become a proficient secure coder and protector of web applications.
+By the end of this course, you'll be well-equipped to identify and address common security risks, construct secure code segments, and evaluate your coding practices for potential security issues. Join us on this journey to become a proficient secure coder and protector of web applications.
 
 ## Company Details
 - **Company:** Skunkworks EdTech
@@ -52,26 +52,90 @@ This course is structured as follows:
    - Apply what you've learned through hands-on coding challenges.
    - Undertake a capstone project that demonstrates your mastery of secure coding.
 
-## Curriculum Outline
-Each day includes:
+## Course Highlights
 
-- Daily topics with in-depth explanations.
-- Clear learning objectives to guide your progress.
-- Links to relevant reading materials, video lectures, and GitHub repositories for practical exercises.
-- Interactive quizzes and coding exercises to reinforce your knowledge.
+### Application Security for Essential Programming Languages
+This course focuses on application security for essential programming languages, helping you identify and address security issues in vital languages including:
 
-## Building a Course Roadmap
-We provide you with a concise day-by-day guide, ensuring you can easily navigate the course. Clear instructions are provided on how to access course materials and submit assignments via GitHub.
+- JavaScript
+- TypeScript
+- ReactJS
+- NodeJS
+- PHP
+- C#
+- ASP .NET
+- Java
+- Swift/C++
 
-## Assessment and Feedback
-Assessment is a key component of this course:
+### Advanced Vulnerability Detection
+Learn advanced vulnerability detection techniques, including injection flaws, and how to secure your code against them.
 
-- Daily quizzes are designed to test your knowledge and comprehension of the material.
-- A final capstone project will challenge you to apply, analyze, synthesize, and evaluate secure coding practices.
-- Peer and instructor feedback mechanisms are available via GitHub's collaboration tools, promoting continuous improvement.
+### Comprehensive Code Security Analysis
+Discover how to perform in-depth code security analysis to detect a wide range of security issues. This includes vulnerabilities like SQL injection, cross-site scripting (XSS), buffer overflows, authentication issues, cloud secrets detection, and more.
 
-## Support and Resources
-We are committed to supporting your learning journey:
+### Security Rules
+Our security rules are classified according to well-established security standards such as PCI DSS, CWE Top 25, and OWASP Top 10.
 
-- Guidance on using GitHub for course participation is provided.
-- Additional resources are available for further learning and exploration in secure coding.
+### Third-Party Libraries
+Identify and resolve application code issues originating from interactions with third-party open-source libraries.
+
+### Data Flow Analysis
+Learn how to trace data flow in and out of libraries, effectively uncovering deeply concealed security vulnerabilities that other tools may fail to detect.
+
+### Taint Analysis
+Understand the importance of user-provided data sanitization to ensure application code security. Taint analysis tracks untrusted user input throughout the execution flow, providing security against various threats.
+
+## Course Modules
+1. Introduction to Application Security
+2. OWASP Top 10 Risks
+3. Injection Flaws
+4. Cross-Site Scripting (XSS)
+5. Broken Authentication & Session Management
+6. Insecure Direct Object References
+7. Cross-Site Request Forgery (CSRF)
+8. Security Misconfiguration
+9. Insecure Cryptographic Storage
+10. Failure to Restrict URL Access
+11. Insufficient Transport Layer Protection
+12. Unvalidated Redirects & Forwards
+13. DevSecOps
+14. Penetration Testing
+15. Mitigation and Prevention
+16. Benchmarking
+17. Secure Coding: Understanding and Mitigating the OWASP Top 10 Vulnerabilities
+
+### Proactive Controls
+The proactive controls covered in this course include:
+
+- **C1: Define Security Requirements:** Establish clear and measurable security goals for the application, based on business needs, legal obligations, and threat modeling.
+- **C2: Leverage Security Frameworks and Libraries:** Use well-known and tested security libraries and frameworks for common security functionalities.
+- **C3: Secure Database Access:** Implement secure database access methods to prevent SQL injection attacks and secure sensitive data.
+- **C4: Encode and Escape Data:** Apply proper encoding or escaping techniques to prevent XSS, injection, and other attacks.
+- **C5: Validate All Inputs:** Check the validity of any data received from untrusted sources, both on the client and server-side.
+- **C6: Implement Digital Identity:** Ensure reliable user authentication and account management.
+- **C7: Enforce Access Controls:** Authorize users and entities according to roles and permissions.
+- **C8: Protect Data Everywhere:** Safeguard data confidentiality, integrity, and availability through encryption, hashing, and backups.
+
+## Additional Information
+- ISO Standard Compliance
+- SOC Compliance
+- PCI Compliance
+- Auditor Approval of Accredited Learning
+- Student Manual
+
+## Useful Links and References
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [GitHub Blog: Write More Secure Code with OWASP Top 10 Proactive Controls](https://github.blog/2021-12-06-write-more-secure-code-owasp-top-10-proactive-controls/)
+- [OWASP Secure Coding Practices Quick Reference Guide](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/01-introduction/05-introduction)
+- [Secure Coding: Understanding and Mitigating the OWASP Top 10 Vulnerabilities](https://www.machonedigital.com/blog/secure-coding-understanding-and-mitigating-the-owasp-top-10-vulnerabilities)
+- [Top 10 Web Application Security Assessment Tools](https://blog.rsisecurity.com/top-10-web-application-security-assessment-tools/)
+- [Best Security Testing Tools](https://theqalead.com/tools/best-security-testing-tools/)
+- [Gartner Application Security Testing Reviews](https://www.gartner.com/reviews/market/application-security-testing)
+- [Security Testing Tools](https://www.guru99.com/security-testing-tools.html)
+- [SANS Cloud Security](https://www.sans.org/cloud-security/)
+- [SANS Defending Web Applications Security Essentials](https://www.sans.org/defending-web-applications-security-essentials)
+- [SANS Posters](https://www.sans.org/posters/)
+- [NIST Secure Software Development Framework](https://www.nist.gov/news-events/news/2021/09/secure-software-development-framework-ssdf-draft-update-available-comment)
+- [SANS White Papers](https://www.sans.org/white-papers/)
+- [CERT Division at SEI](https://www.sei.cmu.edu/about/divisions/cert/index.cfm)
+- [Secure Development at SEI](https://www.sei.cmu.edu/our-work/secure-development/index.cfm)
