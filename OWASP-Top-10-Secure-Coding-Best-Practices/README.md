@@ -1,7 +1,20 @@
 # Course Title: Secure Coding Best Practices with OWASP Top 10
 
+## Author: Raydo Matthee
+
 ## Course Description
-This intensive, self-paced course is designed to equip learners with fundamental secure coding practices, focusing on mitigating the OWASP Top 10 vulnerabilities. Throughout the course, you will gain a deep understanding of secure coding principles and practical application, ensuring that you can write secure code that protects against common web application vulnerabilities.
+This intensive, self-paced course is authored by Raydo Matthee and designed to equip learners with fundamental secure coding practices, focusing on mitigating the OWASP Top 10 vulnerabilities. Throughout the course, you will gain a deep understanding of secure coding principles and practical application, ensuring that you can write secure code that protects against common web application vulnerabilities.
+
+## Abstract
+In this comprehensive course, you'll embark on a journey to master secure coding practices with a specific focus on the OWASP Top 10 vulnerabilities. Authored by Raydo Matthee, an industry expert in secure coding, this self-paced course is designed to empower learners with the knowledge and skills necessary to build resilient and secure web applications.
+
+Throughout the five-day program, you will dive into each vulnerability, understand its significance, and learn how to mitigate it effectively. From the basics of secure coding to hands-on coding challenges and a capstone project, you'll gain practical experience that will enhance your ability to write secure code. This course follows Bloom's Taxonomy, ensuring a well-structured learning experience that spans from acquiring knowledge to evaluating coding practices.
+
+By the end of this course, you'll be well-equipped to identify and address common security risks, construct secure code segments, and evaluate your coding practices for potential security issues. Join us in this journey to become a proficient secure coder and protector of web applications.
+
+## Company Details
+- **Company:** Skunkworks EdTech
+- **Email:** [training@skunkworks.africa](mailto:training@skunkworks.africa)
 
 ## Course Duration
 - **Duration:** 5 days (self-paced)
@@ -62,22 +75,3 @@ We are committed to supporting your learning journey:
 
 - Guidance on using GitHub for course participation is provided.
 - Additional resources are available for further learning and exploration in secure coding.
-
-
-# Course Title: Secure Coding Best Practices with OWASP Top 10
-
-## Author: Raydo Matthee
-
-## Course Description
-This intensive, self-paced course is authored by Raydo Matthee and designed to equip learners with fundamental secure coding practices, focusing on mitigating the OWASP Top 10 vulnerabilities. Throughout the course, you will gain a deep understanding of secure coding principles and practical application, ensuring that you can write secure code that protects against common web application vulnerabilities.
-
-## Abstract
-In this comprehensive course, you'll embark on a journey to master secure coding practices with a specific focus on the OWASP Top 10 vulnerabilities. Authored by Raydo Matthee, an industry expert in secure coding, this self-paced course is designed to empower learners with the knowledge and skills necessary to build resilient and secure web applications.
-
-Throughout the five-day program, you will dive into each vulnerability, understand its significance, and learn how to mitigate it effectively. From the basics of secure coding to hands-on coding challenges and a capstone project, you'll gain practical experience that will enhance your ability to write secure code. This course follows Bloom's Taxonomy, ensuring a well-structured learning experience that spans from acquiring knowledge to evaluating coding practices.
-
-By the end of this course, you'll be well-equipped to identify and address common security risks, construct secure code segments, and evaluate your coding practices for potential security issues. Join us in this journey to become a proficient secure coder and protector of web applications.
-
-## Company Details
-- **Company:** Skunkworks EdTech
-- **Email:** [training@skunkworks.africa](mailto:training@skunkworks.africa)
