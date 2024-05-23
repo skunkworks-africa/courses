@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Outline: Integration and Cloud Solutions Bootcamp</title>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        .cover-page {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cover-page img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto; /* Allows table cells to adjust their width based on content */
+            background-color: #fff; /* White background for better readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+        }
+
+        thead {
+            background-color: #0f62fe; /* IBM Blue */
+            color: #FFFFFF;
+        }
+
+        th, td {
+            padding: 15px; /* Increased padding for more space inside cells */
+            border: 1px solid #ddd; /* Light gray border for subtle separation */
+            text-align: left;
+            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
+        }
+
+        th {
+            font-weight: bold; /* Bold font for headers */
+            text-transform: uppercase; /* Uppercase text for headers */
+            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Slightly darker gray on hover */
+        }
+
+        a {
+            color: #0f62fe; /* IBM Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            font-style: italic;
+            border-radius: 5px; /* Rounded corners for the note box */
+        }
+
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe; /* IBM Blue for page number */
+        }
+
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer with page number */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <img src="https://raw.githubusercontent.com/skunkworksza/Media/32845115f408b71724403da1613047a2facf659c/IBM%C2%AE%20Silver%20Partner%20(1).svg" alt="IBM Silver Partner Logo">
+        <h1>Course Outline: Integration and Cloud Solutions Bootcamp</h1>
+        <h2>Comprehensive Integration and Cloud Solutions Bootcamp</h2>
+        <h3>Mastering IBM Integration Bus, IBM Cloud Pak for Integration, and Red Hat OpenShift</h3>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Course Information</div>
+        <div class="content">
+            <p><strong>Course Title:</strong> Comprehensive Integration and Cloud Solutions Bootcamp</p>
+            <p><strong>Subtitle:</strong> Mastering IBM Integration Bus, IBM Cloud Pak for Integration, and Red Hat OpenShift</p>
+            <p><strong>Course Code:</strong> IBCPI-OC-01</p>
+            <p><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</p>
+            <p><strong>Cost per Delegate:</strong> $2500</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Abstract</div>
+        <div class="content">
+            <p>This intensive 5-day bootcamp provides comprehensive training on IBM Integration Bus, IBM Cloud Pak for Integration, Red Hat OpenShift, and Event Streams. Designed for developers and administrators, this course covers installation, configuration, management, and practical deployment scenarios, enabling participants to leverage these technologies effectively in real-world environments.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Objectives</div>
+        <div class="content">
+            <ul>
+                <li>Install, configure, and manage IBM Integration Bus and IBM Cloud Pak for Integration.</li>
+                <li>Deploy, manage, and scale applications using Red Hat OpenShift.</li>
+                <li>Develop event-driven applications using IBM Event Streams.</li>
+                <li>Integrate various IBM and Red Hat technologies for robust, scalable, and secure enterprise solutions.</li>
+                <li>Implement CI/CD pipelines and GitOps practices for continuous integration and deployment.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Topics</div>
+        <div class="content">
+            <ol>
+                <li><strong>IBM Integration Bus</strong>
+                    <ul>
+                        <li>Overview and architecture</li>
+                        <li>Installation and configuration</li>
+                        <li>Message flow development and deployment</li>
+                        <li>Integration with IBM MQ</li>
+                        <li>Security and error handling</li>
+                        <li>Performance tuning</li>
+                    </ul>
+                </li>
+                <li><strong>IBM Cloud Pak for Integration</strong>
+                    <ul>
+                        <li>Introduction and architecture</li>
+                        <li>Installation and configuration</li>
+                        <li>Integration capabilities</li>
+                        <li>API management and App Connect</li>
+                        <li>Event Streams and DataPower</li>
+                    </ul>
+                </li>
+                <li><strong>Red Hat OpenShift</strong>
+                    <ul>
+                        <li>Kubernetes fundamentals</li>
+                        <li>OpenShift setup and management</li>
+                        <li>Application deployment and scaling</li>
+                        <li>CI/CD with OpenShift Pipelines</li>
+                        <li>Security and compliance</li>
+                    </ul>
+                </li>
+                <li><strong>Event Streams Developer Essentials</strong>
+                    <ul>
+                        <li>Introduction to Apache Kafka and IBM Event Streams</li>
+                        <li>Setting up Kafka clusters</li>
+                        <li>Producing and consuming messages</li>
+                        <li>Real-time data processing</li>
+                    </ul>
+                </li>
+                <li><strong>OpenShift for Developers</strong>
+                    <ul>
+                        <li>Developer tools and workflows</li>
+                        <li>Building and deploying applications</li>
+                        <li>Using OpenShift Dev Spaces and Developer Hub</li>
+                        <li>Integrating with CI/CD pipelines</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Audience</div>
+        <div class="content">
+            <ul>
+                <li>IT professionals including developers, administrators, and architects</li>
+                <li>Integration specialists and middleware administrators</li>
+                <li>DevOps engineers and platform engineers</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Agenda</div>
+        <div class="content">
+            <h4>Day 1: Introduction and IBM Integration Bus Basics</h4>
+            <ul>
+                <li><strong>Morning</strong>:
+                    <ul>
+                        <li>Course overview and objectives</li>
+                        <li>Introduction to IBM Integration Bus</li>
+                        <li>Installation and configuration</li>
+                    </ul>
+                </li>
+                <li><strong>Afternoon</strong>:
+                    <ul>
+                        <li>Creating and deploying basic message flows</li>
+                        <li>Hands-on lab: Simple message flow application</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Day 2: Advanced IBM Integration Bus</h4>
+            <ul>
+                <li><strong>Morning</strong>:
+                    <ul>
+                        <li>Advanced message flow features</li>
+                        <li>Integration with IBM MQ</li>
+                    </ul>
+                </li>
+                <li><strong>Afternoon</strong>:
+                    <ul>
+                        <li>Hands-on lab: Advanced message flow scenarios</li>
+                        <li>Real-world case study discussion</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Day 3: IBM Cloud Pak for Integration and OpenShift Fundamentals</h4>
+            <ul>
+                <li><strong>Morning</strong>:
+                    <ul>
+                        <li>Introduction to IBM Cloud Pak for Integration</li>
+                        <li>Deploying integration solutions</li>
+                    </ul>
+                </li>
+                <li><strong>Afternoon</strong>:
+                    <ul>
+                        <li>Basics of Kubernetes and OpenShift</li>
+                        <li>Hands-on lab: Setting up and deploying applications on OpenShift</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Day 4: Event Streams and Kafka with OpenShift</h4>
+            <ul>
+                <li><strong>Morning</strong>:
+                    <ul>
+                        <li>Introduction to IBM Event Streams (Kafka)</li>
+                        <li>Setting up Kafka clusters and integration with applications</li>
+                    </ul>
+                </li>
+                <li><strong>Afternoon</strong>:
+                    <ul>
+                        <li>Hands-on lab: Developing an event-driven application using Kafka on OpenShift</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Day 5: Capstone Project and Review</h4>
+            <ul>
+                <li><strong>Morning</strong>:
+                    <ul>
+                        <li>Overview of the capstone project integrating IBM Integration Bus, Cloud Pak, OpenShift, and Event Streams</li>
+                        <li>Project development guidance</li>
+                    </ul>
+                </li>
+                <li><strong>Afternoon</strong>:
+                    <ul>
+                        <li>Project completion and presentations</li>
+                        <li>Review, Q&A, and feedback session</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Lab Outline</div>
+        <div class="content">
+            <ul>
+                <li><strong>Day 1 Lab</strong>: Setting up IBM Integration Bus, creating and deploying basic message flows.</li>
+                <li><strong>Day 2 Lab</strong>: Advanced message flow scenarios, integrating with IBM MQ.</li>
+                <li><strong>Day 3 Lab</strong>: Setting up OpenShift environment, deploying applications.</li>
+                <li><strong>Day 4 Lab</strong>: Developing and deploying event-driven applications using Kafka on OpenShift.</li>
+                <li><strong>Day 5 Lab</strong>: Capstone project integrating all covered technologies.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Assessment Method</div>
+        <div class="content">
+            <ul>
+                <li>Continuous assessment through hands-on labs and exercises.</li>
+                <li>Final capstone project presentation and evaluation.</li>
+                <li>Participation and engagement during Q&A sessions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Course Materials (Pack)</div>
+        <div class="content">
+            <ul>
+                <li><strong>Pre-course Reading</strong>: Introduction to IBM Integration Bus, Cloud Pak for Integration, and OpenShift.</li>
+                <li><strong>Slides and Notes</strong>: Comprehensive slides covering all topics.</li>
+                <li><strong>Lab Guides</strong>: Step-by-step lab exercises and solutions.</li>
+                <li><strong>Reference Materials</strong>: Additional reading materials and resources.</li>
+                <li><strong>Software Access</strong>: Access to necessary software and trial versions for hands-on practice.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">References and Further Reading</div>
+        <div class="content">
+            <ul>
+                <li><a href="https://www.ibm.com/training/path/ibmintegrationbus">IBM Integration Bus Training</a></li>
+                <li><a href="https://www.ibm.com/training/cloud-pak">IBM Cloud Pak for Integration</a></li>
+                <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift for Developers</a></li>
+                <li><a href="https://developer.ibm.com/components/cloud-pak-for-integration/">IBM Developer Resources</a></li>
+                <li><a href="https://ibm.github.io/cloudpakforintegration-workshop/">Cloud Pak for Integration Workshop on GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
