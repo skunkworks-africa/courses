@@ -1,166 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C++ Course Outline</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
-        h1, h2, h3, h4 {
-            color: #2a6496;
+        header {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
-        .course-overview, .day, .appendices, .resources, .assessment, .feedback {
-            margin-bottom: 20px;
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #004494;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            color: #0056b3;
         }
         .section-title {
             background-color: #e0e0e0;
             padding: 10px;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
-        .lab-exercise {
+        .lab-exercise, .q-and-a {
             background-color: #f5f5f5;
             padding: 10px;
-            border-left: 5px solid #2a6496;
+            border-left: 5px solid #0056b3;
             margin-bottom: 10px;
         }
-        .q-and-a {
-            background-color: #f9f9f9;
+        footer {
+            background-color: #004494;
+            color: #fff;
+            text-align: center;
             padding: 10px;
-            border-left: 5px solid #4CAF50;
-            margin-bottom: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <h1>C++ Course Outline</h1>
-    <div class="course-overview">
-        <h2 class="section-title">Course Overview</h2>
-        <p><strong>Introduction:</strong> This C++ programming course is designed to prepare participants for the CPE – C++ Certified Entry-Level Programmer certification. The course covers the essentials of C++ programming, from basic syntax and structure to advanced concepts and best practices, with a strong focus on practical applications and real-world scenarios.</p>
-        <p><strong>Course Objectives:</strong> 
+    <header>
+        <h1>C++ Course Outline</h1>
+    </header>
+    <nav>
+        <a href="https://www.cppinstitute.org/terms-and-conditions">Terms and Conditions</a>
+        <a href="https://www.cppinstitute.org/exam-policies">Exam Policies</a>
+        <a href="https://www.cppinstitute.org/contact">Contact</a>
+        <a href="https://www.cppinstitute.org/support">Support</a>
+        <a href="https://ums.edube.org/store">Buy Vouchers</a>
+    </nav>
+    <div class="container">
+        <div class="course-overview">
+            <h2 class="section-title">Course Overview</h2>
+            <p><strong>Introduction:</strong> This C++ programming course is designed to prepare participants for the CPE – C++ Certified Entry-Level Programmer certification. The course covers the essentials of C++ programming, from basic syntax and structure to advanced concepts and best practices, with a strong focus on practical applications and real-world scenarios.</p>
+            <p><strong>Course Objectives:</strong> 
+                <ul>
+                    <li>Understand the fundamentals of C++ syntax and structure.</li>
+                    <li>Master object-oriented programming concepts using C++.</li>
+                    <li>Develop the ability to write, compile, and debug C++ programs.</li>
+                    <li>Learn and apply industry standards and best practices in C++ programming.</li>
+                    <li>Gain skills to integrate C++ with other languages and libraries.</li>
+                    <li>Prepare for the CPE – C++ Certified Entry-Level Programmer certification exam.</li>
+                </ul>
+            </p>
+            <p><strong>Target Audience:</strong> 
+                <ul>
+                    <li>Programmers and developers with basic knowledge of any programming language.</li>
+                    <li>IT professionals seeking to enhance their programming skills.</li>
+                    <li>Students pursuing a career in software development.</li>
+                </ul>
+            </p>
+            <p><strong>Prerequisites:</strong> Basic knowledge of any programming language.</p>
+            <p><strong>Duration:</strong> 5 Days (Max)</p>
+            <p><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</p>
+            <p><strong>Course Code:</strong> CPP_CPE_2024</p>
+            <p><strong>Course Cost:</strong> Recommended cost per delegate: $2000 for the entire course (5 days). This cost includes all training materials, lab access, and certification.</p>
+        </div>
+        <div class="day">
+            <h2 class="section-title">Day 1: Introduction and C++ Basics</h2>
+            <p><strong>Theory:</strong></p>
             <ul>
-                <li>Understand the fundamentals of C++ syntax and structure.</li>
-                <li>Master object-oriented programming concepts using C++.</li>
-                <li>Develop the ability to write, compile, and debug C++ programs.</li>
-                <li>Learn and apply industry standards and best practices in C++ programming.</li>
-                <li>Gain skills to integrate C++ with other languages and libraries.</li>
-                <li>Prepare for the CPE – C++ Certified Entry-Level Programmer certification exam.</li>
+                <li><strong>Course Introduction and Objectives:</strong> Overview of the course structure and goals.</li>
+                <li><strong>History and Evolution of C++:</strong> Timeline and milestones in the development of C++.</li>
+                <li><strong>Comparison with Other Programming Languages:</strong> How C++ compares to other programming languages like Java and Python.</li>
+                <li><strong>C++ Architecture and Components:</strong> Understanding the fundamental architecture of C++.</li>
+                <li><strong>Installation and Configuration:</strong> Setting up a C++ development environment.</li>
             </ul>
-        </p>
-        <p><strong>Target Audience:</strong> 
+            <p><strong>Practical Lab Exercises:</strong></p>
             <ul>
-                <li>Programmers and developers with basic knowledge of any programming language.</li>
-                <li>IT professionals seeking to enhance their programming skills.</li>
-                <li>Students pursuing a career in software development.</li>
+                <li><strong>Lab Exercise 1:</strong> Setting Up C++ IDE - Step-by-step guide to installing and configuring a C++ Integrated Development Environment.</li>
+                <li><strong>Lab Exercise 2:</strong> Writing and Compiling Your First C++ Program - Creating and running a simple C++ program.</li>
             </ul>
-        </p>
-        <p><strong>Prerequisites:</strong> Basic knowledge of any programming language.</p>
-        <p><strong>Duration:</strong> 5 Days (Max)</p>
-        <p><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</p>
-        <p><strong>Course Code:</strong> CPP_CPE_2024</p>
-        <p><strong>Course Cost:</strong> Recommended cost per delegate: $2000 for the entire course (5 days). This cost includes all training materials, lab access, and certification.</p>
+            <p><strong>Q&A and Review</strong></p>
+            <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
+        </div>
+        <div class="day">
+            <h2 class="section-title">Day 2: Syntax and Structure</h2>
+            <p><strong>Theory:</strong></p>
+            <ul>
+                <li><strong>C++ Syntax Fundamentals:</strong> Basic syntax rules of C++.</li>
+                <li><strong>Variables and Data Types:</strong> Introduction to variables and data types in C++.</li>
+                <li><strong>Constants and Literals:</strong> Understanding constants and literals in C++.</li>
+                <li><strong>Type Conversions and Typecasting:</strong> Converting between different data types.</li>
+            </ul>
+            <p><strong>Practical Lab Exercises:</strong></p>
+            <ul>
+                <li><strong>Lab Exercise 3:</strong> Working with Variables and Data Types - Exercises on variable declaration, initialization, and typecasting.</li>
+                <li><strong>Lab Exercise 4:</strong> Basic Input/Output Operations - Using `std::cin`, `std::cout`, and stream manipulators like `endl` and `setw`.</li>
+            </ul>
+            <p><strong>Q&A and Review</strong></p>
+            <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
+        </div>
+        <div class="day">
+            <h2 class="section-title">Day 3: Operators and Control Structures</h2>
+            <p><strong>Theory:</strong></p>
+            <ul>
+                <li><strong>Operators in C++:</strong> Arithmetic, relational, logical, assignment, and bitwise operators.</li>
+                <li><strong>Control Structures:</strong> Conditional statements (`if`, `else`, `switch-case`) and loops (`while`, `do-while`, `for`).</li>
+            </ul>
+            <p><strong>Practical Lab Exercises:</strong></p>
+            <ul>
+                <li><strong>Lab Exercise 5:</strong> Implementing a Basic Calculator - Using operators to create a simple calculator program.</li>
+                <li><strong>Lab Exercise 6:</strong> Writing Control Structures - Implementing conditional statements and loops in C++ programs.</li>
+            </ul>
+            <p><strong>Q&A and Review</strong></p>
+            <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
+        </div>
+        <div class="day">
+            <h2 class="section-title">Day 4: Functions and Scope</h2>
+            <p><strong>Theory:</strong></p>
+            <ul>
+                <li><strong>Functions in C++:</strong> Declaration, definition, and calling functions. Return types and values, parameter passing (by value, by reference). Function overloading and recursion.</li>
+                <li><strong>Scope and Lifetime of Variables:</strong> Local, global, and static variables. Storage classes (`auto`, `register`, `static`, `extern`).</li>
+            </ul>
+            <p><strong>Practical Lab Exercises:</strong></p>
+            <ul>
+                <li><strong>Lab Exercise 7:</strong> Developing Functions - Creating and using functions to solve problems.</li>
+                <li><strong>Lab Exercise 8:</strong> Managing Variable Scope - Writing programs to demonstrate variable scope and lifetime.</li>
+            </ul>
+            <p><strong>Q&A and Review</strong></p>
+            <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
+        </div>
+        <div class="day">
+            <h2 class="section-title">Day 5: Advanced Topics and Integration</h2>
+            <p><strong>Theory:</strong></p>
+            <ul>
+                <li><strong>Advanced Data Types:</strong> Vectors, arrays, pointers, and structures.</li>
+                <li><strong>Memory Management:</strong> Dynamic memory allocation, using `new` and `delete` operators.</li>
+                <li><strong>Standard Library Functions:</strong> Using basic standard library functions and data structures like `std::string`.</li>
+            </ul>
+            <p><strong>Practical Lab Exercises:</strong></p>
+            <ul>
+                <li><strong>Lab Exercise 9:</strong> Working with Pointers and Arrays - Declaring, initializing, and using pointers and arrays.</li>
+                <li><strong>Lab Exercise 10:</strong> Capstone Project - Applying all learned concepts to develop a comprehensive C++ project.</li>
+            </ul>
+            <p><strong>Course Wrap-Up</strong></p>
+            <div class="q-and-a">Review of key concepts. Final Q&A session. Course feedback and evaluations.</div>
+        </div>
+        <div class="appendices">
+            <h2 class="section-title">Appendices</h2>
+            <p><strong>Additional Resources:</strong> Books, websites, and tools for further learning.</p>
+            <!-- Additional appendices content -->
+        </div>
+        <div class="resources">
+            <h2 class="section-title">Instructor and Student Resources</h2>
+            <p><strong>Instructor Guide:</strong> Detailed guide for instructors.</p>
+            <!-- Additional resources content -->
+        </div>
+        <div class="assessment">
+            <h2 class="section-title">Assessment and Certification</h2>
+            <p><strong>Assessment Overview:</strong> Description of assessment methods.</p>
+            <!-- Additional assessment content -->
+        </div>
+        <div class="feedback">
+            <h2 class="section-title">Feedback and Improvement</h2>
+            <p><strong>Course Evaluation Forms:</strong> Forms for student feedback.</p>
+            <!-- Additional feedback content -->
+        </div>
     </div>
-    <div class="day">
-        <h2 class="section-title">Day 1: Introduction and C++ Basics</h2>
-        <p><strong>Theory:</strong></p>
-        <ul>
-            <li><strong>Course Introduction and Objectives:</strong> Overview of the course structure and goals.</li>
-            <li><strong>History and Evolution of C++:</strong> Timeline and milestones in the development of C++.</li>
-            <li><strong>Comparison with Other Programming Languages:</strong> How C++ compares to other programming languages like Java and Python.</li>
-            <li><strong>C++ Architecture and Components:</strong> Understanding the fundamental architecture of C++.</li>
-            <li><strong>Installation and Configuration:</strong> Setting up a C++ development environment.</li>
-        </ul>
-        <p><strong>Practical Lab Exercises:</strong></p>
-        <ul>
-            <li><strong>Lab Exercise 1:</strong> Setting Up C++ IDE - Step-by-step guide to installing and configuring a C++ Integrated Development Environment.</li>
-            <li><strong>Lab Exercise 2:</strong> Writing and Compiling Your First C++ Program - Creating and running a simple C++ program.</li>
-        </ul>
-        <p><strong>Q&A and Review</strong></p>
-        <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
-    </div>
-    <div class="day">
-        <h2 class="section-title">Day 2: Syntax and Structure</h2>
-        <p><strong>Theory:</strong></p>
-        <ul>
-            <li><strong>C++ Syntax Fundamentals:</strong> Basic syntax rules of C++.</li>
-            <li><strong>Variables and Data Types:</strong> Introduction to variables and data types in C++.</li>
-            <li><strong>Constants and Literals:</strong> Understanding constants and literals in C++.</li>
-            <li><strong>Type Conversions and Typecasting:</strong> Converting between different data types.</li>
-        </ul>
-        <p><strong>Practical Lab Exercises:</strong></p>
-        <ul>
-            <li><strong>Lab Exercise 3:</strong> Working with Variables and Data Types - Exercises on variable declaration, initialization, and typecasting.</li>
-            <li><strong>Lab Exercise 4:</strong> Basic Input/Output Operations - Using `std::cin`, `std::cout`, and stream manipulators like `endl` and `setw`.</li>
-        </ul>
-        <p><strong>Q&A and Review</strong></p>
-        <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
-    </div>
-    <div class="day">
-        <h2 class="section-title">Day 3: Operators and Control Structures</h2>
-        <p><strong>Theory:</strong></p>
-        <ul>
-            <li><strong>Operators in C++:</strong> Arithmetic, relational, logical, assignment, and bitwise operators.</li>
-            <li><strong>Control Structures:</strong> Conditional statements (`if`, `else`, `switch-case`) and loops (`while`, `do-while`, `for`).</li>
-        </ul>
-        <p><strong>Practical Lab Exercises:</strong></p>
-        <ul>
-            <li><strong>Lab Exercise 5:</strong> Implementing a Basic Calculator - Using operators to create a simple calculator program.</li>
-            <li><strong>Lab Exercise 6:</strong> Writing Control Structures - Implementing conditional statements and loops in C++ programs.</li>
-        </ul>
-        <p><strong>Q&A and Review</strong></p>
-        <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
-    </div>
-    <div class="day">
-        <h2 class="section-title">Day 4: Functions and Scope</h2>
-        <p><strong>Theory:</strong></p>
-        <ul>
-            <li><strong>Functions in C++:</strong> Declaration, definition, and calling functions. Return types and values, parameter passing (by value, by reference). Function overloading and recursion.</li>
-            <li><strong>Scope and Lifetime of Variables:</strong> Local, global, and static variables. Storage classes (`auto`, `register`, `static`, `extern`).</li>
-        </ul>
-        <p><strong>Practical Lab Exercises:</strong></p>
-        <ul>
-            <li><strong>Lab Exercise 7:</strong> Developing Functions - Creating and using functions to solve problems.</li>
-            <li><strong>Lab Exercise 8:</strong> Managing Variable Scope - Writing programs to demonstrate variable scope and lifetime.</li>
-        </ul>
-        <p><strong>Q&A and Review</strong></p>
-        <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
-    </div>
-    <div class="day">
-        <h2 class="section-title">Day 5: Advanced Topics and Integration</h2>
-        <p><strong>Theory:</strong></p>
-        <ul>
-            <li><strong>Advanced Data Types:</strong> Vectors, arrays, pointers, and structures.</li>
-            <li><strong>Memory Management:</strong> Dynamic memory allocation, using `new` and `delete` operators.</li>
-            <li><strong>Standard Library Functions:</strong> Using basic standard library functions and data structures like `std::string`.</li>
-        </ul>
-        <p><strong>Practical Lab Exercises:</strong></p>
-        <ul>
-            <li><strong>Lab Exercise 9:</strong> Working with Pointers and Arrays - Declaring, initializing, and using pointers and arrays.</li>
-            <li><strong>Lab Exercise 10:</strong> Capstone Project - Applying all learned concepts to develop a comprehensive C++ project.</li>
-        </ul>
-        <p><strong>Course Wrap-Up</strong></p>
-        <div class="q-and-a">Review of key concepts. Final Q&A session. Course feedback and evaluations.</div>
-    </div>
-    <div class="appendices">
-        <h2 class="section-title">Appendices</h2>
-        <p><strong>Additional Resources:</strong> Books, websites, and tools for further learning.</p>
-        <!-- Additional appendices content -->
-    </div>
-    <div class="resources">
-        <h2 class="section-title">Instructor and Student Resources</h2>
-        <p><strong>Instructor Guide:</strong> Detailed guide for instructors.</p>
-        <!-- Additional resources content -->
-    </div>
-    <div class="assessment">
-        <h2 class="section-title">Assessment and Certification</h2>
-        <p><strong>Assessment Overview:</strong> Description of assessment methods.</p>
-        <!-- Additional assessment content -->
-    </div>
-    <div class="feedback">
-        <h2 class="section-title">Feedback and Improvement</h2>
-        <p><strong>Course Evaluation Forms:</strong> Forms for student feedback.</p>
-        <!-- Additional feedback content -->
-    </div>
+    <footer>
+        <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
+        <a href="https://www.cppinstitute.org/terms-and-conditions">Terms and Conditions</a> |
+        <a href="https://www.cppinstitute.org/privacy-policy">Privacy Policy</a> |
+        <a href="https://www.cppinstitute.org/cookie-policy">Cookie Policy</a>
+        <div class="disclaimer">
+            <p>Disclaimer: This course outline is provided for educational purposes only. The content and structure of the course are intended to align with the CPE – C++ Certified Entry-Level Programmer certification but are not endorsed or affiliated with the C++ Institute. All trademarks, service marks, and trade names referenced in this document are the property of their respective owners. Skunkworks assumes no responsibility for any errors or omissions in the content. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
+        </div>
+    </footer>
 </body>
 </html>
