@@ -47,9 +47,10 @@
             padding-right: 320px;
         }
 
-        .cover-page {
-            text-align: center;
-            margin-bottom: 40px;
+        .cover-page img {
+            max-width: 100%; /* Ensure the image does not exceed its container */
+            height: auto; /* Maintain the aspect ratio */
+            margin: 10px auto; /* Center the image horizontally */
         }
 
         .cover-page img {
@@ -188,15 +189,20 @@
             margin-top: 0;
         }
 
-        footer {
-            background-color: #0f62fe;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-sizing: border-box;
+    /* Footer Styles */
+    footer {
+        background-color: #0f62fe;
+        color: #fff;
+        text-align: center;
+        padding: 10px; /* Reduced padding for a smaller height */
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - 240px); /* Adjust width to accommodate the sidebars */
+        box-sizing: border-box;
+        z-index: 100; /* Ensure footer is above other content */
+        overflow-x: hidden; /* Hide horizontal overflow */
+        overflow-y: auto; /* Enable vertical scroll if needed */
+
         }
 
         .badge {
@@ -461,7 +467,7 @@
         <p><strong>Prerequisites:</strong> Basic knowledge of integration and cloud technologies.</p>
         <p><strong>Instructor:</strong> Experienced professionals with deep knowledge of IBM and Red Hat technologies.</p>
         <p><strong>Contact:</strong> For more information, email us at info@skunkworks.africa.</p>
-        <img class="badge" src="/mnt/data/image.png" alt="Accreditation Badge">
+        <img class="badge" src="/mnt/data/Create_a_badge_design_with_the_following_features:.png" alt="Accreditation Badge">
     </div>
 
     <footer>
