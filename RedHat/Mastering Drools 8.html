@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Drools 8: Comprehensive Training Course</title>
+    <link rel="icon" href="https://github.com/skunkworksza/Media/blob/main/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" type="image/png">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        .cover-page {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cover-page img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto; /* Allows table cells to adjust their width based on content */
+            background-color: #fff; /* White background for better readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+        }
+
+        thead {
+            background-color: #0f62fe; /* IBM Blue */
+            color: #FFFFFF;
+        }
+
+        th, td {
+            padding: 15px; /* Increased padding for more space inside cells */
+            border: 1px solid #ddd; /* Light gray border for subtle separation */
+            text-align: left;
+            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
+        }
+
+        th {
+            font-weight: bold; /* Bold font for headers */
+            text-transform: uppercase; /* Uppercase text for headers */
+            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Slightly darker gray on hover */
+        }
+
+        a {
+            color: #0f62fe; /* IBM Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            font-style: italic;
+            border-radius: 5px; /* Rounded corners for the note box */
+        }
+
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe; /* IBM Blue for page number */
+        }
+
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer with page number */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #0f62fe;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="cover-page">
+            <img src="https://github.com/Course-Monster/Drools/assets/126121348/9354596f-4af0-4183-9039-8bb31a5bae6d" alt="Drools Course">
+            <h1>Mastering Drools 8: Comprehensive Training Course</h1>
+            <h2>3-Day Intensive Program</h2>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Course Overview</div>
+            <div class="content">
+                <p><em>"Mastering Drools 8"</em> is an intensive 3-day program focused on equipping participants with expertise in Drools 8, from foundational principles to advanced functionalities. The course blends theoretical insights with practical applications, preparing learners to implement Drools effectively in various business environments.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Course Objectives</div>
+            <div class="content">
+                <ul>
+                    <li><strong>Understand</strong> the intricacies of rule engines, with a focus on Drools 8.</li>
+                    <li><strong>Develop</strong> proficiency in setting up and managing Drools environments.</li>
+                    <li><strong>Master</strong> advanced concepts including decision modeling and complex event processing.</li>
+                    <li><strong>Explore</strong> the integration of AI and machine learning in Drools.</li>
+                    <li><strong>Learn</strong> the best practices for updating and migrating to Drools 8.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Learning Outcomes</div>
+            <div class="content">
+                <ul>
+                    <li><strong>Gain</strong> comprehensive knowledge of Drools 8 and its real-world applications.</li>
+                    <li><strong>Achieve</strong> the ability to create, deploy, and manage Drools projects.</li>
+                    <li><strong>Acquire</strong> skills in DRL and DMN for effective decision automation.</li>
+                    <li><strong>Understand</strong> AI integration and CEP within the Drools framework.</li>
+                    <li><strong>Learn</strong> optimization techniques and troubleshooting methods in Drools.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Target Audience</div>
+            <div class="content">
+                <ul>
+                    <li>Software Developers & Architects</li>
+                    <li>IT Professionals & System Administrators</li>
+                    <li>Business Analysts & Rule Authors</li>
+                    <li>Academics & Students in tech-related fields</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Topics & Agenda</div>
+            <div class="content">
+                <h3>Day 1: Foundation of Drools</h3>
+                <ul>
+                    <li><strong>Module 1:</strong> Introduction to Drools (1hr)</li>
+                    <li><strong>Module 2:</strong> Drools Environment Setup (2hrs)</li>
+                    <li><strong>Module 3:</strong> Advanced Drools Project Handling (3hrs)</li>
+                </ul>
+
+                <h3>Day 2: Advanced Features & Language</h3>
+                <ul>
+                    <li><strong>Module 4:</strong> KIE Sessions & Basic Rule Logic & Cross Products (2hrs)</li>
+                    <li><strong>Module 5:</strong> Fact Objects, Execution Control, and Truth Maintenance (2hrs)</li>
+                    <li><strong>Module 6:</strong> Working with Object Groups (2hrs)</li>
+                </ul>
+
+                <h3>Day 3: AI Integration & Skills Upgrade</h3>
+                <ul>
+                    <li><strong>Module 7:</strong> Complex Event Processing (1hr)</li>
+                    <li><strong>Module 8:</strong> DMN Models and Spreadsheet Decision Tables (1hr)</li>
+                    <li><strong>Module 9:</strong> Rule Templates & Dynamic Rule Creation (1hr)</li>
+                    <li><strong>Module 10:</strong> Capstone Project (3hrs)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Delivery Method</div>
+            <div class="content">
+                <ul>
+                    <li><strong>Interactive Lectures</strong> for theoretical insights.</li>
+                    <li><strong>Hands-On Lab Sessions</strong> for practical application.</li>
+                    <li><strong>Case Studies & Real-World Examples</strong> for contextual learning.</li>
+                    <li>Available both <strong>In-Person</strong> and <strong>Virtually</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Course Contents</div>
+            <div class="content">
+                <h3>Day 1: Fundamentals of Drools and Rule Engines</h3>
+                <p>Overview: Welcome to the first module of our journey into Drools and Rule Engines. This module is designed to introduce you to the fundamentals and get you set up for hands-on development.</p>
+
+                <h4>Module 1: Introduction to Rule Engines and Drools</h4>
+                <p><strong>Objective:</strong></p>
+                <ul>
+                    <li>Understand the concept and functions of rule engines.</li>
+                    <li>Gain foundational knowledge about Drools and its setup.</li>
+                </ul>
+                <p><strong>Target Audience:</strong></p>
+                <ul>
+                    <li>Software developers, system architects, and enthusiasts in rule engines.</li>
+                </ul>
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Overview</li>
+                    <li>Defining Rule Engines: Concepts and Functions</li>
+                    <li>Historical Context and Evolution of Rule Engines</li>
+                    <li>Introduction to Drools</li>
+                    <li>AI and Rule Engines: A Symbiotic Relationship</li>
+                    <li>Setting up for Drools Development</li>
+                    <li>Real-world Case Studies in Drools</li>
+                    <li>Practical Activity: Environment Setup</li>
+                    <li>Assessment: Quiz on Rule Engines and Drools Basics</li>
+                </ul>
+                <p><strong>Additional Instructional Materials:</strong></p>
+                <ul>
+                    <li>Slide Decks</li>
+                    <li>Hands-On Lab Exercises</li>
+                    <li>Reading List</li>
+                    <li>Discussion Forum</li>
+                </ul>
+                <p><strong>Post-Module Support:</strong></p>
+                <ul>
+                    <li>Q&A Sessions</li>
+                    <li>Office Hours</li>
+                    <li>Online Resources</li>
+                </ul>
+
+                <h4>Module 2: Getting Started with Drools</h4>
+                <p><strong>Overview:</strong></p>
+                <p>This module focuses on setting up your Drools environment, exploring its project structure, and getting you started with crafting rules and understanding DMN.</p>
+                <p><strong>Objectives:</strong></p>
+                <ul>
+                    <li>Set up and familiarize with the Drools environment.</li>
+                    <li>Learn to craft rules in Drools.</li>
+                    <li>Understand the basics of Decision Model and Notation (DMN).</li>
+                    <li>Develop a practical understanding through a hands-on exercise.</li>
+                </ul>
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Setting Up Your Drools Environment</li>
+                    <li>Exploring the Drools Project Structure</li>
+                    <li>Crafting Your First Rule with Drools</li>
+                    <li>Understanding Decision Model and Notation (DMN)</li>
+                    <li>Practical Exercise: Develop a Traffic Violation Decision Service</li>
+                    <li>Best Practices and Common Pitfalls in Drools</li>
+                    <li>Assessment: Traffic Violation Service Review</li>
+                </ul>
+                <p><strong>Additional Instructional Materials:</strong></p>
+                <ul>
+                    <li>Interactive Demos: Demonstrating rule creation and DMN usage.</li>
+                    <li>Hands-On Lab Workbook: Detailed exercises and solutions.</li>
+                    <li>Cheat Sheets: Quick references for Drools syntax and commands.</li>
+                    <li>Discussion Prompts: Encouraging collaborative learning and sharing experiences.</li>
+                </ul>
+                <p><strong>Post-Module Support:</strong></p>
+                <ul>
+                    <li>Follow-Up Workshop: Hands-on session to reinforce learning.</li>
+                    <li>Mentorship Program: Pairing with experienced Drools developers for guidance.</li>
+                    <li>Community Forum Access: Providing a platform for continuous learning and support.</li>
+                </ul>
+                <p>We hope you find this module engaging and informative. Your journey with Drools is just getting started!</p>
+
+                <h4>Day 2: Deep Dive into Drools Features and Language</h4>
+                <p><strong>Course Overview:</strong></p>
+                <p>On Day 2, we delve into advanced Drools features and language specifics. The day is structured around modules that build upon each other, utilizing the "Case 1 - Health Insurance" scenario as a continuous thread for practical exercises.</p>
+
+                <h4>Module 4: Mastery of the Drools Rule Engine</h4>
+                <p><strong>Objective:</strong></p>
+                <p>Gain comprehensive expertise in the Drools Rule Engine, with a specific focus on advanced rule execution control and complex event processing, applied effectively within the Health Insurance scenario.</p>
+                <p><strong>Topics Covered:</strong></p>
+                <ul>
+                    <li>KIE Sessions Setup</li>
+                    <li>Advanced Rule Execution Control</li>
+                    <li>Inference and Truth Maintenance</li>
+                    <li>Agenda Groups and Salience</li>
+                    <li>Complex Event Processing (CEP)</li>
+                    <li>Building a CEP Application for Health Insurance</li>
+                    <li>Lab Exercise Series: Health Insurance</li>
+                    <li>Configuring KIE Sessions for Health Insurance</li>
+                    <li>Implementing Advanced Rule Controls</li>
+                    <li>Building a CEP Application for Health Insurance</li>
+                </ul>
+                <p>By exploring these subtopics, you will gain a deep understanding of how to leverage the Drools Rule Engine's advanced capabilities for rule execution and event processing within the context of health insurance, ultimately enhancing decision-making processes in the industry.</p>
+
+                <h4>Module 5: Drools Rule Language (DRL) Essentials</h4>
+                <p><strong>Objective:</strong></p>
+                <p>Delve into the syntax and structure of DRL, learning to write effective rules and utilize advanced features within the context of health insurance.</p>
+                <p><strong>Topics Covered:</strong></p>
+                <ul>
+                    <li>DRL Syntax and Structure</li>
+                    <li>Writing Effective Rules</li>
+                    <li>Rule Units and Queries</li>
+                    <li>Lab Exercise Series: Health Insurance</li>
+                    <li>Syntax Practice with Health Insurance Rules</li>
+                    <li>Advanced Rule Writing for Health Insurance</li>
+                </ul>
+                <p>By exploring these subtopics and completing the lab exercises, you will gain proficiency in writing effective DRL rules for health insurance applications, enhancing your ability to model and manage complex insurance scenarios using Drools.</p>
+
+                <h4>Module 6: Decision Modeling with DMN in Drools</h4>
+                <p><strong>Objective:</strong></p>
+                <p>Explore how Decision Model and Notation (DMN) can be used to encapsulate decision logic for health insurance determinations, making complex decision-making processes more manageable and transparent.</p>
+                <p><strong>Topics Covered:</strong></p>
+                <ul>
+                    <li>DMN Overview</li>
+                    <li>Building Effective DMN Models</li>
+                    <li>Advanced DMN Modeling Techniques</li>
+                    <li>Lab Exercise Series: Health Insurance</li>
+                    <li>DMN Modeling for Insurance Eligibility</li>
+                    <li>Integrating DMN Models with Drools</li>
+                </ul>
+                <p>By exploring these subtopics and completing the lab exercises, you will gain proficiency in using DMN to model and simplify complex decision-making processes in the context of health insurance using Drools.</p>
+
+                <h4>Case 1 - Health Insurance Lab Exercise Series Overview</h4>
+                <p>Throughout these modules, you'll engage in a series of lab exercises that progressively build a comprehensive Drools solution for a Health Insurance scenario. Starting with rule engine basics and advancing through complex rule authoring and decision modeling, you'll apply what you've learned directly to real-world insurance challenges.</p>
+                <p><strong>Deliverables for Each Exercise:</strong></p>
+                <ul>
+                    <li>Implementation: Complete the coding tasks as outlined, focusing on applying Drools features to the health insurance scenario.</li>
+                    <li>Documentation: Provide detailed documentation of your approach, challenges faced, and solutions found.</li>
+                    <li>Analysis: Reflect on how each Drools feature can be leveraged to solve problems in health insurance and potentially other domains.</li>
+                </ul>
+                <p>By the end of Day 2, you'll have a deep understanding of Drools' advanced features and how to apply them to complex decision-making scenarios, exemplified by the health insurance case study. This hands-on experience will equip you with the skills to implement similar solutions in various business contexts.</p>
+
+                <h3>Day 3: Integrating AI and Upgrading Skills</h3>
+                <p><strong>Module 7: Pragmatic AI in Drools</strong></p>
+                <p>Focusing on the enhancement of decision automation with AI, this module uses a loan application processing scenario to illustrate the use of predictive models within Drools.</p>
+                <ul>
+                    <li>Introduction to Pragmatic AI: Understanding AI's role in decision-making within business processes.</li>
+                    <li>Basics of Machine Learning in Drools: How machine learning models can predict outcomes like loan default risk.</li>
+                    <li>Utilizing PMML Models with Drools: Incorporating Predictive Model Markup Language (PMML) models into Drools for loan approval predictions.</li>
+                    <li>Advanced Integration of ML Models with DMN: Merging complex ML predictions with decision tables in the loan application process.</li>
+                    <li>Practical Exercise: AI-Enhanced Decision Service: Construct an AI-enhanced decision service for loan application processing.</li>
+                    <li>Assessment: AI-Enhanced Service Presentation: Present and evaluate the AI-enhanced loan processing service.</li>
+                </ul>
+
+                <h4>Module 8: Proficiency in Drools Commands</h4>
+                <p>Sharpen command skills by developing command sequences that automate the decision-making process in loan applications.</p>
+                <ul>
+                    <li>Core Runtime Commands in Drools: Explore commands crucial for initializing and running a loan application decision engine.</li>
+                    <li>Crafting Effective Command Sequences: Create sequences that efficiently process loan applications.</li>
+                    <li>Practical Exercise: Command Sequence Development: Develop a command sequence for evaluating loan applications.</li>
+                    <li>Assessment: Command Sequence Analysis: Analyze and optimize the command sequences for better performance in loan processing.</li>
+                </ul>
+
+                <h4>Module 9: Transitioning to Drools 8</h4>
+                <p>Understand the migration path to Drools 8, using the loan application scenario to demonstrate the transition and adoption of new features.</p>
+                <ul>
+                    <li>Migration Overview and Preparation: Planning the upgrade of the loan application decision engine to Drools 8.</li>
+                    <li>Transitioning from Drools 7 to Drools 8: Step-by-step migration of a loan application processing project.</li>
+                    <li>Embracing New Paradigms and Integration Techniques: Leveraging new Drools features for loan application processing.</li>
+                    <li>Practical Activity: Migrating a Sample Project: Migrate a sample loan application project to Drools 8.</li>
+                    <li>Assessment: Migration Strategy Evaluation: Assess the migration strategy and the benefits observed.</li>
+                </ul>
+
+                <h4>Module 10: Staying Current with Drools</h4>
+                <p>Keep up-to-date with the latest Drools developments and apply them to the ever-evolving needs of loan application automation.</p>
+                <ul>
+                    <li>Navigating Drools Release Notes: Stay informed about the latest updates in Drools that can impact loan application decision services.</li>
+                    <li>Adapting to New Features and Changes: Implement new features from the latest Drools releases in the loan application process.</li>
+                    <li>Practical Exercise: Updating a Drools Project: Update an existing loan application project with the latest Drools features.</li>
+                    <li>Assessment: Project Update and Evaluation: Evaluate the updated project for compliance with current best practices.</li>
+                </ul>
+
+                <h4>Case 2: Automating Loan Application Processing with Drools</h4>
+                <p>During Day 3, we will apply the lessons from our modules to a practical case where we automate loan application processing using Drools.</p>
+                <ul>
+                    <li>Objective: Integrate the knowledge from AI and ML with Drools to automate loan decision-making.</li>
+                    <li>Prerequisites: Prepare your environment with JDK, Maven, and an IDE. Familiarize yourself with the basics of Java, Maven, and Drools.</li>
+                    <li>Tasks Overview: Set up the project, create a domain model, develop Drools rules, integrate with Java, and test and validate the application.</li>
+                </ul>
+
+                <h4>Case 3: Detecting Fraudulent Transactions with Drools</h4>
+                <p>We will also delve into using Drools for detecting fraudulent transactions, applying the concepts of AI integration and rule commands learned in the day's modules.</p>
+                <ul>
+                    <li>Objective: Automate fraud detection in financial transactions using Drools.</li>
+                    <li>Prerequisites: Ensure a solid understanding of Java and Maven, with or without prior experience with Drools.</li>
+                    <li>Tasks Overview: Define fraud detection rules, create a Drools rule engine, integrate with a transaction processing system, configure alerts, and monitor the system.</li>
+                </ul>
+
+                <h4>Expected Outcomes:</h4>
+                <ul>
+                    <li>Develop a comprehensive understanding of applying AI in business rule management systems.</li>
+                    <li>Gain proficiency in using Drools commands to automate complex business processes.</li>
+                    <li>Learn the process and benefits of transitioning to the latest version of Drools.</li>
+                    <li>Stay current with Drools developments and effectively apply them to real-world scenarios.</li>
+                </ul>
+
+                <p><strong>Submission:</strong></p>
+                <ul>
+                    <li>For each case, document your code, note any assumptions or decisions, and reflect on how the integration of AI with Drools can be applied to other scenarios and its potential impact on decision automation.</li>
+                </ul>
+
+                <h4>References</h4>
+                <ul>
+                    <li><a href="https://spring.io/projects/spring-cloud/">Spring Cloud</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
