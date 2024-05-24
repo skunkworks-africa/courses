@@ -11,28 +11,36 @@
       font-family: 'IBM Plex Sans', sans-serif;
       background-color: #f4f4f4;
       color: #161616;
-    }
-    .bx--row {
-      margin: 0;
-      padding: 1rem;
+      padding: 2rem;
     }
     .bx--header {
       background-color: #0f62fe;
       padding: 1rem;
       color: white;
+      text-align: center;
     }
     .bx--header__title {
       font-size: 1.5rem;
     }
     .bx--content {
       padding: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
     .bx--content__title {
       font-size: 1.25rem;
       margin-bottom: 1rem;
     }
-    .bx--content__section {
-      margin-bottom: 2rem;
+    .bx--radio-button-group,
+    .bx--checkbox-wrapper,
+    .bx--btn--primary {
+      margin-bottom: 1rem;
+    }
+    .bx--btn--primary {
+      display: block;
+      margin: 2rem auto 0;
     }
   </style>
 </head>
@@ -41,160 +49,237 @@
     <div class="bx--grid">
       <div class="bx--row">
         <div class="bx--col">
-          <h1 class="bx--header__title">Comprehensive Integration and Cloud Solutions Bootcamp</h1>
-          <p>Mastering IBM App Connect, IBM Cloud Pak for Integration, and Red Hat OpenShift</p>
+          <h1 class="bx--header__title">IBM Training</h1>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="bx--content">
-    <div class="bx--grid">
-      <div class="bx--row">
-        <div class="bx--col">
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Course Overview</h2>
-            <p>This intensive 5-day bootcamp provides comprehensive training on IBM App Connect, IBM Cloud Pak for Integration, Red Hat OpenShift, and Event Streams. Designed for developers and administrators, this course covers installation, configuration, management, and practical deployment scenarios, enabling participants to leverage these technologies effectively in real-world environments.</p>
-          </section>
+  <main>
+    <div class="bx--content">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-8 bx--col-md-12 bx--offset-lg-2">
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Course Overview</h2>
+              <p>This intensive 5-day bootcamp provides comprehensive training on IBM App Connect, IBM Cloud Pak for Integration, Red Hat OpenShift, and Event Streams. Designed for developers and administrators, this course covers installation, configuration, management, and practical deployment scenarios, enabling participants to leverage these technologies effectively in real-world environments.</p>
+              <button class="bx--btn bx--btn--primary">Register Now</button>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Course Details</h2>
-            <ul>
-              <li><strong>Course Code:</strong> ACPI-OC-01</li>
-              <li><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</li>
-              <li><strong>Cost per Delegate:</strong> $2500</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Course Details</h2>
+              <ul class="bx--list--unordered">
+                <li><strong>Course Code:</strong> ACPI-OC-01</li>
+                <li><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</li>
+                <li><strong>Cost per Delegate:</strong> $2500</li>
+              </ul>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Objectives</h2>
-            <ul>
-              <li>Install, configure, and manage IBM App Connect and IBM Cloud Pak for Integration.</li>
-              <li>Deploy, manage, and scale applications using Red Hat OpenShift.</li>
-              <li>Develop event-driven applications using IBM Event Streams.</li>
-              <li>Integrate various IBM and Red Hat technologies for robust, scalable, and secure enterprise solutions.</li>
-              <li>Implement CI/CD pipelines and GitOps practices for continuous integration and deployment.</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Objectives</h2>
+              <ul class="bx--list--unordered">
+                <li>Install, configure, and manage IBM App Connect and IBM Cloud Pak for Integration.</li>
+                <li>Deploy, manage, and scale applications using Red Hat OpenShift.</li>
+                <li>Develop event-driven applications using IBM Event Streams.</li>
+                <li>Integrate various IBM and Red Hat technologies for robust, scalable, and secure enterprise solutions.</li>
+                <li>Implement CI/CD pipelines and GitOps practices for continuous integration and deployment.</li>
+              </ul>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Topics</h2>
-            <ul>
-              <li><strong>IBM App Connect</strong></li>
-              <ul>
-                <li>Overview and architecture</li>
-                <li>Installation and configuration</li>
-                <li>Message flow development and deployment</li>
-                <li>Integration with IBM MQ</li>
-                <li>Security and error handling</li>
-                <li>Performance tuning</li>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Topics</h2>
+              <ul class="bx--accordion">
+                <li class="bx--accordion__item">
+                  <button type="button" class="bx--accordion__heading">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M11 8L6 3 6 13z"></path>
+                    </svg>
+                    <div class="bx--accordion__title">IBM App Connect</div>
+                  </button>
+                  <div class="bx--accordion__content">
+                    <ul class="bx--list--unordered">
+                      <li>Overview and architecture</li>
+                      <li>Installation and configuration</li>
+                      <li>Message flow development and deployment</li>
+                      <li>Integration with IBM MQ</li>
+                      <li>Security and error handling</li>
+                      <li>Performance tuning</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="bx--accordion__item">
+                  <button type="button" class="bx--accordion__heading">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M11 8L6 3 6 13z"></path>
+                    </svg>
+                    <div class="bx--accordion__title">IBM Cloud Pak for Integration</div>
+                  </button>
+                  <div class="bx--accordion__content">
+                    <ul class="bx--list--unordered">
+                      <li>Introduction and architecture</li>
+                      <li>Installation and configuration</li>
+                      <li>Integration capabilities</li>
+                      <li>API management and App Connect</li>
+                      <li>Event Streams and DataPower</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="bx--accordion__item">
+                  <button type="button" class="bx--accordion__heading">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M11 8L6 3 6 13z"></path>
+                    </svg>
+                    <div class="bx--accordion__title">Red Hat OpenShift</div>
+                  </button>
+                  <div class="bx--accordion__content">
+                    <ul class="bx--list--unordered">
+                      <li>Kubernetes fundamentals</li>
+                      <li>OpenShift setup and management</li>
+                      <li>Application deployment and scaling</li>
+                      <li>CI/CD with OpenShift Pipelines</li>
+                      <li>Security and compliance</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="bx--accordion__item">
+                  <button type="button" class="bx--accordion__heading">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M11 8L6 3 6 13z"></path>
+                    </svg>
+                    <div class="bx--accordion__title">Event Streams Developer Essentials</div>
+                  </button>
+                  <div class="bx--accordion__content">
+                    <ul class="bx--list--unordered">
+                      <li>Introduction to Apache Kafka and IBM Event Streams</li>
+                      <li>Setting up Kafka clusters</li>
+                      <li>Producing and consuming messages</li>
+                      <li>Real-time data processing</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="bx--accordion__item">
+                  <button type="button" class="bx--accordion__heading">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M11 8L6 3 6 13z"></path>
+                    </svg>
+                    <div class="bx--accordion__title">OpenShift for Developers</div>
+                  </button>
+                  <div class="bx--accordion__content">
+                    <ul class="bx--list--unordered">
+                      <li>Developer tools and workflows</li>
+                      <li>Building and deploying applications</li>
+                      <li>Using OpenShift Dev Spaces and Developer Hub</li>
+                      <li>Integrating with CI/CD pipelines</li>
+                    </ul>
+                  </div>
+                </li>
               </ul>
-              <li><strong>IBM Cloud Pak for Integration</strong></li>
-              <ul>
-                <li>Introduction and architecture</li>
-                <li>Installation and configuration</li>
-                <li>Integration capabilities</li>
-                <li>API management and App Connect</li>
-                <li>Event Streams and DataPower</li>
-              </ul>
-              <li><strong>Red Hat OpenShift</strong></li>
-              <ul>
-                <li>Kubernetes fundamentals</li>
-                <li>OpenShift setup and management</li>
-                <li>Application deployment and scaling</li>
-                <li>CI/CD with OpenShift Pipelines</li>
-                <li>Security and compliance</li>
-              </ul>
-              <li><strong>Event Streams Developer Essentials</strong></li>
-              <ul>
-                <li>Introduction to Apache Kafka and IBM Event Streams</li>
-                <li>Setting up Kafka clusters</li>
-                <li>Producing and consuming messages</li>
-                <li>Real-time data processing</li>
-              </ul>
-              <li><strong>OpenShift for Developers</strong></li>
-              <ul>
-                <li>Developer tools and workflows</li>
-                <li>Building and deploying applications</li>
-                <li>Using OpenShift Dev Spaces and Developer Hub</li>
-                <li>Integrating with CI/CD pipelines</li>
-              </ul>
-            </ul>
-          </section>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Audience</h2>
-            <ul>
-              <li>IT professionals including developers, administrators, and architects</li>
-              <li>Integration specialists and middleware administrators</li>
-              <li>DevOps engineers and platform engineers</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Audience</h2>
+              <ul class="bx--list--unordered">
+                <li>IT professionals including developers, administrators, and architects</li>
+                <li>Integration specialists and middleware administrators</li>
+                <li>DevOps engineers and platform engineers</li>
+              </ul>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Agenda</h2>
-            <ul>
-              <li><strong>Day 1:</strong> Introduction and IBM App Connect Basics</li>
-              <ul>
-                <li>Morning: Course overview, IBM App Connect introduction, installation and configuration</li>
-                <li>Afternoon: Basic message flows, Hands-on lab</li>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Agenda</h2>
+              <ul class="bx--list--unordered">
+                <li><strong>Day 1:</strong> Introduction and IBM App Connect Basics</li>
+                <ul class="bx--list--unordered">
+                  <li>Morning: Course overview, IBM App Connect introduction, installation and configuration</li>
+                  <li>Afternoon: Basic message flows, Hands-on lab</li>
+                </ul>
+                <li><strong>Day 2:</strong> Advanced IBM App Connect</li>
+                <ul class="bx--list--unordered">
+                  <li>Morning: Advanced message flows, IBM MQ integration</li>
+                  <li>Afternoon: Advanced message flow lab, Case study discussion</li>
+                </ul>
+                <li><strong>Day 3:</strong> IBM Cloud Pak for Integration and OpenShift Fundamentals</li>
+                <ul class="bx--list--unordered">
+                  <li>Morning: IBM Cloud Pak introduction, deploying solutions</li>
+                  <li>Afternoon: OpenShift basics, Hands-on lab</li>
+                </ul>
+                <li><strong>Day 4:</strong> Event Streams and Kafka with OpenShift</li>
+                <ul class="bx--list--unordered">
+                  <li>Morning: IBM Event Streams introduction, setting up Kafka clusters</li>
+                  <li>Afternoon: Event-driven applications lab</li>
+                </ul>
+                <li><strong>Day 5:</strong> Capstone Project and Review</li>
+                <ul class="bx--list--unordered">
+                  <li>Morning: Capstone project development guidance</li>
+                  <li>Afternoon: Project completion, presentations, Q&A session</li>
+                </ul>
               </ul>
-              <li><strong>Day 2:</strong> Advanced IBM App Connect</li>
-              <ul>
-                <li>Morning: Advanced message flows, IBM MQ integration</li>
-                <li>Afternoon: Advanced message flow lab, Case study discussion</li>
-              </ul>
-              <li><strong>Day 3:</strong> IBM Cloud Pak for Integration and OpenShift Fundamentals</li>
-              <ul>
-                <li>Morning: IBM Cloud Pak introduction, deploying solutions</li>
-                <li>Afternoon: OpenShift basics, Hands-on lab</li>
-              </ul>
-              <li><strong>Day 4:</strong> Event Streams and Kafka with OpenShift</li>
-              <ul>
-                <li>Morning: IBM Event Streams introduction, setting up Kafka clusters</li>
-                <li>Afternoon: Event-driven applications lab</li>
-              </ul>
-              <li><strong>Day 5:</strong> Capstone Project and Review</li>
-              <ul>
-                <li>Morning: Capstone project development guidance</li>
-                <li>Afternoon: Project completion, presentations, Q&A session</li>
-              </ul>
-            </ul>
-          </section>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Lab Outline</h2>
-            <ul>
-              <li><strong>Day 1 Lab:</strong> Setting up IBM App Connect, creating and deploying basic message flows.</li>
-              <li><strong>Day 2 Lab:</strong> Advanced message flow scenarios, integrating with IBM MQ.</li>
-              <li><strong>Day 3 Lab:</strong> Setting up OpenShift environment, deploying applications.</li>
-              <li><strong>Day 4 Lab:</strong> Developing and deploying event-driven applications using Kafka on OpenShift.</li>
-              <li><strong>Day 5 Lab:</strong> Capstone project integrating all covered technologies.</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Lab Outline</h2>
+              <ul class="bx--list--unordered">
+                <li><strong>Day 1 Lab:</strong> Setting up IBM App Connect, creating and deploying basic message flows.</li>
+                <li><strong>Day 2 Lab:</strong> Advanced message flow scenarios, integrating with IBM MQ.</li>
+                <li><strong>Day 3 Lab:</strong> Setting up OpenShift environment, deploying applications.</li>
+                <li><strong>Day 4 Lab:</strong> Developing and deploying event-driven applications using Kafka on OpenShift.</li>
+                <li><strong>Day 5 Lab:</strong> Capstone project integrating all covered technologies.</li>
+              </ul>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Assessment Method</h2>
-            <ul>
-              <li>Continuous assessment through hands-on labs and exercises.</li>
-              <li>Final capstone project presentation and evaluation.</li>
-              <li>Participation and engagement during Q&A sessions.</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Assessment Method</h2>
+              <ul class="bx--list--unordered">
+                <li>Continuous assessment through hands-on labs and exercises.</li>
+                <li>Final capstone project presentation and evaluation.</li>
+                <li>Participation and engagement during Q&A sessions.</li>
+              </ul>
+            </section>
 
-          <section class="bx--content__section">
-            <h2 class="bx--content__title">Course Materials (Pack)</h2>
-            <ul>
-              <li><strong>Pre-course Reading:</strong> Introduction to IBM App Connect, Cloud Pak for Integration, and OpenShift.</li>
-              <li><strong>Slides and Notes:</strong> Comprehensive slides covering all topics.</li>
-              <li><strong>Lab Guides:</strong> Step-by-step lab exercises and solutions.</li>
-              <li><strong>Reference Materials:</strong> Additional reading materials and resources.</li>
-              <li><strong>Software Access:</strong> Access to necessary software and trial versions for hands-on practice.</li>
-            </ul>
-          </section>
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Course Materials (Pack)</h2>
+              <ul class="bx--list--unordered">
+                <li><strong>Pre-course Reading:</strong> Introduction to IBM App Connect, Cloud Pak for Integration, and OpenShift.</li>
+                <li><strong>Slides and Notes:</strong> Comprehensive slides covering all topics.</li>
+                <li><strong>Lab Guides:</strong> Step-by-step lab exercises and solutions.</li>
+                <li><strong>Reference Materials:</strong> Additional reading materials and resources.</li>
+                <li><strong>Software Access:</strong> Access to necessary software and trial versions for hands-on practice.</li>
+              </ul>
+            </section>
+
+            <section class="bx--content__section">
+              <h2 class="bx--content__title">Review Questions</h2>
+              <div class="bx--form-item">
+                <div class="bx--radio-button-group">
+                  <input id="radio-true" class="bx--radio-button" type="radio" value="true" name="question">
+                  <label for="radio-true" class="bx--radio-button__label">
+                    <span class="bx--radio-button__appearance"></span>
+                    IBM MQ Explorer provides equivalent functions to most MQSC commands.
+                  </label>
+                </div>
+                <div class="bx--radio-button-group">
+                  <input id="radio-false" class="bx--radio-button" type="radio" value="false" name="question">
+                  <label for="radio-false" class="bx--radio-button__label">
+                    <span class="bx--radio-button__appearance"></span>
+                    False
+                  </label>
+                </div>
+              </div>
+              <button class="bx--btn bx--btn--primary">Check Answer</button>
+            </section>
+          </div>
         </div>
       </div>
     </div>
   </main>
+  
+  <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      carbonComponents.settings.prefix = 'bx';
+      carbonComponents.RadioButton.init();
+      carbonComponents.Button.init();
+    });
+  </script>
 </body>
 </html>
