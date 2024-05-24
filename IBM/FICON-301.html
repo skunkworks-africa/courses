@@ -3,11 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="path/to/your/ibm-theme.css">
-    <title>IBM Themed Document</title>
+    <title>Course Outline: Integration and Cloud Solutions Bootcamp</title>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #0f62fe;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .cover-page {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cover-page img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto; /* Allows table cells to adjust their width based on content */
+            background-color: #fff; /* White background for better readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+        }
+
+        thead {
+            background-color: #0f62fe; /* IBM Blue */
+            color: #FFFFFF;
+        }
+
+        th, td {
+            padding: 15px; /* Increased padding for more space inside cells */
+            border: 1px solid #ddd; /* Light gray border for subtle separation */
+            text-align: left;
+            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
+        }
+
+        th {
+            font-weight: bold; /* Bold font for headers */
+            text-transform: uppercase; /* Uppercase text for headers */
+            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Slightly darker gray on hover */
+        }
+
+        a {
+            color: #0f62fe; /* IBM Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            font-style: italic;
+            border-radius: 5px; /* Rounded corners for the note box */
+        }
+
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe; /* IBM Blue for page number */
+        }
+
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer with page number */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 40px; /* Space above the footer */
+        }
+
+        .footer-container {
+            margin-left: 220px;
+            padding-right: 320px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #f4f4f4;
+            border-left: 2px solid #ddd;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .sidebar img {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="page">
+    <nav>
+        <h2>Navigation</h2>
+        <a href="#course-info">Course Information</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#objectives">Objectives</a>
+        <a href="#topics">Topics</a>
+        <a href="#audience">Audience</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#lab-outline">Lab Outline</a>
+        <a href="#assessment">Assessment Method</a>
+        <a href="#materials">Course Materials</a>
+        <a href="#references">References</a>
+    </nav>
+
+    <div class="container">
         <div class="cover-page">
             <div>
                 <img src="https://raw.githubusercontent.com/skunkworksza/Media/main/CRS_logo.png" alt="CRS Logo">
@@ -21,423 +233,248 @@
             <p>Cost per Delegate: $1,500</p>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Target Audience</h2>
+        <div id="course-info" class="section">
+            <h2 class="section-title">Course Information</h2>
             <div class="content">
-                <ul>
-                    <li>Mainframe System Administrators</li>
-                    <li>Storage Administrators</li>
-                    <li>Network Engineers</li>
-                    <li>IT Professionals responsible for mainframe infrastructure</li>
-                </ul>
+                <p><strong>Course Title:</strong> Comprehensive Integration and Cloud Solutions Bootcamp</p>
+                <p><strong>Subtitle:</strong> Mastering IBM Integration Bus, IBM Cloud Pak for Integration, and Red Hat OpenShift</p>
+                <p><strong>Course Code:</strong> IBCPI-OC-01</p>
+                <p><strong>Delivery Method:</strong> Instructor-Led Online Training (ILOT)</p>
+                <p><strong>Cost per Delegate:</strong> $2500</p>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Description</h2>
+        <div id="abstract" class="section">
+            <h2 class="section-title">Abstract</h2>
             <div class="content">
-                <p>This comprehensive course provides in-depth training on FICON (Fibre Connection) protocol configuration and troubleshooting within a mainframe environment. Participants will gain a thorough understanding of FICON protocol principles, configuration techniques, and troubleshooting strategies, aligned with the latest industry practices. The course includes both theoretical and practical lab sessions, ensuring participants can apply their learning in real-world scenarios.</p>
+                <p>This intensive 5-day bootcamp provides comprehensive training on IBM Integration Bus, IBM Cloud Pak for Integration, Red Hat OpenShift, and Event Streams. Designed for developers and administrators, this course covers installation, configuration, management, and practical deployment scenarios, enabling participants to leverage these technologies effectively in real-world environments.</p>
             </div>
         </div>
 
-        <div class="section">
+        <div id="objectives" class="section">
             <h2 class="section-title">Objectives</h2>
             <div class="content">
-                <h3>Knowledge (Remembering):</h3>
                 <ul>
-                    <li>Understand the fundamental concepts of FICON protocol.</li>
-                </ul>
-                <h3>Comprehension (Understanding):</h3>
-                <ul>
-                    <li>Explain the differences between FICON, ESCON, and FCP.</li>
-                    <li>Describe the components and architecture of a FICON setup.</li>
-                </ul>
-                <h3>Application (Applying):</h3>
-                <ul>
-                    <li>Configure FICON in a mainframe environment with IBM DS8K and Cisco MDS switches.</li>
-                    <li>Implement performance tuning and optimization techniques.</li>
-                </ul>
-                <h3>Analysis (Analyzing):</h3>
-                <ul>
-                    <li>Diagnose and troubleshoot common FICON issues.</li>
-                    <li>Analyze error messages and use diagnostic tools effectively.</li>
-                </ul>
-                <h3>Synthesis (Creating):</h3>
-                <ul>
-                    <li>Design a robust FICON configuration that meets organizational needs.</li>
-                    <li>Develop a troubleshooting strategy for FICON-related issues.</li>
-                </ul>
-                <h3>Evaluation (Evaluating):</h3>
-                <ul>
-                    <li>Assess the performance and reliability of FICON configurations.</li>
-                    <li>Evaluate different FICON configurations and recommend improvements.</li>
+                    <li>Install, configure, and manage IBM Integration Bus and IBM Cloud Pak for Integration.</li>
+                    <li>Deploy, manage, and scale applications using Red Hat OpenShift.</li>
+                    <li>Develop event-driven applications using IBM Event Streams.</li>
+                    <li>Integrate various IBM and Red Hat technologies for robust, scalable, and secure enterprise solutions.</li>
+                    <li>Implement CI/CD pipelines and GitOps practices for continuous integration and deployment.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Agenda and Contents of Course</h2>
+        <div id="topics" class="section">
+            <h2 class="section-title">Topics</h2>
             <div class="content">
-                <h3>Day 1: Introduction and Basic Configuration</h3>
-                <h4>Morning:</h4>
-                <ul>
-                    <li>Course overview and objectives</li>
-                    <li>Introduction to FICON protocol</li>
-                    <li>History and evolution</li>
-                    <li>Role in mainframe environments</li>
-                    <li>Understanding the FICON architecture</li>
-                    <li>Components and infrastructure</li>
-                    <li>FICON vs. ESCON and FCP</li>
-                </ul>
-                <h4>Afternoon:</h4>
-                <ul>
-                    <li>Basic FICON configuration</li>
-                    <li>Initial setup and configuration steps</li>
-                    <li>Connecting to IBM DS8K storage systems</li>
-                    <li>Hands-on Lab: Initial FICON setup</li>
-                    <li>Setting up a basic FICON environment</li>
-                    <li>Verifying connections and configurations</li>
-                </ul>
-
-                <h3>Day 2: Advanced Configuration Techniques</h3>
-                <h4>Morning:</h4>
-                <ul>
-                    <li>Advanced FICON configuration</li>
-                    <li>Multi-pathing and redundancy</li>
-                    <li>Performance tuning and optimization</li>
-                </ul>
-                <h4>Afternoon:</h4>
-                <ul>
-                    <li>Hands-on Lab: Advanced configuration</li>
-                    <li>Implementing multi-pathing</li>
-                    <li>Performance tuning exercises</li>
-                    <li>Security considerations for FICON</li>
-                    <li>Configuring secure connections</li>
-                    <li>Implementing encryption and access controls</li>
-                    <li>Hands-on Lab: Security configurations</li>
-                    <li>Setting up secure FICON connections</li>
-                    <li>Testing and verifying security measures</li>
-                </ul>
-
-                <h3>Day 3: Troubleshooting and Diagnostics</h3>
-                <h4>Morning:</h4>
-                <ul>
-                    <li>Troubleshooting FICON</li>
-                    <li>Common issues and error messages</li>
-                    <li>Diagnostic tools and techniques</li>
-                    <li>Case studies and practical scenarios</li>
-                    <li>Real-world troubleshooting examples</li>
-                </ul>
-                <h4>Afternoon:</h4>
-                <ul>
-                    <li>Hands-on Lab: Troubleshooting exercises</li>
-                    <li>Simulating common issues</li>
-                    <li>Using diagnostic tools to resolve problems</li>
-                    <li>Performance and reliability assessment</li>
-                    <li>Evaluating FICON configurations</li>
-                    <li>Ensuring high availability and reliability</li>
-                </ul>
-
-                <h3>Day 4: Comprehensive Lab Exercises and Final Assessment</h3>
-                <h4>Morning:</h4>
-                <ul>
-                    <li>Real-world configuration scenarios</li>
-                    <li>Integrating FICON with existing infrastructure</li>
-                    <li>Managing large-scale FICON environments</li>
-                    <li>Hands-on Lab: Comprehensive exercises</li>
-                    <li>Implementing complex configurations</li>
-                    <li>Testing and verifying large-scale setups</li>
-                </ul>
-                <h4>Afternoon:</h4>
-                <ul>
-                    <li>Practical troubleshooting session</li>
-                    <li>Advanced diagnostic techniques</li>
-                    <li>Solving complex FICON issues</li>
-                    <li>Q&A and review</li>
-                    <li>Recap of key concepts</li>
-                    <li>Addressing participant questions</li>
-                    <li>Final project setup</li>
-                    <li>Defining project objectives</li>
-                    <li>Assigning tasks and responsibilities</li>
-                    <li>Hands-on Lab: Final project</li>
-                    <li>Participants work on a comprehensive FICON project</li>
-                    <li>Implementing and troubleshooting configurations</li>
-                    <li>Project presentations and evaluations</li>
-                    <li>Participants present their projects</li>
-                    <li>Peer and instructor feedback</li>
-                    <li>Course wrap-up and certification</li>
-                    <li>Summary of key takeaways</li>
-                    <li>Issuing of course completion certificates</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Lab Setup Guide</h2>
-            <div class="content">
-                <p>Follow these steps to set up the lab environment for the course. Ensure all steps are completed before the course begins.</p>
-                <h3>Prerequisites</h3>
-                <ul>
-                    <li>IBM DS8K Storage System</li>
-                    <li>Cisco MDS Switches</li>
-                    <li>Mainframe Server</li>
-                    <li>Lab Workstations</li>
-                    <li>Network Connectivity</li>
-                    <li>Diagnostic Tools (e.g., IBM z/OS tools)</li>
-                </ul>
-                <h3>Step-by-Step Lab Setup Instructions</h3>
                 <ol>
-                    <li><strong>Prepare the Environment:</strong>
+                    <li><strong>IBM Integration Bus</strong>
                         <ul>
-                            <li>Ensure all hardware (IBM DS8K, Cisco MDS Switches, Mainframe Server) is available and connected
-
-.</li>
-                            <li>Verify network connectivity and configure necessary network settings.</li>
+                            <li>Overview and architecture</li>
+                            <li>Installation and configuration</li>
+                            <li>Message flow development and deployment</li>
+                            <li>Integration with IBM MQ</li>
+                            <li>Security and error handling</li>
+                            <li>Performance tuning</li>
                         </ul>
                     </li>
-                    <li><strong>Install Required Software:</strong>
+                    <li><strong>IBM Cloud Pak for Integration</strong>
                         <ul>
-                            <li>On each lab workstation, install the required software tools (IBM Integration Bus, Cloud Pak for Integration, Red Hat OpenShift).</li>
-                            <li>Ensure all workstations have access to the internet and necessary repositories.</li>
+                            <li>Introduction and architecture</li>
+                            <li>Installation and configuration</li>
+                            <li>Integration capabilities</li>
+                            <li>API management and App Connect</li>
+                            <li>Event Streams and DataPower</li>
                         </ul>
                     </li>
-                    <li><strong>Clone GitHub Repository:</strong>
+                    <li><strong>Red Hat OpenShift</strong>
                         <ul>
-                            <li>Open a terminal on each workstation.</li>
-                            <li>Clone the course repository: <code>git clone https://github.com/your-org/your-repo.git</code></li>
-                            <li>Navigate to the cloned directory: <code>cd your-repo</code></li>
+                            <li>Kubernetes fundamentals</li>
+                            <li>OpenShift setup and management</li>
+                            <li>Application deployment and scaling</li>
+                            <li>CI/CD with OpenShift Pipelines</li>
+                            <li>Security and compliance</li>
                         </ul>
                     </li>
-                    <li><strong>Run Initial Setup Scripts:</strong>
+                    <li><strong>Event Streams Developer Essentials</strong>
                         <ul>
-                            <li>Run the provided setup scripts to configure the environment: <code>./setup.sh</code></li>
-                            <li>Follow any on-screen instructions to complete the setup.</li>
+                            <li>Introduction to Apache Kafka and IBM Event Streams</li>
+                            <li>Setting up Kafka clusters</li>
+                            <li>Producing and consuming messages</li>
+                            <li>Real-time data processing</li>
                         </ul>
                     </li>
-                    <li><strong>Verify the Setup:</strong>
+                    <li><strong>OpenShift for Developers</strong>
                         <ul>
-                            <li>Ensure all services are running correctly.</li>
-                            <li>Test the connectivity between components (e.g., between the mainframe server and IBM DS8K).</li>
-                        </ul>
-                    </li>
-                    <li><strong>Troubleshoot Common Issues:</strong>
-                        <ul>
-                            <li>If any issues arise during setup, refer to the troubleshooting guide provided in the repository.</li>
-                            <li>Common issues include network connectivity problems, software installation errors, and configuration mismatches.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Access Lab Resources:</strong>
-                        <ul>
-                            <li>All necessary lab materials, guides, and resources are available in the cloned repository.</li>
-                            <li>Ensure participants have access to the repository and necessary credentials.</li>
+                            <li>Developer tools and workflows</li>
+                            <li>Building and deploying applications</li>
+                            <li>Using OpenShift Dev Spaces and Developer Hub</li>
+                            <li>Integrating with CI/CD pipelines</li>
                         </ul>
                     </li>
                 </ol>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Student Lab Exercises Outline</h2>
+        <div id="audience" class="section">
+            <h2 class="section-title">Audience</h2>
             <div class="content">
-                <p>Each lab exercise is designed to reinforce the concepts learned during the course. Follow the instructions carefully and reach out to the instructor if you encounter any issues.</p>
-                <h3>Lab Exercise 1: Setting Up IBM Integration Bus</h3>
                 <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 2: Exploring IBM Cloud Pak for Integration</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 3: Building Advanced Integration Flows</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 4: Advanced Cloud Pak for Integration</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 5: Setting Up Red Hat OpenShift</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 6: Managing OpenShift Applications</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 7: Setting Up Event Streams</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 8: Developing Event Stream Applications</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 9: Implementing CI/CD in OpenShift</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
-                </ul>
-                <h3>Lab Exercise 10: Integrating OpenShift and Event Streams</h3>
-                <ul>
-                    <li>Exercise Overview</li>
-                    <li>Steps and Instructions</li>
-                    <li>Expected Outcomes</li>
-                    <li>Troubleshooting Tips</li>
+                    <li>IT professionals including developers, administrators, and architects</li>
+                    <li>Integration specialists and middleware administrators</li>
+                    <li>DevOps engineers and platform engineers</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Assessment Methods</h2>
+        <div id="agenda" class="section">
+            <h2 class="section-title">Agenda</h2>
             <div class="content">
+                <h4>Day 1: Introduction and IBM Integration Bus Basics</h4>
                 <ul>
-                    <li><strong>Quizzes and Tests:</strong> Short quizzes at the end of each module to test understanding of key concepts.</li>
-                    <li><strong>Practical Lab Assessments:</strong> Hands-on exercises evaluated by the instructor.</li>
-                    <li><strong>Case Study Analysis:</strong> Group discussions and presentations on real-world scenarios.</li>
-                    <li><strong>Final Project Evaluation:</strong> Comprehensive project assessing configuration and troubleshooting skills.</li>
-                    <li><strong>Peer and Instructor Feedback:</strong> Continuous feedback during lab sessions and final project presentations.</li>
+                    <li><strong>Morning</strong>:
+                        <ul>
+                            <li>Course overview and objectives</li>
+                            <li>Introduction to IBM Integration Bus</li>
+                            <li>Installation and configuration</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afternoon</strong>:
+                        <ul>
+                            <li>Creating and deploying basic message flows</li>
+                            <li>Hands-on lab: Simple message flow application</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Day 2: Advanced IBM Integration Bus</h4>
+                <ul>
+                    <li><strong>Morning</strong>:
+                        <ul>
+                            <li>Advanced message flow features</li>
+                            <li>Integration with IBM MQ</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afternoon</strong>:
+                        <ul>
+                            <li>Hands-on lab: Advanced message flow scenarios</li>
+                            <li>Real-world case study discussion</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Day 3: IBM Cloud Pak for Integration and OpenShift Fundamentals</h4>
+                <ul>
+                    <li><strong>Morning</strong>:
+                        <ul>
+                            <li>Introduction to IBM Cloud Pak for Integration</li>
+                            <li>Deploying integration solutions</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afternoon</strong>:
+                        <ul>
+                            <li>Basics of Kubernetes and OpenShift</li>
+                            <li>Hands-on lab: Setting up and deploying applications on OpenShift</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Day 4: Event Streams and Kafka with OpenShift</h4>
+                <ul>
+                    <li><strong>Morning</strong>:
+                        <ul>
+                            <li>Introduction to IBM Event Streams (Kafka)</li>
+                            <li>Setting up Kafka clusters and integration with applications</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afternoon</strong>:
+                        <ul>
+                            <li>Hands-on lab: Developing an event-driven application using Kafka on OpenShift</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>Day 5: Capstone Project and Review</h4>
+                <ul>
+                    <li><strong>Morning</strong>:
+                        <ul>
+                            <li>Overview of the capstone project integrating IBM Integration Bus, Cloud Pak, OpenShift, and Event Streams</li>
+                            <li>Project development guidance</li>
+                        </ul>
+                    </li>
+                    <li><strong>Afternoon</strong>:
+                        <ul>
+                            <li>Project completion and presentations</li>
+                            <li>Review, Q&A, and feedback session</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Detailed Lab Requirements CHECKLIST</h2>
+        <div id="lab-outline" class="section">
+            <h2 class="section-title">Lab Outline</h2>
             <div class="content">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Lab Requirement</th>
-                            <th>Details</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>IBM DS8K Storage System</td>
-                            <td>Ensure availability and connectivity</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Cisco MDS Switches</td>
-                            <td>Properly configured and connected</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Mainframe Server</td>
-                            <td>Set up and accessible for all participants</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Lab Workstations</td>
-                            <td>Configured with necessary software and tools</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Network Connectivity</td>
-                            <td>Reliable network setup for FICON configuration</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Diagnostic Tools</td>
-                            <td>Installed and tested (e.g., IBM z/OS tools)</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Lab Guides and Materials</td>
-                            <td>Prepared and distributed to participants</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Technical Support</td>
-                            <td>On-site support for lab setup and troubleshooting</td>
-                            <td>Not Started</td>
-                        </tr>
-                        <tr>
-                            <td>Safety Protocols</td>
-                            <td>Ensure safety measures are in place</td>
-                            <td>Not Started</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <ul>
+                    <li><strong>Day 1 Lab</strong>: Setting up IBM Integration Bus, creating and deploying basic message flows.</li>
+                    <li><strong>Day 2 Lab</strong>: Advanced message flow scenarios, integrating with IBM MQ.</li>
+                    <li><strong>Day 3 Lab</strong>: Setting up OpenShift environment, deploying applications.</li>
+                    <li><strong>Day 4 Lab</strong>: Developing and deploying event-driven applications using Kafka on OpenShift.</li>
+                    <li><strong>Day 5 Lab</strong>: Capstone project integrating all covered technologies.</li>
+                </ul>
             </div>
         </div>
 
-        <div class="page-number">Page 1</div>
+        <div id="assessment" class="section">
+            <h2 class="section-title">Assessment Method</h2>
+            <div class="content">
+                <ul>
+                    <li>Continuous assessment through hands-on labs and exercises.</li>
+                    <li>Final capstone project presentation and evaluation.</li>
+                    <li>Participation and engagement during Q&A sessions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="materials" class="section">
+            <h2 class="section-title">Course Materials (Pack)</h2>
+            <div class="content">
+                <ul>
+                    <li><strong>Pre-course Reading</strong>: Introduction to IBM Integration Bus, Cloud Pak for Integration, and OpenShift.</li>
+                    <li><strong>Slides and Notes</strong>: Comprehensive slides covering all topics.</li>
+                    <li><strong>Lab Guides</strong>: Step-by-step lab exercises and solutions.</li>
+                    <li><strong>Reference Materials</strong>: Additional reading materials and resources.</li>
+                    <li><strong>Software Access</strong>: Access to necessary software and trial versions for hands-on practice.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="references" class="section">
+            <h2 class="section-title">References and Further Reading</h2>
+            <div class="content">
+                <ul>
+                    <li><a href="https://www.ibm.com/training/path/ibmintegrationbus">IBM Integration Bus Training</a></li>
+                    <li><a href="https://www.ibm.com/training/cloud-pak">IBM Cloud Pak for Integration</a></li>
+                    <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift for Developers</a></li>
+                    <li><a href="https://developer.ibm.com/components/cloud-pak-for-integration/">IBM Developer Resources</a></li>
+                    <li><a href="https://ibm.github.io/cloudpakforintegration-workshop/">Cloud Pak for Integration Workshop on GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-container">
+                <p>Contact us: info@skunkworks.africa | +27 83 380 7950</p>
+                <p>© 2024 Skunkworks (Pty) Ltd. All rights reserved.</p>
+                <p>Legal Notice: All course content is subject to change. The course provider is not responsible for any errors or omissions.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="sidebar">
+        <h3>About the Course</h3>
+        <p>This course is designed to provide in-depth training on IBM App Connect, IBM Cloud Pak for Integration, Red Hat OpenShift, and Event Streams. It is ideal for IT professionals looking to enhance their skills in integration and cloud solutions.</p>
+        <p><strong>Course Duration:</strong> 5 Days</p>
+        <p><strong>Prerequisites:</strong> Basic knowledge of integration and cloud technologies.</p>
+        <p><strong>Instructor:</strong> Experienced professionals with deep knowledge of IBM and Red Hat technologies.</p>
+        <p><strong>Contact:</strong> For more information, email us at info@skunkworks.africa.</p>
+        <img src="https://raw.githubusercontent.com/skunkworksza/Media/main/IBM%C2%AE%20Silver%20Partner%20(1).svg" alt="IBM Silver Partner Badge">
     </div>
 </body>
 </html>
-
-### Detailed Step-by-Step Lab Setup Instructions:
-
-1. **Prepare the Environment**:
-    - **Ensure Hardware Availability**:
-        - Verify the availability of IBM DS8K Storage System, Cisco MDS Switches, and Mainframe Server.
-        - Connect all hardware components as per the network topology.
-    - **Verify Network Connectivity**:
-        - Configure necessary network settings.
-        - Ensure all devices can communicate over the network.
-
-2. **Install Required Software**:
-    - **Lab Workstations**:
-        - Install IBM Integration Bus, Cloud Pak for Integration, and Red Hat OpenShift on each lab workstation.
-        - Ensure all necessary dependencies are installed.
-
-3. **Clone GitHub Repository**:
-    - Open a terminal on each workstation.
-    - Clone the course repository:
-      ```bash
-      git clone https://github.com/your-org/your-repo.git
-      ```
-    - Navigate to the
-
- cloned directory:
-      ```bash
-      cd your-repo
-      ```
-
-4. **Run Initial Setup Scripts**:
-    - Execute the setup script provided in the repository:
-      ```bash
-      ./setup.sh
-      ```
-    - Follow any on-screen instructions to complete the setup.
-
-5. **Verify the Setup**:
-    - Ensure all services are running correctly.
-    - Test the connectivity between components (e.g., between the mainframe server and IBM DS8K).
-
-6. **Troubleshoot Common Issues**:
-    - Refer to the troubleshooting guide provided in the repository for any issues encountered during setup.
-    - Common issues include network connectivity problems, software installation errors, and configuration mismatches.
-
-7. **Access Lab Resources**:
-    - All necessary lab materials, guides, and resources are available in the cloned repository.
-    - Ensure participants have access to the repository and necessary credentials.
-
-This comprehensive guide ensures that all steps are clearly outlined, providing a smooth setup process for participants and instructors.
