@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #3e3e3e;
+        }
+        header h1 {
+            margin: 0;
+            color: #f9f871;
+        }
+        .container {
+            padding: 20px;
+        }
+        h2, h3, h4 {
+            color: #f9f871;
+        }
+        .course-element {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #3e3e3e;
+            border-radius: 8px;
+            background-color: #1c1c1c;
+        }
+        .course-element h3 {
+            margin-top: 0;
+        }
+        .course-element img {
+            max-width: 100%;
+            display: block;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #1c1c1c;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #3e3e3e;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</h1>
+    <img src="https://raw.githubusercontent.com/skunkworksza/Course-Catalog/6cbf823c2d158715d719b730cf8d0ebd1707a1df/HashiCorp/Hashicorp-Horizontal_onLight.svg" alt="HashiCorp Logo">
+</header>
+
+<div class="container">
+    <div class="course-element">
+        <h2>Course Title</h2>
+        <p>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</p>
+    </div>
+
+    <div class="course-element">
+        <h2>Course Subtitle</h2>
+        <p>Secure Enterprise Secrets Management with Advanced Cryptographic Solutions</p>
+    </div>
+
+    <div class="course-element">
+        <h2>Course Code</h2>
+        <p>SEC-IBM-HCV-2024</p>
+    </div>
+
+    <div class="course-element">
+        <h2>Abstract</h2>
+        <p>This comprehensive 12-day course provides in-depth training on integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services (HPCS). Participants will engage in daily instructor-led sessions focusing on theoretical concepts, followed by self-paced lab work. The course covers the deployment, configuration, and management of Vault’s auto-unseal and seal-wrap features, leveraging HPCS for enhanced security.</p>
+    </div>
+
+    <div class="course-element">
+        <h2>Learning Duration</h2>
+        <p>Instructor-Led Theory Sessions: 12 hours (1 hour per day)<br>
+           Self-Paced Lab Exercises: 20 hours (approximately 1-2 hours per day)<br>
+           Total Duration: 32 hours
+        </p>
+    </div>
+
+    <div class="course-element">
+        <h2>Course Cost</h2>
+        <p>$1500 per participant</p>
+    </div>
+
+    <div class="course-element">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Understand the fundamentals of secrets management and the importance of using HSM for high-value secrets.</li>
+            <li>Learn about IBM Cloud Hyper Protect Crypto Services and its features.</li>
+            <li>Gain hands-on experience with HashiCorp Vault and its integration with HPCS.</li>
+            <li>Configure Vault’s auto-unseal and seal-wrap functionalities using HPCS.</li>
+            <li>Manage cryptographic keys and secrets lifecycle securely.</li>
+            <li>Implement best practices for secure enterprise secrets management.</li>
+        </ul>
+    </div>
+
+    <div class="course-element">
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Basic understanding of cryptographic concepts.</li>
+            <li>Familiarity with Linux command-line interface.</li>
+            <li>Experience with cloud services and basic knowledge of IBM Cloud.</li>
+            <li>Knowledge of HashiCorp Vault is beneficial but not required.</li>
+        </ul>
+    </div>
+
+    <div class="course-element">
+        <h2>Agenda</h2>
+        <h3>Week 1: Introduction and Theoretical Concepts</h3>
+        <h4>Day 1: Introduction to Secrets Management</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Importance of secrets management</li>
+                    <li>Threat landscape and risks</li>
+                    <li>Overview of HashiCorp Vault</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (1 hour)
+                <ul>
+                    <li>Setting up the learning environment</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 2: Overview of IBM Cloud Hyper Protect Crypto Services</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Features and benefits</li>
+                    <li>FIPS 140-2 Level 4 certification</li>
+                    <li>Key management capabilities</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (1 hour)
+                <ul>
+                    <li>Exploring IBM Cloud HPCS features</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 3: Integrating Vault with HPCS</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Auto-unseal and seal-wrap functionalities</li>
+                    <li>Compliance requirements and best practices</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (1 hour)
+                <ul>
+                    <li>Initial setup and configuration of Vault</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 4: Setting Up the Environment</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Provisioning IBM Cloud resources</li>
+                    <li>Installing necessary tools and libraries</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Setting up virtual server instances</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Week 2: Practical Implementation</h3>
+        <h4>Day 5: Configuring HPCS for Vault Integration</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Creating HSM access credentials</li>
+                    <li>Setting up PKCS#11 client library</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Configuring HPCS credentials and libraries</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 6: Deploying HashiCorp Vault</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Installing and configuring Vault</li>
+                    <li>Applying licenses and starting Vault</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Deploying Vault on virtual server instances</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 7: Initializing and Unsealing Vault</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Initializing Vault with HPCS</li>
+                    <li>Unsealing Vault using HPCS auto-unseal</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Practical initialization and unsealing exercises</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Week 3: Advanced Configurations and Management</h3>
+        <h4>Day 8: Managing Secrets and Policies</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Storing and retrieving secrets</li>
+                    <li>Implementing access policies</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Managing secrets and policies in Vault</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 9: Configuring Seal-Wrap</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Configuring seal-wrap in Vault</li>
+                    <li>Testing and validating configurations</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Practical seal-wrap configuration exercises</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 10: Monitoring and Auditing Vault</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Monitoring Vault operations</li>
+                    <li>Implementing auditing mechanisms</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Setting up monitoring and auditing for Vault</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Week 4: Advanced Topics and Best Practices</h3>
+        <h4>Day 11: Disaster Recovery and Backup Strategies</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Disaster recovery planning</li>
+                    <li>Backup and restore procedures</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Implementing disaster recovery and backup strategies</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Day 12: Best Practices and Use Cases</h4>
+        <ul>
+            <li>Instructor-Led Theory (1 hour)
+                <ul>
+                    <li>Real-world applications and case studies</li>
+                    <li>Security best practices</li>
+                </ul>
+            </li>
+            <li>Self-Paced Lab (2 hours)
+                <ul>
+                    <li>Applying best practices to lab environment</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="course-element">
+        <h2>Lab Exercises Outline</h2>
+        <h4>Lab Exercise 1: Initializing and Unsealing Vault</h4>
+        <p>Objective: To initialize and unseal Vault using HPCS.</p>
+        <ul>
+            <li>Install Vault on a virtual server instance.</li>
+            <li>Configure Vault to use HPCS for auto-unseal.</li>
+            <li>Initialize and unseal Vault.</li>
+        </ul>
+
+        <h4>Lab Exercise 2: Managing Secrets and Policies</h4>
+        <p>Objective: To manage secrets and access policies in Vault.</p>
+        <ul>
+            <li>Store secrets in Vault.</li>
+            <li>Retrieve secrets from Vault.</li>
+            <li>Implement access policies for different users.</li>
+        </ul>
+
+        <h4>Lab Exercise 3: Configuring Seal-Wrap</h4>
+        <p>Objective: To configure advanced features like seal-wrap.</p>
+        <ul>
+            <li>Configure seal-wrap in Vault.</li>
+            <li>Test the seal-wrap functionality.</li>
+            <li>Validate the configurations.</li>
+        </ul>
+
+        <h4>Lab Exercise 4: Monitoring and Auditing Vault</h4>
+        <p>Objective: To set up monitoring and auditing for Vault.</p>
+        <ul>
+            <li>Implement monitoring tools for Vault.</li>
+            <li>Configure auditing mechanisms.</li>
+            <li>Validate the monitoring and auditing setup.</li>
+        </ul>
+
+        <h4>Lab Exercise 5: Disaster Recovery and Backup</h4>
+        <p>Objective: To implement disaster recovery and backup strategies.</p>
+        <ul>
+            <li>Configure backup procedures.</li>
+            <li>Test disaster recovery plans.</li>
+            <li>Validate backup and restore operations.</li>
+        </ul>
+
+        <h4>Lab Exercise 6: Automating Credential Rotation</h4>
+        <p>Objective: To automate the rotation of credentials and secrets.</p>
+        <ul>
+            <li>Set up expiration policies.</li>
+            <li>Configure automated rotation workflows.</li>
+            <li>Test the automated rotation process.</li>
+        </ul>
+
+        <h4>Lab Exercise 7: Encryption Key Rolling</h4>
+        <p>Objective: To automate encryption key updates and rotation.</p>
+        <ul>
+            <li>Configure encryption key rolling.</li>
+            <li>Validate the key rolling process without code changes or re-deploys.</li>
+        </ul>
+    </div>
+
+    <div class="course-element">
+        <h2>Course Overview</h2>
+        <p>This enhanced course provides a thorough understanding of integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services. With a balanced approach of daily instructor-led theory sessions and self-paced lab work, participants will gain both theoretical knowledge and practical skills to manage enterprise secrets securely. By the end of the course, participants will be proficient in configuring and managing Vault's advanced cryptographic features using HPCS, ensuring robust security for their organization's secrets.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 HashiCorp and IBM. All rights reserved.</p>
+    <p><a href="https://www.hashicorp.com/" style="color: #f9f871;">HashiCorp</a></p>
+</footer>
+
+</body>
+</html>
 
