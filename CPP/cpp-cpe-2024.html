@@ -1,3 +1,6 @@
+Here is the completed HTML code with the favicon and the C++ logo added to the header. The logo is positioned to the left of the title, inline with the text:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C++ Course Outline</title>
-    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/skunkworksza/Media/6ddd427c3192b9e3b170165977448ff27c802997/svg/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/skunkworksza/Course-Catalog/011d5931624291dc7ab70c1c566ecc2fb8222572/CPP/favicon.svg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,10 +26,14 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        header h1 {
-            margin: 0;
+        header img {
+            margin-right: 15px;
+            height: 40px;
         }
 
         nav {
@@ -59,6 +66,20 @@
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
+        }
+
+        .course-overview {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #0056b3;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            border-top: 3px solid #0056b3;
+            margin: 30px 0;
         }
 
         .lab-exercise,
@@ -112,6 +133,17 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-item h2 {
+            flex: 0 0 auto;
+        }
+
+        .grid-item ul,
+        .grid-item p {
+            flex: 1 1 auto;
         }
 
         .callout-note {
@@ -146,21 +178,30 @@
             border-top: 2px solid #e0e0e0;
             margin: 20px 0;
         }
+
+        .spaced-section {
+            margin-top: 40px;
+        }
+
+        .terms {
+            margin: 40px 0;
+        }
     </style>
 </head>
 
 <body>
     <header>
+        <img src="https://raw.githubusercontent.com/skunkworksza/Course-Catalog/011d5931624291dc7ab70c1c566ecc2fb8222572/CPP/cpp_logo.svg" alt="C++ Logo">
         <h1>C++ Course Outline</h1>
     </header>
     <nav>
-        <a href="https://www.skunkworks.africa/terms-and-conditions">Terms and Conditions</a>
+        <a href="#terms-and-conditions">Terms and Conditions</a>
         <a href="https://www.skunkworks.africa/exam-policies">Exam Policies</a>
         <a href="https://www.skunkworks.africa/contact">Contact</a>
         <a href="https://www.skunkworks.africa/support">Support</a>
     </nav>
     <div class="container">
-        <div class="course-overview grid-item">
+        <div class="course-overview">
             <h2 class="section-title">Course Overview</h2>
             <p><strong>Introduction:</strong> This C++ programming course is designed to prepare participants for the CPE – C++ Certified Entry-Level Programmer certification. The course covers the essentials of C++ programming, from basic syntax and structure to advanced concepts and best practices, with a strong focus on practical applications and real-world scenarios.</p>
             <p><strong>Course Objectives:</strong>
@@ -187,6 +228,8 @@
             <p><strong>Course Cost:</strong> Recommended cost per delegate: $2000 for the entire course (5 days). This cost includes all training materials, lab access, and certification.</p>
         </div>
 
+        <div class="divider"></div>
+
         <div class="grid-container">
             <div class="day grid-item">
                 <h2 class="section-title">Day 1: Introduction and C++ Basics</h2>
@@ -209,7 +252,9 @@
 
             <div class="day grid-item">
                 <h2 class="section-title">Day 2: Syntax and Structure</h2>
-                <p><strong>Theory:</strong></p>
+                <p><strong>The
+
+ory:</strong></p>
                 <ul>
                     <li><strong>C++ Syntax Fundamentals:</strong> Basic syntax rules of C++.</li>
                     <li><strong>Variables and Data Types:</strong> Introduction to variables and data types in C++.</li>
@@ -257,7 +302,7 @@
                 <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
             </div>
 
-            <div class="day grid-item">
+            <div class="day grid-item spaced-section">
                 <h2 class="section-title">Day 5: Advanced Topics and Integration</h2>
                 <p><strong>Theory:</strong></p>
                 <ul>
@@ -275,16 +320,56 @@
             </div>
         </div>
 
-        <div class="appendices grid-item">
+        <div class="divider"></div>
+
+        <div class="appendices grid-item spaced-section">
             <h2 class="section-title">Appendices</h2>
             <p><strong>Additional Resources:</strong> Books, websites, and tools for further learning.</p>
             <!-- Additional appendices content -->
         </div>
+
         <div class="resources grid-item">
             <h2 class="section-title">Instructor and Student Resources</h2>
-            <p><strong>Instructor Guide:</strong> Detailed guide for instructors.</p>
-            <!-- Additional resources content -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resource</th>
+                            <th>Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>C++ Institute</td>
+                            <td>Official site for C++ certification and resources</td>
+                            <td><a href="https://www.cppinstitute.org" target="_blank">cppinstitute.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>GeeksforGeeks C++</td>
+                            <td>Comprehensive tutorials and examples</td>
+                            <td><a href="https://www.geeksforgeeks.org/c-plus-plus/" target="_blank">geeksforgeeks.org</a></td>
+                        </tr>
+                        <tr>
+                            <td>LearnCpp</td>
+                            <td>Detailed C++ programming tutorials</td>
+                            <td><a href="https://www.learncpp.com" target="_blank">learncpp.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>Cplusplus.com</td>
+                            <td>C++ reference and standard library documentation</td>
+                            <td><a href="http://www.cplusplus.com" target="_blank">cplusplus.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>Stack Overflow</td>
+                            <td>Community forum for C++ programming questions</td>
+                            <td><a href="https://stackoverflow.com/questions/tagged/c%2b%2b" target="_blank">stackoverflow.com</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
         <div class="assessment grid-item">
             <h2 class="section-title">Assessment and Certification</h2>
             <p><strong>Assessment Overview:</strong> Description of assessment methods.</p>
@@ -299,7 +384,7 @@
 
     <footer>
         <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
-        <a href="https://www.skunkworks.africa/terms-and-conditions">Terms and Conditions</a> |
+        <a href="#terms-and-conditions">Terms and Conditions</a> |
         <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
         <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
         <div class="disclaimer">
@@ -309,6 +394,34 @@
             <p>Skunkworks assumes no responsibility for any errors or omissions in the content. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
         </div>
     </footer>
+
+    <div class="container terms" id="terms-and-conditions">
+        <h2 class="section-title">Terms and Conditions</h2>
+        <p><strong>1. Introduction</strong></p>
+        <p>Welcome to Skunkworks. These terms and conditions outline the rules and regulations for the use of Skunkworks's Website, located at https://www.skunkworks.africa.</p>
+        <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Skunkworks if you do not agree to take all of the terms and conditions stated on this page.</p>
+
+        <p><strong>2. Cookies</strong></p>
+        <p>We employ the use of cookies. By accessing Skunkworks, you agreed to use cookies in agreement with the Skunkworks's Privacy Policy.</p>
+
+        <p><strong>3. License</strong></p>
+        <p>Unless otherwise stated, Skunkworks and/or its licensors own the intellectual property rights for all material on Skunkworks. All intellectual property rights are reserved. You may access this from Skunkworks for your own personal use
+
+ subjected to restrictions set in these terms and conditions.</p>
+
+        <p><strong>4. User Comments</strong></p>
+        <p>This Agreement shall begin on the date hereof.</p>
+        <p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Skunkworks does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Skunkworks, its agents, or affiliates. Comments reflect the views and opinions of the person who posts their views and opinions. To the extent permitted by applicable laws, Skunkworks shall not be liable for the Comments or for any liability, damages, or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+
+        <p><strong>5. Hyperlinking to our Content</strong></p>
+        <p>The following organizations may link to our Website without prior written approval:
+        <ul>
+            <li>Government agencies;</li>
+            <li>Search engines;</li>
+            <li>News organizations;</li>
+        </ul>
+        </p>
+    </div>
 </body>
 
 </html>
