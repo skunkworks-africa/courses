@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup MUSICDB Database in Db2</title>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        h1 {
+            font-size: 2em;
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+        .section {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .note-box, .summary-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px;
+            display: block;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <h1>Setup MUSICDB Database in Db2</h1>
+    </div>
+
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>Here's an enhanced and refined walkthrough for creating and configuring a new Db2 database named MUSICDB, complete with native encryption and sophisticated data management strategies.</p>
+    </div>
+
+    <div class="section">
+        <h2>Preparation and Environment Setup</h2>
+        <ol>
+            <li><strong>System Login:</strong> Log into your Linux system using the username <code>inst23</code> and password <code>ibm2blue</code>.</li>
+            <li><strong>Environment Preparation:</strong> Navigate to the <code>$HOME/ddl</code> directory to access essential Db2 commands and SQL scripts.</li>
+            <li><strong>Instance Verification:</strong> Confirm that you are operating under the Db2 instance <code>inst23</code>.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Keystore Creation and Encryption Setup</h2>
+        <p>Create a local keystore using IBM's Global Security Kit to facilitate native encryption.</p>
+        <div class="command">
+            cat create_keystore.cmd<br>
+            ./create_keystore.cmd
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Database Creation and Configuration</h2>
+        <p>Create the MUSICDB database with encryption enabled, specifying both the database and storage paths.</p>
+        <div class="command">
+            db2 create database musicdb on /dbauto/path1 dbpath on /database encrypt<br>
+            db2 connect to musicdb
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Storage Group and Tablespace Management</h2>
+        <p>Create a new storage group to manage application storage efficiently and establish tablespaces for user data and indexes.</p>
+        <div class="command">
+            db2 "CREATE STOGROUP stogroup1 ON '/dbauto/path1'"<br>
+            db2 "CREATE TABLESPACE userdata MANAGED BY AUTOMATIC STORAGE USING STOGROUP stogroup1 EXTENTSIZE 4"
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Review and Verification</h2>
+        <p>Utilize SQL queries and <code>db2pd</code> commands to inspect and verify database configurations and storage settings.</p>
+        <div class="command">
+            db2pd -d musicdb -tablespaces<br>
+            db2 "SELECT TBSP_NAME, TBSP_TYPE FROM SYSCAT.TABLESPACES"
+        </div>
+    </div>
+
+    <div class="note-box">
+        By meticulously following these steps, administrators will not only establish a robust and secure Db2 database but also ensure precise and efficient management of database configurations and data storage solutions.
+    </div>
+</body>
+</html>
 
