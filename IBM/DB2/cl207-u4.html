@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup MUSICDB Database in Db2</title>
+    <title>Unit 4 - Demonstration 1: Creating databases and data placement</title>
     <style>
         body {
             font-family: 'IBM Plex Sans', Arial, sans-serif;
@@ -12,17 +13,40 @@
             color: #333;
             padding: 20px;
         }
-        h1, h2, h3, h4 {
+
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'IBM Plex Sans', Arial, sans-serif;
             margin-top: 1.5em;
             margin-bottom: 0.5em;
-            color: #0f62fe; /* IBM Blue */
         }
+
         h1 {
             font-size: 2em;
+            color: #0f62fe;
             border-bottom: 2px solid #0f62fe;
             padding-bottom: 10px;
         }
+
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe;
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe;
+        }
+
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe;
+        }
+
         .section {
             background-color: #ffffff;
             border: 1px solid #ddd;
@@ -31,7 +55,79 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        .note-box, .summary-box {
+
+        .section-title {
+            background-color: #0f62fe;
+            color: #fff;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 1.25em;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        ul,
+        ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        ul ul,
+        ol ol {
+            padding-left: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+        }
+
+        thead {
+            background-color: #0f62fe;
+            color: #FFFFFF;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            min-width: 120px;
+        }
+
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            color: #0f62fe;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note-box {
             background-color: #e0e0e0;
             border-left: 5px solid #0f62fe;
             padding: 15px;
@@ -39,6 +135,7 @@
             font-style: italic;
             border-radius: 5px;
         }
+
         .command {
             font-family: 'IBM Plex Mono', monospace;
             background-color: #f4f4f4;
@@ -47,67 +144,212 @@
             display: block;
             margin: 15px 0;
             border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe;
+        }
+
+        .page {
+            position: relative;
+            margin-bottom: 60px;
+            border: 2px solid #0f62fe;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.25em;
+            }
+
+            h4 {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section-title {
+                padding: 10px;
+                font-size: 1.1em;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                min-width: 80px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="cover-page">
-        <h1>Setup MUSICDB Database in Db2</h1>
-    </div>
-
+    <header>
+        <h1>Unit 4 - Demonstration 1: Creating databases and data placement</h1>
+    </header>
     <div class="section">
-        <h2>Introduction</h2>
-        <p>Here's an enhanced and refined walkthrough for creating and configuring a new Db2 database named MUSICDB, complete with native encryption and sophisticated data management strategies.</p>
-    </div>
-
-    <div class="section">
-        <h2>Preparation and Environment Setup</h2>
-        <ol>
-            <li><strong>System Login:</strong> Log into your Linux system using the username <code>inst23</code> and password <code>ibm2blue</code>.</li>
-            <li><strong>Environment Preparation:</strong> Navigate to the <code>$HOME/ddl</code> directory to access essential Db2 commands and SQL scripts.</li>
-            <li><strong>Instance Verification:</strong> Confirm that you are operating under the Db2 instance <code>inst23</code>.</li>
-        </ol>
-    </div>
-
-    <div class="section">
-        <h2>Keystore Creation and Encryption Setup</h2>
-        <p>Create a local keystore using IBM's Global Security Kit to facilitate native encryption.</p>
-        <div class="command">
-            cat create_keystore.cmd<br>
-            ./create_keystore.cmd
+        <div class="section-title">Introduction</div>
+        <div class="content">
+            <p>In this demonstration, you will learn how to create and manage a Db2 database. This includes setting up the environment, creating databases, configuring storage groups and tablespaces, and using Db2 commands to retrieve and display database information.</p>
         </div>
     </div>
-
     <div class="section">
-        <h2>Database Creation and Configuration</h2>
-        <p>Create the MUSICDB database with encryption enabled, specifying both the database and storage paths.</p>
-        <div class="command">
-            db2 create database musicdb on /dbauto/path1 dbpath on /database encrypt<br>
-            db2 connect to musicdb
+        <div class="section-title">Task 1: Create the MUSICDB Database</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Connect to the Db2 Instance</strong>: Open your terminal and connect to the Db2 instance.
+                    <div class="command">db2 connect to <em>db2inst1</em></div>
+                </li>
+                <li>
+                    <strong>Create the MUSICDB Database</strong>: Run the following command to create the database.
+                    <div class="command">db2 create database MUSICDB</div>
+                </li>
+                <li>
+                    <strong>Verify Database Creation</strong>: Ensure the database has been created successfully.
+                    <div class="command">db2 list database directory</div>
+                </li>
+            </ol>
         </div>
     </div>
-
     <div class="section">
-        <h2>Storage Group and Tablespace Management</h2>
-        <p>Create a new storage group to manage application storage efficiently and establish tablespaces for user data and indexes.</p>
-        <div class="command">
-            db2 "CREATE STOGROUP stogroup1 ON '/dbauto/path1'"<br>
-            db2 "CREATE TABLESPACE userdata MANAGED BY AUTOMATIC STORAGE USING STOGROUP stogroup1 EXTENTSIZE 4"
+        <div class="section-title">Task 2: Configure a Database Connection</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Access Data Server Manager</strong>: Open Firefox and navigate to <a href="http://ibmclass:11080">http://ibmclass:11080</a>.
+                    <div class="note-box">Use the credentials: <strong>Username</strong>: db2admin, <strong>Password</strong>: ibm2blue</div>
+                </li>
+                <li>
+                    <strong>Configure Connection</strong>: Add a new database connection with the following details:
+                    <ul>
+                        <li>Database connection name: <em>MUSICDB</em></li>
+                        <li>Database name: <em>MUSICDB</em></li>
+                        <li>Host name: <em>ibmclass</em></li>
+                        <li>Port number: <em>50004</em></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Test the Connection</strong>: Test the connection to ensure it is working properly.
+                </li>
+            </ol>
         </div>
     </div>
-
     <div class="section">
-        <h2>Review and Verification</h2>
-        <p>Utilize SQL queries and <code>db2pd</code> commands to inspect and verify database configurations and storage settings.</p>
-        <div class="command">
-            db2pd -d musicdb -tablespaces<br>
-            db2 "SELECT TBSP_NAME, TBSP_TYPE FROM SYSCAT.TABLESPACES"
+        <div class="section-title">Task 3: Update Database Configuration</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Connect to the Database</strong>: Open a terminal session and connect to MUSICDB.
+                    <div class="command">db2 connect to MUSICDB</div>
+                </li>
+                <li>
+                    <strong>Update Configuration</strong>: Update the number of primary and secondary log files.
+                    <div class="command">db2 update db cfg for MUSICDB using logprimary 5 logsecond 10</div>
+                </li>
+                <li>
+                    <strong>Verify Configuration</strong>: Verify the updated configuration settings.
+                    <div class="command">db2 get db cfg for MUSICDB</div>
+                </li>
+            </ol>
         </div>
     </div>
-
-    <div class="note-box">
-        By meticulously following these steps, administrators will not only establish a robust and secure Db2 database but also ensure precise and efficient management of database configurations and data storage solutions.
+    <div class="section">
+        <div class="section-title">Task 4: Create a Storage Group</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Create Storage Group</strong>: Create a new storage group for the database.
+                    <div class="command">db2 "CREATE STOGROUP app_data ON '/dbauto/path2'"</div>
+                </li>
+                <li>
+                    <strong>Verify Storage Group</strong>: Verify the storage group creation.
+                    <div class="command">db2pd -db MUSICDB -storage</div>
+                </li>
+            </ol>
+        </div>
     </div>
+    <div class="section">
+        <div class="section-title">Task 5: Create a New Tablespace</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Navigate to the DDL Directory</strong>: Change to the directory containing the DDL script.
+                    <div class="command">cd $HOME/ddl</div>
+                </li>
+                <li>
+                    <strong>Execute the DDL Script</strong>: Run the DDL script to create a new tablespace.
+                    <div class="command">db2 -tvf create_tablespace_tsp01.ddl</div>
+                </li>
+                <li>
+                    <strong>Verify Tablespace</strong>: Verify the new tablespace creation.
+                    <div class="command">db2pd -db MUSICDB -tablespaces</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 6: Create Multiple Tablespaces</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Navigate to the SQL File Directory</strong>: Change to the directory containing the SQL file.
+                    <div class="command">cd $HOME/ddl</div>
+                </li>
+                <li>
+                    <strong>Execute the SQL Script</strong>: Run the SQL file to create multiple tablespaces.
+                    <div class="command">db2 -tvf create_tablespaces.ddl</div>
+                </li>
+                <li>
+                    <strong>Verify Tablespaces</strong>: Verify the creation of multiple tablespaces.
+                    <div class="command">db2 list tablespaces</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 7: Retrieve Tablespace Information</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Execute SQL Query</strong>: Run the SQL script to retrieve tablespace information.
+                    <div class="command">db2 -tvf select_tablespaces.sql</div>
+                </li>
+                <li>
+                    <strong>Additional Information</strong>: Execute another script to get disk path details.
+                    <div class="command">db2 -tvf dbpaths.sql</div>
+                </li>
+                <li>
+                    <strong>List Storage Groups</strong>: Use the db2pd command to list storage groups.
+                    <div class="command">db2pd -db MUSICDB -storage</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <footer>
+        <p class="page-number">Page 1</p>
+    </footer>
 </body>
-</html>
 
+</html>
