@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 8: Database Maintenance, Monitoring, and Problem Determination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #004080;
+        }
+        .task, .summary, .tip, .note {
+            border: 1px solid #004080;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f0f8ff;
+        }
+        .tip, .note {
+            background-color: #e6f7ff;
+        }
+        .tip::before {
+            content: "Tip: ";
+            font-weight: bold;
+        }
+        .note::before {
+            content: "Note: ";
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #004080;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Unit 8: Database Maintenance, Monitoring, and Problem Determination</h1>
+<p>&copy; Copyright IBM Corporation 2017</p>
+<p>Course materials may not be reproduced in whole or in part without the written permission of IBM.</p>
+<p><strong>Db2 11.1 Administration Workshop for Linux</strong></p>
+<p><strong>ARROW ECS EDUCATION</strong></p>
+
+<h2>Demonstration 1: Using Db2 Tools for Performance</h2>
+<p>This demonstration uses several Db2 tools and utilities to improve the performance of a SQL query. You will use the Data Server Manager Visual Explain tool to review the access plans and the estimated costs for processing SQL statements. You will use the Db2 design advisor to suggest a new index to reduce processing costs. You will execute a Db2 REORG utility to reorganize a table to improve performance.</p>
+
+<div class="task">
+    <h3>Task 1: Load a Test Table and Create a Set of Explain Tables for Query Analysis</h3>
+    <p>1. Logon to the Linux system using the user id <code>inst23</code>, with a password of <code>ibm2blue</code>.</p>
+    <p>2. Right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>3. Issue the following series of commands in the Linux terminal session:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb
+db2 -tvf explain.ddl
+db2 -tvf create_testhist.ddl</code></pre>
+    <p>The SQL statements show a sum from the QTY column for a set of rows before and after the UPDATE processing.</p>
+</div>
+
+<div class="task">
+    <h3>Task 2: Use the Explain SQL Capability of Data Server Manager to Review the Access Plan and Estimated Costs for Processing a SQL Statement</h3>
+    <p>1. Start DSM if not already started and select the <strong>MUSICDB</strong> database from the database list at the top. On the left, click <strong>Run SQL</strong>.</p>
+    <p>2. Clear any SQL statements from the editor that may remain from previous steps.</p>
+    <p>3. Click <strong>Script &gt; Open from Client</strong>. Use the Browse button for the Open SQL Script window to locate and select the file <code>inst23/ddl/query_history.sql</code>.</p>
+    <p>4. Click <strong>Open</strong>.</p>
+    <p>5. Click <strong>OK</strong> to complete loading of the SQL text into the SQL editor.</p>
+    <p>6. Click <strong>Run &gt; Explain</strong> to generate the access plan report. The Visual Explain graph will appear in a new Web Browser tab.</p>
+    <p>7. Select the <strong>TBSCAN</strong> operation and look at the cost statistics that appear next to the TBSCAN octagon. You may want to click on the (+) magnifier icon on the left to increase the size of the access plan objects.</p>
+    <div class="note">
+        <p>A TBSCAN operation will read every page in the table to produce the result.</p>
+    </div>
+    <table>
+        <tr>
+            <th>Estimated Cardinality</th>
+            <td>162</td>
+        </tr>
+        <tr>
+            <th>Cumulative Total Cost</th>
+            <td>3,229</td>
+        </tr>
+        <tr>
+            <th>Cumulative I/O Cost</th>
+            <td>3,575</td>
+        </tr>
+    </table>
+</div>
+
+<div class="task">
+    <h3>Task 3: Use the db2advis Command to Recommend Additional Table Indexes that Could Reduce Processing Costs for the SQL Query</h3>
+    <p>1. Issue the following series of commands using the Linux terminal session:</p>
+    <pre><code>cd $HOME/ddl
+db2advis -d musicdb -i query_history.sql | more</code></pre>
+    <p>The output will include results similar to the following:</p>
+    <pre><code>execution started at timestamp 2017-07-25-11.07.01.240879
+found [1] SQL statements from the input file
+Recommending indexes...
+total disk space needed for initial set [ 10.981] MB
+total disk space constrained to [ 29.976] MB
+Trying variations of the solution set.
+1 indexes in current solution
+[3234.0000] timerons (without recommendations)
+[ 22.0000] timerons (with current solution)
+[99.32%] improvement
+--
+--
+-- LIST OF RECOMMENDED INDEXES
+-- ===========================
+-- index[1], 10.981MB
+CREATE INDEX "INST23 "."IDX1707251507050" ON "TEST "."HISTORY"
+("BRANCH_ID" ASC, "TELLER_ID" ASC, "ACCTNAME" ASC,
+"BALANCE" ASC, "ACCT_ID" ASC) ALLOW REVERSE SCANS COLLECT SAMPLED
+DETAILED STATISTICS;
+COMMIT WORK ;</code></pre>
+    <div class="note">
+        <p>The db2advis report includes a recommendation to create one new index. A CREATE INDEX statement is listed that is estimated to significantly reduce SQL execution costs.</p>
+    </div>
+    <p>The suggested new index should look similar to the following:</p>
+    <pre><code>CREATE INDEX "INST23 "."IDX1608151408110" ON "TEST "."HISTORY"
+("BRANCH_ID" ASC, "TELLER_ID" ASC, "ACCTNAME" ASC,
+"BALANCE" ASC, "ACCT_ID" ASC) ALLOW REVERSE SCANS COLLECT SAMPLED
+DETAILED STATISTICS;</code></pre>
+    <p>This index may be very efficient for processing this one SQL statement, but you will create a simple two column index, on BRANCH_ID and TELLER_ID, that will require less disk space.</p>
+    <p>2. Using DSM, on the left, click <strong>Run SQL</strong>.</p>
+    <p>3. Clear any SQL statements from the editor that may remain from previous steps.</p>
+    <p>4. Click <strong>Script &gt; Open from Client</strong>. Use the Browse button for the Open SQL Script window to locate and select the file <code>inst23/ddl/create_testhist_ix.ddl</code>.</p>
+    <p>5. Click <strong>Open</strong>.</p>
+    <p>6. Click <strong>OK</strong> to complete loading the SQL text into the SQL editor.</p>
+    <p>7. Review the CREATE INDEX statement and the ADMIN_CMD procedure call that is used to invoke the RUNSTATS processing.</p>
+    <p>8. Click <strong>Run &gt; Run All</strong> and wait for the SQL statements to be processed.</p>
+</div>
+
+<div class="task">
+    <h3>Task 4: Use the Explain SQL Capability of DSM to Check the Access Plan and Estimated Costs with the New Index in Place</h3>
+    <p>1. Click <strong>Run SQL</strong> from the options on the left. Clear any SQL statements from the editor that may remain from previous steps.</p>
+    <p>2. Click <strong>Script &gt; Open from Client</strong>. Use the Browse button for the Open SQL Script window to locate and select the file <code>inst23/ddl/query_history.sql</code>.</p>
+    <p>3. Click <strong>Open</strong>.</p>
+    <p>4. Click <strong>OK</strong> to complete loading of the SQL text into the SQL editor.</p>
+    <p>5. Click <strong>Run &gt; Explain</strong> to generate the access plan report. The Visual Explain graph will appear in a new Web Browser tab.</p>
+    <p>6. Select the <strong>IXSCAN</strong> operation and look at the cost statistics that appear next to the IXSCAN octagon. You may want to click on the (+) magnifier icon on the left to increase the size of the access plan objects.</p>
+    <table>
+        <tr>
+            <th>Estimated Cardinality</th>
+            <td>162</td>
+        </tr>
+        <tr>
+            <th>Cumulative Total Cost</th>
+            <td>699</td>
+        </tr>
+        <tr>
+            <th>Cumulative I/O Cost</th>
+            <td>103</td>
+        </tr>
+    </table>
+    <p>Your results may be slightly different, but a test result produced the estimated cardinality of 162 rows, and estimated I/O cost at 103. These estimated costs are much lower than those required for the table scan in the previous access plan. The relatively high I/O count, over 100, in order to read the estimated 162 rows suggests that the data you need spans many pages.</p>
+</div>
+
+<div class="task">
+    <h3>Task 5: Reorganize a Table Using a REORG Utility</h3>
+    <p>1. Click <strong>Administer &gt; Tables</strong> on the left side of the DSM application. The current table objects are listed.</p>
+    <p>2. Locate and select the table <strong>TEST.HISTORY</strong>. You may need to resize the schema and table columns. (You can enter '%HISTORY' in the filter to make it easier to locate the table.)</p>
+    <p>3. Select <strong>Reorganize</strong> (which may be listed under the More Actions list).</p>
+    <p>4. Select these options:</p>
+    <ul>
+        <li>Reorganization Method: Classic</li>
+        <li>Indexes, Table Spaces, and Dictionary: Reorganize by using an existing index (the only index, TEST.HISTIX, is listed)</li>
+        <li>Temporally store a copy of the reorganized table in a temporary table space</li>
+        <li>Leave other options with default values</li>
+    </ul>
+    <p>5. The DSM tool generates the REORG TABLE command with a procedure call to ADMIN_CMD. Click on the (+) next to Command to view the command text. The command text should be similar to the following:</p>
+    <pre><code>CALL SYSPROC.ADMIN_CMD ('REORG TABLE TEST.HISTORY INDEX TEST.HISTIX
+USE TEMPSPACE1');</code></pre>
+    <p>6. Click <strong>Run</strong>. The result should show that the command processing succeeded.</p>
+    <p>7. Locate and select the table <strong>TEST.HISTORY</strong> and click on the check box. You need to collect new table and index statistics, so that the Db2 Optimizer can accurately plan access to the newly reorganized table.</p>
+    <p>8. Select <strong>Collect Statistics</strong> (which may be listed under the More Actions list).</p>
+    <p>9. Click on the right pointing Arrow at the bottom.</p>
+    <p>10. Leave all of the options with default values, and then Click on the (+) next to Command to view the command text.</p>
+    <p>11. Select <strong>Run</strong>. The result should show that the command processing succeeded.</p>
+</div>
+
+<div class="task">
+    <h3>Task 6: Use the Explain SQL Capability of DSM to Recheck the Access Plan and Estimated Costs After Table Reorganization</h3>
+    <p>1. Click <strong>Run SQL</strong> from the options on the left. Clear any SQL statements from the editor that may remain from previous steps.</p>
+    <p>2. Click <strong>Script &gt; Open from Client</strong>. Use the Browse button for the Open SQL Script window to locate and select the file <code>inst23/ddl/query_history.sql</code>.</p>
+    <p>3. Click <strong>Run &gt; Explain</strong> to generate the access plan report. The Visual Explain graph will appear in a new Web Browser tab. The access plan utilizes the index with an IXSCAN, or index scan operation, followed by the FETCH to retrieve data rows using the index pointers. The new estimated costs are much lower with a reorganized table.</p>
+    <p>4. Select the FETCH operation and look at the cost statistics that appear.</p>
+    <table>
+        <tr>
+            <th>Estimated Cardinality</th>
+            <td>162</td>
+        </tr>
+        <tr>
+            <th>Cumulative Total Cost</th>
+            <td>33</td>
+        </tr>
+        <tr>
+            <th>Cumulative I/O Cost</th>
+            <td>4.9</td>
+        </tr>
+    </table>
+    <p>Your results may be slightly different, but a test result produced the estimated cardinality of 162 rows with an estimated I/O cost at 4.9. These estimated costs are much lower than those required for the index scan in the previous access plan before the table was reorganized. The relatively small count, about 5, shows that Db2 expects to find the rows in a small number of pages, which drastically reduces the estimated costs.</p>
+</div>
+
+<div class="summary">
+    <h3>Summary:</h3>
+    <p>You used several Db2 tools and utilities to improve the performance of a SQL query. You invoked the Data Server Manager Visual Explain tool to review the access plans and the estimated costs for processing SQL statements. You used the Db2 design advisor to suggest a new index to reduce processing costs. You executed a Db2 REORG utility to reorganize a table to improve performance.</p>
+</div>
+
+</body>
+</html>
