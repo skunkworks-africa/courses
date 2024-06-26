@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Overview of Db2 11.1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Overview of Db2 11.1</h1>
+        <h2>Db2 11.1 Administration Workshop for Linux</h2>
+        <p>© Copyright IBM Corporation 2017</p>
+        <p>Course materials may not be reproduced in whole or in part without the written permission of IBM.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Unit Objectives</h2>
+            <ul>
+                <li>Describe the system platforms supported by the Db2 Family of products</li>
+                <li>Compare the features available with different Db2 product editions</li>
+                <li>Select the appropriate Db2 client software to support application client or server systems</li>
+                <li>Choose a method to install your Db2 product edition and plan migrations of existing Db2 servers to the latest release</li>
+                <li>Compare cloud-based Db2 options to a locally installed Db2 server</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Db2 Family Product Platforms</h2>
+            <p>Db2 for z/OS</p>
+            <p>Operating Systems:</p>
+            <ul>
+                <li>AIX</li>
+                <li>Linux</li>
+                <li>Windows</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Db2: The Scalable Database</h2>
+            <p>Db2 Advanced Enterprise Server Edition</p>
+            <p>Includes the functions and tools needed for large, complex enterprise environments, and is ideal for both transactional and data warehouse workloads. No CPU or memory limits.</p>
+            <p>Db2 Enterprise Server</p>
+            <p>Designed to meet the data server needs of midsize to large-size businesses and is ideal for transactional and mixed workloads. It can be deployed on Linux, UNIX, or Windows servers of any size, from one processor to hundreds of processors, and on both physical and virtual servers.</p>
+            <p>Db2 Advanced Workgroup Edition</p>
+            <p>Includes the capabilities needed for medium-sized business environments, and is ideal for both transactional and data warehouse workloads. 16 CPU cores, 128GB memory limits.</p>
+            <p>Db2 Workgroup Server</p>
+            <p>Suitable for transactional database workloads in a departmental, workgroup, or medium-sized business environment.</p>
+            <p>Db2 Express C</p>
+            <p>Provides all the core capabilities of Db2 at no charge. Easy to use and embed. 2 CPU cores, 16GB memory limits.</p>
+        </section>
+
+        <section>
+            <h2>Examples of Features and Functions by Db2 LUW Editions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Express C</th>
+                        <th>Workgroup</th>
+                        <th>Advanced Workgroup</th>
+                        <th>Enterprise Server</th>
+                        <th>Advanced Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data Compression (row organized)</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Db2 pureScale</td>
+                        <td>No</td>
+                        <td>Yes (idle)</td>
+                        <td>Yes</td>
+                        <td>Yes (idle)</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>HADR</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Column-organized Tables (BLU)</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Federation</td>
+                        <td>Db2 LUW</td>
+                        <td>Db2 & Informix</td>
+                        <td>All</td>
+                        <td>Db2 & Informix</td>
+                        <td>All</td>
+                    </tr>
+                    <tr>
+                        <td>Temporal tables</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Data Partitioning (MPP)</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Db2 Workload Management</td>
+                        <td>No</td>
+                        <td>Offering</td>
+                        <td>Yes</td>
+                        <td>Offering</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Data Server Manager</td>
+                        <td>No</td>
+                        <td>Base</td>
+                        <td>Enterprise</td>
+                        <td>Base</td>
+                        <td>Enterprise</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Db2 Direct Editions</h2>
+            <p>New Delivery Mechanism for Db2 licenses:</p>
+            <ul>
+                <li>New license metrics to facilitate hybrid cloud deployments</li>
+                <li>Acquire the product directly online (Passport Advantage)</li>
+                <li>Option to deploy either on-premises or on cloud</li>
+            </ul>
+            <p>Two Versions depending on Requirements:</p>
+            <ul>
+                <li>Db2 Direct Standard Edition 11.1 - Has all of the database features of Db2 Workgroup Server Edition</li>
+                <li>Db2 Direct Advanced Edition 11.1 - Has all of the database features of Db2 Advanced Enterprise Server Edition</li>
+            </ul>
+            <p>Newly introduced simplified license metric, the Virtual Processor Core (VPC) sold as a monthly license charge</p>
+            <p>Predictable maintenance options:</p>
+            <ul>
+                <li>Enhancements and fixes approximately every four months</li>
+                <li>A stable stream that only includes fixes once a year</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Virtual Processor Core (VPC)</h2>
+            <p>Virtual Processor Core (VPC):</p>
+            <ul>
+                <li>1 VPC for every VPC available to a virtual Servers Operating System, or 1 VPC for each physical core of a non-partitioned physical server</li>
+                <li>If the number of VPCs is greater than the physical cores, then you only need to license the number of physical cores on the machine</li>
+                <li>Minimum of 2 VPCs per deployment (1 VPC for idle/warm standby)</li>
+            </ul>
+            <p>Benefits to Customers:</p>
+            <ul>
+                <li>Simplifies Processor and Sub-capacity Licensing</li>
+                <li>Aligns to Cloud Hosted Solution Licensing standards across MSP’s</li>
+                <li>Makes it easier for customers On-prem and in Cloud to stay in compliance</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Expand Db2 Ecosystem/Skills</h2>
+            <p>New Db2 Developer-C Edition:</p>
+            <ul>
+                <li>Freely downloadable just like Express-C</li>
+                <li>Fully functional Db2 database server</li>
+                <li>pureScale and DPF deployments</li>
+                <li>Compression and BLU Acceleration</li>
+            </ul>
+            <p>Use Limitations:</p>
+            <ul>
+                <li>For development and non-production only</li>
+                <li>Unsupported edition (non-warranted)</li>
+                <li>Environment limited usage:</li>
+                <ul>
+                    <li>4 cores, 16GB of memory</li>
+                    <li>100GB of data in user tablespaces</li>
+                </ul>
+            </ul>
+            <p>Functional Differences from Db2 Developer Edition:</p>
+            <ul>
+                <li>Excludes some “Supporting Programs”</li>
+                <ul>
+                    <li>Cognos, IDA, WebSphere AS / MQ, DSM Enterprise</li>
+                </ul>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Operating Systems Supported by Db2 11.1</h2>
+            <p>New Operating System Support:</p>
+            <ul>
+                <li>Power Linux LE (Little Endian)</li>
+                <li>Red Hat Enterprise Linux (RHEL) 7.1+</li>
+                <li>SUSE Linux Enterprise Server (SLES) 12</li>
+                <li>Ubuntu 14.04 LTS</li>
+            </ul>
+            <p>Supported Operating Systems:</p>
+            <ul>
+                <li>Intel 64-bit</li>
+                <li>Windows 7, 8.1, 10, Windows Server 2012 R2</li>
+                <li>Red Hat Enterprise Linux (RHEL) 6.7+, 7.1+</li>
+                <li>SUSE Linux Enterprise Server (SLES) 11SP4+, 12</li>
+                <li>CentOS 6.7, 7.1</li>
+                <li>Ubuntu 14.04 LTS</li>
+                <li>AIX Version 7.1 TL 3 SP5+</li>
+                <li>zLinux</li>
+                <li>Red Hat Enterprise Linux (RHEL) 7.1+</li>
+                <li>SUSE Linux Enterprise Server (SLES) 12</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Operating Systems: Virtualization</h2>
+            <ul>
+                <li>IBM System z</li>
+                <ul>
+                    <li>IBM Processor Resource/System Manager</li>
+                    <li>z/VM and z/KVM on IBM System z</li>
+                </ul>
+                <li>IBM Power</li>
+                <ul>
+                    <li>IBM PowerVM and PowerKVM and IBM Workload Partitions on IBM Power Systems</li>
+                </ul>
+                <li>Linux X86-64 Platforms</li>
+                <ul>
+                    <li>Red Hat KVM</li>
+                    <li>SUSE KVM</li>
+                </ul>
+                <li>VMWare ESXi</li>
+                <li>Docker container support – Linux only</li>
+                <li>Microsoft</li>
+                <ul>
+                    <li>Hyper-V</li>
+                    <li>Microsoft Windows Azure on x86-64 Windows Platforms only</li>
+                </ul>
+                <li>pureScale support on Power VM/KVM, VMWare, and KVM</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Db2 Server Connectivity Options</h2>
+            <ul>
+                <li>IBM Data Server Driver Package</li>
+                <li>IBM Data Server Runtime Client</li>
+                <li>IBM Data Server Client</li>
+                <li>IBM Data Server Driver for JDBC and SQLJ</li>
+                <li>IBM Data Server Driver for ODBC and CLI</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Streamlined Upgrade Process</h2>
+            <p>Upgrade directly from Version 9.7, 10.1, and 10.5 (3 releases back)</p>
+            <p>Ability to roll-forward through database version upgrades:</p>
+            <ul>
+                <li>Single-partition Db2 Enterprise Server Edition or Db2 pureScale</li>
+                <li>Upgrading from Db2 Version 10.5 Fix Pack 7, or later</li>
+                <li>Users are no longer required to perform an offline backup of existing databases before or after they upgrade</li>
+                <li>A recovery procedure involving roll-forward through database upgrade now exists</li>
+            </ul>
+            <p>HADR environments can now be upgraded without the need to re-initialize the standby database after performing an upgrade on the primary database:</p>
+            <ul>
+                <li>For single-partition Db2 Enterprise Server Edition users upgrading from Db2 Version 10.5 Fix Pack 7, or later</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Preparing to Install Db2 Database Servers</h2>
+            <p>Use the db2prereqcheck command to check the software and firmware prerequisites of a specific Db2 version</p>
+            <p>Installation prerequisites:</p>
+            <ul>
+                <li>Ensure that your system meets the necessary operating system, hardware, software, communications, disk, and memory requirements</li>
+                <li>There are different prerequisites for AIX, Linux, and Windows operating systems</li>
+            </ul>
+            <p>Disk and memory requirements:</p>
+            <ul>
+                <li>Ensure appropriate amount of disk space is available for Db2 environment</li>
+                <li>Db2 Setup wizard provides dynamic size estimates based on the components selected during a typical, compact, or custom installation</li>
+                <li>On Linux and UNIX operating systems, 2 GB of free space in the /tmp directory is recommended</li>
+                <li>Memory requirements are affected by the size and complexity of your database system, database activity, and the number of clients</li>
+                <li>At a minimum, a Db2 database system requires 256 MB of RAM, 1 GB of RAM is recommended for improved performance</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Db2 Software Installation Methods</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Installation Method</th>
+                        <th>Windows</th>
+                        <th>UNIX / Linux</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Db2 Setup Wizard</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Install Using Response File</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>db2_install command</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Payload File deployment</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Db2 Deployment Options</h2>
+            <p>On Premises</p>
+            <p>On Cloud</p>
+            <ul>
+                <li>SOFTWARE</li>
+                <li>APPLIANCE</li>
+                <li>HOSTED DBaaS</li>
+                <li>MANAGED DBaaS</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>IBM Db2 Hosted</h2>
+            <p>Provides a hosted Db2 environment that is deployed on IBM SoftLayer (virtual private nodes/bare metal) or AWS (virtual private nodes) cloud platform</p>
+            <p>Administered by your organization's DBAs (all software including OS & database)</p>
+            <p>Available via pay-as-you-go or subscription model (support included)</p>
+            <p>Benefits include:</p>
+            <ul>
+                <li>Convenience without the loss of control on cost-effective infrastructure</li>
+                <li>Five high-performance hardware configurations and two database software tiers to match capability and affordability needs</li>
+                <li>BLU Acceleration</li>
+                <li>Native encryption support included in all configurations ensuring data remains secure in the cloud</li>
+                <li>HADR for high availability and disaster recovery</li>
+                <li>Unlimited ability to create databases to fully utilize the cloud infrastructure</li>
+            </ul>
+            <p>Deployment options:</p>
+            <ul>
+                <li>Choice of cloud provider: SoftLayer or AWS</li>
+                <li>Five t-shirt sized configurations: Small, Medium, Large, X-Large, 2X-Large</li>
+                <li>Two versions of Db2 available: Workgroup Server Edition (Standard) and Advanced Enterprise Server Edition (Advanced)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Target Use-cases Addressed by Db2 Hosted</h2>
+            <p>Db2 Hosted is a great way to lift and shift an existing app to the cloud, but there are other ways to take advantage of this offering as well:</p>
+            <ul>
+                <li>Prototyping proof of concept (POC) development projects - Take advantage of the latest Db2 technologies and experiment in a cost-effective environment that doesn’t take up data center space or management bandwidth</li>
+                <li>Retain relevance to LOB initiatives - Quickly demonstrate a positive ROI associated with IT projects and manage year-to-year budget growth</li>
+                <li>Redundancy without building a new data center - Mitigate risks for unplanned downtime with easy setup of a secondary environment, monthly charges, SoftLayer data centers</li>
+                <li>Consolidation of smaller on-premise databases - Leverage cloud to consolidate sprawling on-premise systems and streamline initial move to cloud with automated deployment, and use all of your on-premises management processes/tools</li>
+                <li>Reduce CAPEX - Take advantage of a monthly charge model</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Db2 Connect</h2>
+            <p>Db2 Connect client access to host databases:</p>
+            <ul>
+                <li>Db2 Connect's basic feature is providing a direct connection to a host database from desktop applications running on your workstations</li>
+                <li>IBM Data Server Driver Package with Db2 Connect license is the simplest way to provide this solution</li>
+                <li>Each workstation that has a client package and Db2 Connect license installed can establish a direct TCP/IP connection to:</li>
+                <ul>
+                    <li>Db2 for z/OS</li>
+                    <li>IBM Db2 for IBM i</li>
+                    <li>Db2 servers</li>
+                </ul>
+                <li>In addition, applications can connect to and update multiple Db2 family databases in the same transaction with the complete data integrity provided by the two-phase commit protocol</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Unit Summary</h2>
+            <ul>
+                <li>Describe the system platforms supported by the Db2 Family of products</li>
+                <li>Compare the features available with different Db2 LUW product editions</li>
+                <li>Select the appropriate Db2 client software to support application client or server systems</li>
+                <li>Choose a method to install your Db2 product edition and plan migrations of existing Db2 servers to the latest release</li>
+                <li>Compare cloud-based Db2 options to a locally installed Db2 server</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Copyright IBM Corporation 2017</p>
+    </footer>
+</body>
+</html>
