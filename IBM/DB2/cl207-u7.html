@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 7: Backup and Recovery - Demonstration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1, h2, h3, h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+        .note-box, .important-box, .tip-box, .abstract-box, .summary-box, .conclusion-box {
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the box */
+        }
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            font-style: italic;
+        }
+        .important-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffecb5;
+        }
+        .tip-box {
+            background-color: #d1ecf1;
+            border-left: 5px solid #bee5eb;
+        }
+        .abstract-box {
+            background-color: #dff9fb;
+            border-left: 5px solid #c7ecee;
+        }
+        .summary-box {
+            background-color: #e2eafc;
+            border-left: 5px solid #d1dffc;
+        }
+        .conclusion-box {
+            background-color: #f7f7f9;
+            border-left: 5px solid #e1e1e3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0f62fe;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.25em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit 7: Backup and Recovery</h1>
+        <p>Demonstration 1: Backup and recovery tasks using the Db2 database.</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Introduction</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>This demonstration provides a comprehensive guide to performing backup and recovery tasks in the Db2 database. You will learn to configure log space, enable archive logging, create a backup image, and recover the database to a selected point in time.</p>
+            </div>
+            <div class="note-box">
+                <p>Backup and recovery are critical tasks in database administration to ensure data integrity and availability in case of failures.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 1: Configure the available log space for a database</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will configure the database log space to handle applications with large transactions.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Logon to the Linux system</strong>:
+                    <p>Logon to the Linux system using the user id <code>inst23</code>, with a password of <code>ibm2blue</code>.</p>
+                    <div class="command">ssh inst23@&lt;hostname&gt;</div>
+                </li>
+                <li>
+                    <strong>Open a Terminal Session</strong>:
+                    <p>Right-click the empty Linux desktop and select <em>Open in Terminal</em>.</p>
+                </li>
+                <li>
+                    <strong>Change to the DDL Directory</strong>:
+                    <p>Change to the directory <code>$HOME/ddl</code> to access the necessary files.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                </li>
+                <li>
+                    <strong>Configure the Log Space</strong>:
+                    <p>Use the following commands to configure the log space.</p>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 update db cfg using logprimary 3 logsecond 1 logfilsiz 6</div>
+                </li>
+                <li>
+                    <strong>Check Current and Deferred Configuration</strong>:
+                    <p>Use the <code>db2pd</code> command to check the current and deferred configuration settings.</p>
+                    <div class="command">db2pd -db musicdb -dbcfg | grep LOG</div>
+                </li>
+                <li>
+                    <strong>Run SQL Command Files</strong>:
+                    <p>Run the SQL command files to simulate changes and observe the effects on the log space.</p>
+                    <div class="command">db2 force application all</div>
+                    <div class="command">db2 terminate</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 -tvf create_temp_stock.sql</div>
+                    <div class="command">db2 +C -tvf stock_insert.sql</div>
+                    <div class="command">db2 commit</div>
+                    <div class="command">db2 terminate</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>If the log space is insufficient, database changes will fail with the SQL0964 message indicating that the transaction log is full. Use the <code>increase_logs.ddl</code> file to allocate sufficient log space.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully configured the log space for the database to handle large transactions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 2: Database Recovery Support with Archive Logging</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will configure the database for archive logging to enable more comprehensive recovery options.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Configure Archive Logging</strong>:
+                    <p>Use the following commands to configure archive logging and set the appropriate log paths.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 UPDATE DATABASE CONFIGURATION USING logarchmeth1 "DISK:$HOME/archive" logprimary 3 logsecond 10 logfilsiz 1000</div>
+                    <div class="command">db2 connect reset</div>
+                    <div class="command">db2 force application all</div>
+                    <div class="command">db2 terminate</div>
+                    <div class="command">db2 deactivate database musicdb</div>
+                    <div class="command">db2 BACKUP DATABASE MUSICDB TO $HOME/backups encrypt</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Switching from circular logging to archive logging requires an offline database backup to establish the starting point for archival logging.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully configured the database for archive logging, allowing for more comprehensive recovery options.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 3: Generate multiple sets of table changes noting the point in time for each change</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will perform multiple sets of changes to the database and record the time for each set to facilitate point-in-time recovery.</p>
+            </div>
+            <h3>Option 1: Use the Db2 command line processor</h3>
+            <ol>
+                <li>
+                    <strong>Run the SQL Script</strong>:
+                    <p>Execute the <code>stock_insert2.sql</code> script to make changes and note the current time.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 -tvf stock_insert2.sql</div>
+                </li>
+                <li>
+                    <strong>Record Results</strong>:
+                    <p>Record the current table size and the local date and time from the SQL result.</p>
+                    <ul>
+                        <li>Current Table size: ____________ (result 1)</li>
+                        <li>Local date: _____________ (result 1)</li>
+                        <li>Local time: _____________ (result 1)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Run the Script Again</strong>:
+                    <p>Execute the script a second time to generate another set of logged changes.</p>
+                    <div class="command">db2 -tvf stock_insert2.sql</div>
+                </li>
+                <li>
+                    <strong>Record Results</strong>:
+                    <p>Record the current table size and the local date and time from the SQL result.</p>
+                    <ul>
+                        <li>Current Table size: ____________ (result 2)</li>
+                        <li>Local date: _____________ (result 2)</li>
+                        <li>Local time: _____________ (result 2)</li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>Option 2: Use the Data Server Manager tool</h3>
+            <ol>
+                <li>
+                    <strong>Run the SQL Script</strong>:
+                    <p>Use DSM to execute the <code>stock_insert2.sql</code> script and note the results.</p>
+                    <div class="command">Script > Open from Client > Browse > stock_insert2.sql</div>
+                </li>
+                <li>
+                    <strong>Record Results</strong>:
+                    <p>Record the current table size and the local date and time from the SQL result.</p>
+                    <ul>
+                        <li>Current Table size: ____________ (result 1)</li>
+                        <li>Local date: _____________ (result 1)</li>
+                        <li>Local time: _____________ (result 1)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Run the Script Again</strong>:
+                    <p>Execute the script a second time to generate another set of logged changes.</p>
+                    <div class="command">Run SQL > Run All</div>
+                </li>
+                <li>
+                    <strong>Record Results</strong>:
+                    <p>Record the current table size and the local date and time from the SQL result.</p>
+                    <ul>
+                        <li>Current Table size: ____________ (result 2)</li>
+                        <li>Local date: _____________ (result 2)</li>
+                        <li>Local time: _____________ (result 2)</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Accurate recording of times and results is crucial for successful point-in-time recovery.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully generated multiple sets of table changes and recorded the times for each set.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 4: Recover the database to a specific point in time</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will use the RECOVER DATABASE command to restore the database to a specific point in time based on the recorded times from the previous task.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Prepare for Recovery</strong>:
+                    <p>Terminate active sessions and prepare the database for recovery.</p>
+                    <div class="command">db2 terminate</div>
+                    <div class="command">db2 force application all</div>
+                    <p>Wait about 1 minute before performing the recover command to allow the database to shut down.</p>
+                </li>
+                <li>
+                    <strong>Recover the Database</strong>:
+                    <p>Use the RECOVER DATABASE command to restore the database to the recorded time of the first execution of the SQL script.</p>
+                    <div class="command">db2 recover database musicdb to yyyy-mm-dd-hh.mm.ss</div>
+                </li>
+                <li>
+                    <strong>Verify Recovery</strong>:
+                    <p>Connect to the database and check the row count in the TEMP_STOCK table to verify recovery.</p>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 "select count(*) from music.temp_stock"</div>
+                    <div class="command">db2 terminate</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Ensure that the recovery target time value is specified correctly in the format <code>yyyy-mm-dd-hh.mm.ss</code>.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully recovered the database to a specific point in time, verifying the recovery by checking the row count in the TEMP_STOCK table.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Conclusion</div>
+        <div class="content">
+            <div class="conclusion-box">
+                <p>This demonstration has provided a comprehensive guide to performing backup and recovery tasks in the Db2 database. By following the tasks and best practices outlined, you have gained hands-on experience with configuring log space, enabling archive logging, creating a backup image, and performing point-in-time recovery, enhancing your database administration skills.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Skunkworks EdTech. All rights reserved.</p>
+    </footer>
+</body>
+</html>
