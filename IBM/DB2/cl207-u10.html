@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 10: Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #004080;
+        }
+        .task, .summary, .tip, .note {
+            border: 1px solid #004080;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f0f8ff;
+        }
+        .tip, .note {
+            background-color: #e6f7ff;
+        }
+        .tip::before {
+            content: "Tip: ";
+            font-weight: bold;
+        }
+        .note::before {
+            content: "Note: ";
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #004080;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Unit 10: Security</h1>
+<p>&copy; Copyright IBM Corporation 2017</p>
+<p>Course materials may not be reproduced in whole or in part without the written permission of IBM.</p>
+<p><strong>Db2 11.1 Administration Workshop for Linux</strong></p>
+<p><strong>ARROW ECS EDUCATION</strong></p>
+
+<h2>Demonstration 1: Database Security</h2>
+<p>In this demonstration, we will manage the security privileges of the Db2 database to support different types of users. A security administrator with the SECADM authority will be implemented. Another user will be given the DBADM authority for this database. An application developer will be granted specific privileges to support their assignment. Several database roles will be created to provide access based on role membership, rather than managing the authorizations at the user level.</p>
+
+<div class="task">
+    <h3>Task 1: Granting Specific Privileges to a Set of Database Users</h3>
+    <p>1. Logon to the Linux system using the user id <code>inst23</code>, with a password of <code>ibm2blue</code>.</p>
+    <p>2. Right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>3. Issue the following series of commands in the Linux terminal session:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb
+db2 grant secadm on database to user ctrl23
+db2 -tvf select_dbauth.sql</code></pre>
+    <p>The output will look similar to the following:</p>
+    <pre><code>GRANTEE     GRANTOR      CONNECTAUTH LOADAUTH DBADMAUTH SECURITYADMAUTH
+------------ ------------ ----------- -------- --------- ---------------
+INST23      SYSIBM       N           N        Y         Y
+PUBLIC      SYSIBM       Y           N        N         N
+CTRL23      INST23       N           N        N         Y
+3 record(s) selected.</code></pre>
+    <p>4. To start a second Linux terminal session, right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>5. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb user ctrl23 using ibm2blue</code></pre>
+    <p>6. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 create role dba_role
+db2 grant dba_role to user dba23
+db2 grant dbadm without accessctrl on database to role dba_role</code></pre>
+    <p>7. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 create role dev_role
+db2 grant dev_role to user user23
+db2 grant load on database to role dev_role
+db2 -tvf select_dbauth.sql</code></pre>
+    <p>The output should look similar to the following:</p>
+    <pre><code>GRANTEE     GRANTOR      CONNECTAUTH LOADAUTH DBADMAUTH SECURITYADMAUTH
+------------ ------------ ----------- -------- --------- ---------------
+INST23      SYSIBM       N           N        Y         Y
+PUBLIC      SYSIBM       Y           N        N         N
+CTRL23      INST23       N           N        N         Y
+DBA_ROLE    CTRL23       N           N        Y         N
+DEV_ROLE    CTRL23       N           Y        N         N
+5 record(s) selected.</code></pre>
+</div>
+
+<div class="task">
+    <h3>Task 2: Use the Newly Defined Security Privileges to Create and Access Database Objects</h3>
+    <p>1. To start a third Linux terminal session, right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>2. Using the third Linux terminal session, issue the following series of commands:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb user dba23 using ibm2blue</code></pre>
+    <p>3. Using the third Linux terminal session, issue the following command:</p>
+    <pre><code>db2 create tablespace testdata</code></pre>
+    <p>The CREATE TABLESPACE fails with a SQL0552N message. The DBADM database authority does not allow a user to create new table spaces. Currently, the inst23 user would need to perform that task.</p>
+    <p>4. Using the third Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 create table test.albums like music.albums in userspace1
+db2 “export to album.del of del select * from music.albums“
+db2 “import from album.del of del insert into test.albums“
+db2 runstats on table test.albums
+db2 runstats on table music.albums</code></pre>
+    <p>5. Using the third Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 connect to musicdb user user23 using ibm2blue
+db2 create table test.album2 like music.albums in tsp01</code></pre>
+    <p>The CREATE TABLE fails with a SQL0551N message. The user user23 does not have the USE authority for the tablespace TSP01. When the database was created, USE authority for the tablespace USERSPACE1 was granted to PUBLIC. Create the new test table using the USERSPACE1 table space.</p>
+    <p>6. Using the third Linux terminal session, issue the following command:</p>
+    <pre><code>db2 create table test.album2 like music.albums in userspace1
+db2 “insert into test.album2 select * from music.albums where artno = 42 “</code></pre>
+    <p>The INSERT fails with a SQL0551N message. The user user23 does not have the SELECT authority for the table MUSIC.ALBUMS. You could grant the authority to the user directly, but you will grant the access to the developer role dev_role, so all the developers can perform the access if needed. The security administrator will perform the task.</p>
+    <p>7. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 grant select on table music.albums to role dev_role
+db2 grant select,update on table test.albums to role dev_role</code></pre>
+    <p>8. Using the third Db2 command line window, issue the following series of commands:</p>
+    <pre><code>db2 connect to musicdb user user23 using ibm2blue
+db2 “insert into test.album2 select * from music.albums where artno = 42 “</code></pre>
+    <p>The INSERT is now successful. The user user23 now has the authority to SELECT from the table MUSIC.ARTISTS as a member of the role dev_role. As the creator of the table TEST.ALBUM2, the user has all SQL privileges for that table.</p>
+    <p>9. Using the third Db2 command line window, issue the following series of commands:</p>
+    <pre><code>db2 connect to musicdb user user23 using ibm2blue
+db2 -tvf test_user23.sql | more</code></pre>
+    <p>The output should look similar to the following:</p>
+    <pre><code>select title from test.albums where itemno =97
+TITLE
+--------------------------------------------------
+1962 - 1966
+1 record(s) selected.
+update test.albums set artno = 1 where itemno = 97
+DB20000I The SQL command completed successfully.
+delete from test.album2 where itemno = 97
+DB20000I The SQL command completed successfully.
+delete from test.albums where itemno = 97
+DB21034E The command was processed as an SQL statement because it was not
+a valid Command Line Processor command. During SQL processing it returned:
+SQL0551N "USER23" does not have the required authorization or privilege to
+perform operation "DELETE" on object "TEST.ALBUMS". SQLSTATE=42501
+runstats on table test.album2
+DB20000I The RUNSTATS command completed successfully.
+runstats on table test.albums
+DB20000I The RUNSTATS command completed successfully.
+drop table test.album2
+DB20000I The SQL command completed successfully.</code></pre>
+</div>
+
+<div class="summary">
+    <h3>Summary:</h3>
+    <p>You managed the security privileges of the Db2 database to support different types of users. A security administrator with the SECADM authority was implemented. Another user was given the DBADM authority for this database. An application developer was granted specific privileges to support their assignment. Several database roles were created to provide access based on role membership rather than managing the authorizations at the user level.</p>
+</div>
+
+</body>
+</html>
