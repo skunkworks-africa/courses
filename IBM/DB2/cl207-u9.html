@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 9: Locking and Concurrency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #004080;
+        }
+        .task, .summary, .tip, .note {
+            border: 1px solid #004080;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f0f8ff;
+        }
+        .tip, .note {
+            background-color: #e6f7ff;
+        }
+        .tip::before {
+            content: "Tip: ";
+            font-weight: bold;
+        }
+        .note::before {
+            content: "Note: ";
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #004080;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Unit 9: Locking and Concurrency</h1>
+<p>&copy; Copyright IBM Corporation 2017</p>
+<p>Course materials may not be reproduced in whole or in part without the written permission of IBM.</p>
+<p><strong>Db2 11.1 Administration Workshop for Linux</strong></p>
+<p><strong>ARROW ECS EDUCATION</strong></p>
+
+<h2>Demonstration 1: Investigating Db2 Locking</h2>
+<p>In this demonstration, we will use several SQL scripts to explore the types of locks used when processing SQL statements with different application isolation levels. You will create and analyze a lock wait condition and use a LOCKING event monitor to capture diagnostic data about lock-related events.</p>
+
+<div class="task">
+    <h3>Task 1: Monitor the Locks Acquired for a SQL UPDATE</h3>
+    <p>1. Logon to the Linux system using the user id <code>inst23</code>, with a password of <code>ibm2blue</code>.</p>
+    <p>2. Right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>3. Issue the following series of commands in the Linux terminal session:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb
+db2 grant select on table music.stock to user user23
+db2 +C -tvf stock_update.sql</code></pre>
+    <p>The output will look similar to the following:</p>
+    <pre><code>SELECT sum(qty) from music.stock where itemno=10
+1
+-----------
+109
+1 record(s) selected.
+update music.stock set qty = qty + 1 where itemno between 10 and 15
+DB20000I The SQL command completed successfully.
+SELECT sum(qty) from music.stock where itemno=10
+1
+-----------
+112
+1 record(s) selected.</code></pre>
+    <p>4. Issue the following command using the Linux terminal session:</p>
+    <pre><code>db2pd -db musicdb -locks | more</code></pre>
+    <p>5. Review the list of locks that were acquired to execute the SQL UPDATE:</p>
+    <ul>
+        <li>You should see a series of Exclusive (X) row locks and several table locks.</li>
+        <li>You should see two Intent Exclusive (IX) table locks.</li>
+    </ul>
+</div>
+
+<div class="task">
+    <h3>Task 2: Processing SQL SELECT Statements Using Different Locking Isolation Levels</h3>
+    <p>1. Issue the following series of commands using the Linux terminal session:</p>
+    <pre><code>db2 update db cfg using mon_lockwait without_hist
+db2 update db cfg using mon_locktimeout without_hist
+db2 -tvf create_lock_monitor.sql</code></pre>
+    <p>2. Issue the following series of commands using the Linux terminal session:</p>
+    <pre><code>db2 connect to musicdb
+db2 +C -tvf stock_update.sql</code></pre>
+    <p>3. To start a second Linux terminal session, right-click the empty Linux desktop and select <strong>Open in Terminal</strong>.</p>
+    <p>4. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>cd $HOME/ddl
+db2 connect to musicdb user user23 using ibm2blue</code></pre>
+    <p>5. Using the second Linux terminal session, issue the following command:</p>
+    <pre><code>db2 -tvf stock_select_ur.sql</code></pre>
+    <p>The output will look similar to the following:</p>
+    <pre><code>set current lock timeout 300
+DB20000I The SQL command completed successfully.
+set current isolation ur
+DB20000I The SQL command completed successfully.
+select sum(qty) from music.STOCK where itemno = 10
+1
+-----------
+115
+1 record(s) selected.</code></pre>
+    <p>6. Using the second Linux terminal session, issue the following command:</p>
+    <pre><code>db2 -tvf stock_select_cs.sql</code></pre>
+    <p>The output will look similar to the following:</p>
+    <pre><code>set current lock timeout 300
+DB20000I The SQL command completed successfully.
+set current isolation cs
+DB20000I The SQL command completed successfully.
+select sum(qty) from music.STOCK where itemno = 10
+1
+-----------
+112
+1 record(s) selected.</code></pre>
+    <p>7. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 connect to musicdb user user23 using ibm2blue
+db2 -tvf stock_select_rs.sql</code></pre>
+    <p>8. Switching back to the first terminal session, issue the following command:</p>
+    <pre><code>db2pd -db musicdb -wlock</code></pre>
+    <p>9. Using the first terminal session, issue the following command:</p>
+    <pre><code>db2pd -db musicdb -lock</code></pre>
+    <p>10. In the second Linux terminal session, wait for the lock timeout condition to occur and the Db2 error message to be returned. The output will look similar to the following:</p>
+    <pre><code>set current lock timeout 180
+DB20000I The SQL command completed successfully.
+set current isolation rs
+DB20000I The SQL command completed successfully.
+select sum(qty) from music.STOCK where itemno = 10
+SQL0911N The current transaction has been rolled back because of a deadlock
+or timeout. Reason code "68". SQLSTATE=40001</code></pre>
+</div>
+
+<div class="task">
+    <h3>Task 3: Monitor a Db2 Database for Lock Wait Conditions Using the Data Server Manager</h3>
+    <p>1. Using the first terminal session, issue the following series of commands:</p>
+    <pre><code>db2 commit
+db2 connect to musicdb
+db2 +C -tvf stock_update.sql</code></pre>
+    <p>2. Using the second Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 connect to musicdb user user23 using ibm2blue
+db2 -tvf stock_select_rs.sql</code></pre>
+    <p>3. Logon to DSM at <code>http://localhost:11080</code> with the following credentials:</p>
+    <ul>
+        <li>User id: db2admin</li>
+        <li>Password: ibm2blue</li>
+    </ul>
+    <p>4. Click <strong>Monitor</strong> on the left side of the DSM application.</p>
+    <p>5. Select <strong>Database</strong> from the options.</p>
+    <p>6. Click <strong>Locking</strong> from the menu options at the top.</p>
+    <p>7. Use the arrow next to Blocker to expand the data and show the WAITER, user23.</p>
+    <p>8. Select the <strong>Locked Objects with Waiting Connections</strong> view.</p>
+    <p>9. Sign Out to exit the Data Server Manager.</p>
+</div>
+
+<div class="task">
+    <h3>Task 4: Analyze the Data Collected by a LOCKING Event Monitor for Locking Related Issues</h3>
+    <p>1. Using the first Linux terminal session, issue the following series of commands:</p>
+    <pre><code>db2 commit
+db2 connect to musicdb
+db2 set event monitor mon_locks state 0
+db2 -tvf query_lock_events.sql | more</code></pre>
+    <p>The output will look similar to the following:</p>
+    <pre><code>select event_id , event_type, event_timestamp from lock_mon_locks
+EVENT_ID EVENT_TYPE EVENT_TIMESTAMP
+-------------------- ----------------------------------------------------------
+1 LOCKWAIT 2017-08-01-15.43.57.377451
+2 LOCKTIMEOUT 2017-08-01-15.46.52.707765
+3 LOCKWAIT 2017-08-01-15.48.35.924257
+4 LOCKTIMEOUT 2017-08-01-15.51.32.749114
+4 record(s) selected.
+select participant_no, varchar(auth_id,10) as auth_id, varchar(appl_name,20) as appl_name,
+varchar(table_name,12) as tabname, varchar(table_schema,12) as tabschema, lock_object_type,
+participant_type, lock_status from lock_participants_mon_locks where event_type='LOCKTIMEOUT'
+PARTICIPANT_NO AUTH_ID APPL_NAME TABNAME TABSCHEMA LOCK_OBJECT_TYPE PARTICIPANT_TYPE LOCK_STATUS
+-------------- ---------- -------------------- ------------ ------------ ----------------------- ---------------- --------------------
+1 USER23 db2bp STOCK MUSIC ROW REQUESTER 2
+2 INST23 db2bp - - - OWNER -
+1 USER23 db2bp STOCK MUSIC ROW REQUESTER 2
+2 INST23 db2bp - - - OWNER -
+4 record(s) selected.
+select participant_no, effective_isolation, varchar(stmt_operation,20) as operation, varchar(stmt_text,50) as sql_text
+from lock_participant_activities_mon_locks where event_type='LOCKTIMEOUT'
+PARTICIPANT_NO EFFECTIVE_ISOLATION OPERATION SQL_TEXT
+-------------- ------------------- -------------------- --------------------------
+1 RS DML, Select (blockab select sum(qty) from music.STOCK where itemno = 10
+SQL0445W Value "DML, Select (blockable)" has been truncated. SQLSTATE=01004
+1 RS DML, Select (blockab select sum(qty) from music.STOCK where itemno = 10
+SQL0445W Value "DML, Select (blockable)" has been truncated. SQLSTATE=01004
+2 record(s) selected with 2 warning messages printed.</code></pre>
+</div>
+
+<div class="summary">
+    <h3>Summary:</h3>
+    <p>You created and analyzed a lock wait condition. A LOCKING event monitor was used to capture diagnostic data about lock-related events.</p>
+</div>
+
+</body>
+</html>
