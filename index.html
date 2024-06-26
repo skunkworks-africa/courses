@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks EdTech Course Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header, footer {
+            background-color: #0f62fe;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #ffffff;
+            border-bottom: 2px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #0f62fe;
+            text-decoration: none;
+            padding: 0 10px;
+            display: inline-block;
+        }
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+        tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #0f62fe;
+        }
+        .footer-text {
+            font-size: 0.8rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header, footer {
+                text-align: center;
+                padding: 10px;
+            }
+
+            nav a {
+                padding: 10px;
+                display: block;
+            }
+
+            th, td {
+                padding: 10px 5px;
+                font-size: 0.9em; /* Smaller font size for mobile */
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 5px;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            /* Label the data */
+            td:nth-of-type(1):before { content: "Category"; }
+            td:nth-of-type(2):before { content: "Course Title"; }
+            td:nth-of-type(3):before { content: "Duration"; }
+            td:nth-of-type(4):before { content: "Cost"; }
+            td:nth-of-type(5):before { content: "Created On"; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks EdTech Course Catalog</h1>
+    </header>
+    <nav>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+    </nav>
+    <div class="content">
+        <section id="courses">
+            <h2>Available Courses</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Course Title</th>
+                        <th>Duration (Days)</th>
+                        <th>Cost</th>
+                        <th>Created On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Row -->
+                    <tr>
+                        <td>Adobe</td>
+                        <td>Adobe Creative Cloud Mastery</td>
+                        <td>3</td>
+                        <td>$300</td>
+                        <td>10/28/2023</td>
+                    </tr>
+                    <tr>
+                        <td>AI</td>
+                        <td>AI Fundamentals</td>
+                        <td>5</td>
+                        <td>$500</td>
+                        <td>7/19/2023</td>
+                    </tr>
+                    <!-- Add more rows as per the actual data -->
+                </tbody>
+            </table>
+        </section>
+        <section id="about">
+            <h2>About Skunkworks EdTech</h2>
+            <p>Welcome to the Skunkworks EdTech Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.</p>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-text">© 2024 Skunkworks EdTech. All rights reserved.</div>
+        <div class="footer-text">Contact Us | Privacy Policy | Terms of Use</div>
+    </footer>
+</body>
+</html>
