@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up a New Db2 Instance</title>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2em;
+            color: #0f62fe;
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+        .section {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px;
+            display: block;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-page">
+        <h1>Setting Up a New Db2 Instance</h1>
+        <img src="db2_logo.png" alt="DB2 Logo">
+    </div>
+
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>Creating a new Db2 instance, particularly for educational or training purposes, involves several critical steps. This process not only entails the actual creation of the instance but also requires understanding how to configure, manage, and troubleshoot it effectively.</p>
+        <div class="note-box">
+            These steps help confirm the environment's status before creating a new instance, ensuring there are no conflicts.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Step-by-Step Guide to Create a New Db2 Instance</h2>
+        <div class="section">
+            <h3>Task 1: Prepare for the Db2 Instance Creation</h3>
+            <ol>
+                <li><strong>Log into the Linux System</strong>: Begin by logging into your Linux server using a user account with sufficient privileges to switch to root.</li>
+                <li><strong>Open a Terminal Session</strong>: Access the terminal, often done by right-clicking on the desktop and selecting "Open in Terminal".</li>
+                <li><strong>Verify Current Db2 Environment</strong>: Use commands to check instances and databases.</li>
+                <div class="command">
+                    db2 get instance<br>
+                    db2 list db directory<br>
+                    db2start
+                </div>
+            </ol>
+        </div>
+        <div class="section">
+            <h3>Task 2: Create the New Db2 Instance</h3>
+            <p>Switch to root user and execute the instance creation command.</p>
+            <div class="command">
+                su - root<br>
+                /opt/ibm/db2/V11.1/instance/db2icrt -u fenced23 inst23
+            </div>
+        </div>
+        <div class="section">
+            <h3>Task 3: Verify and Troubleshoot Instance Creation</h3>
+            <p>Check logs and test the new instance to ensure it operates correctly.</p>
+            <div class="command">
+                cat /tmp/db2icrt.log.14455<br>
+                db2start
+            </div>
+            <div class="note-box">
+                If you encounter errors, refer to the log files for detailed error messages.
+            </div>
+        </div>
+    </div>
+
+    <div class="page-number">Page 1 of 1</div>
+</body>
+</html>
