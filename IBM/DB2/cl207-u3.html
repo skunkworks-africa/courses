@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 3 - Demonstration 1: Create a new Db2 instance</title>
+    <title>Unit 4 - Demonstration 1: Creating databases and data placement</title>
     <style>
         body {
             font-family: 'IBM Plex Sans', Arial, sans-serif;
@@ -168,92 +168,442 @@
 </head>
 <body>
     <header>
-        <h1>Unit 3 - Demonstration 1: Create a new Db2 instance</h1>
+        <h1>Unit 4 - Demonstration 1: Creating databases and data placement</h1>
     </header>
     <div class="section">
         <div class="section-title">Introduction</div>
         <div class="content">
-            <p>Creating a new Db2 instance, particularly for educational or training purposes, involves several critical steps. This process not only entails the actual creation of the instance but also requires understanding how to configure, manage, and troubleshoot it effectively. Below is a detailed, step-by-step guide with troubleshooting tips for setting up a Db2 instance on a Linux system:</p>
+            <p>In this demonstration, you will learn how to create and manage a Db2 database. This includes setting up the environment, creating databases, configuring storage groups and tablespaces, and using Db2 commands to retrieve and display database information.</p>
         </div>
     </div>
     <div class="section">
-        <div class="section-title">Step-by-Step Guide to Create a New Db2 Instance</div>
+        <div class="section-title">Task 1: Create the MUSICDB Database</div>
         <div class="content">
-            <h2>Task 1: Prepare for the Db2 Instance Creation</h2>
             <ol>
                 <li>
-                    <strong>Log into the Linux System</strong>: Begin by logging into your Linux server using a user account with sufficient privileges to switch to root. In this case, log in as <code>inst00</code> with the password <code>ibm2blue</code>.
-                    <div class="command">ssh inst00@&lt;hostname&gt;</div>
+                    <strong>Connect to the Db2 Instance</strong>: Open your terminal and connect to the Db2 instance.
+                    <div class="command">db2 connect to <em>db2inst1</em></div>
                 </li>
                 <li>
-                    <strong>Open a Terminal Session</strong>: Once logged in, access the terminal. This can often be done by right-clicking on the desktop and selecting "Open in Terminal" or by using a terminal application.
+                    <strong>Create the MUSICDB Database</strong>: Run the following command to create the database.
+                    <div class="command">db2 create database MUSICDB</div>
                 </li>
                 <li>
-                    <strong>Verify Current Db2 Environment</strong>:
-                    <div class="command">db2 get instance</div>
-                    <div class="command">db2 list db directory</div>
+                    <strong>Verify Database Creation</strong>: Ensure the database has been created successfully.
+                    <div class="command">db2 list database directory</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 2: Configure a Database Connection</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Access Data Server Manager</strong>: Open Firefox and navigate to <a href="http://ibmclass:11080">http://ibmclass:11080</a>.
+                    <div class="note-box">Use the credentials: <strong>Username</strong>: db2admin, <strong>Password</strong>: ibm2blue</div>
+                </li>
+                <li>
+                    <strong>Configure Connection</strong>: Add a new database connection with the following details:
+                    <ul>
+                        <li>Database connection name: <em>MUSICDB</em></li>
+                        <li>Database name: <em>MUSICDB</em></li>
+                        <li>Host name: <em>ibmclass</em></li>
+                        <li>Port number: <em>50004</em></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Test the Connection</strong>: Test the connection to ensure it is working properly.
+                </li```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4 - Demonstration 1: Creating databases and data placement</title>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto; /* Allows table cells to adjust their width based on content */
+            background-color: #fff; /* White background for better readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+        }
+        thead {
+            background-color: #0f62fe; /* IBM Blue */
+            color: #FFFFFF;
+        }
+        th, td {
+            padding: 15px; /* Increased padding for more space inside cells */
+            border: 1px solid #ddd; /* Light gray border for subtle separation */
+            text-align: left;
+            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
+        }
+        th {
+            font-weight: bold; /* Bold font for headers */
+            text-transform: uppercase; /* Uppercase text for headers */
+            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Slightly darker gray on hover */
+        }
+        a {
+            color: #0f62fe; /* IBM Blue */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            font-style: italic;
+            border-radius: 5px; /* Rounded corners for the note box */
+        }
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe; /* IBM Blue for page number */
+        }
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer with page number */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.25em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1em;
+                padding: 10px;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit 4 - Demonstration 1: Creating databases and data placement</h1>
+    </header>
+    <div class="section">
+        <div class="section-title">Introduction</div>
+        <div class="content">
+            <p>In this demonstration, you will learn how to create and manage a Db2 database. This includes setting up the environment, creating databases, configuring storage groups and tablespaces, and using Db2 commands to retrieve and display database information.</p>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 1: Create the MUSICDB Database</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Connect to the Db2 Instance</strong>: Open your terminal and connect to the Db2 instance.
+                    <div class="command">db2 connect to <em>db2inst1</em></div>
+                </li>
+                <li>
+                    <strong>Create the MUSICDB Database</strong>: Run the following command to create the database.
+                    <div class="command">db2 create database MUSICDB</div>
+                </li>
+                <li>
+                    <strong>Verify Database Creation</strong>: Ensure the database has been created successfully.
+                    <div class="command">db2 list database directory</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 2: Configure a Database Connection</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Access Data Server Manager</strong>: Open Firefox and navigate to <a href="http://ibmclass:11080">http://ibmclass:11080</a>.
+                    <div class="note-box">Use the credentials: <strong>Username</strong>: db2admin, <strong>Password</strong>: ibm2blue</div>
+                </li>
+                <li>
+                    <strong>Configure Connection</strong>: Add a new database connection with the following details:
+                    <ul>
+                        <li>Database connection name: <em>MUSICDB</em></li>
+                        <li>Database name: <em>MUSICDB</em></li>
+                        <li>Host name: <em>ibmclass</em></li>
+                        <li>Port number: <em>50004</em></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Test the Connection</strong>: Test the connection to ensure it is working properly.
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 3```html
+    : Configure Database and Logging Parameters</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Adjust Logging Parameters</strong>: Modify the number of primary and secondary log files.
+                    <div class="command">db2 update db cfg for MUSICDB using logprimary 5 logsecond 10</div>
+                    <p>If prompted, restart the database to apply the changes:</p>
+                    <div class="command">db2stop force</div>
                     <div class="command">db2start</div>
                 </li>
-            </ol>
-        </div>
-    </div>
-    <div class="section">
-        <div class="section-title">Task 2: Create the New Db2 Instance</div>
-        <div class="content">
-            <ol>
                 <li>
-                    <strong>Switch to Root User</strong>: To perform system-level operations such as creating Db2 instances, switch to the root user.
-                    <div class="command">su - root</div>
-                    <p>Enter the root password <code>dalvm3</code> when prompted.</p>
-                </li>
-                <li>
-                    <strong>Check Existing Db2 Instances</strong>: Verify which Db2 instances are already installed to avoid naming conflicts.
-                    <div class="command">/opt/ibm/db2/V11.1/instance/db2ilist</div>
-                </li>
-                <li>
-                    <strong>Create the New Instance</strong>: Use the <code>db2icrt</code> command to create a new Db2 instance named <code>inst23</code> with a fenced user <code>fenced23</code>.
-                    <div class="command">/opt/ibm/db2/V11.1/instance/db2icrt -u fenced23 inst23</div>
+                    <strong>Verify Configuration</strong>: Check the configuration settings to ensure they have been applied correctly.
+                    <div class="command">db2 get db cfg for MUSICDB</div>
                 </li>
             </ol>
         </div>
     </div>
     <div class="section">
-        <div class="section-title">Task 3: Verify and Troubleshoot Instance Creation</div>
+        <div class="section-title">Task 4: Create a Storage Group</div>
         <div class="content">
             <ol>
                 <li>
-                    <strong>Check the Creation Log</strong>: Review the installation log to ensure there were no errors during the instance creation.
-                    <div class="command">cat /tmp/db2icrt.log.14455</div>
+                    <strong>Create the Storage Group</strong>: Define a new storage group named <code>APP_DATA</code>.
+                    <div class="command">db2 "CREATE STOGROUP APP_DATA ON '/dbauto/path2'"</div>
                 </li>
                 <li>
-                    <strong>Test the New Instance</strong>: Switch to the new instance owner <code>inst23</code>.
-                    <div class="command">su - inst23</div>
-                    <p>Start the Db2 instance to verify it's working correctly.</p>
-                    <div class="command">db2start</div>
-                    <p>If the instance starts successfully, it indicates that the creation process was successful. If you encounter errors, refer to the log files for detailed error messages.</p>
+                    <strong>Verify Storage Group Creation</strong>: Ensure the storage group has been created successfully.
+                    <div class="command">db2 list stogroups</div>
                 </li>
             </ol>
         </div>
     </div>
     <div class="section">
-        <div class="section-title">Troubleshooting Common Issues</div>
+        <div class="section-title">Task 5: Create a Tablespace</div>
         <div class="content">
-            <ul>
-                <li><strong>Permission Errors</strong>: Ensure the root and instance owner have appropriate permissions. Check user groups and permissions for the directory where Db2 is installed.</li>
-                <li><strong>Instance Start Failures</strong>: Review the error codes in the terminal or logs. Common issues might include misconfigurations in network settings or insufficient resources.</li>
-                <li><strong>Log Review</strong>: Always check the logs after running Db2 commands. If there are initialization errors, logs may provide specific codes and descriptions that help in troubleshooting.</li>
-            </ul>
+            <ol>
+                <li>
+                    <strong>Create the Tablespace</strong>: Define a new tablespace named <code>TSP01</code> within the <code>APP_DATA</code> storage group.
+                    <div class="command">db2 "CREATE TABLESPACE TSP01 MANAGED BY AUTOMATIC STORAGE USING STOGROUP APP_DATA EXTENTSIZE 4"</div>
+                </li>
+                <li>
+                    <strong>Verify Tablespace Creation</strong>: Ensure the tablespace has been created successfully.
+                    <div class="command">db2 list tablespaces</div>
+                </li>
+            </ol>
         </div>
     </div>
     <div class="section">
-        <div class="section-title">Maintenance and Regular Checks</div>
+        <div class="section-title">Task 6: Execute SQL Scripts</div>
         <div class="content">
             <ol>
-                <li><strong>Backup Configuration Files</strong>: Regularly back up configuration files and critical data.
-                    <div class="command">db2 backup db mydb to /path/to/backup/location</div>
+                <li>
+                    <strong>Navigate to the SQL Script Directory</strong>: Change to the directory containing your SQL scripts.
+                    <div class="command">cd $HOME/ddl</div>
                 </li>
-                <li><strong>Apply Security Patches and Updates</strong>: Regularly update the Db2 software to ensure it is secure and up to date.
-                    <div class="command">db2updv11.1</div>
+                <li>
+                    <strong>Execute the SQL Script</strong>: Run the SQL script to create multiple tablespaces.
+                    <div class="command">db2 -tvf create_tablespaces.ddl</div>
+                </li>
+                <li>
+                    <strong>Verify Tablespace Creation</strong>: Ensure all tablespaces have been created successfully.
+                    <div class="command">db2 list tablespaces show detail</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-title">Task 7: Retrieve Tablespace Information</div>
+        <div class="content">
+            <ol>
+                <li>
+                    <strong>Execute the SQL Script</strong>: Run the SQL script to retrieve tablespace information.
+                    <div class="command">db2 -tvf select_tablespaces.sql</div>
+                </li>
+                <li>
+                    <strong>Review the Output</strong>: Check the output for detailed tablespace information.
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TBSPACE</th>
+                                <th>DEFINER</th>
+                                <th>TBSPACEID</th>
+                                <th>TBSPACETYPE</th>
+                                <th>DATATYPE</th>
+                                <th>SGNAME</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SYSCATSPACE</td>
+                                <td>SYSIBM</td>
+                                <td>0</td>
+                                <td>D</td>
+                                <td>A</td>
+                                <td>IBMSTOGROUP</td>
+                            </tr>
+                            <tr>
+                                <td>TEMPSPACE1</td>
+                                <td>SYSIBM</td>
+                                <td>1</td>
+                                <td>S</td>
+                                <td>T</td>
+                                <td>IBMSTOGROUP</td>
+                            </tr>
+                            <tr>
+                                <td>USERSPACE1</td>
+                                <td>SYSIBM</td>
+                                <td>2</td>
+                                <td>D</td>
+                                <td>L</td>
+                                <td>IBMSTOGROUP</td>
+                            </tr>
+                            <tr>
+                                <td>SYSTOOLSPACE</td>
+                                <td>SYSTEM</td>
+                                <td>3</td>
+                                <td>D</td>
+                                <td>L</td>
+                                <td>IBMSTOGROUP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    <strong>Execute Additional SQL Scripts</strong>: Run the script to get container-level details.
+                    <div class="command">db2 -tvf select_mon_get_cont.sql</div>
+                </li>
+                <li>
+                    <strong>Execute Disk Path Information Script</strong>: Run the script to retrieve disk path information.
+                    <div class="command">db2 -tvf dbpaths.sql</div>
+                </li>
+                <li>
+                    <strong>Review Disk Path Information</strong>: Check the output for disk path details.
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>DB_PATH_TYPE</th>
+                                <th>PATH_NAME</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DBPATH</td>
+                                <td>/database/inst23/NODE0000/SQL00001/</td>
+                            </tr>
+                            <tr>
+                                <td>DB_STORAGE_PATH</td>
+                                <td>/dbauto/path2/</td>
+                            </tr>
+                            <tr>
+                                <td>DB_STORAGE_PATH</td>
+                                <td>/dbauto/path1/</td>
+                            </tr>
+                            <tr>
+                                <td>LOCAL_DB_DIRECTORY</td>
+                                <td>/database/inst23/NODE0000/sqldbdir/</td>
+                            </tr>
+                            <tr>
+                                <td>LOGPATH</td>
+                                <td>/database/inst23/NODE0000/SQL00001/LOGSTREAM0000/</td>
+                            </tr>
+                            <tr>
+                                <td>TBSP_CONTAINER</td>
+                                <td>/database/inst23/NODE0000/SQL00001/tsp02</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </li>
             </ol>
         </div>
