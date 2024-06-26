@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6: Moving Data - Demonstration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1, h2, h3, h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+        .note-box, .important-box, .tip-box, .abstract-box, .summary-box, .conclusion-box {
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the box */
+        }
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            font-style: italic;
+        }
+        .important-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffecb5;
+        }
+        .tip-box {
+            background-color: #d1ecf1;
+            border-left: 5px solid #bee5eb;
+        }
+        .abstract-box {
+            background-color: #dff9fb;
+            border-left: 5px solid #c7ecee;
+        }
+        .summary-box {
+            background-color: #e2eafc;
+            border-left: 5px solid #d1dffc;
+        }
+        .conclusion-box {
+            background-color: #f7f7f9;
+            border-left: 5px solid #e1e1e3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0f62fe;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.25em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit 6: Moving Data</h1>
+        <p>Demonstration 1: Moving data using the Db2 IMPORT, INGEST, and LOAD commands.</p>
+    </header>
+
+    <div class="section">
+        <div class="section-title">Introduction</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>This demonstration provides a comprehensive guide to moving data into Db2 tables using various methods including IMPORT, INGEST, and LOAD commands. You will also use the SET INTEGRITY statement to resolve constraint checking after using a LOAD command.</p>
+            </div>
+            <div class="note-box">
+                <p>Moving data into Db2 tables involves several steps and best practices to ensure data integrity and efficient loading processes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 1: Use the IMPORT utility to load data into a table</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will use the IMPORT utility to load data from a delimited file into a Db2 table.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Logon to the Linux system</strong>:
+                    <p>Logon to the Linux system using the user id <code>inst23</code>, with a password of <code>ibm2blue</code>.</p>
+                    <div class="command">ssh inst23@&lt;hostname&gt;</div>
+                </li>
+                <li>
+                    <strong>Open a Terminal Session</strong>:
+                    <p>Right-click the empty Linux desktop and select <em>Open in Terminal</em>.</p>
+                </li>
+                <li>
+                    <strong>Change to the DDL Directory</strong>:
+                    <p>A set of course files are located in the directory <code>$HOME/ddl</code>. Change to this directory to make it easier to access these files that contain Db2 commands or SQL statements.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                </li>
+                <li>
+                    <strong>Run the IMPORT Command</strong>:
+                    <p>Use the IMPORT utility to load data from the file <code>$HOME/artists.del</code> into the ARTISTS table.</p>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 IMPORT from $HOME/artists.del of del insert into music.artists</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Ensure that the input file <code>artists.del</code> exists in the specified directory and contains valid data.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully loaded data into the ARTISTS table using the IMPORT utility.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 2: Use the INGEST command to load data into a Db2 table</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will use the INGEST command to efficiently load data from a file into a Db2 table.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Create the INGEST Restart Table</strong>:
+                    <p>Create the SYSTOOLS.INGESTRESTART table using the <code>cr_toolspace.ddl</code> file.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 -tvf cr_toolspace.ddl</div>
+                </li>
+                <li>
+                    <strong>Run the INGEST Command</strong>:
+                    <p>Use the INGEST command to load data from the file <code>/home/inst23/albums.del</code> into the ALBUMS table.</p>
+                    <div class="command">db2 -tvf ingest_albums.ddl</div>
+                </li>
+            </ol>
+            <div class="tip-box">
+                <p>The INGEST command is useful for high-speed data loading and can handle large volumes of data efficiently.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully loaded data into the ALBUMS table using the INGEST command.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 3: Use the Db2 LOAD utility to load data into a table that has a foreign key constraint defined</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will use the Db2 LOAD utility to add data to the STOCK table and resolve integrity constraints using the SET INTEGRITY command.</p>
+            </div>
+            <ol>
+                <li>
+                    <strong>Run the LOAD Command</strong>:
+                    <p>Use the LOAD command in the file <code>load_stock1.ddl</code> to load data into the STOCK table.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 -tvf load_stock1.ddl</div>
+                </li>
+                <li>
+                    <strong>Run the SET INTEGRITY Command</strong>:
+                    <p>Use the <code>set_integrity_stock.sql</code> file to run SET INTEGRITY and resolve any pending integrity constraints.</p>
+                    <div class="command">db2 -tvf set_integrity_stock.sql</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Ensure that all referential and check constraints are correctly defined and that the data being loaded complies with these constraints.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully loaded data into the STOCK table and resolved integrity constraints using the SET INTEGRITY command.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Task 4: Run a file containing a series of LOAD commands and SET INTEGRITY statements</div>
+        <div class="content">
+            <div class="abstract-box">
+                <p>In this task, you will periodically refresh or extend tables with new data using a command script that contains LOAD commands and SET INTEGRITY statements.</p>
+            </div>
+            <h3>Option 1: Use the Db2 command line processor</h3>
+            <ol>
+                <li>
+                    <strong>Create Exception Tables</strong>:
+                    <p>Run the <code>create_exception_tables.ddl</code> script to create exception tables for ARTISTS and ALBUMS.</p>
+                    <div class="command">cd $HOME/ddl</div>
+                    <div class="command">db2 connect to musicdb</div>
+                    <div class="command">db2 -tvf create_exception_tables.ddl</div>
+                </li>
+                <li>
+                    <strong>Run the LOAD and SET INTEGRITY Commands</strong>:
+                    <p>Use the <code>load_tables_clp.ddl</code> script to load data into multiple tables and resolve integrity constraints.</p>
+                    <div class="command">db2 -tvf load_tables_clp.ddl</div>
+                </li>
+            </ol>
+            <h3>Option 2: Use the Data Server Manager tool</h3>
+            <ol>
+                <li>
+                    <strong>Create Exception Tables</strong>:
+                    <p>Start DSM, select the MUSICDB database, and run the <code>create_exception_tables.ddl</code> script.</p>
+                    <div class="command">Script > Open from Client > Browse > create_exception_tables.ddl</div>
+                </li>
+                <li>
+                    <strong>Run the LOAD and SET INTEGRITY Commands</strong>:
+                    <p>Use DSM to run the <code>load_tables.sql</code> script.</p>
+                    <div class="command">Script > Open from Client > Browse > load_tables.sql</div>
+                </li>
+            </ol>
+            <div class="important-box">
+                <p>Using exception tables allows the LOAD utility to complete processing even if there are exceptions to table constraints.</p>
+            </div>
+            <div class="summary-box">
+                <p>By completing this task, you have successfully loaded data into multiple tables and resolved integrity constraints using a command script.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Conclusion</div>
+        <div class="content">
+            <div class="conclusion-box">
+                <p>This demonstration has provided a comprehensive guide to moving data into Db2 tables using various methods. By following the tasks and best practices outlined, you have gained hands-on experience with Db2 utilities and commands, enhancing your data management skills.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Skunkworks EdTech. All rights reserved.</p>
+    </footer>
+</body>
+</html>
