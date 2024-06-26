@@ -8,126 +8,207 @@
     <link rel="shortcut icon" href="https://www.ibm.com/favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
-        }
-        header, footer {
-            background-color: #0f62fe;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #ffffff;
-            border-bottom: 2px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #0f62fe;
-            text-decoration: none;
-            padding: 0 10px;
-            display: inline-block;
-        }
-        .content {
             padding: 20px;
-            background-color: white;
         }
+
+        h1, h2, h3, h4 {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            color: #0f62fe; /* IBM Blue */
+            border-bottom: 2px solid #0f62fe;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        h4 {
+            font-size: 1.25em;
+            color: #0f62fe; /* IBM Blue */
+        }
+
+        .cover-page {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cover-page img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .section {
+            background-color: #ffffff; /* White background for sections */
+            border: 1px solid #ddd; /* Light gray border for sections */
+            padding: 20px; /* Increased padding for better readability */
+            margin-bottom: 30px; /* Increased space below each section */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            border-radius: 8px; /* Rounded corners for the section */
+        }
+
+        .section-title {
+            background-color: #0f62fe; /* IBM Blue for section title background */
+            color: #fff; /* White text color for section title */
+            padding: 12px; /* Increased padding for better readability */
+            margin-bottom: 12px; /* Space below the section title */
+            font-size: 1.25em; /* Increased font size for section title */
+            font-weight: bold; /* Bold font for section title */
+            border-radius: 5px; /* Rounded corners for the section title */
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 25px; /* Increased padding for better readability */
+            margin-bottom: 20px;
+        }
+
+        ul ul, ol ol {
+            padding-left: 25px; /* Increased padding for better readability */
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto; /* Allows table cells to adjust their width based on content */
+            background-color: #fff; /* White background for better readability */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
         }
+
+        thead {
+            background-color: #0f62fe; /* IBM Blue */
+            color: #FFFFFF;
+        }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            padding: 15px; /* Increased padding for more space inside cells */
+            border: 1px solid #ddd; /* Light gray border for subtle separation */
             text-align: left;
+            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
         }
+
         th {
-            background-color: #eee;
+            font-weight: bold; /* Bold font for headers */
+            text-transform: uppercase; /* Uppercase text for headers */
+            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
         }
-        tr:nth-child(odd) {
-            background-color: #f9f9f9;
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
         }
-        h1, h2, h3 {
+
+        tbody tr:hover {
+            background-color: #f1f1f1; /* Slightly darker gray on hover */
+        }
+
+        a {
+            color: #0f62fe; /* IBM Blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background-color: #e0e0e0;
+            border-left: 5px solid #0f62fe;
+            padding: 15px; /* Increased padding for better readability */
+            margin: 15px 0; /* Increased margin for better separation */
+            font-style: italic;
+            border-radius: 5px; /* Rounded corners for the note box */
+        }
+
+        .command {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #f4f4f4;
+            border: 1px solid #CCCCCC;
+            padding: 10px; /* Increased padding for better readability */
+            display: block;
+            margin: 15px 0; /* Increased margin for better separation */
+            border-radius: 5px; /* Rounded corners for the command box */
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 0.75em;
+            color: #0f62fe; /* IBM Blue for page number */
+        }
+
+        .page {
+            position: relative;
+            margin-bottom: 60px; /* Space for footer with page number */
+            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-radius: 8px; /* Rounded corners for the page */
+            background-color: #ffffff; /* White background for the page */
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1em;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .search-results ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .search-results li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .search-results a {
             color: #0f62fe;
         }
-        .footer-text {
-            font-size: 0.8rem;
-        }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header, footer {
-                text-align: center;
-                padding: 10px;
-            }
-
-            nav a {
-                padding: 10px;
-                display: block;
-            }
-
-            th, td {
-                padding: 10px 5px;
-                font-size: 0.9em; /* Smaller font size for mobile */
-            }
-
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            tr {
-                border: 1px solid #ccc;
-                margin-bottom: 5px;
-            }
-
-            td {
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 50%;
-                text-align: right;
-            }
-
-            td:before {
-                /* Now like a table header */
-                position: absolute;
-                top: 6px;
-                left: 6px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                text-align: left;
-                font-weight: bold;
-            }
-
-            /* Label the data */
-            td:nth-of-type(1):before { content: "Category"; }
-            td:nth-of-type(2):before { content: "Course Title"; }
-            td:nth-of-type(3):before { content: "Duration"; }
-            td:nth-of-type(4):before { content: "Cost"; }
-            td:nth-of-type(5):before { content: "Created On"; }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Skunkworks EdTech Course Catalog</h1>
-    </header>
     <header class="bx--header" role="banner">
         <a class="bx--skip-to-content" href="#main-content">Skip to main content</a>
         <a class="bx--header__name" href="http://courses.skunkworks.africa/IBM/DB2/index.html" title="IBM">
             <span class="bx--header__name--prefix">IBM</span>
-            DB2 Courses
+            Courses
         </a>
         <nav class="bx--header__nav">
             <ul class="bx--header__menu-bar">
@@ -170,226 +251,45 @@
 
     <main id="main-content" class="content">
         <section id="courses">
-            <h2>Available Courses</h2>
-            <p>Welcome to the Skunkworks EdTech Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.</p>
-            <h3>Table of Contents</h3>
-            <ul>
-                <li><a href="#adobe">Adobe</a></li>
-                <li><a href="#ai">AI</a></li>
-                <li><a href="#application-development">Application Development</a></li>
-                <li><a href="#automation">Automation</a></li>
-                <li><a href="#checkpoint">Checkpoint</a></li>
-                <li><a href="#cloud">Cloud</a></li>
-                <li><a href="#data-analytics-and-business-intelligence">Data Analytics and Business Intelligence</a></li>
-                <li><a href="#devops--agile">DevOps & Agile</a></li>
-                <li><a href="#drools">Drools</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#google">Google</a></li>
-                <li><a href="#ibm">IBM</a></li>
-                <li><a href="#iso">ISO</a></li>
-                <li><a href="#mainframe">Mainframe</a></li>
-                <li><a href="#microsoft">Microsoft</a></li>
-                <li><a href="#middleware">Middleware</a></li>
-                <li><a href="#networking-and-communication">Networking and Communication</a></li>
-                <li><a href="#occupational-skills">Occupational Skills</a></li>
-                <li><a href="#soft-skills-safe-it-management-itil">Soft Skills, SAFe, IT Management, ITIL</a></li>
-                <li><a href="#project-management-ie-pmi">Project Management (i.e. PMI)</a></li>
-                <li><a href="#sap">SAP</a></li>
-                <li><a href="#security">Security</a></li>
-                <li><a href="#storage">Storage</a></li>
-                <li><a href="#whatsapp">Whatsapp</a></li>
-            </ul>
+            <h1>Available Courses</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search for courses...">
+            </div>
+            <div class="search-results">
+                <ul>
+                    <li><a href="https://courses.skunkworks.africa/IBM/DB2/index.html">DB2</a></li>
+                    <!-- Add more courses here -->
+                </ul>
+            </div>
+        </section>
 
-            <!-- Add the course details here -->
-            <h3 id="adobe">Adobe</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Category</th>
-                        <th>Course Title</th>
-                        <th>Duration (Days)</th>
-                        <th>Cost</th>
-                        <th>Created On</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Adobe Creative Cloud Mastery.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:46</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Adobe Creative Cloud Mastery.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:46</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Webinar Brief Navigating Adobe Creative Cloud - A Quick Starter Guide.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:52</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Webinar Brief Navigating Adobe Creative Cloud - A Quick Starter Guide.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:53</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Webinar Content Outline Navigating Adobe Creative Cloud - A Quick Starter Guide.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:48</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>Webinar Content Outline Navigating Adobe Creative Cloud - A Quick Starter Guide.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/28/2023 3:48</td>
-                    </tr>
-                    <tr>
-                        <td>Adobe</td>
-                        <td>ChatGPT Mastery Unlocking Conversational AI Potential Course Outline.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/18/2023 23:34</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 id="ai">AI</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Course Category</th>
-                        <th>Course Title</th>
-                        <th>Duration (Days)</th>
-                        <th>Cost</th>
-                        <th>Created On</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AI</td>
-                        <td>Effective AI Prompt A 3-Day Course Overview.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/18/2023 23:34</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Personal Data Processing and AI A Comprehensive Guide</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/4/2023 10:03</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Advanced Secure Software Development for GitHub.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/7/2023 23:45</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>AI for Business Leverage AI to drive innovation, improve decision making and boost efficiency in various industries (1).pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/19/2023 20:09</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>AI Fundamentals Introduction to AI ML and DL Concepts.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/21/2023 10:50</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>AI Mastery - From Foundations to Deployment.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/19/2023 20:45</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Applied Artificial Intelligence - Solving Real-World Problems.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/19/2023 20:40</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Course Layout Leveraging AI in Sales - A Guide for Chief Sales Officers.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/30/2023 4:46</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Exploring Artificial Intelligence_From Theory to ApplicationsPDF.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/22/2023 13:15</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Leveraging AI in Sales - A Guide for Chief Sales Officers.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/30/2023 4:44</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Natural Language Processing (NLP).docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/19/2023 20:40</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Personal Data Processing and AI.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>7/17/2023 5:13</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Prompt Engineering Learn to design effective prompts and interactions with large language models like GPT4_encrypted.pdf</td>
-                        <td></td>
-                        <td></td>
-                        <td>10/17/2023 0:01</td>
-                    </tr>
-                    <tr>
-                        <td>AI</td>
-                        <td>Personal Data Processing and AI A Comprehensive Guide.docx</td>
-                        <td></td>
-                        <td></td>
-                        <td>8/24/2023 8:27</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Add more course sections similarly -->
-
+        <section class="section">
+            <h2 class="section-title">Contact Us</h2>
+            <p>If you have any questions or need further information, please feel free to <a href="mailto:support@skunkworks.africa">contact us</a>.</p>
         </section>
     </main>
+
     <footer>
         <div class="footer-text">© 2024 Skunkworks EdTech. All rights reserved.</div>
         <div class="footer-text">Contact Us | Privacy Policy | Terms of Use</div>
     </footer>
 
-    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
     <script>
-        carbonComponents.watch();
+        document.getElementById('search-input').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const courses = document.querySelectorAll('.search-results ul li');
+
+            courses.forEach(course => {
+                const text = course.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    course.style.display = '';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        });
     </script>
+
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
 </body>
 </html>
