@@ -31,7 +31,7 @@ const App = () => (
         <SideNavLink href="https://courses.skunkworks.africa/ibm/exam-study-guides.html">Certification Study Guides</SideNavLink>
         <SideNavLink href="https://courses.skunkworks.africa/ibm/learning-paths.html">Learning Paths</SideNavLink>
         <SideNavLink href="https://courses.skunkworks.africa/ibm/technical-workshops.html">Technical Workshops</SideNavLink>
-        <SideNavLink href="https://courses.skunkworks.africa/ibm/virtual-labs.html">Virtual Labs</SideNavLink>]
+        <SideNavLink href="https://courses.skunkworks.africa/ibm/virtual-labs.html">Virtual Labs</SideNavLink>
         {/* Add more links here */}
       </SideNavItems>
     </SideNav>
