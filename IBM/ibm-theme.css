@@ -159,3 +159,52 @@ a:hover {
     border-radius: 8px; /* Rounded corners for the page */
     background-color: #ffffff; /* White background for the page */
 }
+
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 1em;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-results {
+    margin-top: 20px;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-results a {
+    color: #0f62fe;
+}
+
+.bx--side-nav--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 999;
+}
+
+.bx--side-nav--fixed .bx--side-nav__items {
+    margin-top: 64px; /* Adjust this value based on the height of your header */
+}
+
+main {
+    margin-left: 250px; /* Adjust this value based on the width of your sidebar */
+    padding: 20px;
+}
