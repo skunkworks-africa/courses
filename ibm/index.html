@@ -5,39 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skunkworks EdTech IBM Course Catalog</title>
     <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components-react/css/carbon-components-react.min.css">
+    <link rel="stylesheet" href="path/to/ibm-theme.css">
     <link rel="shortcut icon" href="https://www.ibm.com/favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: 'IBM Plex Sans', Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #ffffff;
+            color: #000000;
             padding: 20px;
         }
         h1, h2, h3, h4 {
             font-family: 'IBM Plex Sans', Arial, sans-serif;
             margin-top: 1.5em;
             margin-bottom: 0.5em;
+            color: #000000;
         }
         h1 {
             font-size: 2em;
-            color: #0f62fe; /* IBM Blue */
-            border-bottom: 2px solid #0f62fe;
+            border-bottom: 2px solid #000000;
             padding-bottom: 10px;
         }
         h2 {
             font-size: 1.75em;
-            color: #0f62fe; /* IBM Blue */
-            border-bottom: 2px solid #0f62fe;
+            border-bottom: 2px solid #000000;
             padding-bottom: 8px;
         }
         h3 {
             font-size: 1.5em;
-            color: #0f62fe; /* IBM Blue */
         }
         h4 {
             font-size: 1.25em;
-            color: #0f62fe; /* IBM Blue */
         }
         .cover-page {
             text-align: center;
@@ -48,200 +47,150 @@
             margin: 10px;
         }
         .section {
-            background-color: #ffffff; /* White background for sections */
-            border: 1px solid #ddd; /* Light gray border for sections */
-            padding: 20px; /* Increased padding for better readability */
-            margin-bottom: 30px; /* Increased space below each section */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
-            border-radius: 8px; /* Rounded corners for the section */
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         .section-title {
-            background-color: #0f62fe; /* IBM Blue for section title background */
-            color: #fff; /* White text color for section title */
-            padding: 12px; /* Increased padding for better readability */
-            margin-bottom: 12px; /* Space below the section title */
-            font-size: 1.25em; /* Increased font size for section title */
-            font-weight: bold; /* Bold font for section title */
-            border-radius: 5px; /* Rounded corners for the section title */
+            background-color: #000000;
+            color: #ffffff;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 1.25em;
+            font-weight: bold;
+            border-radius: 5px;
         }
         .content {
             margin-bottom: 20px;
         }
         ul, ol {
-            padding-left: 25px; /* Increased padding for better readability */
+            padding-left: 25px;
             margin-bottom: 20px;
         }
         ul ul, ol ol {
-            padding-left: 25px; /* Increased padding for better readability */
+            padding-left: 25px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            table-layout: auto; /* Allows table cells to adjust their width based on content */
-            background-color: #fff; /* White background for better readability */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
-            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            table-layout: auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         thead {
-            background-color: #0f62fe; /* IBM Blue */
-            color: #FFFFFF;
+            background-color: #000000;
+            color: #ffffff;
         }
         th, td {
-            padding: 15px; /* Increased padding for more space inside cells */
-            border: 1px solid #ddd; /* Light gray border for subtle separation */
+            padding: 15px;
+            border: 1px solid #000000;
             text-align: left;
-            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
+            min-width: 120px;
         }
         th {
-            font-weight: bold; /* Bold font for headers */
-            text-transform: uppercase; /* Uppercase text for headers */
-            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         tbody tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Light gray background for odd rows */
+            background-color: #f9f9f9;
         }
         tbody tr:hover {
-            background-color: #f1f1f1; /* Slightly darker gray on hover */
+            background-color: #f1f1f1;
         }
         a {
-            color: #0f62fe; /* IBM Blue */
+            color: #000000;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
         .note-box {
-            background-color: #e0e0e0;
-            border-left: 5px solid #0f62fe;
-            padding: 15px; /* Increased padding for better readability */
-            margin: 15px 0; /* Increased margin for better separation */
+            background-color: #f4f4f4;
+            border-left: 5px solid #000000;
+            padding: 15px;
+            margin: 15px 0;
             font-style: italic;
-            border-radius: 5px; /* Rounded corners for the note box */
+            border-radius: 5px;
         }
         .command {
             font-family: 'IBM Plex Mono', monospace;
             background-color: #f4f4f4;
-            border: 1px solid #CCCCCC;
-            padding: 10px; /* Increased padding for better readability */
+            border: 1px solid #000000;
+            padding: 10px;
             display: block;
-            margin: 15px 0; /* Increased margin for better separation */
-            border-radius: 5px; /* Rounded corners for the command box */
+            margin: 15px 0;
+            border-radius: 5px;
         }
         .page-number {
             position: absolute;
             bottom: -30px;
             right: 20px;
             font-size: 0.75em;
-            color: #0f62fe; /* IBM Blue for page number */
+            color: #000000;
         }
         .page {
             position: relative;
-            margin-bottom: 60px; /* Space for footer with page number */
-            border: 2px solid #0f62fe; /* IBM Blue for page border */
+            margin-bottom: 60px;
+            border: 2px solid #000000;
             padding: 20px;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-            border-radius: 8px; /* Rounded corners for the page */
-            background-color: #ffffff; /* White background for the page */
+            box-sizing: border-box;
+            border-radius: 8px;
+            background-color: #ffffff;
         }
-
         .search-container {
             margin-bottom: 20px;
             text-align: center;
         }
-
         .search-input {
             padding: 10px;
             font-size: 1em;
             width: 80%;
             max-width: 400px;
-            border: 1px solid #ccc;
+            border: 1px solid #000000;
             border-radius: 5px;
         }
-
         .search-results {
             margin-top: 20px;
         }
-
         .search-results ul {
             list-style: none;
             padding: 0;
         }
-
         .search-results li {
             padding: 10px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #000000;
         }
-
         .search-results a {
-            color: #0f62fe;
+            color: #000000;
         }
-
+        .bx--side-nav--fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 999;
+        }
+        .bx--side-nav--fixed .bx--side-nav__items {
+            margin-top: 64px;
+        }
+        main {
+            margin-left: 250px;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    <header class="bx--header" role="banner">
-        <a class="bx--skip-to-content" href="#main-content">Skip to main content</a>
-        <a class="bx--header__name" href="https://courses.skunkworks.africa/IBM/index.html" title="IBM">
-            <span class="bx--header__name--prefix">IBM</span>
-            Courses
-        </a>
-        <nav class="bx--header__nav">
-            <ul class="bx--header__menu-bar">
-                <li>
-                    <a class="bx--header__menu-item" href="https://courses.skunkworks.africa/IBM/DB2/index.html">DB2</a>
-                </li>
-                <!-- Add more links here if needed -->
-            </ul>
-        </nav>
-    </header>
-
-    <main id="main-content">
-        <div class="cover-page">
-            <img src="https://www.ibm.com/images/branding/ibm-logo.png" alt="IBM Logo">
-            <h1>Skunkworks EdTech IBM Course Catalog</h1>
-        </div>
-
-        <div class="search-container">
-            <input type="text" id="search-input" class="search-input" placeholder="Search for courses...">
-        </div>
-        
-        <section class="section">
-            <h2 class="section-title">Introduction</h2>
-            <p>Welcome to the Skunkworks EdTech IBM Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Available Courses</h2>
-            <p>Explore our wide range of IBM courses:</p>
-            <ul>
-                <li><a href="https://courses.skunkworks.africa/IBM/DB2/index.html">DB2</a></li>
-                <!-- Add more courses here -->
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Contact Us</h2>
-            <p>If you have any questions or need further information, please feel free to <a href="mailto:support@skunkworks.africa">contact us</a>.</p>
-        </section>
-    </main>
-
-    <script>
-        document.getElementById('search-input').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const courses = document.querySelectorAll('.section ul li');
-
-            courses.forEach(course => {
-                const text = course.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    course.style.display = '';
-                } else {
-                    course.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    <div id="root"></div>
 
     <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <script src="https://unpkg.com/carbon-components-react/umd/carbon-components-react.development.js"></script>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="path/to/ibm.jsx"></script>
 </body>
 </html>
