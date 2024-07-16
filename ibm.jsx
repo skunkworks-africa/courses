@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Header, HeaderName, HeaderNavigation, HeaderMenuItem, SideNav, SideNavItems, SideNavLink } from 'carbon-components-react';
-
 const App = () => (
   <div>
     <Header aria-label="IBM Platform Name">
@@ -18,7 +17,6 @@ const App = () => (
         {/* Add more links here */}
       </HeaderNavigation>
     </Header>
-
     <SideNav
       isFixedNav
       expanded
@@ -35,22 +33,18 @@ const App = () => (
         {/* Add more links here */}
       </SideNavItems>
     </SideNav>
-
     <main id="main-content" style={{ padding: '20px', marginLeft: '250px' }}>
       <div className="cover-page">
         <img src="https://www.ibm.com/images/branding/ibm-logo.png" alt="IBM Logo" />
         <h1>Skunkworks EdTech IBM Course Catalog</h1>
       </div>
-
       <div className="search-container">
         <input type="text" id="search-input" className="search-input" placeholder="Search for courses..." />
       </div>
-
       <section className="section">
         <h2 className="section-title">Introduction</h2>
         <p>Welcome to the Skunkworks EdTech IBM Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.</p>
       </section>
-
       <section className="section">
         <h2 className="section-title">Available Courses</h2>
         <p>Explore our wide range of IBM courses:</p>
@@ -59,7 +53,6 @@ const App = () => (
           {/* Add more courses here */}
         </ul>
       </section>
-
       <section className="section">
         <h2 className="section-title">Contact Us</h2>
         <p>If you have any questions or need further information, please feel free to <a href="mailto:support@skunkworks.africa">contact us</a>.</p>
@@ -67,5 +60,4 @@ const App = () => (
     </main>
   </div>
 );
-
 ReactDOM.render(<App />, document.getElementById('root'));
