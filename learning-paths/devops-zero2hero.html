@@ -143,9 +143,26 @@
     .platform-logo {
         display: block;
         margin: 10px auto;
-        background-color: #000;
+        background-color: #fff; /* White background */
         padding: 10px;
         border-radius: 8px;
+        width: 100%; /* Ensures it fits the parent */
+        max-width: 100%; /* Prevents it from overflowing */
+        height: auto; /* Maintains aspect ratio */
+        border: 2px solid transparent;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background 0.3s ease; /* Smooth pop-up and shadow effect */
+    }
+    .platform-logo:hover {
+        transform: scale(1.1); /* Pop-up effect on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for emphasis */
+        border: 2px solid #2563EB; /* Border color on hover */
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background on hover */
+    }
+    .platform-logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: inherit; /* Matches parent border radius */
     }
     .section p a {
         color: #0f62fe;
