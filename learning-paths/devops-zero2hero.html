@@ -71,6 +71,7 @@
     }
     .section h2, .section h3 {
         text-align: center;
+        margin-top: 0;
     }
     .section p, .section ul, .section ol {
         text-align: left;
@@ -138,6 +139,20 @@
         max-width: 100%;
         max-height: 100px;
         object-fit: contain;
+    }
+    .platform-logo {
+        display: block;
+        margin: 10px auto;
+        background-color: #000;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .section p a {
+        color: #0f62fe;
+        text-decoration: none;
+    }
+    .section p a:hover {
+        text-decoration: underline;
     }
     /* Responsive Styles */
     @media (max-width: 768px) {
@@ -220,17 +235,17 @@
 <li>
 <h3>HashiCorp Cloud Platform (HCP)</h3>
 <p>Sign up at: <a href="https://portal.cloud.hashicorp.com/sign-up" target="_blank">HashiCorp Cloud Platform</a></p>
-<img src="https://firebasestorage.googleapis.com/v0/b/standards-site-beta.appspot.com/o/documents%2F4a24m5t0li5%2Fantwtl4lq0z%2FHashicorp-Horizontal_onLight_1713812630642_1000x1000.png?alt=media&token=hqdyd3qvw9x" alt="HashiCorp Logo" style="background-color: black;">
+<img src="https://firebasestorage.googleapis.com/v0/b/standards-site-beta.appspot.com/o/documents%2F4a24m5t0li5%2Fantwtl4lq0z%2FHashicorp-Horizontal_onLight_1713812630642_1000x1000.png?alt=media&token=hqdyd3qvw9x" alt="HashiCorp Logo" class="platform-logo">
 </li>
 <li>
 <h3>Harness Platform</h3>
 <p>Sign up or sign in at: <a href="https://app.harness.io/auth/#/signin" target="_blank">Harness Platform</a></p>
-<img src="https://cdn.prod.website-files.com/6222ca42ea87e1bd1aa1d10c/661492b27e12f21203a0ea74_harness-logo-white%201.webp" alt="Harness Logo" style="background-color: black;">
+<img src="https://cdn.prod.website-files.com/6222ca42ea87e1bd1aa1d10c/661492b27e12f21203a0ea74_harness-logo-white%201.webp" alt="Harness Logo" class="platform-logo">
 </li>
 <li>
 <h3>GitHub</h3>
 <p>Sign up at: <a href="https://github.com/signup" target="_blank">GitHub</a></p>
-<img src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png" alt="GitHub Logo">
+<img src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png" alt="GitHub Logo" class="platform-logo">
 </li>
 </ol>
 </div>
