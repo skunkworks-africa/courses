@@ -1,203 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Coding Practices with OWASP Top 10</title>
-    <link rel="icon" href="https://github.com/skunkworksza/Media/blob/main/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" type="image/png"> 
-    <style>
-        body {
-            font-family: 'IBM Plex Sans', Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+<link href="https://unpkg.com/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@carbon/charts/styles.css" rel="stylesheet">
+<title>DevOps Zero2Hero by Skunkworks - Introduction Chapter</title>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #000;
+    }
+    header {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0 15px;
+        position: relative;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        z-index: 1000;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li a {
+        padding: 10px 15px;
+    }
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    .section h2, .section h3 {
+        text-align: center;
+        margin-top: 0;
+    }
+    .section p, .section ul, .section ol {
+        text-align: left;
+        padding: 0 20px;
+    }
+    .divider {
+        height: 2px;
+        background-color: #444;
+        margin: 20px 0;
+    }
+    footer {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #555;
+    }
+    .centered-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        text-align: center;
+        color: #000;
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+    .partners-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+    }
+    .partner-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .partner-item img {
+        max-width: 100%;
+        max-height: 100px;
+        object-fit: contain;
+    }
+    .platform-logo {
+        display: block;
+        margin: 10px auto;
+        background-color: #fff; /* White background */
+        padding: 10px;
+        border-radius: 8px;
+        width: 100%; /* Ensures it fits the parent */
+        max-width: 100%; /* Prevents it from overflowing */
+        height: auto; /* Maintains aspect ratio */
+        border: 2px solid transparent;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background 0.3s ease; /* Smooth pop-up and shadow effect */
+    }
+    .platform-logo:hover {
+        transform: scale(1.1); /* Pop-up effect on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for emphasis */
+        border: 2px solid #2563EB; /* Border color on hover */
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background on hover */
+    }
+    .platform-logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: inherit; /* Matches parent border radius */
+    }
+    .harness-platform-logo-container {
+        background-color: #000; /* Black background for the Harness Platform image container */
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .section p a {
+        color: #0f62fe;
+        text-decoration: none;
+    }
+    .section p a:hover {
+        text-decoration: underline;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
         }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background-color: #0f62fe;
-            color: #fff;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            margin-left: 220px;
-            padding: 20px;
-            flex: 1;
-            display: flex;
+        nav ul {
             flex-direction: column;
         }
-
-        .cover-page {
-            text-align: center;
-            margin-bottom: 40px;
+        nav ul li {
+            margin: 10px 0;
         }
-
-        .cover-page img {
-            width: 150px;
-            margin: 10px;
+        .partners-list {
+            grid-template-columns: 1fr;
         }
-
-        .section {
-            background-color: #ffffff; /* White background for sections */
-            border: 1px solid #ddd; /* Light gray border for sections */
-            padding: 20px; /* Increased padding for better readability */
-            margin-bottom: 30px; /* Increased space below each section */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
-            border-radius: 8px; /* Rounded corners for the section */
-        }
-
-        .section-title {
-            background-color: #0f62fe; /* IBM Blue for section title background */
-            color: #fff; /* White text color for section title */
-            padding: 12px; /* Increased padding for better readability */
-            margin-bottom: 12px; /* Space below the section title */
-            font-size: 1.25em; /* Increased font size for section title */
-            font-weight: bold; /* Bold font for section title */
-            border-radius: 5px; /* Rounded corners for the section title */
-        }
-
-        .content {
-            margin-bottom: 20px;
-        }
-
-        ul, ol {
-            padding-left: 25px; /* Increased padding for better readability */
-            margin-bottom: 20px;
-        }
-
-        ul ul, ol ol {
-            padding-left: 25px; /* Increased padding for better readability */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            table-layout: auto; /* Allows table cells to adjust their width based on content */
-            background-color: #fff; /* White background for better readability */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
-            font-family: 'IBM Plex Sans', Arial, sans-serif;
-        }
-
-        thead {
-            background-color: #0f62fe; /* IBM Blue */
-            color: #FFFFFF;
-        }
-
-        th, td {
-            padding: 15px; /* Increased padding for more space inside cells */
-            border: 1px solid #ddd; /* Light gray border for subtle separation */
-            text-align: left;
-            min-width: 120px; /* Set a minimum width for each cell to prevent squeezing */
-        }
-
-        th {
-            font-weight: bold; /* Bold font for headers */
-            text-transform: uppercase; /* Uppercase text for headers */
-            letter-spacing: 0.05em; /* Slightly increase letter spacing for headers */
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Light gray background for odd rows */
-        }
-
-        tbody tr:hover {
-            background-color: #f1f1f1; /* Slightly darker gray on hover */
-        }
-
-        a {
-            color: #0f62fe; /* IBM Blue */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .note-box {
-            background-color: #e0e0e0;
-            border-left: 5px solid #0f62fe;
-            padding: 15px; /* Increased padding for better readability */
-            margin: 15px 0; /* Increased margin for better separation */
-            font-style: italic;
-            border-radius: 5px; /* Rounded corners for the note box */
-        }
-
-        .command {
-            font-family: 'IBM Plex Mono', monospace;
-            background-color: #f4f4f4;
-            border: 1px solid #CCCCCC;
-            padding: 10px; /* Increased padding for better readability */
-            display: block;
-            margin: 15px 0; /* Increased margin for better separation */
-            border-radius: 5px; /* Rounded corners for the command box */
-        }
-
-        .page-number {
-            position: absolute;
-            bottom: -30px;
-            right: 20px;
-            font-size: 0.75em;
-            color: #0f62fe; /* IBM Blue for page number */
-        }
-
-        .page {
-            position: relative;
-            margin-bottom: 60px; /* Space for footer with page number */
-            border: 2px solid #0f62fe; /* IBM Blue for page border */
-            padding: 20px;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-            border-radius: 8px; /* Rounded corners for the page */
-            background-color: #ffffff; /* White background for the page */
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100%;
-            background-color: #f4f4f4;
-            border-left: 2px solid #ddd;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-        }
-
-        footer {
-            background-color: #0f62fe;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            width: calc(100% - 220px - 300px); /* Adjust width based on left and right bars */
-            margin-left: 220px; /* Adjust margin for left sidebar */
-            box-sizing: border-box;
-        }
-    </style>
+    }
+</style>
 </head>
+<body>
+
+<header>
+<nav>
+<ul>
+<li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg"/>Training</a>
+<ul>
+<li><a href="https://skunkworks.africa/blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg"/>Blended Learning</a></li>
+<li><a href="https://skunkworks.africa/course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg"/>Course Development</a></li>
+<li><a href="https://skunkworks.africa/project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg"/>Project Mentoring</a></li>
+<li><a href="https://skunkworks.africa/performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg"/>Performance Support Tools</a></li>
+<li><a href="https://skunkworks.africa/training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg"/>Services</a>
+<ul>
+<li><a href="https://skunkworks.africa/software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg"/>Software Development</a></li>
+<li><a href="https://skunkworks.africa/hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg"/>HW/SW Solutions</a></li>
+<li><a href="https://skunkworks.africa/managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg"/>Managed Cloud</a></li>
+<li><a href="https://skunkworks.africa/technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg"/>Technical Support</a></li>
+<li><a href="https://skunkworks.africa/placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/high--performance.svg"/>Careers</a>
+<ul>
+<li><a href="https://skunkworks.africa/job-posting.html"><img alt="Job Posting" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/collaboration.svg"/>Job Posting</a></li>
+<li><a href="https://skunkworks.africa/candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg"/>Candidate Screening</a></li>
+<li><a href="https://skunkworks.africa/interviews.html"><img alt="Interviews" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/professional--marketplace.svg"/>Interviews</a></li>
+<li><a href="https://skunkworks.africa/job-offers.html"><img alt="Job Offers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/bluepages.svg"/>Job Offers</a></li>
+<li><a href="https://skunkworks.africa/perosacademy/"><img alt="Pero's Academy" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
 <body>
     <nav>
         <h2>Navigation</h2>
