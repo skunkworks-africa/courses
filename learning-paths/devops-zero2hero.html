@@ -1,1 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./css/footer.css" rel="stylesheet"/>
+<link href="./css/forms.css" rel="stylesheet"/>
+<link href="./css/header.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
+<link href="./css/sidebar.css" rel="stylesheet"/>
+<link href="./css/airbnb.css" rel="stylesheet"/>
+<link href="./css/arabic.css" rel="stylesheet"/>
+<link href="./css/bass-addons.css" rel="stylesheet"/>
+<link href="./css/bass.css" rel="stylesheet"/>
+<link href="./css/button.css" rel="stylesheet"/>
+<link href="./css/carbon-components.min_copy.css" rel="stylesheet"/>
+<link href="./css/carbon-components_copy.css" rel="stylesheet"/>
+<link href="./css/confetti.css" rel="stylesheet"/>
+<link href="./css/confirmDate.css" rel="stylesheet"/>
+<link href="./css/dark.css" rel="stylesheet"/>
+<link href="./css/example.css" rel="stylesheet"/>
+<link href="./css/flatpickr.css" rel="stylesheet"/>
+<link href="./css/flatpickr.min.css" rel="stylesheet"/>
+<link href="./css/fonts.css" rel="stylesheet"/>
+<link href="./css/github.css" rel="stylesheet"/>
+<link href="./css/ie.css" rel="stylesheet"/>
+<link href="./css/jasmine.css" rel="stylesheet"/>
+<link href="./css/light.css" rel="stylesheet"/>
+<link href="./css/manager.css" rel="stylesheet"/>
+<link href="./css/material_blue.css" rel="stylesheet"/>
+<link href="./css/material_green.css" rel="stylesheet"/>
+<link href="./css/material_orange.css" rel="stylesheet"/>
+<link href="./css/material_red.css" rel="stylesheet"/>
+<link href="./css/page.css" rel="stylesheet"/>
+<link href="./css/screen_copy.css" rel="stylesheet"/>
+<link href="./css/services.css" rel="stylesheet"/>
+<link href="./css/source-code-pro.css" rel="stylesheet"/>
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/styles.css" rel="stylesheet"/>
+<link href="./css/styles.min.css" rel="stylesheet"/>
+<link href="./css/tocbot.css" rel="stylesheet"/>
+<link href="./css/achievements.css" rel="stylesheet"/>
+<link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png"/>
+<title>DevOps Zero2Hero by Skunkworks - Introduction Chapter</title>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #121212;
+        color: #fff;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        margin: 0 15px;
+        position: relative;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        z-index: 1000;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li a {
+        padding: 10px 15px;
+    }
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    .welcome-section {
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        padding: 20px;
+        box-shadow: none;
+    }
+    .welcome-section-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid #2563EB; /* Light Blue Border */
+        border-radius: 8px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    form input, form textarea, form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #555;
+    }
+    .partners-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+    }
+    .partner-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .partner-item img {
+        max-width: 100%;
+        max-height: 100px;
+        object-fit: contain;
+    }
+    .statistics {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .divider {
+        height: 2px;
+        background-color: #444;
+        margin: 20px 0;
+    }
+    .centered-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        text-align: center;
+        color: #000;
+    }
+    .libutton {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 7px;
+        text-align: center;
+        outline: none;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        width: 200px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: #ffffff;
+        font-family: "SF Pro Text", Helvetica, sans-serif;
+        margin: 10px auto;
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+    .service-icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+        nav ul {
+            flex-direction: column;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        .partners-list {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
 
+<header>
+<nav>
+<ul>
+<li><a href="./index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container.svg"/>Home</a></li>
+<li>
+<a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/intelligence.svg"/>Training</a>
+<ul>
+<li><a href="./blended-learning.html"><img alt="Blended Learning" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/blended-learning.png?raw=true"/>Blended Learning</a></li>
+<li><a href="./course-development.html"><img alt="Course Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/course-development.png?raw=true"/>Course Development</a></li>
+<li><a href="./project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/project-mentoring.png?raw=true"/>Project Mentoring</a></li>
+<li><a href="./performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/performance-support.png?raw=true"/>Performance Support Tools</a></li>
+<li><a href="./training-programs.html"><img alt="Training Programs" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/learning/training-programs.png?raw=true"/>Training Programs</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/container--microservices.svg"/>Services</a>
+<ul>
+<li><a href="./software-development.html"><img alt="Software Development" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/software-development.png?raw=true"/>Software Development</a></li>
+<li><a href="./hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/hardware-software.png?raw=true"/>HW/SW Solutions</a></li>
+<li><a href="./managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/managed-cloud.png?raw=true"/>Managed Cloud</a></li>
+<li><a href="./technical-support.html"><img alt="Technical Support Services" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/technical-support.png?raw=true"/>Technical Support</a></li>
+<li><a href="./placement-recruitment.html"><img alt="Placements" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/services/placement-recruitment.png?raw=true"/>Placements</a></li>
+</ul>
+</li>
+<li>
+<a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/1e5918326b6a21672c73a0c07adb7b290fd434bf/assets/icons/data--apis.svg"/>Careers</a>
+<ul>
+<li><a href="./job-posting.html"><img alt="Job Posting" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-posting.png?raw=true"/>Job Posting</a></li>
+<li><a href="./candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/candidate-screening.png?raw=true"/>Candidate Screening</a></li>
+<li><a href="./interviews.html"><img alt="Interviews" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/interviews.png?raw=true"/>Interviews</a></li>
+<li><a href="./job-offers.html"><img alt="Job Offers" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/job-offers.png?raw=true"/>Job Offers</a></li>
+<li><a href="./perosacademy/"><img alt="Pero's Academy" class="icon" src="https://github.com/skunkworksza/www/blob/main/assets/careers/peros-academy.png?raw=true"/>Pero's Academy</a></li>
+</ul>
+</li>
+<li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/www/b6c7c3e93995fd5c2a6c0979d90ead76d9ef98dd/assets/icons/email.svg"/>Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="section welcome-section" id="welcome">
+<div class="welcome-section-content">
+<h1>DevOps Zero2Hero by Skunkworks - Introduction Chapter</h1>
+<p><strong>Date:</strong> 23 July 2024<br><strong>Author:</strong> Raydo Matthee</p>
+</div>
+</section>
+
+<section class="section" id="overview">
+<h2>Overview</h2>
+<p>This guide is designed to provide structured exercises and learning paths for Haripriya to enhance her understanding and skills in the DevOps environment she will be supporting at Lloyds Bank. The course is self-paced and covers essential platforms and tools for modern DevOps practices.</p>
+</section>
+
+<section class="section" id="account-setup">
+<h2>1. Account Setup</h2>
+<h3>Objective:</h3>
+<p>Set up essential accounts to access required platforms and tools.</p>
+<ol>
+<li>
+<h3>HashiCorp Cloud Platform (HCP)</h3>
+<p>Sign up at: <a href="https://portal.cloud.hashicorp.com/sign-up" target="_blank">HashiCorp Cloud Platform</a></p>
+<img src="https://firebasestorage.googleapis.com/v0/b/standards-site-beta.appspot.com/o/documents%2F4a24m5t0li5%2Fantwtl4lq0z%2FHashicorp-Horizontal_onLight_1713812630642_1000x1000.png?alt=media&token=hqdyd3qvw9x" alt="HashiCorp Logo">
+</li>
+<li>
+<h3>Harness Platform</h3>
+<p>Sign up or sign in at: <a href="https://app.harness.io/auth/#/signin" target="_blank">Harness Platform</a></p>
+<img src="https://cdn.prod.website-files.com/6222ca42ea87e1bd1aa1d10c/661492b27e12f21203a0ea74_harness-logo-white%201.webp" alt="Harness Logo">
+</li>
+<li>
+<h3>GitHub</h3>
+<p>Sign up at: <a href="https://github.com/signup" target="_blank">GitHub</a></p>
+<img src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png" alt="GitHub Logo">
+</li>
+</ol>
+</section>
+
+<section class="section" id="self-assessment">
+<h3>Self-Assessment Criteria:</h3>
+<ul>
+<li>Successfully create accounts and verify email addresses.</li>
+<li>Ensure you can log in to each platform without issues.</li>
+</ul>
+</section>
+
+<section class="section" id="knowledge-check">
+<h3>Knowledge Check:</h3>
+<ol>
+<li>Have you successfully created accounts on HashiCorp Cloud Platform, Harness Platform, and GitHub?</li>
+<li>Can you log in to each platform without encountering any issues?</li>
+<li>Have you verified your email addresses for all the accounts?</li>
+</ol>
+</section>
+
+<section class="section" id="github-learning">
+<h2>2. GitHub Learning Path</h2>
+<h3>Objective:</h3>
+<p>Gain proficiency in using GitHub for version control, collaboration, and site creation.</p>
+<ol>
+<li>
+<h3>First Day on GitHub</h3>
+<p>Course link: <a href="https://skills.github.com/" target="_blank">First Day on GitHub</a></p>
+</li>
+<li>
+<h3>Communicate Using Markdown</h3>
+<p>Course link: <a href="https://skills.github.com/" target="_blank">Communicate Using Markdown</a></p>
+</li>
+<li>
+<h3>GitHub Pages</h3>
+<p>Course link: <a href="https://skills.github.com/" target="_blank">GitHub Pages</a></p>
+</li>
+</ol>
+</section>
+
+<section class="section" id="self-assessment-github">
+<h3>Self-Assessment Criteria:</h3>
+<ul>
+<li>Complete each course and earn the corresponding badges.</li>
+<li>Create a personal repository, use Markdown for documentation, and publish a site using GitHub Pages.</li>
+</ul>
+</section>
+
+<section class="section" id="knowledge-check-github">
+<h3>Knowledge Check:</h3>
+<ol>
+<li>What is the purpose of using GitHub for version control?</li>
+<li>How do you create a new repository on GitHub?</li>
+<li>Can you explain the basics of Markdown and how it is used on GitHub?</li>
+<li>Have you created a personal repository and used Markdown for documentation?</li>
+<li>Can you describe the steps to publish a site using GitHub Pages?</li>
+</ol>
+</section>
+
+<section class="section" id="harness-fundamentals">
+<h2>3. Harness Platform Fundamentals</h2>
+<h3>Objective:</h3>
+<p>Understand the fundamental concepts and components of the Harness Platform.</p>
+<h3>Self-Paced Training - Platform Fundamentals</h3>
+<p>Register at: <a href="https://university-registration.harness.io/self-paced-training-platform-fundamentals" target="_blank">Harness University</a></p>
+<h3>Course Outline:</h3>
+<ul>
+<li><strong>Account, Organization, Project, Secrets:</strong> Learn the basics of account setup, organizational structure, and secure project management.</li>
+<li><strong>Platform - Delegates:</strong> Understand the role and setup of Delegates in workflow execution.</li>
+<li><strong>Platform - Connectors:</strong> Explore how to connect Harness to your SDLC systems.</li>
+<li><strong>Platform - Pipeline > Stage > Step:</strong> Dive into pipeline creation and management.</li>
+<li><strong>Platform - Variables > Expressions:</strong> Use variables and expressions to optimize pipeline processes.</li>
+<li><strong>Platform - Approvals:</strong> Implement approvals for controlled pipeline execution.</li>
+<li><strong>Continuous Integration:</strong> Learn techniques for efficient code building.</li>
+<li><strong>Continuous Delivery:</strong> Master the processes for smooth and reliable software releases.</li>
+</ul>
+</section>
+
+<section class="section" id="self-assessment-harness">
+<h3>Self-Assessment Criteria:</h3>
+<ul>
+<li>Complete the video and documentation components of each section.</li>
+<li>Demonstrate the ability to set up and manage pipelines, delegates, and connectors within the Harness platform.</li>
+</ul>
+</section>
+
+<section class="section" id="knowledge-check-harness">
+<h3>Knowledge Check:</h3>
+<ol>
+<li>What are the foundational elements of the Harness platform?</li>
+<li>Can you describe the role of Delegates in the Harness platform?</li>
+<li>How do Connectors facilitate integration with SDLC systems in Harness?</li>
+<li>What are the key components of a pipeline in Harness, and how do they interact?</li>
+<li>How can Variables and Expressions be used to optimize pipeline processes in Harness?</li>
+<li>What is the importance of Approvals in pipeline execution?</li>
+<li>Describe the techniques for efficient code building in Continuous Integration.</li>
+<li>What are the best practices for smooth and reliable software releases in Continuous Delivery?</li>
+</ol>
+</section>
+
+<section class="section" id="vault-tutorials">
+<h2>4. HashiCorp Vault Tutorials</h2>
+<h3>Objective:</h3>
+<p>Learn how to secure, store, and manage secrets using HashiCorp Vault.</p>
+<ol>
+<li>
+<h3>Vault CLI</h3>
+<p>Tutorial link: <a href="https://developer.hashicorp.com/vault/tutorials/vault-cli" target="_blank">Vault CLI</a></p>
+</li>
+<li>
+<h3>HCP Vault Dedicated</h3>
+<p>Tutorial link: <a href="https://developer.hashicorp.com/vault/tutorials/get-started-with-hcp-vault-dedicated" target="_blank">HCP Vault Dedicated</a></p>
+</li>
+<li>
+<h3>Vault UI</h3>
+<p>Tutorial link: <a href="https://developer.hashicorp.com/vault/tutorials/vault-ui" target="_blank">Vault UI</a></p>
+</li>
+<li>
+<h3>HCP Vault Secrets Quickstart</h3>
+<p>Tutorial link: <a href="https://developer.hashicorp.com/vault/tutorials/hcp-vault-secrets-quickstart" target="_blank">HCP Vault Secrets Quickstart</a></p>
+</li>
+</ol>
+</section>
+
+<section class="section" id="self-assessment-vault">
+<h3>Self-Assessment Criteria:</h3>
+<ul>
+<li>Complete each tutorial and understand the fundamental operations of Vault CLI and UI.</li>
+<li>Set up a managed Vault cluster using HCP.</li>
+<li>Demonstrate the ability to manage secrets and configure the Vault environment.</li>
+</ul>
+</section>
+
+<section class="section" id="knowledge-check-vault">
+<h3>Knowledge Check:</h3>
+<ol>
+<li>What are the fundamental operations of the Vault CLI?</li>
+<li>How do you set up a managed Vault cluster using HCP?</li>
+<li>Can you explain how to manage secrets using the Vault UI?</li>
+<li>What are the key features of HCP Vault Secrets?</li>
+<li>Have you completed the tutorials and understand the basic operations of Vault CLI and UI?</li>
+<li>Are you able to manage and configure the Vault environment effectively?</li>
+</ol>
+</section>
+
+<section class="section" id="summary">
+<h2>Summary</h2>
+<p>By following this structured guide and completing the exercises, Haripriya will build a strong foundation in using essential DevOps tools and platforms, enabling her to effectively support the environment at Lloyds Bank. Each section includes specific self-assessment criteria to ensure thorough understanding and practical skills development.</p>
+<p><strong>Note:</strong> If any issues or questions arise during the exercises, please reach out for assistance or consult the relevant documentation and community forums for support.</p>
+</section>
+
+<section class="section" id="disclaimer">
+<div class="center">
+<img src="https://github.com/skunkworksza/Media/raw/main/avatar.png?raw=true" alt="Skunkworks Logo">
+<h4>Disclaimer</h4>
+<p>The following knowledge checks are designed to help you assess your understanding and retention of the material covered in each section. Please note that these checks are for self-assessment purposes only and do not substitute for formal certification or evaluation processes. For any issues or further clarification, please refer to the relevant documentation or seek assistance from your instructor.</p>
+<hr>
+<p>© 2024 Skunkworks (Pty) Ltd. All rights reserved.</p>
+</div>
+</section>
+
+<section class="section" id="contact">
+<h2>Contact Details</h2>
+<p>For any inquiries or further assistance, please contact:</p>
+<p><strong>Skunkworks Education</strong></p>
+<ul>
+<li>Website: <a href="https://skunkworks.africa/" target="_blank">Skunkworks Technology and Education Solutions</a></li>
+<li>Email: <a href="mailto:training@skunkworks.africa">training@skunkworks.africa</a></li>
+<li>Location: Johannesburg, South Africa</li>
+</ul>
+</section>
+
+<section class="section" id="social">
+<h2>Stay Connected</h2>
+<p>Follow us on social media for the latest updates:</p>
+<ul>
+<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raydo-matthee/" target="_blank">Raydo Matthee</a></li>
+<li><strong>Company LinkedIn:</strong> <a href="https://www.linkedin.com/company/skunkworksza/" target="_blank">Skunkworks</a></li>
+</ul>
+</section>
+
+<section class="section" id="insights">
+<h2>Skunkworks Insights</h2>
+<p>Subscribe to our newsletter for insights and updates:</p>
+<p><a href="#" target="_blank">Subscribe Here</a></p>
+<p>Read our latest blog posts for more information and tips:</p>
+<p><a href="#" target="_blank">Skunkworks Blog</a></p>
+</section>
+
+<footer>
+<p>© 2024 Skunkworks. All rights reserved.</p>
+<p><a href="https://blog.skunkworks.africa/" target="_blank">Visit our blog</a></p>
+</footer>
+
+<script src="./js/formHandler.js"></script>
+<script>
+    // JavaScript for mobile dropdown functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdowns = document.querySelectorAll('nav ul li');
+        dropdowns.forEach(function(dropdown) {
+            dropdown.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    var submenu = this.querySelector('ul');
+                    if (submenu) {
+                        event.preventDefault();
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                    }
+                }
+            });
+        });
+    });
+
+    // JavaScript for partner search filter
+    function filterPartners() {
+        var input = document.getElementById('partnerSearch');
+        var filter = input.value.toLowerCase();
+        var nodes = document.getElementsByClassName('partner-item');
+
+        for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                nodes[i].style.display = "block";
+            } else {
+                nodes[i].style.display = "none";
+            }
+        }
+    }
+</script>
+<script src="./js/partnerSearchFilter.js"></script>
+<script src="./js/partnerFilter.js"></script>
+<script src="./js/mobileDropdown.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/include-header.js"></script>
+<script src="./js/gulpfile.js"></script>
+<script src="./js/formHandeler.js"></script>
+<script src="./js/combinedPartnerFilter.js"></script>
+<script type="module">
+import { Resources, GlobalPartner, Badge } from '@carbon/pictograms-react';
+
+document.querySelectorAll('.achievement-icon').forEach(icon => {
+  if (icon.getAttribute('aria-label') === 'Instructors') {
+    ReactDOM.render(<Resources />, icon);
+  } else if (icon.getAttribute('aria-label') === 'Partnerships') {
+    ReactDOM.render(<GlobalPartner />, icon);
+  } else if (icon.getAttribute('aria-label') === 'Courses') {
+    ReactDOM.render(<Badge />, icon);
+  }
+});
+</script>
+</body>
+</html>
