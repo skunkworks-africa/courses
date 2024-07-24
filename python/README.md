@@ -23,6 +23,7 @@ Welcome to the **Python Introduction Course**! This self-paced course is designe
 | 7    | [Data Structures](./Week7_Data_Structures/README.md) | Lists, dictionaries, and tuples in Python.                 |
 | 8    | [Capstone Project](./Week8_Capstone_Project/README.md) | Comprehensive project to apply all learned concepts.       |
 
+```
 python-intro-course/
 ├── Week1_Introduction_to_Python/
 │   ├── theory/
@@ -86,7 +87,7 @@ python-intro-course/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-
+```
 
 ### Installation
 
