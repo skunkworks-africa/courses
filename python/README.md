@@ -24,7 +24,7 @@ Welcome to the **Python Introduction Course**! This self-paced course is designe
 | 8    | [Capstone Project](./Week8_Capstone_Project/README.md) | Comprehensive project to apply all learned concepts.       |
 
 ```
-python-intro-course/
+python-intro/
 ├── Week1_Introduction_to_Python/
 │   ├── theory/
 │   │   ├── 01_Introduction_to_Python.md
