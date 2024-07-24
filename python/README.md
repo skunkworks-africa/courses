@@ -23,6 +23,71 @@ Welcome to the **Python Introduction Course**! This self-paced course is designe
 | 7    | [Data Structures](./Week7_Data_Structures/README.md) | Lists, dictionaries, and tuples in Python.                 |
 | 8    | [Capstone Project](./Week8_Capstone_Project/README.md) | Comprehensive project to apply all learned concepts.       |
 
+python-intro-course/
+├── Week1_Introduction_to_Python/
+│   ├── theory/
+│   │   ├── 01_Introduction_to_Python.md
+│   │   ├── 02_Why_Program.md
+│   │   ├── 03_What_are_programs.md
+│   │   ├── 04_Importance_of_programs.md
+│   │   ├── 05_Types_of_programs.md
+│   │   ├── 06_Hardware_Architecture.md
+│   │   ├── 07_Hardware_Requirements.md
+│   │   ├── 08_Hardware_Optimizations.md
+│   │   ├── 09_Pros_and_Cons_of_Hardware_Specs.md
+│   │   ├── 10_Hardware_Limitations.md
+│   │   ├── 11_Python_as_a_Language.md
+│   │   ├── 12_What_is_Python.md
+│   │   ├── 13_What_is_an_Interpreter.md
+│   │   ├── 14_Object_Oriented_Programming.md
+│   │   ├── 15_Dynamically_Typed_Language.md
+│   │   ├── 16_Elements_of_Python.md
+│   │   ├── 17_Pros_and_Cons_of_Python.md
+│   ├── practical/
+│   │   ├── 01_Setting_Up_Python_Environment.md
+│   │   ├── 02_Writing_and_Running_First_Program.md
+│   ├── q_and_a/
+│   │   ├── Week1_Q_and_A.md
+│   ├── README.md
+│   ├── requirements.txt
+├── Week2_Variables_and_Expressions/
+│   ├── theory/
+│   │   ├── 01_Variables.md
+│   │   ├── 02_Creating_Variables.md
+│   │   ├── 03_Variable_Types.md
+│   │   ├── 04_Variable_Scopes.md
+│   │   ├── 05_Expressions_and_Statements.md
+│   │   ├── 06_Standard_Expression_Syntax.md
+│   │   ├── 07_Standard_Statement_Syntax.md
+│   │   ├── 08_Intermediate_Expression_Syntax.md
+│   ├── practical/
+│   │   ├── 01_Creating_and_Using_Variables.md
+│   │   ├── 02_Writing_Expressions_and_Statements.md
+│   ├── q_and_a/
+│   │   ├── Week2_Q_and_A.md
+│   ├── README.md
+│   ├── requirements.txt
+...
+├── Week8_Capstone_Project/
+│   ├── theory/
+│   │   ├── 01_Project_Planning.md
+│   │   ├── 02_Defining_Project_Scope_and_Objectives.md
+│   │   ├── 03_Choosing_Tools_and_Technologies.md
+│   ├── practical/
+│   │   ├── 01_Developing_the_Project.md
+│   │   ├── 02_Applying_Learned_Concepts.md
+│   ├── presentation/
+│   │   ├── 01_Presenting_the_Project.md
+│   │   ├── 02_Peer_Review_and_Feedback.md
+│   ├── q_and_a/
+│   │   ├── Week8_Q_and_A.md
+│   ├── README.md
+│   ├── requirements.txt
+├── .gitignore
+├── LICENSE
+├── README.md
+
+
 ### Installation
 
 To get started, clone the repository and set up your Python environment:
