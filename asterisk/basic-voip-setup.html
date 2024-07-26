@@ -9,56 +9,71 @@
     <style>
         body {
             font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
 
-        .hero {
+        header {
             background-color: #0f62fe;
             color: white;
-            padding: 50px 20px;
+            padding: 20px 0;
             text-align: center;
         }
 
-        .hero h1 {
+        header h1 {
             font-size: 2.5rem;
             margin: 0;
         }
 
-        .content {
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-        }
-
-        .section {
-            background-color: #ffffff;
+            background-color: white;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .section h2 {
-            font-size: 1.75rem;
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
             color: #0f62fe;
+            margin-bottom: 20px;
         }
 
-        .section ul {
-            list-style: none;
-            padding: 0;
+        h3 {
+            color: #333;
+            margin-top: 20px;
         }
 
-        .section ul li {
-            margin-bottom: 10px;
-        }
-
-        .section ul li a {
-            color: #0f62fe;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .section ul li a:hover {
-            text-decoration: underline;
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-left: 3px solid #0f62fe;
+            overflow-x: auto;
         }
 
         footer {
@@ -69,48 +84,37 @@
             margin-top: 20px;
         }
 
-        pre code {
-            background-color: #f4f4f4;
-            display: block;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-
         @media (max-width: 768px) {
-            .hero h1 {
+            header h1 {
                 font-size: 2rem;
             }
 
-            .section h2 {
+            h2 {
                 font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="bx--header">
-        <nav class="bx--header__nav">
-            <ul class="bx--header__menu-bar">
-                <li class="bx--header__menu-item"><a href="/" class="bx--header__menu-item--link">Home</a></li>
-                <li class="bx--header__menu-item"><a href="/training" class="bx--header__menu-item--link">Training</a></li>
-                <li class="bx--header__menu-item"><a href="/services" class="bx--header__menu-item--link">Services</a></li>
-                <li class="bx--header__menu-item"><a href="/contact" class="bx--header__menu-item--link">Contact</a></li>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
-        <section class="hero">
-            <h1>Hands-on Lab - Setting Up a Basic VoIP Environment</h1>
-        </section>
+        <h1>Hands-on Lab - Setting Up a Basic VoIP Environment</h1>
     </header>
-    <main class="content">
-        <section class="section">
-            <h1 class="bx--type-productive-heading-01">Introduction</h1>
+    <main>
+        <section>
+            <h2>Introduction</h2>
             <p>Setting up a basic VoIP environment is an essential step in understanding how VoIP technology works and how it can be leveraged for modern communication systems. This hands-on lab will guide you through the process of installing and configuring Asterisk, creating SIP accounts, and testing your setup to ensure it operates correctly.</p>
         </section>
 
-        <section class="section">
-            <h2 class="bx--type-productive-heading-02">Step 1: Installing Asterisk</h2>
-
+        <section>
+            <h2>Step 1: Installing Asterisk</h2>
             <h3>Update System Packages</h3>
             <p>Ensure your system is up to date by running the following commands:</p>
             <pre><code>sudo apt-get update
@@ -145,9 +149,8 @@ sudo systemctl enable asterisk</code></pre>
             <pre><code>sudo asterisk -rvvv</code></pre>
         </section>
 
-        <section class="section">
-            <h2 class="bx--type-productive-heading-02">Step 2: Configuring Asterisk</h2>
-
+        <section>
+            <h2>Step 2: Configuring Asterisk</h2>
             <h3>Edit sip.conf</h3>
             <p>Configure SIP accounts by editing the <code>sip.conf</code> file:</p>
             <pre><code>sudo nano /etc/asterisk/sip.conf</code></pre>
@@ -183,9 +186,8 @@ exten => 1002,1,Dial(SIP/1002)</code></pre>
             <pre><code>sudo asterisk -rx "reload"</code></pre>
         </section>
 
-        <section class="section">
-            <h2 class="bx--type-productive-heading-02">Step 3: Testing the VoIP Setup</h2>
-
+        <section>
+            <h2>Step 3: Testing the VoIP Setup</h2>
             <h3>Install a SIP Client</h3>
             <p>Install a SIP client on your computer or mobile device (e.g., Zoiper, X-Lite).</p>
 
@@ -202,12 +204,12 @@ exten => 1002,1,Dial(SIP/1002)</code></pre>
             <p>Register the SIP client and test calling between the two SIP accounts (1001 and 1002) to ensure the setup is functioning correctly.</p>
         </section>
 
-        <section class="section">
-            <h2 class="bx--type-productive-heading-02">Conclusion</h2>
+        <section>
+            <h2>Conclusion</h2>
             <p>Setting up a basic VoIP environment with Asterisk provides a hands-on understanding of VoIP technology and its practical applications. By following this lab, you have learned how to install and configure Asterisk, create SIP accounts, and test your VoIP setup. This foundational knowledge will be crucial as you move forward with more advanced configurations and implementations using Asterisk.</p>
         </section>
     </main>
-    <footer class="bx--footer">
+    <footer>
         <p>© 2024 Skunkworks. All rights reserved.</p>
     </footer>
     <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
