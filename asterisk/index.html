@@ -3,146 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skunkworks Education - Asterisk Courses and Learning Content</title>
-    <link rel="stylesheet" href="https://github.com/skunkworksza/Courses/blob/01882983f090495a5d0f3549bd04c378aa3a3398/css/main.css">
-    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <title>Asterisk Courses and Learning Content</title>
+    <link href="https://github.com/skunkworksza/Courses/blob/3cc43b4ebc8d17def29e19f19a6545ce9681dd52/css/styles.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet"/>
     <style>
-        .hero {
-            background-color: #0f62fe;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .section {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            font-size: 1.75rem;
-            color: #0f62fe;
-        }
-
-        .section ul {
-            list-style: none;
             padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
         }
-
-        .section ul li {
-            margin-bottom: 10px;
-        }
-
-        .section ul li a {
-            color: #0f62fe;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .section ul li a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #0f62fe;
-            color: white;
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            padding: 20px 0;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .welcome-section {
+            background-color: #000000;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+            box-shadow: none;
+        }
+        .welcome-section-content {
+            background-color: #000000;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form input, form textarea, form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .partners-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .partner-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .partner-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        .statistics {
+            text-align: center;
             margin-top: 20px;
+        }
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #000;
+        }
+        .libutton {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            text-align: center;
+            outline: none;
+            text-decoration: none !important;
+            color: #ffffff !important;
+            width: 200px;
+            height: 32px;
+            border-radius: 16px;
+            background-color: #ffffff;
+            font-family: "SF Pro Text", Helvetica, sans-serif;
+            margin: 10px auto;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .partners-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="bx--header">
-        <nav class="bx--header__nav">
-            <ul class="bx--header__menu-bar">
-                <li class="bx--header__menu-item"><a href="/" class="bx--header__menu-item--link">Home</a></li>
-                <li class="bx--header__menu-item"><a href="/training" class="bx--header__menu-item--link">Training</a></li>
-                <li class="bx--header__menu-item"><a href="/services" class="bx--header__menu-item--link">Services</a></li>
-                <li class="bx--header__menu-item"><a href="/contact" class="bx--header__menu-item--link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="hero">
-        <h1>Welcome to Skunkworks Asterisk Course Catalog</h1>
-        <p>Master Asterisk, the open-source framework for building communications applications. Whether you're a beginner or looking to deepen your knowledge, our curated content will guide you through every step of learning and using Asterisk effectively.</p>
+<header>
+    <nav>
+        <ul>
+            <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg"/>Home</a></li>
+            <li>
+                <a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg"/>Training</a>
+                <ul>
+                    <li><a href="https://skunkworks.africa/blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg"/>Blended Learning</a></li>
+                    <li><a href="https://skunkworks.africa/course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg"/>Course Development</a></li>
+                    <li><a href="https://skunkworks.africa/project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg"/>Project Mentoring</a></li>
+                    <li><a href="https://skunkworks.africa/performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg"/>Performance Support Tools</a></li>
+                    <li><a href="https://skunkworks.africa/training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg"/>Training Programs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg"/>Services</a>
+                <ul>
+                    <li><a href="https://skunkworks.africa/software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg"/>Software Development</a></li>
+                    <li><a href="https://skunkworks.africa/hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg"/>HW/SW Solutions</a></li>
+                    <li><a href="https://skunkworks.africa/managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg"/>Managed Cloud</a></li>
+                    <li><a href="https://skunkworks.africa/technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg"/>Technical Support</a></li>
+                    <li><a href="https://skunkworks.africa/placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg"/>Placements</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg"/>Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="bx--content">
+    <section class="welcome-section">
+        <div class="welcome-section-content">
+            <h1>Welcome to Skunkworks Asterisk Course Catalog</h1>
+            <p>Welcome to the Skunkworks EdTech Course Catalog dedicated to Asterisk. This section is your comprehensive resource for mastering Asterisk, the open-source framework for building communications applications. Whether you're a beginner or looking to deepen your knowledge, our curated content will guide you through every step of learning and using Asterisk effectively.</p>
+        </div>
     </section>
-    <main class="content">
-        <section class="section">
-            <h2>Table of Contents</h2>
-            <ul>
-                <li><a href="#asterisk-basics">Asterisk Basics</a></li>
-                <li><a href="#installation-and-configuration">Installation and Configuration</a></li>
-                <li><a href="#voip-and-pbx-systems">VoIP and PBX Systems</a></li>
-                <li><a href="#advanced-asterisk-features">Advanced Asterisk Features</a></li>
-                <li><a href="#troubleshooting-and-maintenance">Troubleshooting and Maintenance</a></li>
-            </ul>
-        </section>
-        <section id="asterisk-basics" class="section">
-            <h2>Asterisk Basics</h2>
-            <ul>
-                <li><strong>Introduction to Asterisk</strong><br>Understand what Asterisk is, its historical background, and its importance in modern telecommunications.</li>
-                <li><strong>Getting Started with Asterisk</strong><br>Learn the foundational concepts and get ready to explore the capabilities of Asterisk.</li>
-            </ul>
-        </section>
-        <section id="installation-and-configuration" class="section">
-            <h2>Installation and Configuration</h2>
-            <ul>
-                <li><strong>Preparing the Linux Environment</strong><br>Ensure your Linux system is ready for Asterisk installation.</li>
-                <li><strong>Asterisk Installation Process</strong><br>Detailed step-by-step guide to install Asterisk on a Linux-based system.</li>
-                <li><strong>Initial Configuration of Asterisk</strong><br>Set up and configure basic VoIP components, including extensions and SIP accounts.</li>
-            </ul>
-        </section>
-        <section id="voip-and-pbx-systems" class="section">
-            <h2>VoIP and PBX Systems</h2>
-            <ul>
-                <li><strong>Setting Up a Basic VoIP Environment</strong><br>Hands-on lab to install and configure Asterisk, and set up basic VoIP components.</li>
-                <li><strong>Configuring IP PBX and Conferencing System</strong><br>Learn how to set up and manage an IP PBX and conferencing system within Asterisk.</li>
-            </ul>
-        </section>
-        <section id="advanced-asterisk-features" class="section">
-            <h2>Advanced Asterisk Features</h2>
-            <ul>
-                <li><strong>VoIP Phone and SIP Configuration</strong><br>Configure and register a VoIP phone with Asterisk, and set up SIP settings.</li>
-                <li><strong>Developing Custom Voicemail Applications</strong><br>Build and manage custom voicemail applications tailored to specific requirements.</li>
-                <li><strong>Advanced Dial Plans and Features</strong><br>Design and implement complex dial plans using advanced Asterisk features like call queues and IVR.</li>
-            </ul>
-        </section>
-        <section id="troubleshooting-and-maintenance" class="section">
-            <h2>Troubleshooting and Maintenance</h2>
-            <ul>
-                <li><strong>Troubleshooting Common Issues</strong><br>Identify and resolve common problems in Asterisk setups using diagnostic tools and best practices.</li>
-            </ul>
-        </section>
-        <section class="section">
-            <h2>External Resources</h2>
-            <ul>
-                <li><a href="https://www.asterisk.org">Asterisk Official Website</a></li>
-                <li><a href="https://wiki.asterisk.org/wiki/display/AST/Home">Asterisk Documentation</a></li>
-                <li><a href="https://www.oreilly.com/library/view/asterisk-the-definitive/9781449332433/">Asterisk: The Definitive Guide, 4th Edition</a></li>
-                <li><a href="https://github.com/asterisk/asterisk">GitHub: The Asterisk Project</a></li>
-                <li><a href="https://community.asterisk.org">Asterisk Community Forums</a></li>
-                <li><a href="https://www.asterisk.org/blog/">Asterisk Blog</a></li>
-            </ul>
-        </section>
-    </main>
-    <footer class="bx--footer">
-        <p>© 2024 Skunkworks. All rights reserved.</p>
-    </footer>
-    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <section class="section">
+        <h2 class="bx--type-productive-heading-01">Table of Contents</h2>
+        <ul>
+            <li><a href="#asterisk-basics">Asterisk Basics</a></li>
+            <li><a href="#installation-and-configuration">Installation and Configuration</a></li>
+            <li><a href="#voip-and-pbx-systems">VoIP and PBX Systems</a></li>
+            <li><a href="#advanced-asterisk-features">Advanced Asterisk Features</a></li>
+            <li><a href="#troubleshooting-and-maintenance">Troubleshooting and Maintenance</a></li>
+        </ul>
+    </section>
+    <section id="asterisk-basics" class="section">
+        <h2>Asterisk Basics</h2>
+        <ul>
+            <li><strong>Introduction to Asterisk</strong><br>Understand what Asterisk is, its historical background, and its importance in modern telecommunications.</li>
+            <li><strong>Getting Started with Asterisk</strong><br>Learn the foundational concepts and get ready to explore the capabilities of Asterisk.</li>
+        </ul>
+    </section>
+    <section id="installation-and-configuration" class="section">
+        <h2>Installation and Configuration</h2>
+        <ul>
+            <li><strong>Preparing the Linux Environment</strong><br>Ensure your Linux system is ready for Asterisk installation.</li>
+            <li><strong>Asterisk Installation Process</strong><br>Detailed step-by-step guide to install Asterisk on a Linux-based system.</li>
+            <li><strong>Initial Configuration of Asterisk</strong><br>Set up and configure basic VoIP components, including extensions and SIP accounts.</li>
+        </ul>
+    </section>
+    <section id="voip-and-pbx-systems" class="section">
+        <h2>VoIP and PBX Systems</h2>
+        <ul>
+            <li><strong>Setting Up a Basic VoIP Environment</strong><br>Hands-on lab to install and configure Asterisk, and set up basic VoIP components.</li>
+            <li><strong>Configuring IP PBX and Conferencing System</strong><br>Learn how to set up and manage an IP PBX and conferencing system within Asterisk.</li>
+        </ul>
+    </section>
+    <section id="advanced-asterisk-features" class="section">
+        <h2>Advanced Asterisk Features</h2>
+        <ul>
+            <li><strong>VoIP Phone and SIP Configuration</strong><br>Configure and register a VoIP phone with Asterisk, and set up SIP settings.</li>
+            <li><strong>Developing Custom Voicemail Applications</strong><br>Build and manage custom voicemail applications tailored to specific requirements.</li>
+            <li><strong>Advanced Dial Plans and Features</strong><br>Design and implement complex dial plans using advanced Asterisk features like call queues and IVR.</li>
+        </ul>
+    </section>
+    <section id="troubleshooting-and-maintenance" class="section">
+        <h2>Troubleshooting and Maintenance</h2>
+        <ul>
+            <li><strong>Troubleshooting Common Issues</strong><br>Identify and resolve common problems in Asterisk setups using diagnostic tools and best practices.</li>
+        </ul>
+    </section>
+    <section class="section">
+        <h2>External Resources</h2>
+        <ul>
+            <li><a href="https://www.asterisk.org">Asterisk Official Website</a></li>
+            <li><a href="https://wiki.asterisk.org/wiki/display/AST/Home">Asterisk Documentation</a></li>
+            <li><a href="https://www.oreilly.com/library/view/asterisk-the-definitive/9781449332433/">Asterisk: The Definitive Guide, 4th Edition</a></li>
+            <li><a href="https://github.com/asterisk/asterisk">GitHub: The Asterisk Project</a></li>
+            <li><a href="https://community.asterisk.org">Asterisk Community Forums</a></li>
+            <li><a href="https://www.asterisk.org/blog/">Asterisk Blog</a></li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>© 2024 Skunkworks. All rights reserved.</p>
+</footer>
+<script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
 </body>
 </html>
