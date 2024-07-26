@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on Lab - VoIP Phone and SIP Configuration</title>
+    <link rel="stylesheet" href="https://github.com/skunkworksza/Courses/blob/01882983f090495a5d0f3549bd04c378aa3a3398/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0f62fe;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #0f62fe;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-left: 3px solid #0f62fe;
+            overflow-x: auto;
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Hands-on Lab - VoIP Phone and SIP Configuration</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>In this hands-on lab, you will configure a VoIP phone and set up SIP (Session Initiation Protocol) in Asterisk. By the end of this lab, you will be able to:</p>
+            <ul>
+                <li>Configure and register a VoIP phone with Asterisk.</li>
+                <li>Set up SIP settings in Asterisk.</li>
+                <li>Test and troubleshoot VoIP phone and SIP configurations.</li>
+            </ul>
+            <p>This practical exercise will provide you with the skills needed to deploy and manage VoIP phones and SIP configurations using Asterisk.</p>
+        </section>
+
+        <section>
+            <h2>Step-by-Step Instructions</h2>
+
+            <h3>1. Configure VoIP Phone</h3>
+
+            <h4>Access VoIP Phone Web Interface</h4>
+            <p>Connect your VoIP phone to the network. Open a web browser and enter the IP address of the VoIP phone (e.g., <code>http://192.168.1.100</code>).</p>
+
+            <h4>Log In to the VoIP Phone Interface</h4>
+            <p>Enter the default username and password (check the phone's manual for these details).</p>
+
+            <h4>Configure SIP Account on VoIP Phone</h4>
+            <p>Navigate to the SIP settings or Account settings. Enter the following details:</p>
+            <ul>
+                <li>SIP Server: <code>&lt;IP_of_Asterisk_Server&gt;</code></li>
+                <li>Username: <code>1001</code></li>
+                <li>Password: <code>welcome123</code></li>
+            </ul>
+            <p>Save the settings and apply the changes.</p>
+        </section>
+
+        <section>
+            <h3>2. Test VoIP Phone</h3>
+
+            <h4>Make a Call Using the VoIP Phone</h4>
+            <p>Dial <code>1002</code> from the VoIP phone and press <code>Call</code>. Verify that the call is received on the SIP client configured for 1002.</p>
+
+            <h4>Check VoIP Phone Registration</h4>
+            <p>Open Asterisk CLI:</p>
+            <pre><code>sudo asterisk -r</code></pre>
+            <p>Check the SIP registration status:</p>
+            <pre><code>sip show peers</code></pre>
+        </section>
+
+        <section>
+            <h3>3. Troubleshoot SIP Configuration</h3>
+
+            <h4>Verify SIP Settings</h4>
+            <p>Ensure the SIP server address, username, and password are correctly configured on the VoIP phone.</p>
+
+            <h4>Check Network Connectivity</h4>
+            <p>Ensure the VoIP phone is properly connected to the network and can reach the Asterisk server.</p>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>By following these detailed hands-on labs, you will build a comprehensive understanding of Asterisk, starting from basic installation and configuration to advanced telecommunication solutions. Each lab builds upon the previous one, ensuring a smooth learning curve and avoiding redundancy.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
