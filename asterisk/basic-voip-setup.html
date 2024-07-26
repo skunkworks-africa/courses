@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on Lab - Setting Up a Basic VoIP Environment</title>
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="bx--header">
+        <nav class="bx--header__nav">
+            <ul class="bx--header__menu-bar">
+                <li class="bx--header__menu-item"><a href="/" class="bx--header__menu-item--link">Home</a></li>
+                <li class="bx--header__menu-item"><a href="/training" class="bx--header__menu-item--link">Training</a></li>
+                <li class="bx--header__menu-item"><a href="/services" class="bx--header__menu-item--link">Services</a></li>
+                <li class="bx--header__menu-item"><a href="/contact" class="bx--header__menu-item--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="bx--content">
+        <section class="bx--section">
+            <h1 class="bx--type-productive-heading-01">Hands-on Lab - Setting Up a Basic VoIP Environment</h1>
+            <p>Setting up a basic VoIP environment is an essential step in understanding how VoIP technology works and how it can be leveraged for modern communication systems. This hands-on lab will guide you through the process of installing and configuring Asterisk, creating SIP accounts, and testing your setup to ensure it operates correctly.</p>
+        </section>
+
+        <section class="bx--section">
+            <h2 class="bx--type-productive-heading-02">Step 1: Installing Asterisk</h2>
+
+            <h3>Update System Packages</h3>
+            <p>Ensure your system is up to date by running the following commands:</p>
+            <pre><code>sudo apt-get update
+sudo apt-get upgrade</code></pre>
+
+            <h3>Install Dependencies</h3>
+            <p>Install necessary dependencies for Asterisk:</p>
+            <pre><code>sudo apt-get install -y build-essential libncurses5-dev libssl-dev libxml2-dev libsqlite3-dev uuid-dev libjansson-dev libedit-dev</code></pre>
+
+            <h3>Download Asterisk</h3>
+            <p>Download the latest version of Asterisk from the official website:</p>
+            <pre><code>cd /usr/src
+sudo wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz
+sudo tar -zxvf asterisk-18-current.tar.gz
+cd asterisk-18.*</code></pre>
+
+            <h3>Compile and Install Asterisk</h3>
+            <p>Compile and install Asterisk using the following commands:</p>
+            <pre><code>sudo ./configure
+sudo make
+sudo make install
+sudo make samples
+sudo make config</code></pre>
+
+            <h3>Start Asterisk</h3>
+            <p>Start the Asterisk service and enable it to start on boot:</p>
+            <pre><code>sudo systemctl start asterisk
+sudo systemctl enable asterisk</code></pre>
+
+            <h3>Verify Installation</h3>
+            <p>Verify that Asterisk is running correctly:</p>
+            <pre><code>sudo asterisk -rvvv</code></pre>
+        </section>
+
+        <section class="bx--section">
+            <h2 class="bx--type-productive-heading-02">Step 2: Configuring Asterisk</h2>
+
+            <h3>Edit sip.conf</h3>
+            <p>Configure SIP accounts by editing the <code>sip.conf</code> file:</p>
+            <pre><code>sudo nano /etc/asterisk/sip.conf</code></pre>
+            <p>Add the following configuration for two SIP accounts:</p>
+            <pre><code>[general]
+context=default
+bindport=5060
+bindaddr=0.0.0.0
+allow=ulaw
+
+[1001]
+type=friend
+host=dynamic
+secret=welcome1
+context=default
+
+[1002]
+type=friend
+host=dynamic
+secret=welcome2
+context=default</code></pre>
+
+            <h3>Edit extensions.conf</h3>
+            <p>Configure dial plan by editing the <code>extensions.conf</code> file:</p>
+            <pre><code>sudo nano /etc/asterisk/extensions.conf</code></pre>
+            <p>Add the following configuration:</p>
+            <pre><code>[default]
+exten => 1001,1,Dial(SIP/1001)
+exten => 1002,1,Dial(SIP/1002)</code></pre>
+
+            <h3>Reload Asterisk Configuration</h3>
+            <p>Reload the Asterisk configuration to apply the changes:</p>
+            <pre><code>sudo asterisk -rx "reload"</code></pre>
+        </section>
+
+        <section class="bx--section">
+            <h2 class="bx--type-productive-heading-02">Step 3: Testing the VoIP Setup</h2>
+
+            <h3>Install a SIP Client</h3>
+            <p>Install a SIP client on your computer or mobile device (e.g., Zoiper, X-Lite).</p>
+
+            <h3>Configure SIP Client</h3>
+            <p>Configure the SIP client with the following settings:</p>
+            <ul>
+                <li>Account Name: 1001</li>
+                <li>SIP Server: IP address of your Asterisk server</li>
+                <li>Username: 1001</li>
+                <li>Password: welcome1</li>
+            </ul>
+
+            <h3>Register and Test Call</h3>
+            <p>Register the SIP client and test calling between the two SIP accounts (1001 and 1002) to ensure the setup is functioning correctly.</p>
+        </section>
+
+        <section class="bx--section">
+            <h2 class="bx--type-productive-heading-02">Conclusion</h2>
+            <p>Setting up a basic VoIP environment with Asterisk provides a hands-on understanding of VoIP technology and its practical applications. By following this lab, you have learned how to install and configure Asterisk, create SIP accounts, and test your VoIP setup. This foundational knowledge will be crucial as you move forward with more advanced configurations and implementations using Asterisk.</p>
+        </section>
+    </main>
+    <footer class="bx--footer">
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
