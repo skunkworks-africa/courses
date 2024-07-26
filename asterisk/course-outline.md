@@ -1,111 +1,106 @@
-# Mastering Asterisk: From Beginner to Expert
+# Skunkworks Education - Asterisk Courses and Learning Content
 
-## Course Duration
-8 Hours
+---
 
-## Course Description
-This course offers a comprehensive understanding of Asterisk, a leading Voice over IP (VoIP) technology. It covers everything from basic concepts to advanced functionalities, tailored for individuals seeking expertise in Asterisk. The course includes installation, configuration, dial plans, voicemail, queues, IVR, and advanced topics.
+## Welcome to Skunkworks Asterisk Course Catalog
 
-## Course Modules
+[Home](#) | [Training](#) | [Services](#) | [Contact](#)
 
-### Module 1: Introduction to Asterisk
-**Duration: Approx. 1 Hour**
+Welcome to the Skunkworks EdTech Course Catalog dedicated to Asterisk. This section is your comprehensive resource for mastering Asterisk, the open-source framework for building communications applications. Whether you're a beginner or looking to deepen your knowledge, our curated content will guide you through every step of learning and using Asterisk effectively.
 
-1. **Overview of VoIP and Asterisk**
-   - Understanding the basics of VoIP and the role of Asterisk.
-2. **History and Evolution of Asterisk**
-   - Tracing the development of Asterisk over time.
-3. **Key Features and Capabilities**
-   - Exploring what makes Asterisk a versatile VoIP solution.
-4. **Asterisk Community and Resources**
-   - Introducing the community and available resources.
-5. **Real-World Applications**
-   - Discussing various use cases of Asterisk in businesses.
+---
 
-### Module 2: Installation and Configuration
-**Duration: Approx. 1 Hour**
+## Table of Contents
 
-1. **System Requirements**
-   - Hardware and software prerequisites for Asterisk.
-2. **Installing Asterisk**
-   - Step-by-step guide on installing Asterisk.
-3. **Basic Configuration**
-   - Setting up the Asterisk environment.
-4. **User Extensions and SIP Trunks**
-   - Configuring users and connectivity.
-5. **Security and Maintenance**
-   - Best practices for securing and maintaining the Asterisk system.
+- [Asterisk Basics](#asterisk-basics)
+- [Installation and Configuration](#installation-and-configuration)
+- [VoIP and PBX Systems](#voip-and-pbx-systems)
+- [Advanced Asterisk Features](#advanced-asterisk-features)
+- [Troubleshooting and Maintenance](#troubleshooting-and-maintenance)
+- [External Resources](#external-resources)
+- [Contact Us](#contact-us)
 
-### Module 3: Dial Plan
-**Duration: Approx. 1 Hour**
+---
 
-1. **Understanding Dial Plans**
-   - The concept and importance of dial plans in Asterisk.
-2. **Basic Syntax**
-   - Learning the syntax used in dial plan configurations.
-3. **Functions in Dial Plans**
-   - Utilizing functions for enhanced operations.
-4. **Applications in Dial Plans**
-   - Integrating applications within dial plans.
-5. **Variables and Their Usage**
-   - Effectively using variables in dial plans.
+## Asterisk Basics
 
-### Module 4: Voicemail
-**Duration: Approx. 1 Hour**
+### Introduction to Asterisk ![New](https://img.shields.io/badge/status-new-brightgreen)
 
-1. **Setting Up Voicemail**
-   - Configuring voicemail boxes for users.
-2. **Voicemail Configuration**
-   - Customizing voicemail features and options.
-3. **Voicemail Options**
-   - Exploring different voicemail functionalities.
-4. **Voicemail Notifications**
-   - Setting up notifications for voicemail messages.
+Understand what Asterisk is, its historical background, and its importance in modern telecommunications.
 
-### Module 5: Queues
-**Duration: Approx. 1 Hour**
+### Getting Started with Asterisk ![New](https://img.shields.io/badge/status-new-brightgreen)
 
-1. **Creating and Managing Queues**
-   - Setting up queue systems.
-2. **Queue Strategies**
-   - Understanding different strategies for managing calls in queues.
-3. **Agent Configuration**
-   - Configuring agents in queue systems.
-4. **Monitoring and Reporting**
-   - Tools and techniques for queue monitoring and reporting.
+Learn the foundational concepts and get ready to explore the capabilities of Asterisk.
 
-### Module 6: Interactive Voice Response (IVR)
-**Duration: Approx. 1 Hour**
+---
 
-1. **IVR Basics**
-   - Understanding the principles of IVR.
-2. **Designing an IVR System**
-   - Best practices for creating effective IVR menus.
-3. **Configuring IVR in Asterisk**
-   - Practical steps to set up IVR.
-4. **Advanced IVR Features**
-   - Exploring more sophisticated IVR functionalities.
+## Installation and Configuration
 
-### Module 7: Advanced Topics
-**Duration: Approx. 1 Hour**
+### Preparing the Linux Environment ![Updated](https://img.shields.io/badge/status-updated-blue)
 
-1. **Asterisk Clustering and High Availability**
-   - Implementing scalable and reliable systems.
-2. **Customizing with AGI (Asterisk Gateway Interface)**
-   - Introduction to AGI scripting.
-3. **Integration with Databases**
-   - Connecting Asterisk with external databases.
-4. **Advanced Dial Plan Techniques**
-   - Exploring complex dial plan configurations.
-5. **Troubleshooting and Optimization**
-   - Best practices for diagnosing and enhancing system performance.
+Ensure your Linux system is ready for Asterisk installation.
 
-## Course Conclusion
-- Summary of Key Learnings
-- Resources for Further Learning
-- Q&A and Feedback Session
+### Asterisk Installation Process ![Updated](https://img.shields.io/badge/status-updated-blue)
 
-## Additional Course Features
-- **Practical Demonstrations**: Hands-on examples and demonstrations in each module.
-- **Interactive Quizzes**: Quizzes at the end of each module to reinforce learning.
-- **Exercise Manual**: Accompanying manual with exercises and additional resources.
+Detailed step-by-step guide to install Asterisk on a Linux-based system.
+
+### Initial Configuration of Asterisk ![Updated](https://img.shields.io/badge/status-updated-blue)
+
+Set up and configure basic VoIP components, including extensions and SIP accounts.
+
+---
+
+## VoIP and PBX Systems
+
+### Setting Up a Basic VoIP Environment ![Lab](https://img.shields.io/badge/type-lab-yellow)
+
+Hands-on lab to install and configure Asterisk, and set up basic VoIP components.
+
+### Configuring IP PBX and Conferencing System ![Lab](https://img.shields.io/badge/type-lab-yellow)
+
+Learn how to set up and manage an IP PBX and conferencing system within Asterisk.
+
+---
+
+## Advanced Asterisk Features
+
+### VoIP Phone and SIP Configuration ![Advanced](https://img.shields.io/badge/level-advanced-red)
+
+Configure and register a VoIP phone with Asterisk, and set up SIP settings.
+
+### Developing Custom Voicemail Applications ![Advanced](https://img.shields.io/badge/level-advanced-red)
+
+Build and manage custom voicemail applications tailored to specific requirements.
+
+### Advanced Dial Plans and Features ![Advanced](https://img.shields.io/badge/level-advanced-red)
+
+Design and implement complex dial plans using advanced Asterisk features like call queues and IVR.
+
+---
+
+## Troubleshooting and Maintenance
+
+### Troubleshooting Common Issues ![Guide](https://img.shields.io/badge/type-guide-lightgrey)
+
+Identify and resolve common problems in Asterisk setups using diagnostic tools and best practices.
+
+---
+
+## External Resources
+
+- [Asterisk Official Website](https://www.asterisk.org)
+- [Asterisk Documentation](https://wiki.asterisk.org/wiki/display/AST/Home)
+- [Asterisk: The Definitive Guide, 4th Edition](https://www.oreilly.com/library/view/asterisk-the-definitive/9781449332433/)
+- [GitHub: The Asterisk Project](https://github.com/asterisk/asterisk)
+- [Asterisk Community Forums](https://community.asterisk.org)
+- [Asterisk Blog](https://www.asterisk.org/blog/)
+
+---
+
+## Contact Us
+
+For more information or to enroll in our Asterisk courses, visit [Skunkworks Training](https://courses.skunkworks.africa/asterisk/).
+
+---
+
+© 2024 Skunkworks. All rights reserved.
