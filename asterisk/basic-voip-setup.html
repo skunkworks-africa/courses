@@ -6,6 +6,87 @@
     <title>Hands-on Lab - Setting Up a Basic VoIP Environment</title>
     <link rel="stylesheet" href="https://github.com/skunkworksza/Courses/blob/01882983f090495a5d0f3549bd04c378aa3a3398/css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .hero {
+            background-color: #0f62fe;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 1.75rem;
+            color: #0f62fe;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .section ul li a {
+            color: #0f62fe;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="bx--header">
@@ -17,15 +98,17 @@
                 <li class="bx--header__menu-item"><a href="/contact" class="bx--header__menu-item--link">Contact</a></li>
             </ul>
         </nav>
-        <h1>Hands-on Lab - Setting Up a Basic VoIP Environment</h1>
+        <section class="hero">
+            <h1>Hands-on Lab - Setting Up a Basic VoIP Environment</h1>
+        </section>
     </header>
-    <main class="bx--content">
-        <section class="bx--section">
+    <main class="content">
+        <section class="section">
             <h1 class="bx--type-productive-heading-01">Introduction</h1>
             <p>Setting up a basic VoIP environment is an essential step in understanding how VoIP technology works and how it can be leveraged for modern communication systems. This hands-on lab will guide you through the process of installing and configuring Asterisk, creating SIP accounts, and testing your setup to ensure it operates correctly.</p>
         </section>
 
-        <section class="bx--section">
+        <section class="section">
             <h2 class="bx--type-productive-heading-02">Step 1: Installing Asterisk</h2>
 
             <h3>Update System Packages</h3>
@@ -62,7 +145,7 @@ sudo systemctl enable asterisk</code></pre>
             <pre><code>sudo asterisk -rvvv</code></pre>
         </section>
 
-        <section class="bx--section">
+        <section class="section">
             <h2 class="bx--type-productive-heading-02">Step 2: Configuring Asterisk</h2>
 
             <h3>Edit sip.conf</h3>
@@ -100,7 +183,7 @@ exten => 1002,1,Dial(SIP/1002)</code></pre>
             <pre><code>sudo asterisk -rx "reload"</code></pre>
         </section>
 
-        <section class="bx--section">
+        <section class="section">
             <h2 class="bx--type-productive-heading-02">Step 3: Testing the VoIP Setup</h2>
 
             <h3>Install a SIP Client</h3>
@@ -119,7 +202,7 @@ exten => 1002,1,Dial(SIP/1002)</code></pre>
             <p>Register the SIP client and test calling between the two SIP accounts (1001 and 1002) to ensure the setup is functioning correctly.</p>
         </section>
 
-        <section class="bx--section">
+        <section class="section">
             <h2 class="bx--type-productive-heading-02">Conclusion</h2>
             <p>Setting up a basic VoIP environment with Asterisk provides a hands-on understanding of VoIP technology and its practical applications. By following this lab, you have learned how to install and configure Asterisk, create SIP accounts, and test your VoIP setup. This foundational knowledge will be crucial as you move forward with more advanced configurations and implementations using Asterisk.</p>
         </section>
