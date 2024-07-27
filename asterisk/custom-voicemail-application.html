@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on Lab - Building a Custom Voicemail Application with Asterisk</title>
+    <link rel="stylesheet" href="https://github.com/skunkworksza/Courses/blob/01882983f090495a5d0f3549bd04c378aa3a3398/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0f62fe;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #0f62fe;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-left: 3px solid #0f62fe;
+            overflow-x: auto;
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Hands-on Lab - Building a Custom Voicemail Application with Asterisk</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>In this hands-on lab, you will build a custom voicemail application using Asterisk. By the end of this lab, you will be able to:</p>
+            <ul>
+                <li>Set up and configure the voicemail system in Asterisk.</li>
+                <li>Develop a custom voicemail application tailored to specific requirements.</li>
+                <li>Test and troubleshoot the custom voicemail application.</li>
+            </ul>
+            <p>This practical exercise will provide you with the skills needed to create and manage customized voicemail solutions using Asterisk.</p>
+        </section>
+
+        <section>
+            <h2>Step-by-Step Instructions</h2>
+
+            <h3>1. Configure Voicemail in Asterisk</h3>
+
+            <h4>Edit Voicemail Configuration File</h4>
+            <p>Open the voicemail configuration file:</p>
+            <pre><code>sudo nano /etc/asterisk/voicemail.conf</code></pre>
+            <p>Add the following configuration:</p>
+            <pre><code>[default]
+1001 => 1234,User One,user1@yourdomain.com
+1002 => 1234,User Two,user2@yourdomain.com</code></pre>
+
+            <h4>Save and Exit</h4>
+            <p>Press <code>Ctrl+O</code> to save the file. Press <code>Enter</code> to confirm. Press <code>Ctrl+X</code> to exit the nano editor.</p>
+        </section>
+
+        <section>
+            <h3>2. Configure Dial Plan for Voicemail</h3>
+
+            <h4>Edit Extensions Configuration</h4>
+            <p>Open the extensions configuration file:</p>
+            <pre><code>sudo nano /etc/asterisk/extensions.conf</code></pre>
+            <p>Add the following dial plan for voicemail:</p>
+            <pre><code>[internal]
+exten => 1001,1,Dial(SIP/1001,20)
+exten => 1001,n,Voicemail(1001@default,u)
+exten => 1001,n,Hangup()
+
+exten => 1002,1,Dial(SIP/1002,20)
+exten => 1002,n,Voicemail(1002@default,u)
+exten => 1002,n,Hangup()</code></pre>
+
+            <h4>Reload Asterisk Configuration</h4>
+            <p>Access Asterisk CLI:</p>
+            <pre><code>sudo asterisk -r</code></pre>
+            <p>Reload the configurations:</p>
+            <pre><code>dialplan reload
+voicemail reload
+exit</code></pre>
+        </section>
+
+        <section>
+            <h3>3. Test Voicemail Setup</h3>
+
+            <h4>Leave a Voicemail</h4>
+            <p>Dial <code>1002</code> from any SIP client and let it go to voicemail. Leave a voicemail message for extension 1002.</p>
+
+            <h4>Retrieve Voicemail</h4>
+            <p>Dial <code>*97</code> from extension 1002. Enter the password <code>1234</code> when prompted. Listen to the voicemail message left for extension 1002.</p>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>By following these detailed hands-on labs, you will build a comprehensive understanding of Asterisk, starting from basic installation and configuration to advanced telecommunication solutions. Each lab builds upon the previous one, ensuring a smooth learning curve and avoiding redundancy.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
