@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on Lab - Troubleshooting Common Issues</title>
+    <link rel="stylesheet" href="https://github.com/skunkworksza/Courses/blob/01882983f090495a5d0f3549bd04c378aa3a3398/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0f62fe;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #0f62fe;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-left: 3px solid #0f62fe;
+            overflow-x: auto;
+        }
+
+        footer {
+            background-color: #0f62fe;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Hands-on Lab - Troubleshooting Common Issues</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>In this hands-on lab, you will learn how to troubleshoot common issues encountered in Asterisk deployments. By the end of this lab, you will be able to:</p>
+            <ul>
+                <li>Identify common problems in Asterisk setups.</li>
+                <li>Use diagnostic tools and commands to troubleshoot issues.</li>
+                <li>Apply best practices in resolving and preventing common problems.</li>
+            </ul>
+            <p>This practical exercise will equip you with the skills needed to effectively troubleshoot and maintain a reliable Asterisk telecommunication system.</p>
+        </section>
+
+        <section>
+            <h2>Step-by-Step Instructions</h2>
+
+            <h3>1. Common Problems and Solutions</h3>
+
+            <h4>No Audio on Calls</h4>
+            <p>Check Firewall Settings:</p>
+            <pre><code>Ensure that the necessary ports (e.g., 5060 for SIP, 10000-20000 for RTP) are open.</code></pre>
+            <p>Verify NAT Settings:</p>
+            <pre><code>sudo nano /etc/asterisk/sip.conf
+
+Add the following under [general]:
+
+nat=yes
+externip=<Your_Public_IP>
+localnet=192.168.1.0/255.255.255.0</code></pre>
+
+            <h4>Registration Issues</h4>
+            <p>Check SIP Credentials:</p>
+            <pre><code>Ensure the correct username and password are used in the SIP client configuration.</code></pre>
+            <p>Verify Network Connectivity:</p>
+            <pre><code>Ensure the SIP client can reach the Asterisk server.</code></pre>
+        </section>
+
+        <section>
+            <h3>2. Diagnostic Tools and Commands</h3>
+
+            <h4>Asterisk CLI Commands</h4>
+            <p>Check SIP Peers:</p>
+            <pre><code>sip show peers</code></pre>
+            <p>Check Channels:</p>
+            <pre><code>core show channels</code></pre>
+
+            <h4>Log Files</h4>
+            <p>Asterisk Log:</p>
+            <pre><code>sudo tail -f /var/log/asterisk/full</code></pre>
+            <p>System Log:</p>
+            <pre><code>sudo tail -f /var/log/syslog</code></pre>
+        </section>
+
+        <section>
+            <h3>3. Best Practices</h3>
+
+            <h4>Regular Updates</h4>
+            <p>Keep Asterisk and all related packages up to date to avoid known issues.</p>
+
+            <h4>Backup Configurations</h4>
+            <p>Regularly back up configuration files to prevent data loss.</p>
+
+            <h4>Monitor System Performance</h4>
+            <p>Use monitoring tools to track the performance of the Asterisk server and identify issues early.</p>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>By following these detailed hands-on labs, you will build a comprehensive understanding of Asterisk, starting from basic installation and configuration to advanced telecommunication solutions. Each lab builds upon the previous one, ensuring a smooth learning curve and avoiding redundancy.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Skunkworks. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
