@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assessment Form</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Assessment Form</h1>
+            <form id="assessment-form">
+                <label for="student-id">Student-ID:</label>
+                <input type="text" id="student-id" name="student-id" required><br><br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="assessment-date">Assessment Date:</label><br>
+                <input type="date" id="assessment-date" name="assessment-date" required><br><br>
+                <label for="answers">Submit your answers:</label>
+                <textarea id="answers" name="answers" rows="10" cols="50" required></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <script>
+            document.getElementById('assessment-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Assessment submitted successfully!');
+            });
+        </script>
+    </body>
+</html>

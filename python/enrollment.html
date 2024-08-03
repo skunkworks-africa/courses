@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrollment Form</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="con
+tainer">
+<h1>Enrollment Form</h1>
+<form id="enrollment-form">
+<label for="student-id">Student ID:</label>
+<input type="text" id="student-id" name="student-id" required><br><br>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br>
+<br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+<br><br>
+<label for="enrollment-date">Enrollment Date:</label>
+<input type="date" id="enrollment-date" name="enrollment-date" required><br><br>
+<button type="submit">Submit</button>
+</form>
+</div>
+<script>
+document.getElementById('enrollment-form').addEventListener('submit', function(e) {
+e.preventDefault();
+alert('Enrollment submitted successfully!');
+});
+</script>
+</body>
+</html>
