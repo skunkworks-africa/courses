@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skunkworks Academy</title>
+    <link href="./css/footer.css" rel="stylesheet" />
+    <link href="./css/forms.css" rel="stylesheet" />
+    <link href="./css/header.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/sidebar.css" rel="stylesheet" />
+    <link href="./css/airbnb.css" rel="stylesheet" />
+    <link href="./css/arabic.css" rel="stylesheet" />
+    <link href="./css/bass-addons.css" rel="stylesheet" />
+    <link href="./css/bass.css" rel="stylesheet" />
+    <link href="./css/button.css" rel="stylesheet" />
+    <link href="./css/carbon-components.min_copy.css" rel="stylesheet" />
+    <link href="./css/carbon-components_copy.css" rel="stylesheet" />
+    <link href="./css/confetti.css" rel="stylesheet" />
+    <link href="./css/confirmDate.css" rel="stylesheet" />
+    <link href="./css/dark.css" rel="stylesheet" />
+    <link href="./css/example.css" rel="stylesheet" />
+    <link href="./css/flatpickr.css" rel="stylesheet" />
+    <link href="./css/flatpickr.min.css" rel="stylesheet" />
+    <link href="./css/fonts.css" rel="stylesheet" />
+    <link href="./css/github.css" rel="stylesheet" />
+    <link href="./css/ie.css" rel="stylesheet" />
+    <link href="./css/jasmine.css" rel="stylesheet" />
+    <link href="./css/light.css" rel="stylesheet" />
+    <link href="./css/manager.css" rel="stylesheet" />
+    <link href="./css/material_blue.css" rel="stylesheet" />
+    <link href="./css/material_green.css" rel="stylesheet" />
+    <link href="./css/material_orange.css" rel="stylesheet" />
+    <link href="./css/material_red.css" rel="stylesheet" />
+    <link href="./css/page.css" rel="stylesheet" />
+    <link href="./css/screen_copy.css" rel="stylesheet" />
+    <link href="./css/services.css" rel="stylesheet" />
+    <link href="./css/source-code-pro.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/styles.min.css" rel="stylesheet" />
+    <link href="./css/tocbot.css" rel="stylesheet" />
+    <link href="./css/achievements.css" rel="stylesheet" />
+    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@carbon/charts/styles.css" rel="stylesheet">
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            box-sizing: border-box;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #000;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 15px;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .section h2,
+        .section h3 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .section p,
+        .section ul,
+        .section ol {
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .centered-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            color: #000;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .partners-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .partner-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partner-item img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        .platform-logo {
+            display: block;
+            margin: 10px auto;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background 0.3s ease;
+        }
+
+        .platform-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #2563EB;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        }
+
+        .platform-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: inherit;
+        }
+
+        .harness-platform-logo-container {
+            background-color: #000;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .section p a {
+            color: #0f62fe;
+            text-decoration: none;
+        }
+
+        .section p a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .partners-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .course-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-title {
+            color: #000;
+            font-size: 2.625rem;
+            font-weight: 300;
+            line-height: 1.199;
+            letter-spacing: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .course-info {
+            font-size: 1.25rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bx--body">
+    <header class="bx--header bx--header--fixed">
+        <div class="bx--header__name">
+            <a class="bx--header__name--link" href="https://skunkworks.africa/index.html">Skunkworks EdTech</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
+                <li>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg" />Blended Learning</a></li>
+                        <li><a href="https://skunkworks.africa/course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg" />Course Development</a></li>
+                        <li><a href="https://skunkworks.africa/project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Project Mentoring</a></li>
+                        <li><a href="https://skunkworks.africa/performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Performance Support Tools</a></li>
+                        <li><a href="https://skunkworks.africa/training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg" />Training Programs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg" />Services</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg" />Software Development</a></li>
+                        <li><a href="https://skunkworks.africa/hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg" />HW/SW Solutions</a></li>
+                        <li><a href="https://skunkworks.africa/managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg" />Managed Cloud</a></li>
+                        <li><a href="https://skunkworks.africa/technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Technical Support</a></li>
+                        <li><a href="https://skunkworks.africa/placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg" />Placements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/briefcase.svg" />Careers</a>
+                    <ul>
+                        <li><a href="https://skunkworks.africa/careers-openings.html"><img alt="Current Openings" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Current Openings</a></li>
+                        <li><a href="https://skunkworks.africa/careers-internships.html"><img alt="Internship Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/education.svg" />Internship Programs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-placements.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner.svg" />Placements</a></li>
+                        <li><a href="https://skunkworks.africa/careers-jobs.html"><img alt="Jobs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Jobs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-mentorship.html"><img alt="Mentorship" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Mentorship</a></li>
+                        <li><a href="https://skunkworks.africa/careers-development.html"><img alt="Employee Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/development.svg" />Employee Development</a></li>
+                        <li><a href="https://skunkworks.africa/careers-culture.html"><img alt="Our Culture" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/team.svg" />Our Culture</a></li>
+                        <li><a href="https://skunkworks.africa/careers-testimonials.html"><img alt="Employee Testimonials" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/thumbs-up.svg" />Employee Testimonials</a></li>
+                        <li><a href="https://skunkworks.africa/careers-apply.html"><img alt="How to Apply" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/send-alt.svg" />How to Apply</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="bx--grid bx--grid--full-width">
+        <div class="bx--row">
+            <div class="bx--col-lg-12">
+                <h1 class="bx--type--display-03">Skunkworks EdTech Course Catalog</h1>
+                <p class="bx--type-body-long-01">
+                    Welcome to the Skunkworks EdTech Course Catalog. This repository is your one-stop destination for cutting-edge educational content across various domains of technology and business. Our courses are meticulously crafted to provide you with the knowledge and skills needed to excel in today's fast-paced tech environment.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="catalog">
+        <div class="bx--row">
+            <div class="bx--col-lg-12">
+                <section class="bx--content-group">
+                    <h2 class="bx--type--productive-heading-02">Table of Contents</h2>
+                    <div class="bx--structured-list bx--structured-list--condensed">
+                        <div class="bx--structured-list-thead">
+                            <div class="bx--structured-list-row bx--structured-list-row--header-row">
+                                <div class="bx--structured-list-th">Category</div>
+                                <div class="bx--structured-list-th">Link</div>
+                            </div>
+                        </div>
+                        <div class="bx--structured-list-tbody">
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Adobe</div>
+                                <div class="bx--structured-list-td"><a href="#adobe">Adobe</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">AI</div>
+                                <div class="bx--structured-list-td"><a href="#ai">AI</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Application Development</div>
+                                <div class="bx--structured-list-td"><a href="#application-development">Application Development</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Automation</div>
+                                <div class="bx--structured-list-td"><a href="#automation">Automation</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Checkpoint</div>
+                                <div class="bx--structured-list-td"><a href="#checkpoint">Checkpoint</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Cloud</div>
+                                <div class="bx--structured-list-td"><a href="#cloud">Cloud</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Data Analytics and Business Intelligence</div>
+                                <div class="bx--structured-list-td"><a href="#data-analytics-and-business-intelligence">Data Analytics and Business Intelligence</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">DevOps & Agile</div>
+                                <div class="bx--structured-list-td"><a href="#devops-agile">DevOps & Agile</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Drools</div>
+                                <div class="bx--structured-list-td"><a href="#drools">Drools</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">GitHub</div>
+                                <div class="bx--structured-list-td"><a href="#github">GitHub</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Google</div>
+                                <div class="bx--structured-list-td"><a href="#google">Google</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">IBM</div>
+                                <div class="bx--structured-list-td"><a href="#ibm">IBM</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">ISO</div>
+                                <div class="bx--structured-list-td"><a href="#iso">ISO</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Mainframe</div>
+                                <div class="bx--structured-list-td"><a href="#mainframe">Mainframe</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Microsoft</div>
+                                <div class="bx--structured-list-td"><a href="#microsoft">Microsoft</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Middleware</div>
+                                <div class="bx--structured-list-td"><a href="#middleware">Middleware</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Networking and Communication</div>
+                                <div class="bx--structured-list-td"><a href="#networking-and-communication">Networking and Communication</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Occupational Skills</div>
+                                <div class="bx--structured-list-td"><a href="#occupational-skills">Occupational Skills</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Soft Skills, SAFe, IT Management, ITIL</div>
+                                <div class="bx--structured-list-td"><a href="#soft-skills-safe-it-management-itil">Soft Skills, SAFe, IT Management, ITIL</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Project Management (i.e. PMI)</div>
+                                <div class="bx--structured-list-td"><a href="#project-management-ie-pmi">Project Management (i.e. PMI)</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">SAP</div>
+                                <div class="bx--structured-list-td"><a href="#sap">SAP</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Security</div>
+                                <div class="bx--structured-list-td"><a href="#security">Security</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">Storage</div>
+                                <div class="bx--structured-list-td"><a href="#storage">Storage</a></div>
+                            </div>
+                            <div class="bx--structured-list-row">
+                                <div class="bx--structured-list-td">WhatsApp</div>
+                                <div class="bx--structured-list-td"><a href="#whatsapp">WhatsApp</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bx--footer">
+        <div class="bx--grid">
+            <div class="bx--row">
+                <div class="bx--col-lg-4">
+                    <h4 class="bx--footer__heading">Contact IBM</h4>
+                </div>
+                <div class="bx--col-lg-4">
+                    <h4 class="bx--footer__heading">Privacy</h4>
+                </div>
+                <div class="bx--col-lg-4">
+                    <h4 class="bx--footer__heading">Terms of use</h4>
+                </div>
+                <div class="bx--col-lg-4">
+                    <h4 class="bx--footer__heading">Accessibility</h4>
+                </div>
+                <div class="bx--col-lg-4">
+                    <h4 class="bx--footer__heading">Cookie Preferences</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <script src="https://unpkg.com/carbon-components-react/umd/carbon-components-react.development.js"></script>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+</body>
+
+</html>
