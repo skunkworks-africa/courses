@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python programming by Skunkworks</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<div class="container">
-<h1>Python programming by Skunkworks</h1>
-<p>Welcome to the Python programming course . This course is designed to be self-paced and
-web-driven, allowing you to access the content from the webpage and complete it in ideally 8 weeks, but the duration is ultimatley your choice.</p>
-<div id="exercise-content"></div>
-<button id="next-button">Next Exercise</button>
-<button id="previous-button">Previous Exercise</button>
-<div class="navigation">
-<a href="enrollment.html">Enrollment Form</a> |
-<a href="feedback.html">Feedback Form</a> |
-<a href="assessment.html">Assessment Form</a>
-</div>
-</div>
-<script src="exercises-data.js"></script>
-<script src="script.js"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg">Home</a></li>
+                <li>
+                    <a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg">Training</a>
+                    <ul>
+                        <li><a href="blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg">Blended Learning</a></li>
+                        <li><a href="course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg">Course Development</a></li>
+                        <li><a href="project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg">Project Mentoring</a></li>
+                        <li><a href="performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg">Performance Support Tools</a></li>
+                        <li><a href="training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg">Training Programs</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg">Services</a>
+                    <ul>
+                        <li><a href="software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg">Software Development</a></li>
+                        <li><a href="hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg">HW/SW Solutions</a></li>
+                        <li><a href="managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg">Managed Cloud</a></li>
+                        <li><a href="technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg">Technical Support</a></li>
+                        <li><a href="placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg">Placements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/high--performance.svg">Careers</a>
+                    <ul>
+                        <li><a href="job-posting.html"><img alt="Job Posting" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/collaboration.svg">Job Posting</a></li>
+                        <li><a href="candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg">Candidate Screening</a></li>
+                        <li><a href="interviews.html"><img alt="Interviews" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/professional--marketplace.svg">Interviews</a></li>
+                        <li><a href="job-offers.html"><img alt="Job Offers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/bluepages.svg">Job Offers</a></li>
+                        <li><a href="perosacademy.html"><img alt="Pero's Academy" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg">Pero's Academy</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Python Programming by Skunkworks</h1>
+        <p>Welcome to the Python programming course. This course is designed to be self-paced and web-driven, allowing you to access the content from the webpage and complete it in ideally 8 weeks, but the duration is ultimately your choice.</p>
+        
+        <!-- Dynamic Exercise Content -->
+        <div id="exercise-content"></div>
+
+        <!-- Form for User Responses -->
+        <form id="response-form">
+            <div id="response-fields"></div>
+            <button type="submit" class="btn">Submit Response</button>
+        </form>
+
+        <!-- Navigation Buttons for Exercises -->
+        <div class="exercise-navigation">
+            <button id="previous-button" class="btn">Previous Exercise</button>
+            <button id="next-button" class="btn">Next Exercise</button>
+        </div>
+
+        <!-- Additional Navigation Links -->
+        <div class="navigation">
+            <a href="enrollment.html">Enrollment Form</a> |
+            <a href="feedback.html">Feedback Form</a> |
+            <a href="assessment.html">Assessment Form</a> |
+            <a href="discussion-forum.html">Discussion Forum</a> |
+            <a href="idea-board.html">Project Idea Board</a> |
+            <a href="coding-challenge.html">Coding Challenge</a> |
+            <a href="hardware-simulator.html">Hardware Simulator</a> |
+            <a href="code-review.html">Code Review</a> |
+            <a href="data-lab.html">Data Lab</a> |
+            <a href="project-showcase.html">Project Showcase</a>
+        </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="exercises-data.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
