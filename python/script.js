@@ -10,7 +10,8 @@ function loadExercise(index) {
 
         const exercise = exercises[index];
         const exerciseContent = document.getElementById('exercise-content');
-        
+        const responseFields = document.getElementById('response-fields');
+
         // Validate that the exercise exists and has the required properties
         if (!exercise || !exercise.title || !exercise.content) {
             throw new Error("Exercise data is missing or incomplete");
@@ -18,12 +19,68 @@ function loadExercise(index) {
 
         // Set exercise content
         exerciseContent.innerHTML = `<h2>${exercise.title}</h2><p>${exercise.content}</p>`;
-        
-        // Add questions if any
-        if (exercise.questions && Array.isArray(exercise.questions)) {
-            exercise.questions.forEach((question, i) => {
-                exerciseContent.innerHTML += `<div><b>Question ${i + 1}:</b> ${question}</div>`;
+
+        // Clear previous response fields
+        responseFields.innerHTML = "";
+
+        // Add tasks if they exist
+        if (exercise.tasks) {
+            exercise.tasks.forEach((task, i) => {
+                responseFields.innerHTML += `
+                    <div><b>Task ${i + 1}:</b> ${task}</div>
+                    <textarea id="response-task-${i}" name="response-task-${i}" rows="4" cols="50" placeholder="Enter your response here..."></textarea>
+                `;
             });
+        }
+
+        // Add questions if they exist
+        if (exercise.questions) {
+            exercise.questions.forEach((question, i) => {
+                responseFields.innerHTML += `
+                    <div><b>Question ${i + 1}:</b> ${question}</div>
+                    <textarea id="response-question-${i}" name="response-question-${i}" rows="4" cols="50" placeholder="Enter your answer here..."></textarea>
+                `;
+            });
+        }
+
+        // Handle interactive elements
+        if (exercise.interactive) {
+            let interactiveContent = `<div><b>Interactive Activity:</b> ${exercise.interactive.instructions}</div>`;
+
+            // Add different interactive elements based on the type
+            switch (exercise.interactive.type) {
+                case "code-editor":
+                    interactiveContent += `<textarea id="code-editor" name="code-editor" rows="10" cols="80" placeholder="Write your code here..."></textarea>`;
+                    break;
+                case "discussion-forum":
+                    interactiveContent += `<a href="discussion-forum.html" class="btn">Go to Discussion Forum</a>`;
+                    break;
+                case "project-idea-board":
+                    interactiveContent += `<a href="idea-board.html" class="btn">Go to Idea Board</a>`;
+                    break;
+                case "coding-challenge":
+                    interactiveContent += `<a href="coding-challenge.html" class="btn">Participate in Coding Challenge</a>`;
+                    break;
+                case "hardware-simulator":
+                    interactiveContent += `<a href="hardware-simulator.html" class="btn">Explore Hardware Simulator</a>`;
+                    break;
+                case "reflective-journal":
+                    interactiveContent += `<textarea id="reflective-journal" name="reflective-journal" rows="10" cols="80" placeholder="Write your reflection here..."></textarea>`;
+                    break;
+                case "code-review":
+                    interactiveContent += `<a href="code-review.html" class="btn">Submit for Code Review</a>`;
+                    break;
+                case "data-lab":
+                    interactiveContent += `<a href="data-lab.html" class="btn">Access Data Lab</a>`;
+                    break;
+                case "project-showcase":
+                    interactiveContent += `<a href="project-showcase.html" class="btn">Present Your Project</a>`;
+                    break;
+                default:
+                    interactiveContent += `<p>No specific interactive element available for this exercise.</p>`;
+            }
+
+            responseFields.innerHTML += interactiveContent;
         }
 
     } catch (error) {
