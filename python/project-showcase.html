@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Project Showcase</h1>
+        <p>Present your capstone project and showcase your work to the Skunkworks community. Provide a comprehensive overview of your project, including its features, functionality, and impact.</p>
+        
+        <!-- Project Submission Form -->
+        <div class="project-submission">
+            <h2>Submit Your Project</h2>
+            <form id="project-form">
+                <label for="project-title">Project Title:</label>
+                <input type="text" id="project-title" name="project-title" required>
+
+                <label for="project-description">Description:</label>
+                <textarea id="project-description" name="project-description" rows="5" required></textarea>
+
+                <label for="project-file">Upload Project Files:</label>
+                <input type="file" id="project-file" name="project-file" multiple required>
+
+                <button type="submit" class="btn">Submit Project</button>
+            </form>
+        </div>
+
+        <!-- Showcase of Submitted Projects -->
+        <div class="showcase-projects">
+            <h2>Submitted Projects</h2>
+            <div id="projects-list">
+                <!-- Example Project Showcase Item -->
+                <div class="project-item">
+                    <h3>Project Title 1</h3>
+                    <p>Submitted by <b>User4</b> on <i>Date</i></p>
+                    <p>This is a brief description of the project, its purpose, and its key features.</p>
+                    <a href="project-details.html" class="btn">View Project Details</a>
+                </div>
+                <!-- More project items will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="project-showcase-script.js"></script>
+</body>
+
+</html>
