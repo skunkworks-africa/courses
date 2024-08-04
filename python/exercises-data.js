@@ -3,7 +3,7 @@ const exercises = [
         title: "Exercise 1: Introduction to Python",
         content: "Read the introductory materials on blockchain. Answer the following questions:",
         questions: [
-            "What is program?",
+            "What is a program?",
             "Why would you program?"
         ]
     },
@@ -17,11 +17,11 @@ const exercises = [
     },
     {
         title: "Exercise 4: Python programs in the real world",
-        content: "What type of program would you create to simplify your experience and how would you go about it"
+        content: "What type of program would you create to simplify your experience and how would you go about it?"
     },
     {
         title: "Exercise 6: Hardware",
-        content: "Read chapter three and attempt to apply the concepts discussed there to more real life situations.",
+        content: "Read chapter three and  apply the concepts discussed there to real life situations.",
         questions: [
             "What is a programs relation to hardware?",
             "What aspects of hardware should you take into consideration when creating a program?",
@@ -31,7 +31,7 @@ const exercises = [
     },
     {
         title: "Exercise 7:Python as a language",
-        content: "Reflect on your understanding of python and its nature as a language",
+        content: "Reflect on your understanding of python as a language",
         questions: [
             "Discuss why you would use an interpreted language?",
             "What is your understanding of dynamic typing?",
