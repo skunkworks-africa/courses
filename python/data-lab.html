@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lab - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data Lab</h1>
+        <p>Welcome to the Data Lab. Upload datasets, perform data analysis using Python, and create insightful visualizations to share with the community.</p>
+        
+        <!-- Data Upload -->
+        <div class="data-upload">
+            <h2>Upload Dataset</h2>
+            <form id="data-upload-form">
+                <label for="dataset-title">Dataset Title:</label>
+                <input type="text" id="dataset-title" name="dataset-title" required>
+
+                <label for="dataset-file">Choose File:</label>
+                <input type="file" id="dataset-file" name="dataset-file" accept=".csv, .xlsx" required>
+
+                <button type="submit" class="btn">Upload Dataset</button>
+            </form>
+        </div>
+
+        <!-- Data Analysis Tools -->
+        <div class="data-analysis">
+            <h2>Analyze Your Data</h2>
+            <p>Use Python libraries like Pandas, NumPy, and Matplotlib to explore and visualize your data.</p>
+            <textarea id="data-analysis-code" name="data-analysis-code" rows="10" cols="80" placeholder="Write your data analysis code here..."></textarea>
+            <button class="btn" onclick="runAnalysis()">Run Analysis</button>
+        </div>
+
+        <!-- Visualization Gallery -->
+        <div class="visualization-gallery">
+            <h2>Visualization Gallery</h2>
+            <div id="visualization-list">
+                <!-- Example Visualization -->
+                <div class="visualization-item">
+                    <h3>Visualization Title 1</h3>
+                    <p>Created by <b>User3</b> on <i>Date</i></p>
+                    <img src="visualization-example.png" alt="Visualization Example" />
+                </div>
+                <!-- More visualizations will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="data-lab-script.js"></script>
+</body>
+
+</html>
