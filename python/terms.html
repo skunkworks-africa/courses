@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            margin-right: 15px;
+            height: 40px;
+        }
+
+        .burger-menu {
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+        }
+
+        .burger-menu div {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            flex-direction: column;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #0056b3;
+        }
+
+        .section-title {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            header img {
+                margin: 0 0 10px 0;
+            }
+
+            nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Skunkworks Logo">
+        <div class="burger-menu" id="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="https://courses.skunkworks.africa/">Training Home</a>
+        <a href="https://skunkworks.africa/">Skunkworks Home</a>
+        <a href="terms.html">Terms and Conditions</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Terms and Conditions</h2>
+        <p><strong>1. Introduction</strong></p>
+        <p>Welcome to Skunkworks. These terms and conditions outline the rules and regulations for the use of Skunkworks's Website, located at <a href="https://www.skunkworks.africa">https://www.skunkworks.africa</a>.</p>
+        <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Skunkworks if you do not agree to take all of the terms and conditions stated on this page.</p>
+
+        <p><strong>2. Cookies</strong></p>
+        <p>We employ the use of cookies. By accessing Skunkworks, you agreed to use cookies in agreement with the Skunkworks's Privacy Policy.</p>
+
+        <p><strong>3. License</strong></p>
+        <p>Unless otherwise stated, Skunkworks and/or its licensors own the intellectual property rights for all material on Skunkworks. All intellectual property rights are reserved. You may access this from Skunkworks for your own personal use subject to restrictions set in these terms and conditions.</p>
+
+        <p><strong>4. User Comments</strong></p>
+        <p>This Agreement shall begin on the date hereof.</p>
+        <p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Skunkworks does not filter, edit, publish, or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Skunkworks, its agents, or affiliates. Comments reflect the views and opinions of the person who posts their views and opinions. To the extent permitted by applicable laws, Skunkworks shall not be liable for the Comments or for any liability, damages, or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+
+        <p><strong>5. Hyperlinking to our Content</strong></p>
+        <p>The following organizations may link to our Website without prior written approval:
+        <ul>
+            <li>Government agencies;</li>
+            <li>Search engines;</li>
+            <li>News organizations;</li>
+        </ul>
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
+        <a href="terms.html">Terms and Conditions</a> |
+        <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
+        <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
+        <div class="disclaimer">
+            <p>Disclaimer: These terms and conditions outline the rules and regulations for the use of Skunkworks's Website. Any discrepancies in interpretation or application are to be resolved through direct communication with Skunkworks.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burgerMenu = document.getElementById('burger-menu');
+        const nav = document.getElementById('nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+
+</html>
