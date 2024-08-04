@@ -38,5 +38,5 @@ document.getElementById('previous-button').addEventListener('click',
         } 
     });
 window.onload = () => {
-document.getElementById('next-button').click(); //Automatic
+document.getElementById('previous-button').click(); //Automatic
 };
