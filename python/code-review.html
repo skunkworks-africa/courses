@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Code Review</h1>
+        <p>Submit your Python scripts for peer review and receive constructive feedback to improve your code. Review others' code to gain insights and learn new techniques.</p>
+        
+        <!-- Code Submission -->
+        <div class="code-submission">
+            <h2>Submit Your Code</h2>
+            <form id="code-review-form">
+                <label for="code-title">Code Title:</label>
+                <input type="text" id="code-title" name="code-title" required>
+
+                <label for="code-description">Description:</label>
+                <textarea id="code-description" name="code-description" rows="5" required></textarea>
+
+                <label for="code-content">Paste Your Code:</label>
+                <textarea id="code-content" name="code-content" rows="10" required></textarea>
+
+                <button type="submit" class="btn">Submit for Review</button>
+            </form>
+        </div>
+
+        <!-- Review Others' Code -->
+        <div class="review-others">
+            <h2>Review Submissions</h2>
+            <div id="code-list">
+                <!-- Example Code Review Item -->
+                <div class="code-item">
+                    <h3>Title: Sorting Algorithm</h3>
+                    <p>Submitted by <b>User2</b> on <i>Date</i></p>
+                    <pre><code>// Python code example:
+def sort_data(data):
+    return sorted(data)</code></pre>
+                    <button class="btn" onclick="submitReview()">Submit Review</button>
+                </div>
+                <!-- More code items will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="code-review-script.js"></script>
+</body>
+
+</html>
