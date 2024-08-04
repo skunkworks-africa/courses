@@ -3,7 +3,6 @@ let currentExerciseIndex = 0;
 // Function to load the exercise content
 function loadExercise(index) {
     try {
-        // Validate the exercise index
         if (index < 0 || index >= exercises.length) {
             throw new Error("Invalid exercise index");
         }
@@ -12,18 +11,14 @@ function loadExercise(index) {
         const exerciseContent = document.getElementById('exercise-content');
         const responseFields = document.getElementById('response-fields');
 
-        // Validate that the exercise exists and has the required properties
         if (!exercise || !exercise.title || !exercise.content) {
             throw new Error("Exercise data is missing or incomplete");
         }
 
-        // Set exercise content
         exerciseContent.innerHTML = `<h2>${exercise.title}</h2><p>${exercise.content}</p>`;
 
-        // Clear previous response fields
         responseFields.innerHTML = "";
 
-        // Add tasks if they exist
         if (exercise.tasks) {
             exercise.tasks.forEach((task, i) => {
                 responseFields.innerHTML += `
@@ -33,7 +28,6 @@ function loadExercise(index) {
             });
         }
 
-        // Add questions if they exist
         if (exercise.questions) {
             exercise.questions.forEach((question, i) => {
                 responseFields.innerHTML += `
@@ -43,11 +37,8 @@ function loadExercise(index) {
             });
         }
 
-        // Handle interactive elements
         if (exercise.interactive) {
             let interactiveContent = `<div><b>Interactive Activity:</b> ${exercise.interactive.instructions}</div>`;
-
-            // Add different interactive elements based on the type
             switch (exercise.interactive.type) {
                 case "code-editor":
                     interactiveContent += `<textarea id="code-editor" name="code-editor" rows="10" cols="80" placeholder="Write your code here..."></textarea>`;
@@ -79,12 +70,9 @@ function loadExercise(index) {
                 default:
                     interactiveContent += `<p>No specific interactive element available for this exercise.</p>`;
             }
-
             responseFields.innerHTML += interactiveContent;
         }
-
     } catch (error) {
-        // Handle errors gracefully
         console.error("Error loading exercise:", error.message);
         document.getElementById('exercise-content').innerHTML = `<h2>Error</h2><p>${error.message}</p>`;
     }
@@ -98,10 +86,9 @@ document.getElementById('next-button').addEventListener('click', function () {
             loadExercise(currentExerciseIndex);
         } else {
             document.getElementById('exercise-content').innerHTML = '<h2>All exercises completed!</h2>';
-            this.style.display = 'none'; // Hide the "Next" button when all exercises are completed
+            this.style.display = 'none';
         }
 
-        // Show the "Previous" button if not on the first exercise
         if (currentExerciseIndex > 0) {
             document.getElementById('previous-button').style.display = 'inline';
         }
@@ -118,11 +105,9 @@ document.getElementById('previous-button').addEventListener('click', function ()
             currentExerciseIndex--;
             loadExercise(currentExerciseIndex);
             
-            // Show the "Next" button if there are more exercises to navigate
             document.getElementById('next-button').style.display = 'inline';
         }
 
-        // Hide the "Previous" button if on the first exercise
         if (currentExerciseIndex === 0) {
             this.style.display = 'none';
         }
@@ -136,7 +121,7 @@ document.getElementById('previous-button').addEventListener('click', function ()
 window.onload = function() {
     try {
         loadExercise(currentExerciseIndex);
-        document.getElementById('previous-button').style.display = 'none'; // Hide "Previous" button on first load
+        document.getElementById('previous-button').style.display = 'none';
     } catch (error) {
         console.error("Error during page load:", error.message);
     }
