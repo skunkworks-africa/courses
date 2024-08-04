@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Simulator - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hardware Simulator</h1>
+        <p>Explore how different hardware configurations affect your Python program's performance. Use the simulator to test and analyze various scenarios.</p>
+        
+        <!-- Hardware Configuration -->
+        <div class="hardware-config">
+            <h2>Configure Your Hardware</h2>
+            <form id="hardware-form">
+                <label for="cpu-cores">CPU Cores:</label>
+                <input type="number" id="cpu-cores" name="cpu-cores" min="1" max="16" value="4">
+
+                <label for="ram-size">RAM Size (GB):</label>
+                <input type="number" id="ram-size" name="ram-size" min="1" max="64" value="8">
+
+                <label for="storage-type">Storage Type:</label>
+                <select id="storage-type" name="storage-type">
+                    <option value="HDD">HDD</option>
+                    <option value="SSD">SSD</option>
+                </select>
+
+                <button type="button" class="btn" onclick="simulateHardware()">Run Simulation</button>
+            </form>
+        </div>
+
+        <!-- Simulation Results -->
+        <div class="simulation-results">
+            <h2>Simulation Results</h2>
+            <p>After running the simulation, the results will be displayed here, showing the impact of your chosen hardware on the program's performance.</p>
+            <div id="results-output">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="hardware-simulator-script.js"></script>
+</body>
+
+</html>
