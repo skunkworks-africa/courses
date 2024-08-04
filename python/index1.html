@@ -6,53 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Programming by Skunkworks</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@carbon/charts/styles.css" rel="stylesheet">
     <style>
-        /* Additional styling for smaller icons */
+        /* Additional styling */
         nav ul li a img.icon {
-            width: 16px; /* Adjust the size as needed */
-            height: 16px;
+            width: 20px; /* Adjust the size as needed */
+            height: 20px;
             vertical-align: middle;
             margin-right: 5px; /* Space between icon and text */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .module, .additional-resources, .section, .course-info {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .course-title {
+            color: #000;
+            font-size: 2.625rem;
+            font-weight: 300;
+            line-height: 1.199;
+            letter-spacing: 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .course-info {
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        .btn {
+            background-color: #2563EB;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0f62fe;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
-<body>
-    <header>
+<body class="bx--body">
+    <header class="bx--header bx--header--fixed">
+        <div class="bx--header__name">
+            <a class="bx--header__name--link" href="https://skunkworks.africa/index.html">Skunkworks EdTech</a>
+        </div>
         <nav>
             <ul>
-                <li><a href="index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg">Home</a></li>
+                <li><a href="https://skunkworks.africa/index.html"><img alt="Home" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/application.svg" />Home</a></li>
                 <li>
-                    <a href="#"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg">Training</a>
+                    <a href="https://courses.skunkworks.africa/"><img alt="Training" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg" />Training</a>
                     <ul>
-                        <li><a href="blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg">Blended Learning</a></li>
-                        <li><a href="course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg">Course Development</a></li>
-                        <li><a href="project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg">Project Mentoring</a></li>
-                        <li><a href="performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg">Performance Support Tools</a></li>
-                        <li><a href="training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg">Training Programs</a></li>
+                        <li><a href="https://skunkworks.africa/blended-learning.html"><img alt="Blended Learning" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg" />Blended Learning</a></li>
+                        <li><a href="https://skunkworks.africa/course-development.html"><img alt="Course Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presentation.svg" />Course Development</a></li>
+                        <li><a href="https://skunkworks.africa/project-mentoring.html"><img alt="Project Mentoring" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Project Mentoring</a></li>
+                        <li><a href="https://skunkworks.africa/performance-support.html"><img alt="Performance Support Tools" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Performance Support Tools</a></li>
+                        <li><a href="https://skunkworks.africa/training-programs.html"><img alt="Training Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/professional--marketplace.svg" />Training Programs</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg">Services</a>
+                    <a href="#"><img alt="Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/automation--software.svg" />Services</a>
                     <ul>
-                        <li><a href="software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg">Software Development</a></li>
-                        <li><a href="hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg">HW/SW Solutions</a></li>
-                        <li><a href="managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg">Managed Cloud</a></li>
-                        <li><a href="technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg">Technical Support</a></li>
-                        <li><a href="placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg">Placements</a></li>
+                        <li><a href="https://skunkworks.africa/software-development.html"><img alt="Software Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/software.svg" />Software Development</a></li>
+                        <li><a href="https://skunkworks.africa/hardware-software.html"><img alt="Hardware and Software" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/server--rack.svg" />HW/SW Solutions</a></li>
+                        <li><a href="https://skunkworks.africa/managed-cloud.html"><img alt="Managed Cloud Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/cloud--managed--services.svg" />Managed Cloud</a></li>
+                        <li><a href="https://skunkworks.africa/technical-support.html"><img alt="Technical Support Services" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/support--services.svg" />Technical Support</a></li>
+                        <li><a href="https://skunkworks.africa/placement-recruitment.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner%20(1).svg" />Placements</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/high--performance.svg">Careers</a>
+                    <a href="#"><img alt="Careers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/briefcase.svg" />Careers</a>
                     <ul>
-                        <li><a href="job-posting.html"><img alt="Job Posting" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/collaboration.svg">Job Posting</a></li>
-                        <li><a href="candidate-screening.html"><img alt="Candidate Screening" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/literature.svg">Candidate Screening</a></li>
-                        <li><a href="interviews.html"><img alt="Interviews" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/professional--marketplace.svg">Interviews</a></li>
-                        <li><a href="job-offers.html"><img alt="Job Offers" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/bd6b329933add88d1b2fbd81339a6a2cf0683aaa/carbon/bluepages.svg">Job Offers</a></li>
-                        <li><a href="perosacademy.html"><img alt="Pero's Academy" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/training.svg">Pero's Academy</a></li>
+                        <li><a href="https://skunkworks.africa/careers-openings.html"><img alt="Current Openings" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Current Openings</a></li>
+                        <li><a href="https://skunkworks.africa/careers-internships.html"><img alt="Internship Programs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/education.svg" />Internship Programs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-placements.html"><img alt="Placements" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/global--partner.svg" />Placements</a></li>
+                        <li><a href="https://skunkworks.africa/careers-jobs.html"><img alt="Jobs" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/calendar.svg" />Jobs</a></li>
+                        <li><a href="https://skunkworks.africa/careers-mentorship.html"><img alt="Mentorship" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/presenter.svg" />Mentorship</a></li>
+                        <li><a href="https://skunkworks.africa/careers-development.html"><img alt="Employee Development" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/development.svg" />Employee Development</a></li>
+                        <li><a href="https://skunkworks.africa/careers-culture.html"><img alt="Our Culture" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/team.svg" />Our Culture</a></li>
+                        <li><a href="https://skunkworks.africa/careers-testimonials.html"><img alt="Employee Testimonials" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/thumbs-up.svg" />Employee Testimonials</a></li>
+                        <li><a href="https://skunkworks.africa/careers-apply.html"><img alt="How to Apply" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/send-alt.svg" />How to Apply</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html"><img alt="Contact" class="icon" src="https://raw.githubusercontent.com/skunkworksza/Media/0b53a76fb034583714f1660a8f0dfe6c405928b6/carbon/bluepages.svg">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -60,74 +123,35 @@
     <div class="container">
         <h1>Python Programming by Skunkworks</h1>
         <p>Welcome to the Python programming course. This course is designed to be self-paced and web-driven, allowing you to access the content from the webpage and complete it in ideally 8 weeks, but the duration is ultimately your choice.</p>
+        
+        <!-- Dynamic Exercise Content -->
+        <div id="exercise-content"></div>
 
-        <!-- Course Overview -->
-        <h2>Course Overview</h2>
-        <p>This Python programming course covers a wide range of topics, from basic syntax and data structures to advanced programming concepts and real-world applications. The course includes exercises, projects, and assessments designed to enhance your understanding and proficiency in Python.</p>
+        <!-- Form for User Responses -->
+        <form id="response-form">
+            <div id="response-fields"></div>
+            <button type="submit" class="btn">Submit Response</button>
+        </form>
 
-        <!-- Course Content Navigation -->
-        <h2>Course Contents</h2>
-        <ul class="course-contents">
-            <li><a href="activities.html">Course Activities</a></li>
-            <li><a href="enrollment.html">Enrollment Form</a></li>
-            <li><a href="feedback.html">Feedback Form</a></li>
-            <li><a href="assessment.html">Assessment Form</a></li>
-            <li><a href="discussion-forum.html">Discussion Forum</a></li>
-            <li><a href="idea-board.html">Project Idea Board</a></li>
-            <li><a href="coding-challenge.html">Coding Challenge</a></li>
-            <li><a href="hardware-simulator.html">Hardware Simulator</a></li>
-            <li><a href="code-review.html">Code Review</a></li>
-            <li><a href="data-lab.html">Data Lab</a></li>
-            <li><a href="project-showcase.html">Project Showcase</a></li>
-        </ul>
-
-        <!-- Course Modules -->
-        <h2>Course Modules</h2>
-        <div class="grid-container">
-            <div class="module">
-                <h3>Week 1: Introduction to Python</h3>
-                <p>Learn the basics of Python, including its history, syntax, and basic programming concepts.</p>
-            </div>
-            <div class="module">
-                <h3>Week 2: Python Data Structures</h3>
-                <p>Explore Python's core data structures, such as lists, dictionaries, tuples, and sets, and learn how to use them effectively.</p>
-            </div>
-            <div class="module">
-                <h3>Week 3: Functions and Modules</h3>
-                <p>Understand how to create and use functions, and learn the basics of modular programming with Python.</p>
-            </div>
-            <div class="module">
-                <h3>Week 4: Object-Oriented Programming (OOP) in Python</h3>
-                <p>Dive into object-oriented programming, a key paradigm in Python, and learn how to build classes and objects.</p>
-            </div>
-            <div class="module">
-                <h3>Week 5: File Handling and Exceptions</h3>
-                <p>Learn how to work with files in Python, including reading and writing files, and handling exceptions to make your programs more robust.</p>
-            </div>
-            <div class="module">
-                <h3>Week 6: Advanced Python Concepts</h3>
-                <p>Explore advanced topics such as decorators, generators, and metaprogramming in Python.</p>
-            </div>
-            <div class="module">
-                <h3>Week 7: Python for Data Science</h3>
-                <p>Use Python libraries like NumPy, Pandas, and Matplotlib to perform data analysis and visualization.</p>
-            </div>
-            <div class="module">
-                <h3>Week 8: Capstone Project</h3>
-                <p>Apply everything you've learned in a final project that solves a real-world problem using Python.</p>
-            </div>
+        <!-- Navigation Buttons for Exercises -->
+        <div class="exercise-navigation">
+            <button id="previous-button" class="btn">Previous Exercise</button>
+            <button id="next-button" class="btn">Next Exercise</button>
         </div>
 
-        <!-- Additional Resources -->
-        <h2>Additional Resources</h2>
-        <ul class="additional-resources">
-            <li><a href="https://docs.python.org/3/">Python Official Documentation</a></li>
-            <li><a href="https://www.learnpython.org/">Learn Python - Interactive Tutorials</a></li>
-            <li><a href="https://www.w3schools.com/python/">W3Schools Python Tutorial</a></li>
-            <li><a href="https://realpython.com/">Real Python - Tutorials and Articles</a></li>
-            <li><a href="https://stackoverflow.com/questions/tagged/python">Stack Overflow - Python Questions</a></li>
-        </ul>
-
+        <!-- Additional Navigation Links -->
+        <div class="navigation">
+            <a href="enrollment.html">Enrollment Form</a> |
+            <a href="feedback.html">Feedback Form</a> |
+            <a href="assessment.html">Assessment Form</a> |
+            <a href="discussion-forum.html">Discussion Forum</a> |
+            <a href="idea-board.html">Project Idea Board</a> |
+            <a href="coding-challenge.html">Coding Challenge</a> |
+            <a href="hardware-simulator.html">Hardware Simulator</a> |
+            <a href="code-review.html">Code Review</a> |
+            <a href="data-lab.html">Data Lab</a> |
+            <a href="project-showcase.html">Project Showcase</a>
+        </div>
     </div>
 
     <!-- External Scripts -->
