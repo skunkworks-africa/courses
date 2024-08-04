@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Discussion Forum</h1>
+        <p>Welcome to the discussion forum for the Python Programming course by Skunkworks. This is a space for you to share your ideas, ask questions, and collaborate with your peers.</p>
+        
+        <!-- Forum Instructions -->
+        <div class="forum-instructions">
+            <h2>How to Participate</h2>
+            <p>Follow these steps to contribute to the discussion:</p>
+            <ol>
+                <li>Read the ongoing discussions to get a sense of what topics are being covered.</li>
+                <li>Use the form below to start a new discussion or reply to an existing thread.</li>
+                <li>Be respectful and constructive in your contributions.</li>
+            </ol>
+        </div>
+
+        <!-- New Discussion Form -->
+        <div class="new-discussion">
+            <h2>Start a New Discussion</h2>
+            <form id="new-discussion-form">
+                <label for="discussion-title">Discussion Title:</label>
+                <input type="text" id="discussion-title" name="discussion-title" required>
+
+                <label for="discussion-content">Your Message:</label>
+                <textarea id="discussion-content" name="discussion-content" rows="5" required></textarea>
+
+                <button type="submit" class="btn">Start Discussion</button>
+            </form>
+        </div>
+
+        <!-- Existing Discussions -->
+        <div class="existing-discussions">
+            <h2>Ongoing Discussions</h2>
+            <div id="discussions-list">
+                <!-- Example discussion thread -->
+                <div class="discussion-thread">
+                    <h3>Discussion Title 1</h3>
+                    <p>Posted by <b>User1</b> on <i>Date</i></p>
+                    <p>This is the content of the first discussion. Feel free to add your thoughts!</p>
+                    <button class="btn reply-btn">Reply</button>
+                </div>
+                <!-- More discussion threads will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="forum-script.js"></script>
+</body>
+
+</html>
