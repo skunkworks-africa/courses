@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Idea Board - Python Programming by Skunkworks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Project Idea Board</h1>
+        <p>Use this space to brainstorm and share your project ideas. Collaborate with others to refine your concepts and create innovative Python programs.</p>
+        
+        <!-- Idea Submission Form -->
+        <div class="idea-submission">
+            <h2>Submit Your Idea</h2>
+            <form id="idea-form">
+                <label for="idea-title">Project Title:</label>
+                <input type="text" id="idea-title" name="idea-title" required>
+
+                <label for="idea-description">Description:</label>
+                <textarea id="idea-description" name="idea-description" rows="5" required></textarea>
+
+                <button type="submit" class="btn">Submit Idea</button>
+            </form>
+        </div>
+
+        <!-- Ideas Board -->
+        <div class="ideas-board">
+            <h2>Submitted Ideas</h2>
+            <div id="ideas-list">
+                <!-- Example idea -->
+                <div class="idea-item">
+                    <h3>Project Title 1</h3>
+                    <p>Submitted by <b>User1</b> on <i>Date</i></p>
+                    <p>This is a description of a project idea. Feedback and collaboration are welcome!</p>
+                </div>
+                <!-- More ideas will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="idea-board-script.js"></script>
+</body>
+
+</html>
 
