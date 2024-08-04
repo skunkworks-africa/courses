@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Course Outline</title>
+    <title>Python Programming Activities</title>
     <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,37 +72,38 @@
             margin: auto;
         }
 
-        h2 {
-            color: #0056b3;
+        .exercise-navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .section-title {
-            background-color: #e0e0e0;
-            padding: 10px;
+        .btn {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
             border-radius: 5px;
-            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .course-overview {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid #0056b3;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+        .btn:hover {
+            background-color: #003f7f;
         }
 
-        .divider {
-            border-top: 3px solid #0056b3;
-            margin: 30px 0;
+        .navigation {
+            margin-top: 20px;
         }
 
-        .lab-exercise,
-        .q-and-a {
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-left: 5px solid #0056b3;
-            margin-bottom: 10px;
+        .navigation a {
+            color: #0056b3;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
         }
 
         footer {
@@ -124,83 +126,6 @@
             color: #888;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .burger-menu {
-                display: flex;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .grid-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .grid-item h2 {
-            flex: 0 0 auto;
-        }
-
-        .grid-item ul,
-        .grid-item p {
-            flex: 1 1 auto;
-        }
-
-        .callout-note {
-            background-color: #fffbdd;
-            border-left: 5px solid #ffd700;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table th,
-        table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        table th {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-
-        .section-divider {
-            border-top: 2px solid #e0e0e0;
-            margin: 20px 0;
-        }
-
-        .spaced-section {
-            margin-top: 40px;
-        }
-
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -214,20 +139,13 @@
                 display: flex;
             }
 
-            .grid-item {
-                padding: 15px;
+            .exercise-navigation {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .section-title {
-                font-size: 1.2em;
-            }
-
-            h2 {
-                font-size: 1.5em;
-            }
-
-            .container {
-                padding: 15px;
+            .exercise-navigation .btn {
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -245,7 +163,6 @@
 
     <nav id="nav">
         <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
         <a href="assessment.html">Assessment</a>
         <a href="https://courses.skunkworks.africa/">Training Home</a>
         <a href="https://skunkworks.africa/">Skunkworks Home</a>
@@ -253,155 +170,36 @@
     </nav>
 
     <div class="container">
-        <div class="course-overview">
-            <h2 class="section-title">Course Overview</h2>
-            <p><strong>Introduction:</strong> This Python programming course is designed to provide participants with a comprehensive understanding of Python, covering the essentials from basic syntax and structure to advanced concepts and real-world applications.</p>
-            <p><strong>Course Objectives:</strong></p>
-            <ul>
-                <li>Understand the fundamentals of Python syntax and structure.</li>
-                <li>Master essential programming concepts using Python.</li>
-                <li>Develop the ability to write, compile, and debug Python programs.</li>
-                <li>Learn and apply industry standards and best practices in Python programming.</li>
-                <li>Gain skills to integrate Python with other languages and libraries.</li>
-            </ul>
-            <p><strong>Target Audience:</strong></p>
-            <ul>
-                <li>Programmers and developers with basic knowledge of any programming language.</li>
-                <li>IT professionals seeking to enhance their programming skills.</li>
-                <li>Students pursuing a career in software development.</li>
-            </ul>
-            <p><strong>Prerequisites:</strong> Basic knowledge of any programming language.</p>
-            <p><strong>Duration:</strong> 8 Weeks (Self-paced)</p>
-            <p><strong>Delivery Method:</strong> Self-paced Online Course</p>
-            <p><strong>Course Code:</strong> PYTHON_COURSE_2024</p>
-            <p><strong>Course Cost:</strong> Recommended cost per delegate: $2000 for the entire course. This cost includes all training materials, lab access, and certification.</p>
+        <h1>Python Programming Activities</h1>
+        <p>Welcome to the activities section of the Python programming course. Here you will find various exercises designed to enhance your learning experience. Please complete them in sequence.</p>
+        
+        <!-- Dynamic Exercise Content -->
+        <div id="exercise-content"></div>
+
+        <!-- Form for User Responses -->
+        <form id="response-form">
+            <div id="response-fields"></div>
+            <button type="submit" class="btn">Submit Response</button>
+        </form>
+
+        <!-- Navigation Buttons for Exercises -->
+        <div class="exercise-navigation">
+            <button id="previous-button" class="btn">Previous Exercise</button>
+            <button id="next-button" class="btn">Next Exercise</button>
         </div>
 
-        <div class="divider"></div>
-
-        <div class="grid-container">
-            <div class="week grid-item">
-                <h2 class="section-title">Week 1: Introduction to Python</h2>
-                <p><strong>Theory:</strong></p>
-                <ul>
-                    <li>Introduction to Python</li>
-                    <li>Why Program
-                        <ul>
-                            <li>What are programs</li>
-                            <li>What is the importance of programs</li>
-                            <li>What type of programs should you expect to create</li>
-                        </ul>
-                    </li>
-                    <li>Hardware Architecture
-                        <ul>
-                            <li>Hardware requirements</li>
-                            <li>Hardware optimizations</li>
-                            <li>Pros and cons of hardware specs</li>
-                            <li>Hardware limitations</li>
-                        </ul>
-                    </li>
-                    <li>Python as a Language
-                        <ul>
-                            <li>What is Python</li>
-                            <li>What is an interpreter</li>
-                            <li>What is object-oriented programming</li>
-                            <li>What is a dynamically typed language</li>
-                        </ul>
-                    </li>
-                    <li>Elements of Python
-                        <ul>
-                            <li>What makes Python different</li>
-                            <li>What are the pros and cons of Python</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p><strong>Practical Lab Exercises:</strong></p>
-                <ul>
-                    <li>Setting Up Python Environment</li>
-                    <li>Writing and Running Your First Python Program</li>
-                </ul>
-                <p><strong>Q&A and Review</strong></p>
-                <div class="q-and-a">Interactive session to address questions and review key concepts.</div>
-            </div>
-
-            <!-- Additional weeks would follow the same structure -->
-            <!-- For brevity, other weeks are not included in this sample -->
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="appendices grid-item spaced-section">
-            <h2 class="section-title">Appendices</h2>
-            <p><strong>Additional Resources:</strong> Books, websites, and tools for further learning.</p>
-            <ul>
-                <li><a href="https://docs.python.org/3/">Python Official Documentation</a></li>
-                <li><a href="https://www.learnpython.org/">Learn Python</a></li>
-                <li><a href="https://www.w3schools.com/python/">W3Schools Python Tutorial</a></li>
-                <li><a href="https://realpython.com/">Real Python</a></li>
-                <li><a href="https://stackoverflow.com/questions/tagged/python">Stack Overflow Python</a></li>
-            </ul>
-        </div>
-
-        <div class="resources grid-item">
-            <h2 class="section-title">Instructor and Student Resources</h2>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Python.org</td>
-                            <td>Official site for Python resources and documentation</td>
-                            <td><a href="https://www.python.org" target="_blank">python.org</a></td>
-                        </tr>
-                        <tr>
-                            <td>GeeksforGeeks Python</td>
-                            <td>Comprehensive tutorials and examples</td>
-                            <td><a href="https://www.geeksforgeeks.org/python-programming-language/" target="_blank">geeksforgeeks.org</a></td>
-                        </tr>
-                        <tr>
-                            <td>Real Python</td>
-                            <td>Detailed Python programming tutorials</td>
-                            <td><a href="https://realpython.com" target="_blank">realpython.com</a></td>
-                        </tr>
-                        <tr>
-                            <td>W3Schools Python</td>
-                            <td>Python reference and standard library documentation</td>
-                            <td><a href="https://www.w3schools.com/python/" target="_blank">w3schools.com</a></td>
-                        </tr>
-                        <tr>
-                            <td>Stack Overflow</td>
-                            <td>Community forum for Python programming questions</td>
-                            <td><a href="https://stackoverflow.com/questions/tagged/python" target="_blank">stackoverflow.com</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="assessment grid-item">
-            <h2 class="section-title">Assessment and Certification</h2>
-            <p><strong>Assessment Overview:</strong> Description of assessment methods.</p>
-            <ul>
-                <li>Assignments: 40%</li>
-                <li>Quizzes: 20%</li>
-                <li>Capstone Project: 40%</li>
-            </ul>
-            <p><strong>Certification:</strong> Criteria for course completion and awarding of certificates.</p>
-        </div>
-
-        <div class="feedback grid-item">
-            <h2 class="section-title">Feedback and Improvement</h2>
-            <p><strong>Course Evaluation Forms:</strong> Forms for student feedback.</p>
-            <ul>
-                <li>End-of-course evaluations</li>
-                <li>Continuous feedback mechanisms</li>
-            </ul>
+        <!-- Additional Navigation Links -->
+        <div class="navigation">
+            <a href="enrollment.html">Enrollment Form</a> |
+            <a href="feedback.html">Feedback Form</a> |
+            <a href="assessment.html">Assessment Form</a> |
+            <a href="discussion-forum.html">Discussion Forum</a> |
+            <a href="idea-board.html">Project Idea Board</a> |
+            <a href="coding-challenge.html">Coding Challenge</a> |
+            <a href="hardware-simulator.html">Hardware Simulator</a> |
+            <a href="code-review.html">Code Review</a> |
+            <a href="data-lab.html">Data Lab</a> |
+            <a href="project-showcase.html">Project Showcase</a>
         </div>
     </div>
 
@@ -411,13 +209,12 @@
         <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
         <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
         <div class="disclaimer">
-            <p>Disclaimer: This course outline is provided for educational purposes only.</p>
-            <p>The content and structure of the course are intended to provide comprehensive Python programming training.</p>
-            <p>All trademarks, service marks, and trade names referenced in this document are the property of their respective owners.</p>
-            <p>Skunkworks assumes no responsibility for any errors or omissions in the content. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
+            <p>Disclaimer: This activities page is part of the Python programming course provided by Skunkworks. All rights and content are reserved by Skunkworks.</p>
         </div>
     </footer>
 
+    <script src="exercises-data.js"></script>
+    <script src="script.js"></script>
     <script>
         const burgerMenu = document.getElementById('burger-menu');
         const nav = document.getElementById('nav');
