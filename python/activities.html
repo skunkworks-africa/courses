@@ -126,6 +126,36 @@
             color: #888;
         }
 
+        .emulator-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #eaeaea;
+            border-radius: 10px;
+        }
+
+        .emulator-container h3 {
+            margin-bottom: 10px;
+        }
+
+        .emulator-container textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .emulator-output {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 100px;
+            overflow-y: auto;
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -149,9 +179,10 @@
             }
         }
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
 </head>
 
-<body>
+<body onload="brython()">
     <header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
         <div class="burger-menu" id="burger-menu">
@@ -175,6 +206,14 @@
         
         <!-- Dynamic Exercise Content -->
         <div id="exercise-content"></div>
+
+        <!-- Python Emulator -->
+        <div class="emulator-container">
+            <h3>Python Code Emulator</h3>
+            <textarea id="python-code" placeholder="Write your Python code here..."></textarea>
+            <button class="btn" onclick="runPythonCode()">Run Code</button>
+            <div id="output" class="emulator-output"></div>
+        </div>
 
         <!-- Form for User Responses -->
         <form id="response-form">
@@ -216,6 +255,22 @@
     <script src="exercises-data.js"></script>
     <script src="script.js"></script>
     <script>
+        function runPythonCode() {
+            const code = document.getElementById("python-code").value;
+            try {
+                __BRYTHON__.py2js(code, '__main__').to_js().then(jsCode => {
+                    const outputElement = document.getElementById("output");
+                    outputElement.innerHTML = '';
+                    const script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.innerHTML = jsCode;
+                    outputElement.appendChild(script);
+                });
+            } catch (error) {
+                document.getElementById("output").innerHTML = `Error: ${error.message}`;
+            }
+        }
+
         const burgerMenu = document.getElementById('burger-menu');
         const nav = document.getElementById('nav');
 
