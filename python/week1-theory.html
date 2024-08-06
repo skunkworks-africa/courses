@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Introduction to Python - Theory Guide</title>
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            margin-right: 15px;
+            height: 40px;
+        }
+
+        .burger-menu {
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+        }
+
+        .burger-menu div {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            flex-direction: column;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2, h3, h4 {
+            color: #0056b3;
+        }
+
+        p, ul, ol {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        .theory-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #0056b3;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .theory-section h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            header img {
+                margin: 0 0 10px 0;
+            }
+
+            nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+        <div class="burger-menu" id="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="https://courses.skunkworks.africa/">Training Home</a>
+        <a href="https://skunkworks.africa/">Skunkworks Home</a>
+        <a href="terms.html">Terms and Conditions</a>
+    </nav>
+
+    <div class="container">
+        <h1>Week 1: Introduction to Python - Theory Guide</h1>
+        
+        <div class="theory-section">
+            <h2>1. Introduction to Python</h2>
+            <p>Python is a high-level, interpreted programming language known for its readability, simplicity, and versatility. It was created by Guido van Rossum and first released in 1991. Python's design philosophy emphasizes code readability and syntax that allows programmers to express concepts in fewer lines of code than in languages such as C++ or Java.</p>
+        </div>
+
+        <div class="theory-section">
+            <h2>2. Why Program?</h2>
+            <h3>2.1 What Are Programs?</h3>
+            <p>A program is a set of instructions that a computer follows to perform a specific task. Programs can range from simple scripts that automate tasks to complex systems that power entire applications or services.</p>
+            <h3>2.2 Importance of Programs</h3>
+            <p>Programs are essential because they allow us to automate tasks, solve complex problems, and create systems that enhance productivity and enable innovation. Without programs, modern computing as we know it would not exist.</p>
+            <h3>2.3 Types of Programs You Can Create</h3>
+            <p>Python allows you to create a wide variety of programs, including but not limited to:</p>
+            <ul>
+                <li>Web applications</li>
+                <li>Desktop applications</li>
+                <li>Data analysis and visualization tools</li>
+                <li>Automation scripts</li>
+                <li>Machine learning models</li>
+                <li>Game development</li>
+            </ul>
+        </div>
+
+        <div class="theory-section">
+            <h2>3. Hardware Architecture</h2>
+            <h3>3.1 Hardware Requirements</h3>
+            <p>Before starting to code, it's important to understand the hardware your program will run on. Python programs are generally not very demanding, but certain applications like machine learning or game development may require more powerful hardware.</p>
+            <h3>3.2 Hardware Optimizations</h3>
+            <p>Optimizing your code for specific hardware can lead to better performance. For example, leveraging multi-core processors or utilizing GPU acceleration can significantly speed up computation-heavy tasks.</p>
+            <h3>3.3 Pros and Cons of Hardware Specs</h3>
+            <p>Choosing the right hardware involves balancing cost, performance, and scalability. High-end hardware may offer better performance but at a higher cost, while more affordable options may suffice for simpler tasks.</p>
+            <h3>3.4 Hardware Limitations</h3>
+            <p>Understanding the limitations of your hardware helps in writing efficient code. For example, limited memory might require more careful memory management or optimizations in code to handle large datasets.</p>
+        </div>
+
+        <div class="theory-section">
+            <h2>4. Python as a Language</h2>
+            <h3>4.1 What is Python?</h3>
+            <p>Python is a versatile programming language that supports multiple programming paradigms, including procedural, object-oriented, and functional programming. It is widely used for web development, automation, scientific computing, data analysis, artificial intelligence, and more.</p>
+            <h3>4.2 What is an Interpreter?</h3>
+            <p>An interpreter is a program that executes instructions written in a programming language. Python is an interpreted language, meaning that its code is executed line by line, which allows for more interactive coding and easier debugging.</p>
+            <h3>4.3 Object-Oriented Programming (OOP)</h3>
+            <p>Python supports object-oriented programming, which is a programming paradigm based on the concept of "objects," which can contain data and code to manipulate that data. OOP allows for modular, reusable, and more maintainable code.</p>
+            <h3>4.4 Dynamically Typed Language</h3>
+            <p>Python is dynamically typed, meaning that you do not need to declare the type of a variable when you create it. The type is determined at runtime, which can lead to more flexible code but also requires careful attention to avoid type-related errors.</p>
+        </div>
+
+        <div class="theory-section">
+            <h2>5. Elements of Python</h2>
+            <h3>5.1 What Makes Python Different?</h3>
+            <p>Python's simplicity, readability, and extensive standard library make it unique among programming languages. It is particularly well-suited for rapid prototyping, scripting, and developing applications where developer productivity is a key concern.</p>
+            <h3>5.2 Pros and Cons of Python</h3>
+            <ul>
+                <li><strong>Pros:</strong> Easy to learn, highly readable, large community support, extensive libraries and frameworks, cross-platform compatibility.</li>
+                <li><strong>Cons:</strong> Slower execution speed compared to compiled languages like C/C++, less suitable for low-level programming or systems that require maximum performance.</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
+            <a href="terms.html">Terms and Conditions</a> |
+            <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
+            <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
+            <div class="disclaimer">
+                <p>Disclaimer: This theory guide is part of the Python programming course provided by Skunkworks. All rights and content are reserved by Skunkworks.</p>
+                <p>The content provided in this document is for educational purposes only and may not be reproduced or redistributed without permission.</p>
+            </div>
+        </footer>
+
+        <script>
+            const burgerMenu = document.getElementById('burger-menu');
+            const nav = document.getElementById('nav');
+
+            burgerMenu.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>
