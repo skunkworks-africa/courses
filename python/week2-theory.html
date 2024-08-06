@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Variables and Expressions - Python Course</title>
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            margin-right: 15px;
+            height: 40px;
+        }
+
+        .burger-menu {
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+        }
+
+        .burger-menu div {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            flex-direction: column;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        p, ul {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            header img {
+                margin: 0 0 10px 0;
+            }
+
+            nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+        <div class="burger-menu" id="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="https://courses.skunkworks.africa/">Training Home</a>
+        <a href="https://skunkworks.africa/">Skunkworks Home</a>
+        <a href="terms.html">Terms and Conditions</a>
+    </nav>
+
+    <div class="container">
+        <h1>Week 2: Variables and Expressions</h1>
+
+        <h2 class="section-title">Introduction</h2>
+        <p>This week, we will delve into variables and expressions in Python. Understanding these core concepts is crucial for building a strong foundation in programming. Variables allow you to store data, while expressions enable you to manipulate that data through various operations.</p>
+
+        <h2 class="section-title">Theory</h2>
+
+        <h3>Variables</h3>
+        <p>Variables are essentially placeholders for storing data. In Python, you don't need to declare a variable type explicitly; Python infers it based on the assigned value. This feature is known as dynamic typing.</p>
+        <p>There are a few key points to remember when working with variables in Python:</p>
+        <ul>
+            <li><strong>Creating Variables:</strong> You create a variable by assigning a value to it using the equals sign (<code>=</code>). For example, <code>age = 25</code>.</li>
+            <li><strong>Variable Types:</strong> Variables can store different types of data, such as integers, floats, strings, lists, dictionaries, and more.</li>
+            <li><strong>Variable Scopes:</strong> The scope of a variable refers to the region of the code where the variable is accessible. Variables defined within a function are local to that function, whereas variables defined outside are global.</li>
+        </ul>
+
+        <h3>Expressions and Statements</h3>
+        <p>Expressions are combinations of variables, operations, and values that the interpreter evaluates to produce another value. Statements, on the other hand, are instructions that the Python interpreter can execute, such as print statements or assignments.</p>
+        <ul>
+            <li><strong>Standard Expression Syntax:</strong> An expression could be as simple as <code>2 + 2</code> or more complex involving multiple variables like <code>x * (y + z)</code>.</li>
+            <li><strong>Standard Statement Syntax:</strong> A common statement in Python is the assignment statement, where you assign the result of an expression to a variable, e.g., <code>result = x + y</code>.</li>
+            <li><strong>Intermediate Expression Syntax:</strong> This may involve more complex operations such as conditional expressions (<code>x if condition else y</code>) or calling functions within expressions.</li>
+        </ul>
+
+        <h3>Examples and Use Cases</h3>
+        <p>Understanding variables and expressions allows you to perform calculations, make decisions, and manipulate data. For instance, you might create a variable to hold a user's input and then use expressions to validate or transform that input.</p>
+        <p>Consider this simple example where variables and expressions work together:</p>
+        <pre><code># Define variables
+x = 10
+y = 20
+
+# Perform an expression
+result = x + y
+
+# Output the result
+print("The sum of x and y is:", result)
+</code></pre>
+
+        <h2 class="section-title">Practical Lab Exercises</h2>
+        <p>Now that you have an understanding of variables and expressions, it's time to apply this knowledge in practical scenarios. The following exercises will help reinforce your learning.</p>
+        <ul>
+            <li><strong>Creating and Using Variables:</strong> Create various types of variables, assign values, and use them in expressions.</li>
+            <li><strong>Writing Expressions and Statements:</strong> Practice writing expressions that perform calculations and assign the results to variables.</li>
+        </ul>
+
+        <h2 class="section-title">Q&A and Review</h2>
+        <p>As you complete these exercises, it's important to review and clarify any concepts that are unclear. Use this section to revisit key ideas and ask questions.</p>
+        <p>If you're uncertain about any topics or need further explanation, don't hesitate to reach out through the discussion forum or during the Q&A sessions.</p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
+        <a href="terms.html">Terms and Conditions</a> |
+        <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
+        <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
+        <div class="disclaimer">
+            <p>Disclaimer: This theory guide is part of the Python programming course provided by Skunkworks. All rights and content are reserved by Skunkworks.</p>
+            <p>The content provided in this document is for educational purposes only and may not be reproduced or redistributed without permission.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burgerMenu = document.getElementById('burger-menu');
+        const nav = document.getElementById('nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+
+</body>
+
+</html>
