@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Assessment Form</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Assessment Form</h1>
-            <form id="assessment-form">
-                <label for="student-id">Student-ID:</label>
-                <input type="text" id="student-id" name="student-id" required><br><br>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="assessment-date">Assessment Date:</label><br>
-                <input type="date" id="assessment-date" name="assessment-date" required><br><br>
-                <label for="answers">Submit your answers:</label>
-                <textarea id="answers" name="answers" rows="10" cols="50" required></textarea><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        <script>
-            document.getElementById('assessment-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Assessment submitted successfully!');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Assessment Form</h1>
+        <form id="assessment-form">
+            <label for="student-id">Student-ID:</label>
+            <input type="text" id="student-id" name="student-id" required><br><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="week-select">Select Week:</label>
+            <select id="week-select" name="week-select" required>
+                <option value="week1">Week 1</option>
+                <option value="week2">Week 2</option>
+                <!-- Add options for other weeks -->
+            </select><br><br>
+            <div id="questions-container"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+    const assessments = {
+        week1: [
+            "What is Python, and why is it a popular programming language?",
+            "Describe the steps required to set up a Python environment on your local machine. Include the installation of an IDE.",
+            "Explain what an interpreter is and how it works in the context of Python.",
+            "Describe object-oriented programming and how Python supports it. Provide examples.",
+            "What are the pros and cons of Python being a dynamically typed language?",
+            "Identify and explain the core elements of Python. How do they differentiate Python from other programming languages?",
+            "What are the hardware requirements for running Python efficiently?",
+            "How does Python handle memory management, and why is it important?",
+            "Explain how Python can be used in real-world applications. Provide examples across different industries.",
+            "What are the potential limitations of Python? How would you mitigate them in a project?"
+        ],
+        week2: [
+            "Define a variable in Python. Write a program that declares different types of variables.",
+            "Explain the difference between mutable and immutable types in Python. Provide examples.",
+            "What are expressions in Python, and how do they differ from statements?",
+            "Write a Python program that demonstrates the use of basic arithmetic operators. Explain the role of each operator.",
+            "Discuss the importance of scope in Python. How does it affect variable accessibility?",
+            "Describe how Python handles global and local variables. Provide examples to illustrate your points.",
+            "Explain the concept of type casting in Python. Write a program that demonstrates type casting.",
+            "What are the best practices for naming variables in Python? Why are they important?",
+            "Write a Python program that calculates the area of a circle given its radius. Include error handling for invalid input.",
+            "Discuss how Python's dynamic typing can impact performance and how to optimize code to minimize any negative effects."
+        ],
+        // Additional assessments for other weeks can be added here.
+    };
+
+    document.getElementById('week-select').addEventListener('change', function () {
+        const selectedWeek = this.value;
+        const questionsContainer = document.getElementById('questions-container');
+        questionsContainer.innerHTML = ''; // Clear any existing questions
+
+        if (assessments[selectedWeek]) {
+            assessments[selectedWeek].forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.innerHTML = `
+                    <label for="question-${index + 1}">${index + 1}. ${question}</label><br>
+                    <textarea id="question-${index + 1}" name="question-${index + 1}" rows="4" cols="50" required></textarea><br><br>
+                `;
+                questionsContainer.appendChild(questionElement);
             });
-        </script>
-    </body>
+        } else {
+            questionsContainer.innerHTML = '<p>No assessment available for the selected week.</p>';
+        }
+    });
+
+    document.getElementById('assessment-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Assessment submitted successfully!');
+    });
+</script>
+</body>
 </html>
