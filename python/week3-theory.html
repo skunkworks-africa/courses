@@ -160,7 +160,7 @@
 
         <h2 class="section-title">Theory</h2>
 
-        <h3>What is a control structure</h3>
+        <h3>What is a control structure?</h3>
         <p>Control structured are ways to control the direction of a program based of a given condition. A  useful  analogy to keep in mind is the way that conditions may make you choose one route over another when driving, be it the amount of traffic or the overall distance of the path. Now there is significantly less variability in the nature of the conditions used in programming, however we can highlight a few of the condition types:</p>
         <ul>
             <p><strong>Conditional:</strong> This includes if and switch statements, this primarily checks if a described condition has been met and executes a block of code based of that.</p>
@@ -172,13 +172,13 @@
        
         <h3>If statements</h3>
         <p><strong> What is an if statement?</strong><br> An if statement is a conditional structure that checks <strong>if</strong> a given condition is true and executes the applicable block of code if true.</p>
-        <p><strong> When do we use an if  statement</strong><br>We use if statements if some form of verification is required, and if dynamic execution is required in the program. </p>
-        <p><strong> What is the scope of variables in an if statemen</strong><br>You are capable of using if statements almost everywhere in you program, you are even capable of using an if statement in the executable for your if statement. </p>
-<h3>General syntas</h3>
+        <p><strong> When do we use an if  statement?</strong><br>We use if statements if some form of verification is required, and if dynamic execution is required in the program. </p>
+        <p><strong> What is the scope of variables in an if statement?</strong><br>You are capable of using if statements almost everywhere in you program, you are even capable of using an if statement in the executable for your if statement. </p>
+<h3>General syntax</h3>
         <p> It follows the general syntax:</p>
         <pre><code>
-            if  *condition*:
-                *block of code*
+            if  <i>condition</i>:
+                <i>block of code</i>
         </code></pre>
         <p>Here indentation is important to denote that the block of code is in the scope of the if statement.
             Here is a more complete example:</p>
@@ -248,31 +248,32 @@
         case  1:
             print(The first month is January)
         case  2:
-            print(The first month is February)
+            print(The second month is February)
         case  3:
-            print(The first month is March)
+            print(The third month is March)
         case  4:
-            print(The first month is April)
+            print(The fourth month is April)
         case  5:
-            print(The first month is May)
+            print(The fifth month is May)
         case  6:
-            print(The first month is June)
+            print(The sixth month is June)
         case  7:
-            print(The first month is July)
-        case  1:
-            print(The first month is August)
-        case  1:
-            print(The first month is September)
+            print(The seventh month is July)
+        case  8:
+            print(The eighth month is August)
+        case  9:
+            print(The ninth month is September)
         case  10:
-            print(The first month is October)
+            print(The tenth month is October)
         case  11:
-            print(The first month is November)
+            print(The eleventh month is November)
         case  12:
-            print(The first month is December)
+            print(The twelfth month is December)
         case  default:
             print(Invalid input)
       
 </code></pre>
+<p> This code uses a match-case statement to match a number to a month with its corresponding numerical position. In this code block the default case is sed for error handling to manage invalid inputs.</p>
 
 
 
