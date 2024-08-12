@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Variables and Expressions - Python Course</title>
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            margin-right: 15px;
+            height: 40px;
+        }
+
+        .burger-menu {
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+        }
+
+        .burger-menu div {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            flex-direction: column;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        p, ul {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            header img {
+                margin: 0 0 10px 0;
+            }
+
+            nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+        <div class="burger-menu" id="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="https://courses.skunkworks.africa/">Training Home</a>
+        <a href="https://skunkworks.africa/">Skunkworks Home</a>
+        <a href="terms.html">Terms and Conditions</a>
+    </nav>
+
+    <div class="container">
+        <h1>Week 3: Control structures</h1>
+
+        <h2 class="section-title">Introduction</h2>
+        <p>This week we will be exploring control structures, their importance and how they help us create more dynamic and capable code</p>
+
+        <h2 class="section-title">Theory</h2>
+
+        <h3>What is a control structure</h3>
+        <p>Control structured are ways to control the direction of a program based of a given condition. A  useful  analogy to keep in mind is the way that conditions may make you choose one route over another when driving, be it the amount of traffic or the overall distance of the path. Now there is significantly less variability in the nature of the conditions used in programming, however we can highlight a few of the condition types:</p>
+        <ul>
+            <p><strong>Conditional:</strong> This includes if and switch statements, this primarily checks if a described condition has been met and executes a block of code based of that.</p>
+            <p><strong>Iterative:</strong>Usually numerically limited, it repeats the execution of a block of code as long as a particular condition is met. </p>
+        </ul>
+
+        <h3>What are the scopes of control structures</h3>
+        <p>Variables initialized in a control structure are only applicable in that  given control structure. If you wish to use a variable initialized in a control structure you have to return the given variable(s) so that it can be used in the global scope.</p>
+       
+        <h3>If statements</h3>
+        <p><strong> What is an if statement?</strong><br> An if statement is a conditional structure that checks <strong>if</strong> a given condition is true and executes the applicable block of code if true.</p>
+        <p><strong> When do we use an if  statement</strong><br>We use if statements if some form of verification is required, and if dynamic execution is required in the program. </p>
+        <p><strong> What is the scope of variables in an if statemen</strong><br>You are capable of using if statements almost everywhere in you program, you are even capable of using an if statement in the executable for your if statement. </p>
+<h3>General syntas</h3>
+        <p> It follows the general syntax:</p>
+        <pre><code>
+            if  *condition*:
+                *block of code*
+        </code></pre>
+        <p>Here indentation is important to denote that the block of code is in the scope of the if statement.
+            Here is a more complete example:</p>
+            <pre><code>
+                a =3
+                b = 4
+                if b>a
+                  print(a is larger)   
+            </code></pre>
+        <p>If the described condition is not met you can use the else keyword to allocate an alternative block of code for execution. E.g.:</p>
+            <pre><code>
+                a=4
+                if a < 0:
+                    print(a is negative)
+                else:
+                    print(a is not negative)
+                   
+            </code></pre>
+            <p>In this case the code checks <strong>if</strong> the variable is less than 0 and if so it is negative if not(else)
+                it is not negative.</p>
+        <p><strong>Elif</strong> is pythons way of adding more options to if statements. Elif is a contraction of elseif, which informs the program to do something else if a  new condition is met. That something else being a new block of code. </p>
+        <pre><code>
+            if b>a
+	            print(a is less than b)
+            elif a>b
+	            print(a is greater than b)
+        </code></pre>
+        <p><strong>Else</strong> else can also be used along elif statements e.g.:</p>
+        <pre><code>
+            a = 1
+            if a>0:
+                    print(a is positive)
+            elif a=0:
+                    print( a is neither positive or negative)
+            else:
+                    print(a is negative) 
+        </code></pre>
+        <p>Python also has a <strong>ternary operator</strong> this acts as a useful shorthand
+            syntax:</p>
+            <pre><code>
+                <i>expression</i> if <i>condition</i> else <i>do else</i>
+            </code></pre>
+
+<h3>Switch statements</h3>
+<p><strong>What is a switch statement </strong><br> A switch statement is a common feature of most programming languages acting as an if statement that allows a much greater range of options for a given input.</p>
+<p><strong> When do we use a switch statement</strong><br>We use one when the number of options may make it so that they would affect legibility and efficiency if formatted as if statements. This feature isn't available for  older versions of python so please do make sure that your version is up to date. </p>
+<p><strong>What is their scope </strong><br>They follow the same scope as if statements </p>
+<p><strong> General syntax </strong><br> This is where python differs from other programming languages, where switch and case aren't the keywords but rather it uses match and case. Here is the syntax.</p>
+<pre><code>
+    match <i>variable</i>:
+	case 1:
+			<i>code to be executed</i>
+	case 2:
+			<i>code to be executed</i>
+	 case default:
+			<i>code to be executed</i>
+</code></pre>
+<p> The block of code check if the given variable matches a particular case in order to the execute it. Here is an example:</p>
+<pre><code>
+    month = 1
+    match month:
+        case  1:
+            print(The first month is January)
+        case  2:
+            print(The first month is February)
+        case  3:
+            print(The first month is March)
+        case  4:
+            print(The first month is April)
+        case  5:
+            print(The first month is May)
+        case  6:
+            print(The first month is June)
+        case  7:
+            print(The first month is July)
+        case  1:
+            print(The first month is August)
+        case  1:
+            print(The first month is September)
+        case  10:
+            print(The first month is October)
+        case  11:
+            print(The first month is November)
+        case  12:
+            print(The first month is December)
+        case  default:
+            print(Invalid input)
+      
+</code></pre>
+
+
+
+
+
+
+        <h2 class="section-title">Practical Lab Exercises</h2>
+        <p>Now that you have a basic understanding of conditional structures, it's time to apply this knowledge in practical scenarios. The following exercises will help reinforce your learning.</p>
+        <ul>
+            <li><strong>Using conditional structures:</strong> Use varying conditional stuctures in differenet situations.</li>
+            <li><strong>Errors in conditional structures:</strong>Checking for any mistakes in the code to strengthen your syntactical ability.</li>
+            <li><strong>Nested conditional strucutres:</strong> Practice writing nested conditional structures for more complex operations.</li>
+        </ul>
+
+        <h2 class="section-title">Q&A and Review</h2>
+        <p>As you complete these exercises, it's important to review and clarify any concepts that are unclear. Use this section to revisit key ideas and ask questions.</p>
+        <p>If you're uncertain about any topics or need further explanation, don't hesitate to reach out through the discussion forum or during the Q&A sessions.</p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
+        <a href="terms.html">Terms and Conditions</a> |
+        <a href="https://www.skunkworks.africa/privacy">Privacy Policy</a> |
+        <a href="https://www.skunkworks.africa/cookie-policy">Cookie Policy</a>
+        <div class="disclaimer">
+            <p>Disclaimer: This theory guide is part of the Python programming course provided by Skunkworks. All rights and content are reserved by Skunkworks.</p>
+            <p>The content provided in this document is for educational purposes only and may not be reproduced or redistributed without permission.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burgerMenu = document.getElementById('burger-menu');
+        const nav = document.getElementById('nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+
+</body>
+
+</html>
