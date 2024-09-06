@@ -110,48 +110,63 @@
 
         /* Input field styles */
 .numInputWrapper .numInput {
-    -moz-appearance: textfield;
+    -moz-appearance: textfield; /* For older Firefox versions */
+    appearance: textfield;       /* For modern browsers */
 }
+
 
 /* Modal container layout with grid support for IE */
 .bx--modal-container > *:nth-child(1),
 .bx--modal-container > *:nth-child(2),
 .bx--modal-container > *:nth-child(3) {
-    -ms-grid-column: 1;
+    -ms-grid-column: 1; /* For older versions of IE */
+    grid-column: 1;      /* For modern browsers */
 }
 
 .bx--modal-container > *:nth-child(1) {
-    -ms-grid-row: 1;
+    -ms-grid-row: 1; /* For older versions of IE */
+    grid-row: 1;     /* For modern browsers */
 }
 
+
 .bx--modal-container > *:nth-child(2) {
-    -ms-grid-row: 2;
+    -ms-grid-row: 2; /* For older versions of IE */
+    grid-row: 2;     /* For modern browsers */
 }
 
 .bx--modal-container > *:nth-child(3) {
-    -ms-grid-row: 3;
+    -ms-grid-row: 3; /* For older versions of IE */
+    grid-row: 3;     /* For modern browsers */
 }
 
 /* Tabs scrollable: hide scrollbar for Firefox */
 .bx--tabs--scrollable .bx--tabs--scrollable__nav {
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
+
+/* Hide scrollbar for WebKit browsers like Chrome, Safari */
+.bx--tabs--scrollable .bx--tabs--scrollable__nav::-webkit-scrollbar {
+    display: none;
+}
+
 
 /* Button adjustments for smaller toolbar */
 .bx--table-toolbar--small .bx--btn--primary,
 .bx--table-toolbar--sm .bx--btn--primary {
-    min-height: auto;
+    min-height: initial; /* Fallback for Firefox and others */
 }
+
 
 /* Accordion animation keyframes */
 @keyframes collapse-accordion {
     0% {
-        height: 100%;
+        transform: scaleY(1);
         opacity: 1;
-        visibility: inherit;
+        visibility: visible;
     }
     100% {
-        height: 0;
+        transform: scaleY(0);
         opacity: 0;
         visibility: hidden;
     }
@@ -159,14 +174,14 @@
 
 @keyframes expand-accordion {
     0% {
-        height: 0;
+        transform: scaleY(0);
         opacity: 0;
         visibility: hidden;
     }
     100% {
-        height: 100%;
+        transform: scaleY(1);
         opacity: 1;
-        visibility: inherit;
+        visibility: visible;
     }
 }
 
@@ -524,29 +539,64 @@
 <!-- Carbon Components JavaScript -->
 <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
 
-<!-- Search Filter Functionality -->
+<!-- Accordion and Search Functionality -->
 <script>
-    // Search filter functionality for tiles
-    document.getElementById('search-input').addEventListener('input', function () {
-        const query = this.value.toLowerCase();
+    document.addEventListener('DOMContentLoaded', function() {
+        // =====================
+        // Accordion Initialization
+        // =====================
+        
+        // Ensure CarbonComponents is loaded before initializing
+        if (typeof CarbonComponents !== 'undefined' && document.querySelectorAll('.bx--accordion').length > 0) {
+            // Initialize accordion components
+            const accordionInstances = CarbonComponents.Accordion.init();
+
+            // Add accessibility improvements for aria-expanded
+            const accordionButtons = document.querySelectorAll('.bx--accordion__heading');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            });
+
+        } else {
+            console.error("CarbonComponents library not loaded properly or no accordions found.");
+        }
+
+        // =====================
+        // Search Filter Functionality
+        // =====================
+
+        // Search filter functionality for certification tiles
+        const searchInput = document.getElementById('search-input');
         const tiles = document.querySelectorAll('.cert-tile');
 
-        tiles.forEach(tile => {
-            const title = tile.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(query)) {
-                tile.classList.remove('hidden');
-            } else {
-                tile.classList.add('hidden');
-            }
-        });
-    });
+        // Ensure that search input and tiles exist before attaching event listener
+        if (searchInput && tiles.length > 0) {
+            searchInput.addEventListener('input', function () {
+                const query = this.value.toLowerCase(); // User input for search
 
-    // Initialize the accordion component from Carbon Design System
-    document.addEventListener('DOMContentLoaded', function() {
-        const accordionInstances = CarbonComponents.Accordion.init();
+                // Filter the tiles based on user input
+                tiles.forEach(tile => {
+                    const titleElement = tile.querySelector('h3'); // Tile title element
+                    if (titleElement) {
+                        const title = titleElement.textContent.toLowerCase(); // Get title text
+                        // Toggle visibility based on search query
+                        if (title.includes(query)) {
+                            tile.classList.remove('hidden');
+                        } else {
+                            tile.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        } else {
+            console.error("Search input or certification tiles not found.");
+        }
     });
 </script>
-
 
 </body>
 </html>
