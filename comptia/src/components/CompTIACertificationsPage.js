@@ -10,61 +10,61 @@ const CompTIACertificationsPage = () => {
       id: 1,
       name: 'CompTIA A+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/a-logo-jpeg.png?raw=true',
-      description: 'Entry-level IT certification.',
+      description: 'Entry-level IT certification.'
     },
     {
       id: 2,
       name: 'CompTIA CASP+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/casp-logo.png?raw=true',
-      description: 'Advanced Security Practitioner certification.',
+      description: 'Advanced Security Practitioner certification.'
     },
     {
       id: 3,
       name: 'CompTIA Cloud Essentials+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloud-essentials-logo.png?raw=true',
-      description: 'Basic cloud computing fundamentals.',
+      description: 'Basic cloud computing fundamentals.'
     },
     {
       id: 4,
       name: 'CompTIA Cloud+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloudplus-logo.png?raw=true',
-      description: 'Cloud computing certification.',
+      description: 'Cloud computing certification.'
     },
     {
       id: 5,
       name: 'CompTIA Data+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/dataplus_logo.png?raw=true',
-      description: 'Data analysis certification.',
+      description: 'Data analysis certification.'
     },
     {
       id: 6,
       name: 'CompTIA Linux+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/linuxplus-logo.png?raw=true',
-      description: 'Linux system administration certification.',
+      description: 'Linux system administration certification.'
     },
     {
       id: 7,
       name: 'CompTIA Network+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/networkplus-logo.png?raw=true',
-      description: 'Networking certification.',
+      description: 'Networking certification.'
     },
     {
       id: 8,
       name: 'CompTIA PenTest+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/pentestplusjpg-logo.png?raw=true',
-      description: 'Penetration testing certification.',
+      description: 'Penetration testing certification.'
     },
     {
       id: 9,
       name: 'CompTIA Security+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/securityplus-logo.png?raw=true',
-      description: 'Cybersecurity certification.',
+      description: 'Cybersecurity certification.'
     },
     {
       id: 10,
       name: 'CompTIA Server+',
       image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/serverplus-logo.png?raw=true',
-      description: 'Server management certification.',
+      description: 'Server management certification.'
     }
   ];
 
@@ -94,12 +94,12 @@ const CompTIACertificationsPage = () => {
             <li>Architecture and design</li>
             <li>Identity and access management</li>
             <li>Risk management</li>
-            <li>Cryptography and PKI</li>
+            <li>Cryptography and public key infrastructure (PKI)</li>
           </ul>
         </>
       )
     },
-    // Add more certification details here if needed
+    // Add other certification details here
   ];
 
   const handleSearchChange = (event) => {
@@ -116,11 +116,10 @@ const CompTIACertificationsPage = () => {
 
   return (
     <div className="font-sans bg-gray-100">
-      {/* Header Section */}
-      <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <header className="bg-gray-800 text-white p-4 flex justify-between items-center flex-wrap">
         <h1 className="text-2xl font-bold">Skunkworks Academy - CompTIA Certifications</h1>
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="flex gap-6">
             <li><a href="#" className="hover:text-gray-300">Home</a></li>
             <li><a href="#" className="hover:text-gray-300">Certifications</a></li>
             <li><a href="#" className="hover:text-gray-300">Contact</a></li>
@@ -128,72 +127,69 @@ const CompTIACertificationsPage = () => {
         </nav>
       </header>
 
-      {/* Breadcrumbs */}
       <div className="breadcrumb bg-white p-4">
-        <nav className="flex" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <a href="https://courses.skunkworks.africa" className="text-gray-700 hover:text-blue-600">
-                Home
-              </a>
+        <nav className="bx--breadcrumb" aria-label="Breadcrumb">
+          <ol className="bx--breadcrumb-list flex items-center space-x-2">
+            <li className="bx--breadcrumb-item">
+              <a href="https://courses.skunkworks.africa" className="bx--link text-blue-600 hover:text-blue-800">Home</a>
             </li>
-            <li>
-              <div className="flex items-center">
-                <ChevronDown className="w-6 h-6 text-gray-400" />
-                <span className="ml-1 text-gray-500 md:ml-2">CompTIA Certifications</span>
-              </div>
+            <li className="bx--breadcrumb-item bx--breadcrumb-item--current">
+              <span className="text-gray-500">CompTIA Certifications</span>
             </li>
           </ol>
         </nav>
       </div>
 
-      {/* Search Bar */}
       <div className="search-bar bg-gray-200 p-8">
-        <div className="relative max-w-2xl mx-auto">
-          <input
-            type="text"
-            className="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Search Certifications"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="h-5 w-5 text-gray-400" />
+        <div className="bx--search bx--search--xl max-w-2xl mx-auto">
+          <label htmlFor="search-input" className="bx--label sr-only">Search Certifications</label>
+          <div className="relative">
+            <input
+              type="text"
+              className="bx--search-input w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500"
+              id="search-input"
+              placeholder="Type to search..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-gray-400" />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Certifications Grid */}
       <main className="main-content p-8 bg-white">
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCertifications.map(cert => (
-            <div key={cert.id} className="bg-gray-100 p-4 rounded-lg text-center transition-transform duration-300 hover:scale-105">
-              <img src={cert.image} alt={cert.name} className="w-full max-w-[150px] md:max-w-[200px] h-auto mx-auto mb-4 rounded" />
-              <h3 className="text-xl font-bold mb-2">{cert.name}</h3>
-              <p>{cert.description}</p>
-            </div>
-          ))}
+        <section className="bx--grid bx--grid--full-width">
+          <div className="bx--row" id="cert-tiles">
+            {filteredCertifications.map(cert => (
+              <div key={cert.id} className="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile bg-gray-100 p-4 rounded-lg text-center transition-transform duration-300 hover:scale-105 mb-6">
+                <img src={cert.image} alt={`${cert.name} Certification`} className="w-full max-w-[150px] md:max-w-[200px] h-auto mx-auto mb-4 rounded" />
+                <h3 className="text-xl font-bold mb-2">{cert.name}</h3>
+                <p>{cert.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
-        {/* Accordion Section */}
         <section className="mt-8">
-          <div className="shadow-md rounded-lg p-4 border border-gray-300">
+          <div className="bx--accordion shadow-md rounded-lg p-4 border border-gray-300">
             {accordionData.map((item) => (
-              <div key={item.id} className="mb-2">
+              <div key={item.id} className="bx--accordion__item mb-2">
                 <button
-                  className="w-full text-left p-4 flex justify-between items-center bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+                  className="bx--accordion__heading w-full text-left p-4 flex justify-between items-center bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
                   onClick={() => toggleAccordion(item.id)}
                   aria-expanded={expandedAccordion === item.id}
                 >
-                  <span className="text-lg font-semibold">{item.title}</span>
+                  <div className="bx--accordion__title text-lg font-semibold">{item.title}</div>
                   <ChevronDown
-                    className={`transition-transform duration-300 ${
+                    className={`bx--accordion__arrow transition-transform duration-300 ${
                       expandedAccordion === item.id ? 'transform rotate-180' : ''
                     }`}
                   />
                 </button>
                 {expandedAccordion === item.id && (
-                  <div className="p-4 bg-white">
+                  <div className="bx--accordion__content p-4 bg-white">
                     {item.content}
                   </div>
                 )}
@@ -202,7 +198,6 @@ const CompTIACertificationsPage = () => {
           </div>
         </section>
 
-        {/* CompTIA Authorized Partner Section */}
         <section className="text-center p-8 bg-gray-100 rounded-lg shadow-md mt-8 max-w-3xl mx-auto">
           <img
             src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/comptia%20partner.png?raw=true"
@@ -214,9 +209,8 @@ const CompTIACertificationsPage = () => {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white text-center p-8">
-        <p>&copy; 2024 Skunkworks Academy. All rights reserved.</p>
+      <footer className="bg-gray-800 text-white text-center p-8 border-t-4 border-blue-600">
+        <p className="text-lg mb-2">&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
         <p className="text-sm">
           Prices are for South African market only. Contact{' '}
           <a href="mailto:info@skunkworks.africa" className="text-blue-400 hover:underline">
