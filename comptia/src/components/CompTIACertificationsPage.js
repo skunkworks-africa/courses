@@ -9,61 +9,61 @@ const CompTIACertificationsPage = () => {
     {
       id: 1,
       name: 'CompTIA A+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/a-logo-jpeg.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/a-logo-jpeg.png?raw=true',
       description: 'Entry-level IT certification.',
     },
     {
       id: 2,
       name: 'CompTIA CASP+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/casp-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/casp-logo.png?raw=true',
       description: 'Advanced Security Practitioner certification.',
     },
     {
       id: 3,
       name: 'CompTIA Cloud Essentials+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/cloud-essentials-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloud-essentials-logo.png?raw=true',
       description: 'Basic cloud computing fundamentals.',
     },
     {
       id: 4,
       name: 'CompTIA Cloud+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/cloudplus-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloudplus-logo.png?raw=true',
       description: 'Cloud computing certification.',
     },
     {
       id: 5,
       name: 'CompTIA Data+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/dataplus_logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/dataplus_logo.png?raw=true',
       description: 'Data analysis certification.',
     },
     {
       id: 6,
       name: 'CompTIA Linux+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/linuxplus-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/linuxplus-logo.png?raw=true',
       description: 'Linux system administration certification.',
     },
     {
       id: 7,
       name: 'CompTIA Network+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/networkplus-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/networkplus-logo.png?raw=true',
       description: 'Networking certification.',
     },
     {
       id: 8,
       name: 'CompTIA PenTest+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/pentestplusjpg-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/pentestplusjpg-logo.png?raw=true',
       description: 'Penetration testing certification.',
     },
     {
       id: 9,
       name: 'CompTIA Security+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/securityplus-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/securityplus-logo.png?raw=true',
       description: 'Cybersecurity certification.',
     },
     {
       id: 10,
       name: 'CompTIA Server+',
-      image: 'https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/serverplus-logo.png?raw=true',
+      image: 'https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/serverplus-logo.png?raw=true',
       description: 'Server management certification.',
     }
   ];
@@ -205,7 +205,7 @@ const CompTIACertificationsPage = () => {
         {/* CompTIA Authorized Partner Section */}
         <section className="text-center p-8 bg-gray-100 rounded-lg shadow-md mt-8 max-w-3xl mx-auto">
           <img
-            src="https://github.com/Skunkworks-Africa/courses/blob/main/comptia/assets/comptia%20partner.png?raw=true"
+            src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/comptia%20partner.png?raw=true"
             alt="CompTIA Authorized Partner"
             className="w-48 h-auto mb-4 mx-auto"
           />
