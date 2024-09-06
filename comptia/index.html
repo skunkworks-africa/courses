@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA Certifications | Skunkworks Academy</title>
+
+    <!-- Import Carbon Design System CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0f62fe;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li {
+            color: white;
+        }
+        .breadcrumb {
+            padding: 1rem 2rem;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .cert-tile img {
+            width: 100px;
+            height: auto;
+        }
+        .search-bar {
+            padding: 2rem;
+            background-color: #f4f4f4;
+        }
+        .footer {
+            background-color: #393939;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Skunkworks Academy - CompTIA Certifications</h1>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Certifications</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb">
+        <nav class="bx--breadcrumb" aria-label="Breadcrumb">
+            <ol class="bx--breadcrumb-list">
+                <li class="bx--breadcrumb-item">
+                    <a href="https://courses.skunkworks.africa" class="bx--link">Home</a>
+                </li>
+                <li class="bx--breadcrumb-item bx--breadcrumb-item--current">
+                    <a href="#" aria-current="page" class="bx--link">CompTIA Certifications</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Dynamic Search Filter -->
+    <div class="search-bar">
+        <div class="bx--search bx--search--xl">
+            <label for="search-input" class="bx--label">Search Certifications</label>
+            <input type="text" class="bx--search-input" id="search-input" placeholder="Type to search...">
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section class="bx--grid bx--grid--full-width">
+            <div class="bx--row">
+                <!-- Tiles for CompTIA certifications -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/a-logo-jpeg.png" alt="CompTIA A+ Certification">
+                        <h3>CompTIA A+</h3>
+                        <p>Entry-level IT certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/securityplus-logo.png" alt="CompTIA Security+ Certification">
+                        <h3>CompTIA Security+</h3>
+                        <p>Cybersecurity certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/networkplus-logo.png" alt="CompTIA Network+ Certification">
+                        <h3>CompTIA Network+</h3>
+                        <p>Networking certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/cloudplus-logo.png" alt="CompTIA Cloud+ Certification">
+                        <h3>CompTIA Cloud+</h3>
+                        <p>Cloud computing certification.</p>
+                    </div>
+                </div>
+                <!-- Add more tiles as needed -->
+            </div>
+
+            <!-- Accordion for Detailed Information -->
+            <div class="bx--accordion">
+                <ul class="bx--accordion__menu">
+                    <li data-accordion-item>
+                        <button class="bx--accordion__heading">
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                                <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                            </svg>
+                            <div class="bx--accordion__title">CompTIA A+ Certification Details</div>
+                        </button>
+                        <div class="bx--accordion__content">
+                            <p>This is an entry-level certification that covers basic IT support and security concepts.</p>
+                        </div>
+                    </li>
+                    <li data-accordion-item>
+                        <button class="bx--accordion__heading">
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                                <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                            </svg>
+                            <div class="bx--accordion__title">CompTIA Security+ Certification Details</div>
+                        </button>
+                        <div class="bx--accordion__content">
+                            <p>Security+ is an essential cybersecurity certification.</p>
+                        </div>
+                    </li>
+                    <<li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Network+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Network+ is a certification that validates the essential knowledge and skills required to design, configure, manage, and troubleshoot wired and wireless networks.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Security+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Security+ is a global certification that focuses on the foundational principles of securing networks, systems, and organizations. It is often a prerequisite for advanced cybersecurity roles.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Cloud+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Cloud+ certification demonstrates the ability to manage and secure cloud infrastructures, hybrid cloud solutions, and virtualization, making it ideal for systems administrators and cloud engineers.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Linux+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Linux+ certification covers foundational Linux knowledge, including system configuration, command-line interface, system security, and scripting basics.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Server+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Server+ certification provides comprehensive knowledge on server architecture, storage, networking, disaster recovery, and troubleshooting in data center environments.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA PenTest+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>PenTest+ is an intermediate-level certification that covers penetration testing and vulnerability management, crucial for ethical hackers and cybersecurity professionals.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA CASP+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>CASP+ (Advanced Security Practitioner) is a performance-based certification for advanced-level cybersecurity professionals that covers enterprise security operations and architecture.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA CySA+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>CySA+ (Cybersecurity Analyst) is an intermediate-level certification that focuses on monitoring and securing networks through continuous threat detection and analysis.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Project+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Project+ certification validates project management skills and competencies, ideal for managing IT and technical projects in a variety of environments.</p>
+                      </div>
+                  </li>
+                  
+                  <li data-accordion-item>
+                      <button class="bx--accordion__heading">
+                          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+                              <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
+                          </svg>
+                          <div class="bx--accordion__title">CompTIA Data+ Certification Details</div>
+                      </button>
+                      <div class="bx--accordion__content">
+                          <p>Data+ certification is aimed at validating the data analysis skills necessary for driving business decision-making processes using data tools and concepts.</p>
+                      </div>
+                  </li>
+
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Prices are for South African market only. Contact <a href="mailto:info@skunkworks.africa" style="color: #0f62fe;">info@skunkworks.africa</a> for region-specific prices.</p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <script>
+        carbonComponents.Accordion.init();
+    </script>
+</body>
+</html>
