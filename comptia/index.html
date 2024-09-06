@@ -20,7 +20,7 @@
 
         /* Header Styles */
         header {
-            background-color: #0f62fe;
+            background-color: #393939;
             color: white;
             padding: 1rem 2rem;
             display: flex;
@@ -90,13 +90,14 @@
             font-size: 1.25rem;
             font-weight: bold;
         }
-        
+
         .bx--accordion {
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
             border-radius: 8px; /* Add border-radius */
             padding: 1rem; /* Add padding */
             margin: 20px 0; /* Add margin */
             border: 1px solid #ccc; /* Optional border */
+            background-color: white; /* Improve background for better contrast */
         }
 
         /* Footer Styles */
@@ -106,6 +107,91 @@
             text-align: center;
             padding: 2rem;
         }
+
+        /* Input field styles */
+.numInputWrapper .numInput {
+    -moz-appearance: textfield;
+}
+
+/* Modal container layout with grid support for IE */
+.bx--modal-container > *:nth-child(1),
+.bx--modal-container > *:nth-child(2),
+.bx--modal-container > *:nth-child(3) {
+    -ms-grid-column: 1;
+}
+
+.bx--modal-container > *:nth-child(1) {
+    -ms-grid-row: 1;
+}
+
+.bx--modal-container > *:nth-child(2) {
+    -ms-grid-row: 2;
+}
+
+.bx--modal-container > *:nth-child(3) {
+    -ms-grid-row: 3;
+}
+
+/* Tabs scrollable: hide scrollbar for Firefox */
+.bx--tabs--scrollable .bx--tabs--scrollable__nav {
+    scrollbar-width: none;
+}
+
+/* Button adjustments for smaller toolbar */
+.bx--table-toolbar--small .bx--btn--primary,
+.bx--table-toolbar--sm .bx--btn--primary {
+    min-height: auto;
+}
+
+/* Accordion animation keyframes */
+@keyframes collapse-accordion {
+    0% {
+        height: 100%;
+        opacity: 1;
+        visibility: inherit;
+    }
+    100% {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes expand-accordion {
+    0% {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        height: 100%;
+        opacity: 1;
+        visibility: inherit;
+    }
+}
+
+/* Feedback animation */
+@keyframes hide-feedback {
+    0% {
+        opacity: 1;
+        visibility: inherit;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes show-feedback {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: inherit;
+    }
+}
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -147,8 +233,9 @@
         }
     </style>
 </head>
+    
 <body>
-
+    <!-- Header Section -->
     <header>
         <h1>Skunkworks Academy - CompTIA Certifications</h1>
         <nav>
@@ -261,99 +348,160 @@
 <!-- Accordion for Detailed Information -->
 <div class="bx--accordion" style="margin: 20px 0; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 1rem; border: 1px solid #ccc;">
     <ul class="bx--accordion__menu">
+        <!-- CompTIA A+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA A+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>This is an entry-level certification that covers basic IT support and security concepts.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>CompTIA A+ is an entry-level certification that covers foundational IT skills, such as troubleshooting, configuring, and managing hardware and software. It includes two exams:</p>
+                <ul>
+                    <li><b>Core 1 (220-1001):</b> Covers mobile devices, networking technology, hardware, virtualization, and cloud computing.</li>
+                    <li><b>Core 2 (220-1002):</b> Covers installing and configuring operating systems, expanded security, software troubleshooting, and operational procedures.</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA Security+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA Security+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>Security+ is a global certification that focuses on foundational principles of securing networks, systems, and organizations. It is often a prerequisite for advanced cybersecurity roles.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>Security+ is a globally recognized certification focusing on the foundational principles of securing networks, devices, and data. Key areas include:</p>
+                <ul>
+                    <li>Threats, attacks, and vulnerabilities</li>
+                    <li>Technologies and tools</li>
+                    <li>Architecture and design</li>
+                    <li>Identity and access management</li>
+                    <li>Risk management</li>
+                    <li>Cryptography and public key infrastructure (PKI)</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA Network+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA Network+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>Network+ is a certification that validates the essential knowledge and skills required to design, configure, manage, and troubleshoot wired and wireless networks.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>The CompTIA Network+ certification validates the knowledge and skills needed to design, configure, manage, and troubleshoot wired and wireless networks. It focuses on:</p>
+                <ul>
+                    <li>Networking concepts</li>
+                    <li>Infrastructure</li>
+                    <li>Network operations</li>
+                    <li>Network security</li>
+                    <li>Network troubleshooting and tools</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA Cloud+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA Cloud+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>Cloud+ certification demonstrates the ability to manage and secure cloud infrastructures, hybrid cloud solutions, and virtualization, making it ideal for systems administrators and cloud engineers.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>CompTIA Cloud+ certifies the skills required for system administrators to secure and manage cloud infrastructures. This certification focuses on:</p>
+                <ul>
+                    <li>Cloud architecture and design</li>
+                    <li>Cloud deployment</li>
+                    <li>Security in the cloud</li>
+                    <li>Automation and virtualization</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA Linux+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA Linux+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>Linux+ certification covers foundational Linux knowledge, including system configuration, command-line interface, system security, and scripting basics.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>Linux+ certification covers fundamental Linux skills for system administration. It includes the following areas:</p>
+                <ul>
+                    <li>System configuration and management</li>
+                    <li>Command-line interface (CLI)</li>
+                    <li>System security</li>
+                    <li>Networking</li>
+                    <li>Automation with scripting</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA Server+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA Server+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>Server+ certification provides comprehensive knowledge on server architecture, storage, networking, disaster recovery, and troubleshooting in data center environments.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>Server+ certification provides comprehensive knowledge for managing server hardware and software. It covers:</p>
+                <ul>
+                    <li>Server architecture</li>
+                    <li>Storage management</li>
+                    <li>Networking</li>
+                    <li>Disaster recovery</li>
+                    <li>Troubleshooting in data centers</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA PenTest+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA PenTest+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>PenTest+ is an intermediate-level certification that covers penetration testing and vulnerability management, crucial for ethical hackers and cybersecurity professionals.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>PenTest+ is an intermediate certification that focuses on penetration testing and vulnerability management. Areas covered include:</p>
+                <ul>
+                    <li>Planning and scoping</li>
+                    <li>Information gathering</li>
+                    <li>Vulnerability identification</li>
+                    <li>Attacks and exploitation</li>
+                    <li>Post-exploitation techniques</li>
+                </ul>
             </div>
         </li>
 
+        <!-- CompTIA CASP+ Certification -->
         <li data-accordion-item>
-            <button class="bx--accordion__heading">
+            <button class="bx--accordion__heading" aria-expanded="false">
                 <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                     <path d="M16 22L6 12l1.4-1.4L16 19.2l8.6-8.6L26 12z"></path>
                 </svg>
                 <div class="bx--accordion__title">CompTIA CASP+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content">
-                <p>CASP+ (Advanced Security Practitioner) is a performance-based certification for advanced-level cybersecurity professionals that covers enterprise security operations and architecture.</p>
+            <div class="bx--accordion__content" hidden>
+                <p>CASP+ is an advanced-level certification for cybersecurity professionals. It focuses on enterprise security operations and architecture. Key areas include:</p>
+                <ul>
+                    <li>Risk management</li>
+                    <li>Enterprise security architecture</li>
+                    <li>Enterprise security operations</li>
+                    <li>Research and collaboration</li>
+                    <li>Security integration</li>
+                </ul>
             </div>
         </li>
     </ul>
