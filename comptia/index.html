@@ -100,6 +100,26 @@
             background-color: white; /* Improve background for better contrast */
         }
         
+        .bx--accordion__heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            background: none;
+            cursor: pointer;
+            text-align: left;
+        }
+        
+        .bx--accordion__arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .bx--accordion__heading[aria-expanded="true"] .bx--accordion__arrow {
+            transform: rotate(180deg);
+        }
+        
         .bx--accordion__content {
         display: none;
         transition: all 0.3s ease;
@@ -380,7 +400,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA A+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>CompTIA A+ is an entry-level certification that covers foundational IT skills, such as troubleshooting, configuring, and managing hardware and software. It includes two exams:</p>
                 <ul>
                     <li><b>Core 1 (220-1001):</b> Covers mobile devices, networking technology, hardware, virtualization, and cloud computing.</li>
@@ -397,7 +417,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA Security+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>Security+ is a globally recognized certification focusing on the foundational principles of securing networks, devices, and data. Key areas include:</p>
                 <ul>
                     <li>Threats, attacks, and vulnerabilities</li>
@@ -418,7 +438,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA Network+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>The CompTIA Network+ certification validates the knowledge and skills needed to design, configure, manage, and troubleshoot wired and wireless networks. It focuses on:</p>
                 <ul>
                     <li>Networking concepts</li>
@@ -438,7 +458,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA Cloud+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>CompTIA Cloud+ certifies the skills required for system administrators to secure and manage cloud infrastructures. This certification focuses on:</p>
                 <ul>
                     <li>Cloud architecture and design</li>
@@ -457,7 +477,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA Linux+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>Linux+ certification covers fundamental Linux skills for system administration. It includes the following areas:</p>
                 <ul>
                     <li>System configuration and management</li>
@@ -477,7 +497,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA Server+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>Server+ certification provides comprehensive knowledge for managing server hardware and software. It covers:</p>
                 <ul>
                     <li>Server architecture</li>
@@ -497,7 +517,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA PenTest+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>PenTest+ is an intermediate certification that focuses on penetration testing and vulnerability management. Areas covered include:</p>
                 <ul>
                     <li>Planning and scoping</li>
@@ -517,7 +537,7 @@
                 </svg>
                 <div class="bx--accordion__title">CompTIA CASP+ Certification Details</div>
             </button>
-            <div class="bx--accordion__content--active">
+            <div class="bx--accordion__content">
                 <p>CASP+ is an advanced-level certification for cybersecurity professionals. It focuses on enterprise security operations and architecture. Key areas include:</p>
                 <ul>
                     <li>Risk management</li>
@@ -550,29 +570,23 @@
 
 <!-- Accordion and Search Functionality -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // =====================
-        // Accordion Initialization
-        // =====================
-        
-        // Ensure CarbonComponents is loaded before initializing
-        if (typeof CarbonComponents !== 'undefined' && document.querySelectorAll('.bx--accordion').length > 0) {
-            // Initialize accordion components
-            const accordionInstances = CarbonComponents.Accordion.init();
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionButtons = document.querySelectorAll('.bx--accordion__heading');
 
-            // Add accessibility improvements for aria-expanded
-            const accordionButtons = document.querySelectorAll('.bx--accordion__heading');
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
 
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', !isExpanded);
-                });
-            });
+            // Toggle aria-expanded attribute
+            this.setAttribute('aria-expanded', !isExpanded);
 
-        } else {
-            console.error("CarbonComponents library not loaded properly or no accordions found.");
-        }
+            // Toggle accordion content visibility
+            if (isExpanded) {
+                content.classList.remove('bx--accordion__content--active');
+            } else {
+                content.classList.add('bx--accordion__content--active');
+            }
 
         // =====================
         // Search Filter Functionality
