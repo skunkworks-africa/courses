@@ -2,6 +2,8 @@
 
 Welcome to our CompTIA Course Catalog! This directory provides detailed information about our range of CompTIA training courses, designed to empower IT professionals and enthusiasts with the knowledge and skills needed to excel in the ever-evolving world of information technology.
 
+![comptia partner](https://github.com/user-attachments/assets/58d37120-6619-4553-8e58-d8d33190ef3f)
+
 ## Course Offerings
 
 ### A+ Certification Training
