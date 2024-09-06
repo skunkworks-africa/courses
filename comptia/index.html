@@ -378,6 +378,7 @@
 
 <!-- Search Filter Functionality -->
 <script>
+    // Search filter functionality for tiles
     document.getElementById('search-input').addEventListener('input', function () {
         const query = this.value.toLowerCase();
         const tiles = document.querySelectorAll('.cert-tile');
@@ -392,8 +393,12 @@
         });
     });
 
-    carbonComponents.Accordion.init();
+    // Initialize the accordion component from Carbon Design System
+    document.addEventListener('DOMContentLoaded', function() {
+        const accordionInstances = CarbonComponents.Accordion.init();
+    });
 </script>
+
 
 </body>
 </html>
