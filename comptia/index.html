@@ -6,6 +6,7 @@
     <title>CompTIA Certifications | Skunkworks Academy</title>
 
     <!-- Import Carbon Design System CSS -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" rel="icon" type="image/png" />
     <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
     
     <!-- Custom Styles -->
@@ -14,7 +15,10 @@
             font-family: 'IBM Plex Sans', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
+
+        /* Header Styles */
         header {
             background-color: #0f62fe;
             color: white;
@@ -22,37 +26,116 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         header h1 {
             margin: 0;
+            font-size: 1.5rem;
         }
         nav ul {
             list-style: none;
             display: flex;
             gap: 1.5rem;
+            padding: 0;
         }
         nav ul li {
             color: white;
+            cursor: pointer;
         }
+
+        /* Breadcrumbs */
         .breadcrumb {
             padding: 1rem 2rem;
+            background-color: white;
         }
-        .main-content {
-            padding: 2rem;
-        }
-        .cert-tile img {
-            width: 100px;
-            height: auto;
-        }
+
+        /* Search bar */
         .search-bar {
             padding: 2rem;
-            background-color: #f4f4f4;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 2rem;
+            background-color: white;
+        }
+
+        .cert-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-tile:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-tile img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Accordion Styling */
+        .bx--accordion__title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
         .footer {
             background-color: #393939;
             color: white;
             text-align: center;
             padding: 2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .search-bar {
+                padding: 1rem;
+            }
+
+            .cert-tile {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Dynamic Image Resizing */
+        .cert-tile img {
+            width: 100%;
+            height: auto;
+            max-width: 150px; /* Set a maximum width for smaller screens */
+        }
+
+        @media (min-width: 769px) {
+            .cert-tile img {
+                max-width: 200px; /* Larger screens get bigger images */
+            }
+        }
+
+        /* Hide items that do not match the search */
+        .cert-tile.hidden {
+            display: none;
         }
     </style>
 </head>
@@ -93,41 +176,82 @@
 
     <main class="main-content">
         <section class="bx--grid bx--grid--full-width">
-            <div class="bx--row">
-                <!-- Tiles for CompTIA certifications -->
-                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
-                    <div class="bx--tile cert-tile">
-                        <img src="comptia/assets/a-logo-jpeg.png" alt="CompTIA A+ Certification">
-                        <h3>CompTIA A+</h3>
-                        <p>Entry-level IT certification.</p>
-                    </div>
+            <div class="bx--row" id="cert-tiles">
+                <!-- CompTIA A+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/a-logo-jpeg.png?raw=true" alt="CompTIA A+ Certification">
+                    <h3>CompTIA A+</h3>
+                    <p>Entry-level IT certification.</p>
                 </div>
-                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
-                    <div class="bx--tile cert-tile">
-                        <img src="comptia/assets/securityplus-logo.png" alt="CompTIA Security+ Certification">
-                        <h3>CompTIA Security+</h3>
-                        <p>Cybersecurity certification.</p>
-                    </div>
-                </div>
-                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
-                    <div class="bx--tile cert-tile">
-                        <img src="comptia/assets/networkplus-logo.png" alt="CompTIA Network+ Certification">
-                        <h3>CompTIA Network+</h3>
-                        <p>Networking certification.</p>
-                    </div>
-                </div>
-                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
-                    <div class="bx--tile cert-tile">
-                        <img src="comptia/assets/cloudplus-logo.png" alt="CompTIA Cloud+ Certification">
-                        <h3>CompTIA Cloud+</h3>
-                        <p>Cloud computing certification.</p>
-                    </div>
-                </div>
-                <!-- Add more tiles as needed -->
-            </div>
 
-            <!-- Accordion for Detailed Information -->
-            <div class="bx--accordion">
+                <!-- CompTIA CASP+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/casp-logo.png?raw=true" alt="CompTIA CASP+ Certification">
+                    <h3>CompTIA CASP+</h3>
+                    <p>Advanced Security Practitioner certification.</p>
+                </div>
+
+                <!-- CompTIA Cloud Essentials+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloud-essentials-logo.png?raw=true" alt="CompTIA Cloud Essentials+ Certification">
+                    <h3>CompTIA Cloud Essentials+</h3>
+                    <p>Basic cloud computing fundamentals.</p>
+                </div>
+
+                <!-- CompTIA Cloud+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/cloudplus-logo.png?raw=true" alt="CompTIA Cloud+ Certification">
+                    <h3>CompTIA Cloud+</h3>
+                    <p>Cloud computing certification.</p>
+                </div>
+
+                <!-- CompTIA Data+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/dataplus_logo_jpg.jpg?raw=true" alt="CompTIA Data+ Certification">
+                    <h3>CompTIA Data+</h3>
+                    <p>Data analysis certification.</p>
+                </div>
+
+                <!-- CompTIA Linux+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/linuxplus-logo.png?raw=true" alt="CompTIA Linux+ Certification">
+                    <h3>CompTIA Linux+</h3>
+                    <p>Linux system administration certification.</p>
+                </div>
+
+                <!-- CompTIA Network+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/networkplus-logo.png?raw=true" alt="CompTIA Network+ Certification">
+                    <h3>CompTIA Network+</h3>
+                    <p>Networking certification.</p>
+                </div>
+
+                <!-- CompTIA PenTest+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/pentestplusjpg-logo.png?raw=true" alt="CompTIA PenTest+ Certification">
+                    <h3>CompTIA PenTest+</h3>
+                    <p>Penetration testing certification.</p>
+                </div>
+
+                <!-- CompTIA Security+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/securityplus-logo.png?raw=true" alt="CompTIA Security+ Certification">
+                    <h3>CompTIA Security+</h3>
+                    <p>Cybersecurity certification.</p>
+                </div>
+
+                <!-- CompTIA Server+ -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 cert-tile">
+                    <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/comptia/assets/serverplus-logo.png?raw=true" alt="CompTIA Server+ Certification">
+                    <h3>CompTIA Server+</h3>
+                    <p>Server management certification.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Accordion for Detailed Information -->
+    <div class="bx--accordion">
                 <ul class="bx--accordion__menu">
                     <li data-accordion-item>
                         <button class="bx--accordion__heading">
@@ -273,7 +397,89 @@
 
                 </ul>
             </div>
-        </section>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Prices are for South African market only. Contact <a href="mailto:info@skunkworks.africa" style="color: #0f62fe;">info@skunkworks.africa</a> for region-specific prices.</p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+
+    <!-- Search Filter Functionality -->
+    <script>
+        document.getElementById('search-input').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            const tiles = document.querySelectorAll('.cert-tile');
+
+            tiles.forEach(tile => {
+                const title = tile.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    tile.classList.remove('hidden');
+                } else {
+                    tile.classList.add('hidden');
+                }
+            });
+        });
+
+        carbonComponents.Accordion.init();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+    <!-- Dynamic Search Filter -->
+    <div class="search-bar">
+        <div class="bx--search bx--search--xl">
+            <label for="search-input" class="bx--label">Search Certifications</label>
+            <input type="text" class="bx--search-input" id="search-input" placeholder="Type to search...">
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section class="bx--grid bx--grid--full-width">
+            <div class="bx--row">
+                <!-- Tiles for CompTIA certifications -->
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/a-logo-jpeg.png" alt="CompTIA A+ Certification">
+                        <h3>CompTIA A+</h3>
+                        <p>Entry-level IT certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/securityplus-logo.png" alt="CompTIA Security+ Certification">
+                        <h3>CompTIA Security+</h3>
+                        <p>Cybersecurity certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/networkplus-logo.png" alt="CompTIA Network+ Certification">
+                        <h3>CompTIA Network+</h3>
+                        <p>Networking certification.</p>
+                    </div>
+                </div>
+                <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3">
+                    <div class="bx--tile cert-tile">
+                        <img src="comptia/assets/cloudplus-logo.png" alt="CompTIA Cloud+ Certification">
+                        <h3>CompTIA Cloud+</h3>
+                        <p>Cloud computing certification.</p>
+                    </div>
+                </div>
+                <!-- Add more tiles as needed -->
+            </div>
+
+            <!-- Accordion for Detailed Information -->
+                    </section>
     </main>
 
     <footer class="footer">
