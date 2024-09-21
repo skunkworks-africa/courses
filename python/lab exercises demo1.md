@@ -1,4 +1,8 @@
 # Week 1
+1. What are common uses for python?
+2. What are some key characterstics of python?
+3. What are the pros and cons of high-level languages such as python?
+4. What are the pros and cons of dynamic typing?
 
 # Week 2
 //Debugging expressions
