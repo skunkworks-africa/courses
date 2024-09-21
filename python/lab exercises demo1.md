@@ -71,26 +71,61 @@ if studentID = valid:
 if variable.type === string
 	print("This var is string type")
 # Week 4
-create a void function
-a string function
-a numerical function
-a single input and multi input function
+//create a void function
+//a string function
+//a numerical function
+//a single input and multi input function
 
+1. Create a function that calculates the remainder of  two numbers that have been divided
+2. Create a function that calculates the sum of the first n numbers.
+3. Create a function that allows the user to input their name and output a welcome message. The output must be a string
+
+4. what is wrong with the given function
+4. 1.
+func numberCount:
+	if input>0:
+		print("positive")
+4. 2.
+def  sum(num1, num2)=>int:
+	sum=num1+num2
+	 output(sum)
+	 return sum
+	 \
+4. 3.
+def multiply(num1, num2):
+	 product == num1* num2
+return product
 # Week 5
-Loop through an array to find the largest value
-myArr=[2,6,3,23,17, 3]
-Loop through the array to find the largest value, median value and smallest value
-Loop through the array and stop when the element of the array is greater than 5
+1. Loop through the given array :
+	myArr=[2,6,3,23,17, 3]
+	1. 1.Find the largest value, median value and smallest value
+	1. 2. Loop through the array and stop when the element of the array is greater than 5
 
 //Stop if a certain value is met before the array is finished
 
+
+
 //using the while loop
 //conditional function execution
-Say that you have the function 
-using nested loops
+2. Say that you have the array:
+	multOf2=[2, 4, 6, 8, 13, 12]
+	1. Loop through the array and output each element divided by 2. If there is a value that is not divisible by 2, stop the execution of the loop.
+	2.  Instead of cancelling execution, skip the value not divisible by 2
+	3. Print all values less than 10
+//using nested loops
+3. Given the multivariable array:
+	myArr=[[1,2,3,4,5] , [2,4,6,8,10], [3, 6, 9, 12, 15]]
+	 1. Use a loop to find all the values that exist in more than one array
+	2. Print the third to fifth element of each array
 
 error checking in loops and more complex loops
-optimization problems
+4. Error checking
+for a in a:
+	print(a, "is a number")
+
+for a in range(3, 3, 3, 4)
+	print a
+
 
 # Week 6
 
