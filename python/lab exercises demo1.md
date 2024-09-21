@@ -108,21 +108,31 @@ return product
 //using the while loop
 //conditional function execution
 2. Say that you have the array:
+
 	multOf2=[2, 4, 6, 8, 13, 12]
+	
 	1. Loop through the array and output each element divided by 2. If there is a value that is not divisible by 2, stop the execution of the loop.
+	
 	2.  Instead of cancelling execution, skip the value not divisible by 2
+	
 	3. Print all values less than 10
+
 //using nested loops
 3. Given the multivariable array:
+
 	myArr=[[1,2,3,4,5] , [2,4,6,8,10], [3, 6, 9, 12, 15]]
+	
 	 1. Use a loop to find all the values that exist in more than one array
+	 
 	2. Print the third to fifth element of each array
 
 error checking in loops and more complex loops
 4. Error checking
+4. 1.
 for a in a:
 	print(a, "is a number")
 
+4. 2.
 for a in range(3, 3, 3, 4)
 	print a
 
