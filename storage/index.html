@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Training - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-blue: #4589ff;
+            --accent-purple: #8a3ffc;
+            --border-color: #30363d;
+        }
+
+        @keyframes dataFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(69, 137, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(69, 137, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(69, 137, 255, 0); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: 
+                linear-gradient(45deg, rgba(69, 137, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(69, 137, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(69, 137, 255, 0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(69, 137, 255, 0.05) 75%);
+            background-size: 20px 20px;
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: dataFlow 3s infinite linear;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .storage-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .storage-card:hover {
+            transform: translateY(-5px);
+            animation: pulse 2s infinite;
+        }
+
+        .storage-diagram {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(69, 137, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(69, 137, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(69, 137, 255, 0.1);
+        }
+
+        .performance-metric {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            background: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .metric-bar {
+            flex-grow: 1;
+            height: 8px;
+            background: rgba(69, 137, 255, 0.2);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .button {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(69, 137, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold mb-4">Enterprise Storage Solutions</h1>
+        <p class="text-xl opacity-90">Master SAN Design, Implementation, and Storage Management</p>
+    </header>
+
+    <main class="container">
+        <!-- SAN Design Course -->
+        <div class="storage-card">
+            <h2 class="text-2xl font-bold mb-4">Storage Area Networks (SANs) - Design and Implementation</h2>
+            
+            <div class="storage-diagram">
+                <svg width="600" height="200" viewBox="0 0 600 200">
+                    <path d="M100,100 L500,100" stroke="var(--accent-blue)" stroke-width="2"/>
+                    <circle cx="100" cy="100" r="20" fill="var(--accent-blue)"/>
+                    <circle cx="300" cy="100" r="20" fill="var(--accent-purple)"/>
+                    <circle cx="500" cy="100" r="20" fill="var(--accent-blue)"/>
+                    <text x="100" y="150" fill="var(--text-primary)" text-anchor="middle">Server</text>
+                    <text x="300" y="150" fill="var(--text-primary)" text-anchor="middle">SAN Switch</text>
+                    <text x="500" y="150" fill="var(--text-primary)" text-anchor="middle">Storage Array</text>
+                </svg>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Architecture Components</h3>
+                    <ul>
+                        <li>• Fabric Design</li>
+                        <li>• Switch Configuration</li>
+                        <li>• Storage Arrays</li>
+                        <li>• Host Integration</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Performance Optimization</h3>
+                    <ul>
+                        <li>• Bandwidth Management</li>
+                        <li>• Latency Reduction</li>
+                        <li>• Load Balancing</li>
+                        <li>• Cache Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Storage Management -->
+        <div class="storage-card">
+            <h2 class="text-2xl font-bold mb-4">Storage Management Best Practices</h2>
+
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h4 class="font-bold">LUN Management</h4>
+                    <div class="performance-metric">
+                        <span>Efficiency</span>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 85%"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <h4 class="font-bold">Thin Provisioning</h4>
+                    <div class="performance-metric">
+                        <span>Utilization</span>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 90%"></div>
+                        </div>
+                        <span>90%</span>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <h4 class="font-bold">Data Protection</h4>
+                    <div class="performance-metric">
+                        <span>Reliability</span>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 95%"></div>
+                        </div>
+                        <span>95%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Topics -->
+        <div class="storage-card">
+            <h2 class="text-2xl font-bold mb-4">Advanced Storage Technologies</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Software-Defined Storage</h3>
+                    <p>Learn about modern SDS solutions and their implementation in enterprise environments.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Cloud Storage Integration</h3>
+                    <p>Integrate on-premises storage with cloud storage solutions for hybrid environments.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Storage Automation</h3>
+                    <p>Implement automation frameworks for storage management and provisioning.</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold mb-2">Data Lifecycle Management</h3>
+                    <p>Design and implement effective data lifecycle management strategies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="storage-card">
+            <h2 class="text-2xl font-bold mb-4">Storage Learning Path</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h3 class="font-bold">Foundation</h3>
+                    <p>Storage Fundamentals</p>
+                    <div class="performance-metric">
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <h3 class="font-bold">Implementation</h3>
+                    <p>SAN Design & Deployment</p>
+                    <div class="performance-metric">
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <h3 class="font-bold">Advanced</h3>
+                    <p>Enterprise Integration</p>
+                    <div class="performance-metric">
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="storage-card text-center">
+            <h2 class="text-2xl font-bold mb-4">Ready to Master Enterprise Storage?</h2>
+            <p class="mb-6">Start your journey to becoming a storage expert today.</p>
+            <button class="button">Begin Learning</button>
+        </div>
+    </main>
+
+    <script>
+        // Animate metrics on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width') || '75%';
+                }
+            });
+        });
+
+        document.querySelectorAll('.metric-fill').forEach(metric => {
+            observer.observe(metric);
+        });
+    </script>
+</body>
+</html>
