@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Training - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-green: #3fb950;
+            --accent-teal: #39c5bb;
+            --border-color: #30363d;
+        }
+
+        @keyframes circuitAnimation {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px rgba(63, 185, 80, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(63, 185, 80, 0.4); }
+            100% { box-shadow: 0 0 5px rgba(63, 185, 80, 0.2); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: linear-gradient(rgba(63, 185, 80, 0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(63, 185, 80, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-teal));
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M0 30h60M30 0v60' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/svg%3E");
+            animation: circuitAnimation 20s linear infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            animation: glowPulse 2s infinite;
+        }
+
+        .level-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            background: rgba(63, 185, 80, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(63, 185, 80, 0.2);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(63, 185, 80, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(63, 185, 80, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(63, 185, 80, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .progress-container {
+            background: var(--secondary-bg);
+            height: 6px;
+            border-radius: 3px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .automation-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            fill: var(--accent-green);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tool-item {
+            background: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-3px);
+            background: rgba(63, 185, 80, 0.1);
+        }
+
+        .button {
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-teal));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(63, 185, 80, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold mb-4">Automation Training</h1>
+        <p class="text-xl opacity-90">Master the art of workflow automation and process efficiency</p>
+    </header>
+
+    <main class="container">
+        <!-- Automate Your Workflow -->
+        <div class="course-card">
+            <span class="level-badge">Beginner</span>
+            <h2 class="text-2xl font-bold mb-4">Automate Your Workflow</h2>
+            <p class="text-gray-300 mb-4">Learn the fundamentals of workflow automation and boost your productivity.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <svg class="automation-icon" viewBox="0 0 24 24">
+                        <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+                    </svg>
+                    <h3 class="font-bold">Process Automation</h3>
+                    <p class="text-gray-400">Automate repetitive tasks</p>
+                </div>
+                <div class="feature-item">
+                    <svg class="automation-icon" viewBox="0 0 24 24">
+                        <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 8H3V5h9v6z"/>
+                    </svg>
+                    <h3 class="font-bold">Workflow Design</h3>
+                    <p class="text-gray-400">Create efficient workflows</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Automation Fundamentals -->
+        <div class="course-card">
+            <span class="level-badge">Core</span>
+            <h2 class="text-2xl font-bold mb-4">Automation Fundamentals 101</h2>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 75%"></div>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <h4 class="font-bold">Python</h4>
+                    <p class="text-sm text-gray-400">Scripting</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Ansible</h4>
+                    <p class="text-sm text-gray-400">Configuration</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Jenkins</h4>
+                    <p class="text-sm text-gray-400">CI/CD</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Puppet</h4>
+                    <p class="text-sm text-gray-400">Infrastructure</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intermediate Automation -->
+        <div class="course-card">
+            <span class="level-badge">Intermediate</span>
+            <h2 class="text-2xl font-bold mb-4">Intermediate Automation Course</h2>
+            <p class="text-gray-300 mb-4">Advanced concepts in workflow automation and system integration.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="font-bold">API Integration</h3>
+                    <ul class="text-gray-400 mt-2">
+                        <li>• REST APIs</li>
+                        <li>• Webhooks</li>
+                        <li>• Authentication</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold">Continuous Integration</h3>
+                    <ul class="text-gray-400 mt-2">
+                        <li>• Pipeline Design</li>
+                        <li>• Build Automation</li>
+                        <li>• Testing Frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mastering Automation -->
+        <div class="course-card">
+            <span class="level-badge">Advanced</span>
+            <h2 class="text-2xl font-bold mb-4">Mastering Automation Technologies</h2>
+            <p class="text-gray-300 mb-4">Enterprise-level automation strategies and implementations.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="font-bold">Enterprise Integration</h3>
+                    <p class="text-gray-400">Complex system automation</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold">Orchestration</h3>
+                    <p class="text-gray-400">Multi-system automation</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold">AI & ML Integration</h3>
+                    <p class="text-gray-400">Intelligent automation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="course-card">
+            <h2 class="text-2xl font-bold mb-4">Automation Learning Path</h2>
+            <div class="flex justify-between items-center flex-wrap">
+                <div class="text-center p-4 flex-1">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">1</div>
+                    <h3 class="font-bold">Fundamentals</h3>
+                    <p class="text-sm text-gray-400">Basic Concepts</p>
+                </div>
+                <div class="text-center p-4 flex-1">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">2</div>
+                    <h3 class="font-bold">Intermediate</h3>
+                    <p class="text-sm text-gray-400">Advanced Tools</p>
+                </div>
+                <div class="text-center p-4 flex-1">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">3</div>
+                    <h3 class="font-bold">Mastery</h3>
+                    <p class="text-sm text-gray-400">Enterprise Solutions</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width') || '75%';
+                }
+            });
+        });
+
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            observer.observe(bar);
+        });
+    </script>
+</body>
+</html>
