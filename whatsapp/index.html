@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Business API Training - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --whatsapp-green: #25D366;
+            --whatsapp-dark: #075E54;
+            --border-color: #30363d;
+        }
+
+        @keyframes messageSlide {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--whatsapp-dark), var(--whatsapp-green));
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .whatsapp-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+            border-color: var(--whatsapp-green);
+        }
+
+        .chat-bubble {
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: 16px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+            animation: messageSlide 0.5s ease forwards;
+        }
+
+        .chat-bubble::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            border: 10px solid transparent;
+            border-right-color: rgba(37, 211, 102, 0.1);
+            transform: translateY(-50%);
+        }
+
+        .api-endpoint {
+            background: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 1rem 0;
+            border-left: 4px solid var(--whatsapp-green);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(37, 211, 102, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: bubbleFloat 6s ease-in-out infinite;
+        }
+
+        .feature-item:hover {
+            background: rgba(37, 211, 102, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .button {
+            background: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: #1da856;
+            transform: translateY(-2px);
+        }
+
+        .code-sample {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--whatsapp-green);
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold mb-4">WhatsApp Business API Integration</h1>
+        <p class="text-xl opacity-90">Master the WhatsApp Business API for enterprise communication</p>
+    </header>
+
+    <main class="container">
+        <!-- Overview Card -->
+        <div class="whatsapp-card">
+            <h2 class="text-2xl font-bold mb-4">Course Overview</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <svg class="w-12 h-12 mx-auto mb-4" viewBox="0 0 24 24" fill="var(--whatsapp-green)">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <h3 class="font-bold">API Fundamentals</h3>
+                    <p class="text-gray-400">Core concepts and setup</p>
+                </div>
+                <div class="feature-item">
+                    <svg class="w-12 h-12 mx-auto mb-4" viewBox="0 0 24 24" fill="var(--whatsapp-green)">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z"/>
+                    </svg>
+                    <h3 class="font-bold">Message Templates</h3>
+                    <p class="text-gray-400">Create and manage templates</p>
+                </div>
+                <div class="feature-item">
+                    <svg class="w-12 h-12 mx-auto mb-4" viewBox="0 0 24 24" fill="var(--whatsapp-green)">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <h3 class="font-bold">Webhooks</h3>
+                    <p class="text-gray-400">Real-time message handling</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Integration Examples -->
+        <div class="whatsapp-card">
+            <h2 class="text-2xl font-bold mb-4">API Integration Examples</h2>
+            <div class="chat-bubble">
+                <span class="status-badge">POST Request</span>
+                <div class="code-sample">
+                    <pre><code>
+curl -X POST \
+https://graph.facebook.com/v12.0/YOUR_PHONE_NUMBER_ID/messages \
+-H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
+-H 'Content-Type: application/json' \
+-d '{
+    "messaging_product": "whatsapp",
+    "to": "RECIPIENT_PHONE_NUMBER",
+    "type": "template",
+    "template": {
+        "name": "hello_world",
+        "language": {
+            "code": "en_US"
+        }
+    }
+}'</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="whatsapp-card">
+            <h2 class="text-2xl font-bold mb-4">Key Features Covered</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="font-bold">Authentication</h3>
+                    <ul class="text-left text-gray-400 mt-2">
+                        <li>• Access Tokens</li>
+                        <li>• API Credentials</li>
+                        <li>• Security Best Practices</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold">Message Types</h3>
+                    <ul class="text-left text-gray-400 mt-2">
+                        <li>• Text Messages</li>
+                        <li>• Media Messages</li>
+                        <li>• Interactive Messages</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3 class="font-bold">Business Features</h3>
+                    <ul class="text-left text-gray-400 mt-2">
+                        <li>• Catalog Integration</li>
+                        <li>• Order Management</li>
+                        <li>• Customer Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Guide -->
+        <div class="whatsapp-card">
+            <h2 class="text-2xl font-bold mb-4">Implementation Steps</h2>
+            <div class="timeline">
+                <div class="chat-bubble">
+                    <h3 class="font-bold">1. Setup & Configuration</h3>
+                    <p>• Business Account Creation</p>
+                    <p>• API Access Configuration</p>
+                    <p>• Environment Setup</p>
+                </div>
+                <div class="chat-bubble">
+                    <h3 class="font-bold">2. Message Templates</h3>
+                    <p>• Template Creation</p>
+                    <p>• Approval Process</p>
+                    <p>• Dynamic Variables</p>
+                </div>
+                <div class="chat-bubble">
+                    <h3 class="font-bold">3. Integration</h3>
+                    <p>• API Implementation</p>
+                    <p>• Webhook Setup</p>
+                    <p>• Error Handling</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="whatsapp-card text-center">
+            <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="mb-6">Begin your journey to mastering WhatsApp Business API integration</p>
+            <button class="button">Access Course Materials</button>
+        </div>
+    </main>
+
+    <script>
+        // Animate elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.whatsapp-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
