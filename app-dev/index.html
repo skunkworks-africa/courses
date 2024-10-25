@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Development - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-color: #7ee787;
+            --accent-purple: #bc8cff;
+            --border-color: #30363d;
+        }
+
+        @keyframes codeFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(60deg, #2ea043, #238636);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                rgba(255,255,255,0.1) 50%,
+                transparent 100%);
+            animation: codeFlow 8s infinite linear;
+            background-size: 200% 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 24px rgba(126, 231, 135, 0.1);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            background: rgba(126, 231, 135, 0.1);
+            color: var(--accent-color);
+        }
+
+        .code-preview {
+            background: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-pill {
+            background: rgba(126, 231, 135, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+        }
+
+        .skill-level {
+            height: 4px;
+            background: var(--secondary-bg);
+            border-radius: 2px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0;
+            transition: width 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Application Development</h1>
+        <p>Master modern software development across multiple platforms and technologies</p>
+    </header>
+
+    <main class="container">
+        <div class="course-grid">
+            <!-- Web Development -->
+            <div class="course-card">
+                <span class="tag">Web Development</span>
+                <h2>Conversion and Landing Pages</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">HTML5</span>
+                    <span class="tech-pill">CSS3</span>
+                    <span class="tech-pill">JavaScript</span>
+                </div>
+                <div class="code-preview">
+                    <code>const conversion = new LandingPage();</code>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 75%"></div>
+                </div>
+            </div>
+
+            <!-- Game Development -->
+            <div class="course-card">
+                <span class="tag">Game Development</span>
+                <h2>GameCraft: Building 2D Games</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Unity</span>
+                    <span class="tech-pill">C#</span>
+                    <span class="tech-pill">2D Graphics</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <!-- Secure Development -->
+            <div class="course-card">
+                <span class="tag">Security</span>
+                <h2>Advanced Secure Software Development</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">GitHub</span>
+                    <span class="tech-pill">Security</span>
+                    <span class="tech-pill">Best Practices</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 90%"></div>
+                </div>
+            </div>
+
+            <!-- Web Scraping -->
+            <div class="course-card">
+                <span class="tag">Data Collection</span>
+                <h2>Web Scraping with Python</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Azure</span>
+                    <span class="tech-pill">Web Scraping</span>
+                </div>
+                <div class="code-preview">
+                    <code>import beautifulsoup4</code>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 80%"></div>
+                </div>
+            </div>
+
+            <!-- AI Development -->
+            <div class="course-card">
+                <span class="tag">Artificial Intelligence</span>
+                <h2>Computer Programming for Intelligence</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Machine Learning</span>
+                    <span class="tech-pill">AI</span>
+                    <span class="tech-pill">Python</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 95%"></div>
+                </div>
+            </div>
+
+            <!-- Data Mining -->
+            <div class="course-card">
+                <span class="tag">Data Mining</span>
+                <h2>Azure Web Miner</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Azure</span>
+                    <span class="tech-pill">Data Extraction</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <!-- DevOps -->
+            <div class="course-card">
+                <span class="tag">DevOps</span>
+                <h2>DevOps for Agile Enterprises</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">CI/CD</span>
+                    <span class="tech-pill">Agile</span>
+                    <span class="tech-pill">DevOps</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 88%"></div>
+                </div>
+            </div>
+
+            <!-- Python Fundamentals -->
+            <div class="course-card">
+                <span class="tag">Python</span>
+                <h2>Introduction to Python and Pandas</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Pandas</span>
+                    <span class="tech-pill">Data Analysis</span>
+                </div>
+                <div class="code-preview">
+                    <code>import pandas as pd</code>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 70%"></div>
+                </div>
+            </div>
+
+            <!-- Secure Coding -->
+            <div class="course-card">
+                <span class="tag">Security</span>
+                <h2>Secure Coding Best Practices</h2>
+                <div class="tech-pills">
+                    <span class="tech-pill">Security</span>
+                    <span class="tech-pill">Best Practices</span>
+                    <span class="tech-pill">Code Review</span>
+                </div>
+                <div class="skill-level">
+                    <div class="skill-fill" style="width: 92%"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate cards and skill bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    const skillFill = entry.target.querySelector('.skill-fill');
+                    if (skillFill) {
+                        skillFill.style.width = skillFill.style.width;
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('.course-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
