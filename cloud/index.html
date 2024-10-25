@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Training - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-color: #2ea3ff;
+            --border-color: #30363d;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .cloud-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(46, 163, 255, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(46, 163, 255, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .cloud-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        .button {
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #1a8cd8;
+            transform: translateY(-2px);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            background-color: rgba(46, 163, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--secondary-bg);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-color);
+            transition: width 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>
+                <svg class="cloud-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                </svg>
+                Cloud Training Programs
+            </h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Cloud Integration Course -->
+        <div class="cloud-card" style="animation-delay: 0.1s;">
+            <span class="course-badge">Advanced</span>
+            <h2>Cloud Integration in Modern Businesses</h2>
+            <p>Learn how to integrate cloud solutions effectively in modern business environments.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%;"></div>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"/>
+                    </svg>
+                    <p>Integration Patterns</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <p>API Management</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <p>Security Best Practices</p>
+                </div>
+            </div>
+            <button class="button">Start Learning</button>
+        </div>
+
+        <!-- Cloud Intro Training -->
+        <div class="cloud-card" style="animation-delay: 0.2s;">
+            <span class="course-badge">Beginner</span>
+            <h2>Cloud Introduction Training</h2>
+            <p>Get started with fundamental cloud computing concepts and services.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%;"></div>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 18l-8-4V8l8 4v8z"/>
+                    </svg>
+                    <p>Cloud Basics</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/>
+                    </svg>
+                    <p>Service Models</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/>
+                    </svg>
+                    <p>Deployment Models</p>
+                </div>
+            </div>
+            <button class="button">Start Learning</button>
+        </div>
+
+        <!-- Foundations of DevOps and Cloud Computing -->
+        <div class="cloud-card" style="animation-delay: 0.3s;">
+            <span class="course-badge">Intermediate</span>
+            <h2>Foundations of DevOps and Cloud Computing</h2>
+            <p>Master the essential principles of DevOps in cloud environments.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <p>CI/CD Pipelines</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/>
+                    </svg>
+                    <p>Infrastructure as Code</p>
+                </div>
+                <div class="feature-item">
+                    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <p>Monitoring & Logging</p>
+                </div>
+            </div>
+            <button class="button">Start Learning</button>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="cloud-card" style="animation-delay: 0.4s;">
+            <h2>Cloud Learning Path</h2>
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">1</div>
+                    <p>Cloud Basics</p>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">2</div>
+                    <p>DevOps Integration</p>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">3</div>
+                    <p>Enterprise Integration</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate progress bars and cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.cloud-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
