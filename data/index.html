@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics & BI - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-blue: #4a9eff;
+            --accent-purple: #9B6BFF;
+            --border-color: #30363d;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .gradient-header {
+            background: linear-gradient(135deg, #4a9eff 0%, #9B6BFF 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .data-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(74, 158, 255, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .skill-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-box {
+            background: rgba(74, 158, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .data-viz {
+            height: 200px;
+            background: linear-gradient(45deg, rgba(74, 158, 255, 0.1) 0%, rgba(155, 107, 255, 0.1) 100%);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 200px;
+            margin: 2rem 0;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(74, 158, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: rgba(74, 158, 255, 0.1);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="gradient-header">
+        <h1 class="text-4xl font-bold mb-4">Data Analytics & Business Intelligence</h1>
+        <p class="text-xl opacity-90">Transform raw data into actionable business insights</p>
+    </div>
+
+    <main class="container">
+        <!-- Main Course Card -->
+        <div class="data-card">
+            <h2 class="text-2xl font-bold mb-4">Mastering Data Analytics for Business Growth</h2>
+            <div class="skill-badges mb-4">
+                <span class="skill-badge">Data Analysis</span>
+                <span class="skill-badge">Business Intelligence</span>
+                <span class="skill-badge">Data Visualization</span>
+                <span class="skill-badge">Statistical Analysis</span>
+            </div>
+            
+            <p class="text-gray-300 mb-6">
+                Comprehensive training program covering fundamental to advanced concepts in data analytics and business intelligence.
+            </p>
+
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-value">40+</div>
+                    <div class="metric-label">Hours of Content</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">15</div>
+                    <div class="metric-label">Real-world Projects</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Modules -->
+        <div class="data-card">
+            <h3 class="text-xl font-bold mb-4">Course Modules</h3>
+            
+            <div class="tool-grid">
+                <div class="tool-item">
+                    <svg class="w-8 h-8 mx-auto mb-2" viewBox="0 0 24 24" fill="var(--accent-blue)">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <h4 class="font-bold">Data Foundations</h4>
+                </div>
+                <div class="tool-item">
+                    <svg class="w-8 h-8 mx-auto mb-2" viewBox="0 0 24 24" fill="var(--accent-blue)">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <h4 class="font-bold">SQL & Databases</h4>
+                </div>
+                <div class="tool-item">
+                    <svg class="w-8 h-8 mx-auto mb-2" viewBox="0 0 24 24" fill="var(--accent-blue)">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    <h4 class="font-bold">Data Visualization</h4>
+                </div>
+                <div class="tool-item">
+                    <svg class="w-8 h-8 mx-auto mb-2" viewBox="0 0 24 24" fill="var(--accent-blue)">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <h4 class="font-bold">Statistical Analysis</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="data-card">
+            <h3 class="text-xl font-bold mb-4">Tools & Technologies Covered</h3>
+            <div class="tool-grid">
+                <div class="tool-item">
+                    <h4 class="font-bold">Python</h4>
+                    <p class="text-sm text-gray-400">Data Analysis & ML</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">R</h4>
+                    <p class="text-sm text-gray-400">Statistical Computing</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Tableau</h4>
+                    <p class="text-sm text-gray-400">Data Visualization</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Power BI</h4>
+                    <p class="text-sm text-gray-400">Business Intelligence</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">SQL</h4>
+                    <p class="text-sm text-gray-400">Database Management</p>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Excel</h4>
+                    <p class="text-sm text-gray-400">Data Analysis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Path -->
+        <div class="data-card">
+            <h3 class="text-xl font-bold mb-4">Learning Path</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div style="text-align: center; flex: 1; min-width: 200px; margin: 1rem;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">1</div>
+                    <h4 class="mt-2 font-bold">Foundations</h4>
+                    <p class="text-sm text-gray-400">Data Analysis Basics</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px; margin: 1rem;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">2</div>
+                    <h4 class="mt-2 font-bold">Tools & Methods</h4>
+                    <p class="text-sm text-gray-400">Technical Skills</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 200px; margin: 1rem;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">3</div>
+                    <h4 class="mt-2 font-bold">Advanced Analytics</h4>
+                    <p class="text-sm text-gray-400">Business Applications</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="data-card text-center">
+            <h3 class="text-2xl font-bold mb-4">Ready to Begin Your Data Journey?</h3>
+            <p class="mb-6 text-gray-300">Start your journey into data analytics and business intelligence today.</p>
+            <button class="button">Enroll Now</button>
+        </div>
+    </main>
+
+    <script>
+        // Add animation to metrics on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.data-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
