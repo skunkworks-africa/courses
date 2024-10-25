@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Training - Skunkworks Academy</title>
+    <style>
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-red: #ff3e3e;
+            --accent-blue: #0066ff;
+            --border-color: #30363d;
+            --success-green: #00b341;
+            --warning-orange: #ff9800;
+        }
+
+        @keyframes matrixBg {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px rgba(255, 62, 62, 0); }
+            50% { box-shadow: 0 0 20px rgba(255, 62, 62, 0.2); }
+            100% { box-shadow: 0 0 5px rgba(255, 62, 62, 0); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at 25px 25px, rgba(255, 62, 62, 0.1) 2%, transparent 0%),
+                            radial-gradient(circle at 75px 75px, rgba(0, 102, 255, 0.1) 2%, transparent 0%);
+            background-size: 100px 100px;
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 0, 0, 0.5) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(0, 0, 0, 0.5) 50%, 
+                rgba(0, 0, 0, 0.5) 75%, 
+                transparent 75%, 
+                transparent);
+            background-size: 10px 10px;
+            opacity: 0.1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .security-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-card:hover {
+            transform: translateY(-5px);
+            animation: glowPulse 2s infinite;
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .beginner { 
+            background: rgba(0, 179, 65, 0.1);
+            color: var(--success-green);
+        }
+
+        .advanced {
+            background: rgba(255, 62, 62, 0.1);
+            color: var(--accent-red);
+        }
+
+        .intermediate {
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--warning-orange);
+        }
+
+        .terminal-window {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: monospace;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+        }
+
+        .terminal-dot:nth-child(2) {
+            background: #ffbd2e;
+        }
+
+        .terminal-dot:nth-child(3) {
+            background: #27c93f;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--secondary-bg);
+            border-radius: 3px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="text-4xl font-bold mb-4">Security Training Program</h1>
+        <p class="text-xl opacity-90">Master Cybersecurity, Ethical Hacking, and Security Operations</p>
+    </header>
+
+    <main class="container">
+        <!-- Cybersecurity Fundamentals -->
+        <div class="security-card">
+            <span class="difficulty-badge beginner">Fundamental</span>
+            <h2 class="text-2xl font-bold mb-4">Cybersecurity Fundamentals</h2>
+            <p class="mb-4">Essential knowledge for modern cybersecurity professionals</p>
+            
+            <div class="grid-container">
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">Core Concepts</h3>
+                    <ul>
+                        <li>• CIA Triad</li>
+                        <li>• Risk Management</li>
+                        <li>• Security Controls</li>
+                        <li>• Threat Analysis</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">Network Security</h3>
+                    <ul>
+                        <li>• Firewall Configuration</li>
+                        <li>• IDS/IPS Systems</li>
+                        <li>• VPN Technologies</li>
+                        <li>• Network Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ethical Hacking -->
+        <div class="security-card">
+            <span class="difficulty-badge advanced">Advanced</span>
+            <h2 class="text-2xl font-bold mb-4">Ethical Hacking - Advanced Techniques</h2>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                </div>
+                <code>
+                    root@security:~# nmap -sS -sV -O target.com<br>
+                    Starting Nmap 7.92...<br>
+                    Scanning target.com...
+                </code>
+            </div>
+
+            <div class="tool-grid">
+                <div class="tool-item">
+                    <h4 class="font-bold">Penetration Testing</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Vulnerability Assessment</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <h4 class="font-bold">Exploitation</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Information Security Management -->
+        <div class="security-card">
+            <span class="difficulty-badge intermediate">Management</span>
+            <h2 class="text-2xl font-bold mb-4">Information Security Management</h2>
+            
+            <div class="grid-container">
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">Policy Development</h3>
+                    <ul>
+                        <li>• Security Policies</li>
+                        <li>• Compliance Frameworks</li>
+                        <li>• Risk Assessment</li>
+                        <li>• Incident Response</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">Governance</h3>
+                    <ul>
+                        <li>• ISO 27001</li>
+                        <li>• NIST Framework</li>
+                        <li>• Regulatory Compliance</li>
+                        <li>• Security Auditing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOC Fundamentals -->
+        <div class="security-card">
+            <span class="difficulty-badge intermediate">Operations</span>
+            <h2 class="text-2xl font-bold mb-4">Security Operations Center (SOC)</h2>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                </div>
+                <code>
+                    SIEM Alert: Unusual authentication activity detected<br>
+                    Source IP: 192.168.1.100<br>
+                    Severity: High<br>
+                    Action Required: Immediate investigation
+                </code>
+            </div>
+
+            <div class="grid-container">
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">SOC Tools</h3>
+                    <ul>
+                        <li>• SIEM Platforms</li>
+                        <li>• EDR Solutions</li>
+                        <li>• Threat Intelligence</li>
+                        <li>• Incident Management</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h3 class="font-bold mb-2">Monitoring & Response</h3>
+                    <ul>
+                        <li>• Alert Triage</li>
+                        <li>• Incident Response</li>
+                        <li>• Threat Hunting</li>
+                        <li>• Log Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certification Path -->
+        <div class="security-card">
+            <h2 class="text-2xl font-bold mb-4">Security Certification Path</h2>
+            <div class="grid-container">
+                <div class="feature-box">
+                    <h3 class="text-center font-bold">Level 1</h3>
+                    <p class="text-center">Security+ | CEH</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <h3 class="text-center font-bold">Level 2</h3>
+                    <p class="text-center">CISSP | OSCP</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <h3 class="text-center font-bold">Level 3</h3>
+                    <p class="text-center">CISM | CRISC</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.security-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
