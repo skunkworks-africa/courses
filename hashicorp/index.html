@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HashiCorp Training - Skunkworks Academy</title>
+    <style>
+        /* Reusing previous styles... */
+        /* [Previous CSS remains the same - for brevity not shown here] */
+
+        /* Additional styles */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #844FBA 0%, #2A1F54 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #844FBA;
+            border-radius: 50%;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(132, 79, 186, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(132, 79, 186, 0.5);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .beginner { background: rgba(0, 200, 0, 0.2); color: #00ff00; }
+        .intermediate { background: rgba(255, 165, 0, 0.2); color: #ffa500; }
+        .advanced { background: rgba(255, 0, 0, 0.2); color: #ff4444; }
+
+        /* Course progress bar */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #844FBA;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white min-h-screen hexagon-bg">
+    <!-- [Previous Navigation and Hero sections remain the same] -->
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Product Overview Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 glow-text text-center">HashiCorp Product Suite</h2>
+            
+            <!-- Terraform Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 terraform-color">Terraform</h3>
+                        <p class="text-gray-300 mb-4">Infrastructure as Code for multi-cloud environments</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Infrastructure Provisioning</h4>
+                                <p class="text-gray-400">Declare and provision infrastructure across multiple cloud providers</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">State Management</h4>
+                                <p class="text-gray-400">Track and manage infrastructure state for consistent deployments</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Module Development</h4>
+                                <p class="text-gray-400">Create reusable infrastructure components</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Terraform Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Terraform Fundamentals</h5>
+                            <p class="text-gray-400 mb-4">Learn the basics of infrastructure as code with Terraform</p>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• HCL Syntax</li>
+                                <li>• Basic Providers</li>
+                                <li>• Simple Deployments</li>
+                            </ul>
+                            <button class="mt-4 bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Enroll Now</button>
+                        </div>
+
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="price-tag">$499</span>
+                            <h5 class="font-bold mb-2">Terraform in Production</h5>
+                            <p class="text-gray-400 mb-4">Advanced techniques for production environments</p>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• State Management</li>
+                                <li>• Workspace Strategies</li>
+                                <li>• CI/CD Integration</li>
+                            </ul>
+                            <button class="mt-4 bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vault Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 vault-color">Vault</h3>
+                        <p class="text-gray-300 mb-4">Secrets Management and Data Protection</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Secrets Management</h4>
+                                <p class="text-gray-400">Centralize and secure access to secrets and sensitive data</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Identity-based Access</h4>
+                                <p class="text-gray-400">Implement dynamic secrets and identity-based authentication</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Encryption as a Service</h4>
+                                <p class="text-gray-400">Advanced encryption and key management</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Vault Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Vault Essentials</h5>
+                            <p class="text-gray-400 mb-4">Introduction to secrets management with Vault</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Basic Security Concepts</li>
+                                <li>• Secret Engines</li>
+                                <li>• Authentication Methods</li>
+                            </ul>
+                            <button class="mt-4 bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700 transition">Enroll Now</button>
+                        </div>
+
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge advanced">Advanced</span>
+                            <span class="price-tag">$699</span>
+                            <h5 class="font-bold mb-2">Enterprise Vault Security</h5>
+                            <p class="text-gray-400 mb-4">Advanced security patterns and practices</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• High Availability</li>
+                                <li>• Disaster Recovery</li>
+                                <li>• Advanced Integrations</li>
+                            </ul>
+                            <button class="mt-4 bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consul Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 consul-color">Consul</h3>
+                        <p class="text-gray-300 mb-4">Service Networking for Dynamic Infrastructure</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Service Discovery</h4>
+                                <p class="text-gray-400">Implement service registration and discovery</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Service Mesh</h4>
+                                <p class="text-gray-400">Configure secure service-to-service communication</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Network Automation</h4>
+                                <p class="text-gray-400">Automate network infrastructure</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Consul Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Consul Fundamentals</h5>
+                            <p class="text-gray-400 mb-4">Getting started with service networking</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Service Discovery Basics</li>
+                                <li>• Health Checking</li>
+                                <li>• Basic Configuration</li>
+                            </ul>
+                            <button class="mt-4 bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">Enroll Now</button>
+                        </div>
+
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="price-tag">$499</span>
+                            <h5 class="font-bold mb-2">Service Mesh with Consul</h5>
+                            <p class="text-gray-400 mb-4">Advanced service mesh patterns</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Service Mesh Architecture</li>
+                                <li>• Traffic Management</li>
+                                <li>• Security Policies</li>
+                            </ul>
+                            <button class="mt-4 bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Paths -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 glow-text text-center">Certification Paths</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Terraform Certification Path -->
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-4 terraform-color">Terraform Associate</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Prerequisites</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Basic cloud concepts</li>
+                                <li>• Command line experience</li>
+                                <li>• Basic programming concepts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Exam Details</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• 1 hour duration</li>
+                                <li>• 60 questions</li>
+                                <li>• Remote proctoring available</li>
+                                <li>• Valid for 2 years</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Study Resources</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Official Study Guide</li>
+                                <li>• Practice Exams</li>
+                                <li>• Hands-on Labs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Start Certification Path</button>
+                </div>
+
+                <!-- Vault Certification Path -->
+                <div class="card p-6">
+                    <h3 class="text
