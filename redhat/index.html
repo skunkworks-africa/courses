@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedHat Training - Skunkworks Academy</title>
+    <style>
+        /* Custom Animations and Styles */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a1a1a, #2a2a2a, #1a1a1a, #2d2d2d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            background: rgba(17, 17, 17, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background: #ee0000;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { left: -30%; }
+            100% { left: 100%; }
+        }
+
+        /* Particle Effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white min-h-screen">
+    <!-- Particle Container -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="p-4 backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black fixed w-full z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="/" class="text-blue-500 text-xl font-semibold flex items-center">
+                <!-- RedHat Logo SVG -->
+                <svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#EE0000"/>
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" fill="#000000"/>
+                </svg>
+                Skunkworks EdTech
+            </a>
+            <div class="progress-bar w-32"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6 glow-text float-animation">RedHat Certification Tracks</h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">Master enterprise Linux and cloud technologies with our comprehensive certification programs.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Course Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- RHCSA Track -->
+            <div class="card p-6 rounded-lg">
+                <div class="float-animation">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="#EE0000">
+                        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8L19.5 8 12 11.2 4.5 8 12 4.8zM4 9.8l7 3.2v7.2l-7-3.5V9.8zm9 10.4v-7.2l7-3.2v6.9l-7 3.5z"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-4">RHCSA</h2>
+                <p class="text-gray-300 mb-4">Red Hat Certified System Administrator - Entry-level certification for Linux system administration.</p>
+                <ul class="text-gray-400 list-disc list-inside mb-4">
+                    <li>Linux Fundamentals</li>
+                    <li>System Management</li>
+                    <li>Network Configuration</li>
+                    <li>Security Basics</li>
+                </ul>
+                <button class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition pulse-animation">
+                    Enroll Now
+                </button>
+            </div>
+
+            <!-- RHCE Track -->
+            <div class="card p-6 rounded-lg">
+                <div class="float-animation" style="animation-delay: 0.2s;">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="#EE0000">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-4">RHCE</h2>
+                <p class="text-gray-300 mb-4">Red Hat Certified Engineer - Advanced certification for enterprise Linux solutions.</p>
+                <ul class="text-gray-400 list-disc list-inside mb-4">
+                    <li>Advanced Networking</li>
+                    <li>Security Hardening</li>
+                    <li>Automation with Ansible</li>
+                    <li>Enterprise Services</li>
+                </ul>
+                <button class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition pulse-animation">
+                    Enroll Now
+                </button>
+            </div>
+
+            <!-- OpenShift Track -->
+            <div class="card p-6 rounded-lg">
+                <div class="float-animation" style="animation-delay: 0.4s;">
+                    <svg class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="#EE0000">
+                        <path d="M21 18v-2H3v2h18zm0-5v-2H3v2h18zm0-5V6H3v2h18z"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-4">OpenShift</h2>
+                <p class="text-gray-300 mb-4">Container platform certification for cloud-native applications.</p>
+                <ul class="text-gray-400 list-disc list-inside mb-4">
+                    <li>Container Basics</li>
+                    <li>Kubernetes Foundation</li>
+                    <li>OpenShift Administration</li>
+                    <li>CI/CD Pipelines</li>
+                </ul>
+                <button class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition pulse-animation">
+                    Enroll Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Learning Path Section -->
+        <section class="mt-12">
+            <h2 class="text-3xl font-bold mb-6 glow-text">Learning Path</h2>
+            <div class="card p-6 rounded-lg">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex-1 text-center float-animation">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
+                        <h3 class="font-bold">Fundamentals</h3>
+                        <p class="text-gray-400">Master the basics</p>
+                    </div>
+                    <div class="flex-1 text-center float-animation" style="animation-delay: 0.2s;">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
+                        <h3 class="font-bold">Hands-on Labs</h3>
+                        <p class="text-gray-400">Practice scenarios</p>
+                    </div>
+                    <div class="flex-1 text-center float-animation" style="animation-delay: 0.4s;">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
+                        <h3 class="font-bold">Certification</h3>
+                        <p class="text-gray-400">Get certified</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg mt-12 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>© 2024 Skunkworks Academy. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="hover:text-white mx-2 transition">Terms</a>
+                <a href="#" class="hover:text-white mx-2 transition">Privacy</a>
+                <a href="#" class="hover:text-white mx-2 transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particle Animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 5 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+            
+            document.getElementById('particles').appendChild(particle);
+            
+            const animation = particle.animate([
+                { transform: `translate(0, 0)`, opacity: 0 },
+                { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`, opacity: 0.5 },
+                { transform: `translate(${Math.random() * 400 - 200}px, ${Math.random() * 400 - 200}px)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'ease-out'
+            });
+            
+            animation.onfinish = () => {
+                particle.remove();
+                createParticle();
+            };
+        }
+
+        // Create initial particles
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createParticle, Math.random() * 2000);
+        }
+
+        // Add hover effect to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 20px 40px rgba(238, 0, 0, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
