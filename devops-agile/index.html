@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps & Agile Training - Skunkworks Academy</title>
+    <style>
+        /* Custom Styles */
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --card-bg: #21262d;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --border-color: #30363d;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-tag {
+            display: inline-block;
+            background-color: var(--secondary-bg);
+            color: var(--accent-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            background-color: var(--secondary-bg);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background-color: var(--accent-blue);
+            height: 100%;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .button {
+            background-color: var(--accent-blue);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background-color: #4c8ed9;
+            animation: pulse 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>
+                <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
+                </svg>
+                DevOps & Agile
+            </h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- AGF101 Course -->
+        <div class="course-card" style="animation-delay: 0.1s;">
+            <span class="course-tag">Foundations</span>
+            <h2>Agile Foundations (AGF101)</h2>
+            <p class="text-secondary">Master the fundamentals of Agile methodologies and their practical applications in modern software development.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+            <h3>Course Contents:</h3>
+            <ul>
+                <li>Introduction to Agile Values and Principles</li>
+                <li>Scrum Framework and Roles</li>
+                <li>Sprint Planning and Execution</li>
+                <li>Agile Estimation Techniques</li>
+                <li>User Stories and Backlog Management</li>
+            </ul>
+            <button class="button">Start Course</button>
+        </div>
+
+        <!-- AGA201 Course -->
+        <div class="course-card" style="animation-delay: 0.2s;">
+            <span class="course-tag">Advanced</span>
+            <h2>Beyond the Basics: Agile's Advanced Landscape (AGA201)</h2>
+            <p class="text-secondary">Deep dive into advanced Agile concepts and scaling frameworks for enterprise-level implementation.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <h3>Course Contents:</h3>
+            <ul>
+                <li>Scaling Agile with SAFe and LeSS</li>
+                <li>Advanced Sprint Techniques</li>
+                <li>Agile Metrics and KPIs</li>
+                <li>Continuous Improvement Practices</li>
+                <li>Enterprise Agile Transformation</li>
+            </ul>
+            <button class="button">Start Course</button>
+        </div>
+
+        <!-- AGM301 Course -->
+        <div class="course-card" style="animation-delay: 0.3s;">
+            <span class="course-tag">Project Management</span>
+            <h2>Project Management in the Agile World (AGM301)</h2>
+            <p class="text-secondary">Learn to effectively manage projects using Agile methodologies while integrating traditional project management principles.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%;"></div>
+            </div>
+            <h3>Course Contents:</h3>
+            <ul>
+                <li>Agile Project Management Framework</li>
+                <li>Risk Management in Agile Projects</li>
+                <li>Stakeholder Management and Communication</li>
+                <li>Hybrid Project Management Approaches</li>
+                <li>Portfolio Management in Agile</li>
+            </ul>
+            <button class="button">Start Course</button>
+        </div>
+
+        <!-- Course Path Overview -->
+        <div class="course-card" style="animation-delay: 0.4s;">
+            <h2>Learning Path Overview</h2>
+            <div style="display: flex; justify-content: space-between; margin: 2rem 0;">
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">1</div>
+                    <p>Foundations</p>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">2</div>
+                    <p>Advanced Concepts</p>
+                </div>
+                <div style="text-align: center; flex: 1;">
+                    <div style="width: 60px; height: 60px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">3</div>
+                    <p>Project Management</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate progress bars on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target.querySelector('.progress-fill');
+                        if (progressBar) {
+                            progressBar.style.width = progressBar.style.width;
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.course-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
