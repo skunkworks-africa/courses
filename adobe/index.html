@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Courses - Skunkworks Academy</title>
+    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF0000;
+            --accent-color: #FF4B4B;
+            --hover-color: #CC0000;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-color: #161616;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            background: #fff;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #666;
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .course-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .course-grid {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform var(--transition-speed);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .course-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .course-details {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .course-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .beginner { background: #E8F5E9; color: #2E7D32; }
+        .intermediate { background: #E3F2FD; color: #1565C0; }
+        .advanced { background: #FFF3E0; color: #E65100; }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color var(--transition-speed);
+        }
+
+        .cta-button:hover {
+            background-color: var(--hover-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Skunkworks Academy
+            </a>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="/">Home</a> / <span>Adobe Courses</span>
+        </div>
+    </div>
+
+    <section class="course-header">
+        <div class="course-header-content">
+            <h1><i class="fas fa-palette"></i> Adobe Creative Suite Courses</h1>
+            <p>Master industry-standard creative tools with our comprehensive Adobe courses</p>
+        </div>
+    </section>
+
+    <main class="course-grid">
+        <div class="course-card">
+            <div class="course-image" style="background-image: url('/api/placeholder/300/200')"></div>
+            <div class="course-content">
+                <h2 class="course-title">Adobe Photoshop CC 2024 Essential Training</h2>
+                <p>Master photo editing, digital art, and graphic design with the industry's leading image manipulation software.</p>
+                <div class="course-details">
+                    <span class="course-level beginner">Beginner</span>
+                    <span>40 Hours</span>
+                </div>
+                <p style="margin: 1rem 0;">
+                    <strong>What you'll learn:</strong>
+                </p>
+                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                    <li>Interface and workspace basics</li>
+                    <li>Layer management and masks</li>
+                    <li>Color correction and retouching</li>
+                    <li>Digital painting techniques</li>
+                </ul>
+                <a href="/adobe/photoshop" class="cta-button">View Course</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image" style="background-image: url('/api/placeholder/300/200')"></div>
+            <div class="course-content">
+                <h2 class="course-title">Adobe Illustrator CC Advanced Vector Graphics</h2>
+                <p>Create scalable vector graphics, logos, and illustrations with precision and professional quality.</p>
+                <div class="course-details">
+                    <span class="course-level intermediate">Intermediate</span>
+                    <span>35 Hours</span>
+                </div>
+                <p style="margin: 1rem 0;">
+                    <strong>What you'll learn:</strong>
+                </p>
+                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                    <li>Advanced pen tool techniques</li>
+                    <li>Logo design principles</li>
+                    <li>Typography and text effects</li>
+                    <li>Pattern creation and custom brushes</li>
+                </ul>
+                <a href="/adobe/illustrator" class="cta-button">View Course</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image" style="background-image: url('/api/placeholder/300/200')"></div>
+            <div class="course-content">
+                <h2 class="course-title">Adobe InDesign CC Publication Design</h2>
+                <p>Design professional publications, magazines, and digital documents with industry-standard layout tools.</p>
+                <div class="course-details">
+                    <span class="course-level advanced">Advanced</span>
+                    <span>45 Hours</span>
+                </div>
+                <p style="margin: 1rem 0;">
+                    <strong>What you'll learn:</strong>
+                </p>
+                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                    <li>Master pages and layouts</li>
+                    <li>Interactive PDF creation</li>
+                    <li>Digital publishing</li>
+                    <li>Advanced typography</li>
+                </ul>
+                <a href="/adobe/indesign" class="cta-button">View Course</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image" style="background-image: url('/api/placeholder/300/200')"></div>
+            <div class="course-content">
+                <h2 class="course-title">Adobe Premiere Pro Video Editing</h2>
+                <p>Learn professional video editing techniques and create compelling visual stories.</p>
+                <div class="course-details">
+                    <span class="course-level intermediate">Intermediate</span>
+                    <span>50 Hours</span>
+                </div>
+                <p style="margin: 1rem 0;">
+                    <strong>What you'll learn:</strong>
+                </p>
+                <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+                    <li>Video editing workflow</li>
+                    <li>Color grading</li>
+                    <li>Audio mixing</li>
+                    <li>Motion graphics integration</li>
+                </ul>
+                <a href="/adobe/premiere" class="cta-button">View Course</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Skunkworks Academy. All Rights Reserved.</p>
+            <div style="margin-top: 1rem;">
+                <a href="/terms.html" style="color: white; margin: 0 10px;">Terms</a>
+                <a href="/privacy.html" style="color: white; margin: 0 10px;">Privacy</a>
+                <a href="/contact.html" style="color: white; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
