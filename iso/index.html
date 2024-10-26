@@ -1,0 +1,163 @@
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ClipboardCheck, Users, Clock, Award, BookOpen, Shield, FileCheck, Settings, Database, Building } from 'lucide-react';
+
+const CourseOffice = () => {
+  const categories = [
+    {
+      title: "Quality Management",
+      description: "ISO 9001 certification and implementation courses",
+      icon: <Award className="w-6 h-6" />,
+      courses: [
+        {
+          name: "ISO 9001:2015 Foundation",
+          duration: "16 hours",
+          students: 2456,
+          certified: true
+        },
+        {
+          name: "QMS Lead Auditor",
+          duration: "40 hours",
+          students: 1823,
+          certified: true
+        }
+      ]
+    },
+    {
+      title: "Information Security",
+      description: "ISO 27001 information security management",
+      icon: <Shield className="w-6 h-6" />,
+      courses: [
+        {
+          name: "ISO 27001 Implementation",
+          duration: "24 hours",
+          students: 1654,
+          certified: true
+        },
+        {
+          name: "ISMS Lead Auditor",
+          duration: "40 hours",
+          students: 982,
+          certified: true
+        }
+      ]
+    },
+    {
+      title: "Environmental Management",
+      description: "ISO 14001 environmental standards",
+      icon: <Building className="w-6 h-6" />,
+      courses: [
+        {
+          name: "ISO 14001 Essentials",
+          duration: "16 hours",
+          students: 1245,
+          certified: true
+        },
+        {
+          name: "EMS Internal Auditor",
+          duration: "24 hours",
+          students: 876,
+          certified: true
+        }
+      ]
+    }
+  ];
+
+  return (
+    <div className="p-6 max-w-6xl mx-auto">
+      <div className="mb-8">
+        <div className="flex items-center space-x-3 mb-2">
+          <ClipboardCheck className="w-8 h-8 text-blue-600" />
+          <h1 className="text-3xl font-bold">ISO Standards Training Center</h1>
+        </div>
+        <p className="text-gray-600">Accredited courses for ISO standards implementation and auditing</p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <Card className="bg-blue-50">
+          <CardContent className="flex items-center space-x-4 p-6">
+            <FileCheck className="w-8 h-8 text-blue-600" />
+            <div>
+              <h3 className="font-semibold">Accredited Training</h3>
+              <p className="text-sm text-gray-600">Official ISO certification courses</p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-blue-50">
+          <CardContent className="flex items-center space-x-4 p-6">
+            <Settings className="w-8 h-8 text-blue-600" />
+            <div>
+              <h3 className="font-semibold">Practical Implementation</h3>
+              <p className="text-sm text-gray-600">Hands-on learning approach</p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-blue-50">
+          <CardContent className="flex items-center space-x-4 p-6">
+            <Database className="w-8 h-8 text-blue-600" />
+            <div>
+              <h3 className="font-semibold">Complete Resources</h3>
+              <p className="text-sm text-gray-600">Templates and tools included</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {categories.map((category, index) => (
+        <Card key={index} className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-3 mb-2">
+              {category.icon}
+              <CardTitle>{category.title}</CardTitle>
+            </div>
+            <p className="text-gray-600">{category.description}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {category.courses.map((course, courseIndex) => (
+                <div key={courseIndex} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+                  <h3 className="font-semibold mb-2">{course.name}</h3>
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div className="flex items-center space-x-2">
+                      <Clock className="w-4 h-4" />
+                      <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Users className="w-4 h-4" />
+                      <span>{course.students} enrolled</span>
+                    </div>
+                    {course.certified && (
+                      <div className="flex items-center space-x-2">
+                        <Award className="w-4 h-4 text-green-600" />
+                        <span className="text-green-600">Certified</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+
+      <Card className="bg-gradient-to-r from-blue-50 to-blue-100">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center space-x-4">
+              <BookOpen className="w-8 h-8 text-blue-600" />
+              <div>
+                <h3 className="text-xl font-semibold">Begin Your ISO Certification Journey</h3>
+                <p className="text-gray-600">Expert-led courses with practical implementation guidance</p>
+              </div>
+            </div>
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              Explore Courses
+            </button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default CourseOffice;
