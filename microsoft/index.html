@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Certifications | Skunkworks Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" 
+          rel="icon" 
+          type="image/png" />
+
+    <!-- Carbon Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --ms-blue: #0078D4;
+            --ms-light-blue: #50E6FF;
+            --ms-dark: #262626;
+            --skunkworks-gray: #393939;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: var(--ms-dark);
+        }
+
+        header {
+            background-color: white;
+            color: var(--ms-dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--ms-blue) 0%, var(--ms-light-blue) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -5rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: white;
+            transform: skewY(-3deg);
+        }
+
+        .microsoft-partner-badge {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: -2rem auto 3rem;
+            max-width: fit-content;
+            position: relative;
+            z-index: 2;
+        }
+
+        .certification-paths {
+            padding: 4rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .path-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: var(--ms-blue);
+        }
+
+        .path-header {
+            background: var(--ms-blue);
+            color: white;
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--ms-light-blue);
+        }
+
+        .path-content {
+            padding: 1.5rem;
+        }
+
+        .cert-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .cert-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            color: var(--ms-blue);
+        }
+
+        .features-section {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            background: #E8F3FF;
+            color: var(--ms-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .certification-tracks {
+            padding: 4rem 2rem;
+        }
+
+        .track-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .track-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .track-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .microsoft-partner-badge {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Academy - Microsoft Certifications</h1>
+        <nav>
+            <ul class="bx--tabs">
+                <li><a href="/" class="bx--link">Home</a></li>
+                <li><a href="/courses" class="bx--link">Courses</a></li>
+                <li><a href="/contact" class="bx--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="bx--type-display-01">Microsoft Certification Training</h2>
+        <p class="bx--type-body-long-02">Authorized Microsoft Learning Partner</p>
+        <button class="bx--btn bx--btn--primary">Explore Certifications</button>
+    </section>
+
+    <div class="microsoft-partner-badge">
+        <img src="path/to/microsoft-partner-logo.png" alt="Microsoft Learning Partner" height="40">
+        <p>Authorized Learning Partner</p>
+    </div>
+
+    <section class="certification-paths">
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="badge">Most Popular</span>
+                    <h3>Azure Cloud</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="cert-list">
+                        <li>AZ-900 Azure Fundamentals</li>
+                        <li>AZ-104 Azure Administrator</li>
+                        <li>AZ-305 Azure Solutions Architect</li>
+                        <li>AZ-500 Azure Security Engineer</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="badge">Essential</span>
+                    <h3>Microsoft 365</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="cert-list">
+                        <li>MS-900 Microsoft 365 Fundamentals</li>
+                        <li>MS-100 Enterprise Administrator</li>
+                        <li>MS-101 Mobility and Security</li>
+                        <li>MS-700 Teams Administrator</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <span class="badge">Advanced</span>
+                    <h3>Security</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="cert-list">
+                        <li>SC-900 Security Fundamentals</li>
+                        <li>SC-200 Security Operations</li>
+                        <li>SC-300 Identity Management</li>
+                        <li>SC-400 Information Protection</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Training Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="path/to/lab-icon.svg" alt="Labs" class="feature-icon">
+                <h3>Azure Labs</h3>
+                <p>Hands-on experience with Microsoft Azure environment</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/exam-icon.svg" alt="Exams" class="feature-icon">
+                <h3>Practice Exams</h3>
+                <p>Official Microsoft practice assessments included</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/support-icon.svg" alt="Support" class="feature-icon">
+                <h3>Expert Support</h3>
+                <p>Microsoft certified trainers and mentors</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/career-icon.svg" alt="Career" class="feature-icon">
+                <h3>Career Guidance</h3>
+                <p>Job placement assistance and career planning</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="certification-tracks">
+        <div class="track-container">
+            <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Learning Tracks</h2>
+            
+            <div class="track-card">
+                <div class="track-header">
+                    <img src="path/to/fundamentals-icon.svg" alt="Fundamentals" height="32">
+                    <h3>Fundamentals Track</h3>
+                </div>
+                <p>Start your Microsoft certification journey with foundational knowledge</p>
+                <div class="track-content">
+                    <div class="cert-item">AZ-900 Azure Fundamentals</div>
+                    <div class="cert-item">MS-900 M365 Fundamentals</div>
+                    <div class="cert-item">SC-900 Security Fundamentals</div>
+                </div>
+            </div>
+
+            <div class="track-card">
+                <div class="track-header">
+                    <img src="path/to/associate-icon.svg" alt="Associate" height="32">
+                    <h3>Associate Track</h3>
+                </div>
+                <p>Build your expertise with role-based certifications</p>
+                <div class="track-content">
+                    <div class="cert-item">AZ-104 Administrator</div>
+                    <div class="cert-item">AZ-204 Developer</div>
+                    <div class="cert-item">AZ-500 Security Engineer</div>
+                </div>
+            </div>
+
+            <div class="track-card">
+                <div class="track-header">
+                    <img src="path/to/expert-icon.svg" alt="Expert" height="32">
+                    <h3>Expert Track</h3>
+                </div>
+                <p>Master advanced Microsoft technologies</p>
+                <div class="track-content">
+                    <div class="cert-item">AZ-305 Solutions Architect</div>
+                    <div class="cert-item">AZ-400 DevOps Engineer</div>
+                    <div class="cert-item">MS-100/101 Enterprise Admin</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Authorized Microsoft Learning Partner</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa" class="bx--link">info@skunkworks.africa</a></p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
