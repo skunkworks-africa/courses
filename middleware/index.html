@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middleware Certifications | Skunkworks Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" 
+          rel="icon" 
+          type="image/png" />
+
+    <!-- Carbon Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --tibco-blue: #0079C1;
+            --ibm-blue: #0043CE;
+            --skunkworks-gray: #393939;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--tibco-blue), var(--ibm-blue));
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 67, 206, 0.9), rgba(0, 121, 193, 0.9)),
+                        url('https://github.com/Skunkworks-Africa/Courses/blob/main/middleware/assets/middleware-banner.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .partner-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: -3rem auto 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .partner-badge {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-header {
+            padding: 1.5rem;
+            background: linear-gradient(to right, var(--tibco-blue), var(--ibm-blue));
+            color: white;
+        }
+
+        .tech-content {
+            padding: 1.5rem;
+        }
+
+        .learning-paths {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .path-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .path-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .path-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--ibm-blue);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .features-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .comparison-table th {
+            background: var(--tibco-blue);
+            color: white;
+        }
+
+        .badge {
+            background-color: #e8f0fe;
+            color: var(--tibco-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .partner-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .path-timeline::before {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Academy - Middleware Training</h1>
+        <nav>
+            <ul class="bx--tabs">
+                <li><a href="/" class="bx--link">Home</a></li>
+                <li><a href="/courses" class="bx--link">Courses</a></li>
+                <li><a href="/contact" class="bx--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="bx--type-display-01">Enterprise Middleware Training</h2>
+        <p class="bx--type-body-long-02">Master TIBCO, IBM MQ, and Enterprise Integration Solutions</p>
+        <button class="bx--btn bx--btn--primary">Explore Courses</button>
+    </section>
+
+    <div class="partner-badges">
+        <div class="partner-badge">
+            <img src="path/to/tibco-logo.png" alt="TIBCO Partner" height="40">
+            <span>TIBCO Certified Partner</span>
+        </div>
+        <div class="partner-badge">
+            <img src="path/to/ibm-logo.png" alt="IBM Partner" height="40">
+            <span>IBM Training Partner</span>
+        </div>
+    </div>
+
+    <section class="technologies-grid">
+        <div class="tech-card">
+            <div class="tech-header">
+                <span class="badge">Most Popular</span>
+                <h3>TIBCO BusinessWorks</h3>
+            </div>
+            <div class="tech-content">
+                <ul>
+                    <li>Enterprise Application Integration</li>
+                    <li>Service-Oriented Architecture</li>
+                    <li>API Management</li>
+                    <li>Business Process Management</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+
+        <div class="tech-card">
+            <div class="tech-header">
+                <span class="badge">Enterprise</span>
+                <h3>IBM MQ</h3>
+            </div>
+            <div class="tech-content">
+                <ul>
+                    <li>Message Queue Management</li>
+                    <li>Enterprise Messaging</li>
+                    <li>System Integration</li>
+                    <li>Security and Authentication</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+
+        <div class="tech-card">
+            <div class="tech-header">
+                <span class="badge">Integration</span>
+                <h3>Apache Camel</h3>
+            </div>
+            <div class="tech-content">
+                <ul>
+                    <li>Enterprise Integration Patterns</li>
+                    <li>Route Configuration</li>
+                    <li>Component Development</li>
+                    <li>Message Transformation</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Training Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="path/to/lab-icon.svg" alt="Labs" class="feature-icon">
+                <h3>Virtual Labs</h3>
+                <p>Hands-on experience with enterprise middleware solutions</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/project-icon.svg" alt="Projects" class="feature-icon">
+                <h3>Real Projects</h3>
+                <p>Work on industry-standard integration scenarios</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/support-icon.svg" alt="Support" class="feature-icon">
+                <h3>Expert Support</h3>
+                <p>Get guidance from certified middleware professionals</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="learning-paths">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Learning Paths</h2>
+        <div class="path-container">
+            <div class="path-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Foundation</h3>
+                        <p>Learn middleware basics and integration fundamentals</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Development</h3>
+                        <p>Master enterprise integration patterns and implementation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Architecture</h3>
+                        <p>Design and implement enterprise-scale solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 2rem;">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Technology Comparison</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>TIBCO BusinessWorks</th>
+                    <th>IBM MQ</th>
+                    <th>Apache Camel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Integration Style</td>
+                    <td>Visual Development</td>
+                    <td>Message Queue</td>
+                    <td>Java DSL</td>
+                </tr>
+                <tr>
+                    <td>Use Case</td>
+                    <td>Enterprise Integration</td>
+                    <td>Enterprise Messaging</td>
+                    <td>Lightweight Integration</td>
+                </tr>
+                <tr>
+                    <td>Deployment</td>
+                    <td>Container/On-Premise</td>
+                    <td>On-Premise/Cloud</td>
+                    <td>Any Java Environment</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Official Training Partner for TIBCO and IBM</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa" class="bx--link">info@skunkworks.africa</a></p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
