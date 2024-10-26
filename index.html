@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skunkworks Academy</title>
     <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #000;
+            --accent-color: #0f62fe;
+            --hover-color: #0353e9;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-color: #161616;
+            --transition-speed: 0.3s;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --bg-color: #161616;
+            --card-bg: #262626;
+            --text-color: #ffffff;
+            --primary-color: #000000;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,212 +33,593 @@
 
         body {
             font-family: 'IBM Plex Sans', sans-serif;
-            background-color: #f4f4f4;
-            color: #000;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
+            transition: background-color var(--transition-speed);
         }
 
+        /* Header Styles */
         header {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styles */
         nav {
-            background-color: #000;
-            padding: 10px 0;
+            background-color: var(--primary-color);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 1rem;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            padding: 8px 12px;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         nav ul li a:hover {
-            background-color: #333;
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
-        .section {
-            padding: 40px 20px;
-            background-color: #fff;
-            margin: 20px auto;
-            max-width: 1200px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
+        /* Main Content Styles */
+        .welcome-section {
             text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
         }
 
+        .welcome-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all var(--transition-speed);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(15, 98, 254, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+        }
+
+        /* Course Grid Styles */
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .course-category {
-            background-color: #f8f8f8;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #eee;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
-        footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+        .course-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
-        footer a {
-            color: #fff;
+        .course-category a {
             text-decoration: none;
-            margin: 0 10px;
+            color: var(--text-color);
         }
 
+        .course-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-category i {
+            color: var(--accent-color);
+        }
+
+        .course-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
+            transform: scaleX(0);
+            transition: transform var(--transition-speed);
+            transform-origin: left;
+        }
+
+        .course-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color var(--transition-speed);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+            .mobile-menu-btn {
+                display: block;
             }
-            
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                background-color: var(--primary-color);
+                top: 100%;
+                left: 0;
+                padding: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-section p {
+                font-size: 1rem;
+            }
+
             .course-grid {
                 grid-template-columns: 1fr;
+                padding: 1rem;
             }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, var(--card-bg) 25%, var(--bg-color) 50%, var(--card-bg) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            to {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="bx--header__name">
-            <a class="bx--header__name--link" href="/">Skunkworks EdTech</a>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Skunkworks Academy
+            </a>
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#adobe">Adobe</a></li>
-            <li><a href="#ai">AI</a></li>
-            <li><a href="#app-dev">Application Development</a></li>
-            <li><a href="#automation">Automation</a></li>
-            <li><a href="#checkpoint">Checkpoint</a></li>
-            <li><a href="#cloud">Cloud</a></li>
-            <li><a href="#data">Data Analytics</a></li>
-            <li><a href="#devops">DevOps & Agile</a></li>
-            <li><a href="#microsoft">Microsoft</a></li>
-            <li><a href="#security">Security</a></li>
+            <li><a href="/adobe/index.html"><i class="fas fa-palette"></i>Adobe</a></li>
+            <li><a href="/ai/index.html"><i class="fas fa-robot"></i>AI</a></li>
+            <li><a href="/applicationdev/index.html"><i class="fas fa-code"></i>Application Development</a></li>
+            <li><a href="/automation/index.html"><i class="fas fa-cogs"></i>Automation</a></li>
+            <li><a href="/cloud/index.html"><i class="fas fa-cloud"></i>Cloud</a></li>
+            <li><a href="/security/index.html"><i class="fas fa-shield-alt"></i>Security</a></li>
         </ul>
     </nav>
 
-    <div class="section">
-        <h2>Welcome to Skunkworks Academy</h2>
-        <p>Your gateway to mastering cutting-edge technologies. Explore our extensive catalog of courses designed for IT professionals, developers, and business leaders.</p>
+    <section class="welcome-section fade-in">
+        <h1>Welcome to Skunkworks Academy</h1>
+        <p>Your gateway to mastering cutting-edge technologies. Explore our comprehensive course catalog designed for IT professionals, developers, and business leaders.</p>
+    </section>
+
+    <div class="search-container fade-in">
+        <input type="text" class="search-bar" placeholder="Search courses..." id="courseSearch">
+        <i class="fas fa-search search-icon"></i>
     </div>
 
-    <div class="section" id="catalog">
-        <h2>Course Catalog</h2>
-        <div class="course-grid">
-            <div class="course-category">
-                <h3>Adobe</h3>
-            </div>
-            <div class="course-category">
-                <h3>AI</h3>
-            </div>
-            <div class="course-category">
-                <h3>Application Development</h3>
-            </div>
-            <div class="course-category">
-                <h3>Automation</h3>
-            </div>
-            <div class="course-category">
-                <h3>Checkpoint</h3>
-            </div>
-            <div class="course-category">
-                <h3>Cloud</h3>
-            </div>
-            <div class="course-category">
-                <h3>Data Analytics and Business Intelligence</h3>
-            </div>
-            <div class="course-category">
-                <h3>DevOps & Agile</h3>
-            </div>
-            <div class="course-category">
-                <h3>Drools</h3>
-            </div>
-            <div class="course-category">
-                <h3>GitHub</h3>
-            </div>
-            <div class="course-category">
-                <h3>Google</h3>
-            </div>
-            <div class="course-category">
-                <h3>IBM</h3>
-            </div>
-            <div class="course-category">
-                <h3>ISO</h3>
-            </div>
-            <div class="course-category">
-                <h3>Mainframe</h3>
-            </div>
-            <div class="course-category">
-                <h3>Microsoft</h3>
-            </div>
-            <div class="course-category">
-                <h3>Middleware</h3>
-            </div>
-            <div class="course-category">
-                <h3>Networking and Communication</h3>
-            </div>
-            <div class="course-category">
-                <h3>Occupational Skills</h3>
-            </div>
-            <div class="course-category">
-                <h3>Project Management (PMI)</h3>
-            </div>
-            <div class="course-category">
-                <h3>SAP</h3>
-            </div>
-            <div class="course-category">
-                <h3>Security</h3>
-            </div>
-            <div class="course-category">
-                <h3>Soft Skills, SAFe, IT Management, ITIL</h3>
-            </div>
-            <div class="course-category">
-                <h3>Storage</h3>
-            </div>
-            <div class="course-category">
-                <h3>Whatsapp</h3>
-            </div>
-        </div>
+    <div class="course-grid" id="courseGrid">
+        <!-- Course categories will be populated by JavaScript -->
     </div>
 
     <footer>
-        <p>&copy; 2024 Skunkworks. All Rights Reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="/terms">Terms and Conditions</a> |
-            <a href="/privacy">Privacy Policy</a> |
-            <a href="/cookie-policy">Cookie Policy</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Empowering professionals through cutting-edge technology education since 2024.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="/about.html"><i class="fas fa-info-circle"></i>About</a>
+                    <a href="/contact.html"><i class="fas fa-envelope"></i>Contact</a>
+                    <a href="/careers.html"><i class="fas fa-briefcase"></i>Careers</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="/terms.html"><i class="fas fa-file-contract"></i>Terms & Conditions</a>
+                    <a href="/privacy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a>
+                    <a href="/cookie-policy.html"><i class="fas fa-cookie"></i>Cookie Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Previous HTML remains the same until the script section -->
+
+    <script>
+        // Course data
+        const courses = [
+            { title: 'Adobe', icon: 'palette', path: '/adobe/index.html', description: 'Master creative tools and design software' },
+            { title: 'AI', icon: 'robot', path: '/ai/index.html', description: 'Explore artificial intelligence and machine learning' },
+            { title: 'Application Development', icon: 'code', path: '/applicationdev/index.html', description: 'Learn modern software development' },
+            { title: 'Automation', icon: 'cogs', path: '/automation/index.html', description: 'Master process automation and scripting' },
+            { title: 'Checkpoint', icon: 'check-circle', path: '/checkpoint/index.html', description: 'Network security and firewall management' },
+            { title: 'Cloud', icon: 'cloud', path: '/cloud/index.html', description: 'Cloud computing and infrastructure' },
+            { title: 'Data Analytics', icon: 'chart-bar', path: '/dataanalytics/index.html', description: 'Business intelligence and data analysis' },
+            { title: 'DevOps & Agile', icon: 'sync', path: '/devops/index.html', description: 'Modern development operations' },
+            { title: 'Drools', icon: 'book', path: '/drools/index.html', description: 'Business rules management' },
+            { title: 'GitHub', icon: 'github', path: '/github/index.html', description: 'Version control and collaboration' },
+            { title: 'Google', icon: 'google', path: '/google/index.html', description: 'Google cloud and workspace solutions' },
+            { title: 'IBM', icon: 'server', path: '/ibm/index.html', description: 'Enterprise computing solutions' },
+            { title: 'ISO', icon: 'certificate', path: '/iso/index.html', description: 'Quality management standards' },
+            { title: 'Mainframe', icon: 'database', path: '/mainframe/index.html', description: 'Enterprise mainframe computing' },
+            { title: 'Microsoft', icon: 'windows', path: '/microsoft/index.html', description: 'Microsoft technologies and cloud' },
+            { title: 'Middleware', icon: 'layer-group', path: '/middleware/index.html', description: 'Enterprise application integration' },
+            { title: 'Networking', icon: 'network-wired', path: '/networking/index.html', description: 'Network infrastructure and protocols' },
+            { title: 'Occupational Skills', icon: 'user-tie', path: '/occupational/index.html', description: 'Professional development' },
+            { title: 'Project Management', icon: 'tasks', path: '/projectmanagement/index.html', description: 'PMI methodology and best practices' },
+            { title: 'SAP', icon: 'cube', path: '/sap/index.html', description: 'Enterprise resource planning' },
+            { title: 'Security', icon: 'shield-alt', path: '/security/index.html', description: 'Cybersecurity and protection' },
+            { title: 'Soft Skills', icon: 'users', path: '/softskills/index.html', description: 'Professional soft skills development' },
+            { title: 'Storage', icon: 'hdd', path: '/storage/index.html', description: 'Data storage solutions' },
+            { title: 'Whatsapp', icon: 'whatsapp', path: '/whatsapp/index.html', description: 'Business communication' }
+        ];
+
+        // DOM Elements
+        const elements = {
+            courseGrid: document.getElementById('courseGrid'),
+            searchBar: document.getElementById('courseSearch'),
+            menuBtn: document.querySelector('.mobile-menu-btn'),
+            nav: document.querySelector('nav ul'),
+            themeToggle: document.querySelector('.theme-toggle'),
+            body: document.body
+        };
+
+        // Utility Functions
+        const debounce = (fn, delay = 300) => {
+            let timeoutId;
+            return (...args) => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => fn(...args), delay);
+            };
+        };
+
+        const safely = (fn) => (...args) => {
+            try {
+                return fn(...args);
+            } catch (error) {
+                console.error('An error occurred:', error);
+                return null;
+            }
+        };
+
+        // Course Grid Population
+        const populateCourseGrid = safely((coursesToShow = courses) => {
+            if (!elements.courseGrid) return;
+
+            const courseElements = coursesToShow.map(course => `
+                <div class="course-category fade-in">
+                    <a href="${course.path}">
+                        <h3>
+                            <i class="fas fa-${course.icon}"></i>
+                            ${course.title}
+                        </h3>
+                        <p>${course.description}</p>
+                    </a>
+                </div>
+            `).join('');
+
+            elements.courseGrid.innerHTML = courseElements;
+        });
+
+        // Search Functionality
+        const handleSearch = safely((event) => {
+            const searchTerm = event.target.value.toLowerCase().trim();
+            const filteredCourses = courses.filter(course => 
+                course.title.toLowerCase().includes(searchTerm) ||
+                course.description.toLowerCase().includes(searchTerm)
+            );
+            populateCourseGrid(filteredCourses);
+        });
+
+        // Theme Management
+        const themeManager = {
+            toggleTheme: () => {
+                elements.body.dataset.theme = 
+                    elements.body.dataset.theme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', elements.body.dataset.theme);
+                
+                const icon = elements.themeToggle.querySelector('i');
+                if (icon) {
+                    icon.className = `fas fa-${elements.body.dataset.theme === 'dark' ? 'sun' : 'moon'}`;
+                }
+            },
+
+            initTheme: () => {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                elements.body.dataset.theme = savedTheme;
+                const icon = elements.themeToggle.querySelector('i');
+                if (icon) {
+                    icon.className = `fas fa-${savedTheme === 'dark' ? 'sun' : 'moon'}`;
+                }
+            }
+        };
+
+        // Navigation Management
+        const navManager = {
+            toggleMenu: () => {
+                elements.nav.classList.toggle('show');
+            },
+
+            handleClickOutside: (event) => {
+                if (elements.nav.classList.contains('show') && 
+                    !event.target.closest('nav') && 
+                    !event.target.closest('.mobile-menu-btn')) {
+                    elements.nav.classList.remove('show');
+                }
+            }
+        };
+
+        // Animation Management
+        const animationManager = {
+            initObserver: () => {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('fade-in');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.1 }
+                );
+
+                document.querySelectorAll('.course-category').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+        };
+
+        // Initialize Application
+        const initializeApp = safely(() => {
+            // Initial setup
+            populateCourseGrid();
+            themeManager.initTheme();
+            animationManager.initObserver();
+
+            // Event listeners
+            if (elements.searchBar) {
+                elements.searchBar.addEventListener('input', debounce(handleSearch));
+            }
+
+            if (elements.menuBtn) {
+                elements.menuBtn.addEventListener('click', navManager.toggleMenu);
+            }
+
+            if (elements.themeToggle) {
+                elements.themeToggle.addEventListener('click', themeManager.toggleTheme);
+            }
+
+            document.addEventListener('click', navManager.handleClickOutside);
+
+            // Handle page visibility
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    populateCourseGrid();
+                }
+            });
+        });
+
+        // Start the application when DOM is ready
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        // Handle global errors
+        window.addEventListener('error', (error) => {
+            console.error('Global error caught:', error);
+        });
+    </script>
 </body>
 </html>
