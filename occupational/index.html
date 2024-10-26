@@ -1,0 +1,209 @@
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Shield, HardHat, Users, Clock, Award, AlertTriangle, 
+  Heart, FileCheck, Headphones, BookOpen, HardDrive, 
+  Building
+} from 'lucide-react';
+
+const CourseOffice = () => {
+  const courseCategories = [
+    {
+      title: "Workplace Safety",
+      icon: <HardHat className="w-6 h-6 text-orange-600" />,
+      courses: [
+        {
+          name: "OSHA Safety Fundamentals",
+          duration: "30 hours",
+          certification: "OSHA 30",
+          students: 3245,
+          compliance: "OSHA Certified",
+          topics: ["Hazard Recognition", "Fall Protection", "PPE", "Safety Culture"]
+        },
+        {
+          name: "Construction Safety",
+          duration: "20 hours",
+          certification: "OSHA 20",
+          students: 2876,
+          compliance: "OSHA Certified",
+          topics: ["Equipment Safety", "Site Management", "Risk Assessment"]
+        }
+      ]
+    },
+    {
+      title: "Industrial Hygiene",
+      icon: <Shield className="w-6 h-6 text-orange-600" />,
+      courses: [
+        {
+          name: "Chemical Safety Management",
+          duration: "15 hours",
+          certification: "HAZMAT",
+          students: 1543,
+          compliance: "EPA Compliant",
+          topics: ["Chemical Handling", "Storage", "Emergency Response"]
+        },
+        {
+          name: "Environmental Monitoring",
+          duration: "12 hours",
+          certification: "EHS",
+          students: 982,
+          compliance: "EPA Compliant",
+          topics: ["Air Quality", "Noise Levels", "Exposure Limits"]
+        }
+      ]
+    },
+    {
+      title: "Emergency Response",
+      icon: <AlertTriangle className="w-6 h-6 text-orange-600" />,
+      courses: [
+        {
+          name: "First Aid & CPR",
+          duration: "8 hours",
+          certification: "First Aid",
+          students: 4532,
+          compliance: "Red Cross Certified",
+          topics: ["Basic Life Support", "Emergency Care", "AED Use"]
+        },
+        {
+          name: "Emergency Planning",
+          duration: "10 hours",
+          certification: "EP",
+          students: 1234,
+          compliance: "FEMA Aligned",
+          topics: ["Evacuation", "Communication", "Crisis Management"]
+        }
+      ]
+    }
+  ];
+
+  const certificationBenefits = [
+    {
+      icon: <Award className="w-5 h-5" />,
+      title: "Recognized Certification",
+      description: "Industry-standard credentials"
+    },
+    {
+      icon: <FileCheck className="w-5 h-5" />,
+      title: "Compliance Guarantee",
+      description: "Meet regulatory requirements"
+    },
+    {
+      icon: <HardDrive className="w-5 h-5" />,
+      title: "Digital Records",
+      description: "Track training history"
+    },
+    {
+      icon: <Headphones className="w-5 h-5" />,
+      title: "24/7 Support",
+      description: "Expert guidance available"
+    }
+  ];
+
+  return (
+    <div className="p-6 max-w-6xl mx-auto">
+      <div className="mb-8">
+        <div className="flex items-center space-x-3 mb-2">
+          <Building className="w-10 h-10 text-orange-600" />
+          <h1 className="text-3xl font-bold">Occupational Safety & Health Training</h1>
+        </div>
+        <p className="text-gray-600">Comprehensive workplace safety and health certification programs</p>
+      </div>
+
+      {/* Certification Benefits */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {certificationBenefits.map((benefit, index) => (
+          <Card key={index} className="bg-orange-50">
+            <CardContent className="p-4">
+              <div className="flex items-center space-x-3">
+                <div className="text-orange-600">
+                  {benefit.icon}
+                </div>
+                <div>
+                  <p className="font-semibold">{benefit.title}</p>
+                  <p className="text-sm text-gray-600">{benefit.description}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Course Categories */}
+      {courseCategories.map((category, index) => (
+        <div key={index} className="mb-8">
+          <div className="flex items-center space-x-2 mb-4">
+            {category.icon}
+            <h2 className="text-2xl font-semibold">{category.title}</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {category.courses.map((course, courseIndex) => (
+              <Card key={courseIndex} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex justify-between items-start mb-2">
+                    <CardTitle className="text-lg">{course.name}</CardTitle>
+                    <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">
+                      {course.compliance}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between text-sm text-gray-600">
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-4 h-4" />
+                        <span>{course.duration}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Users className="w-4 h-4" />
+                        <span>{course.students} certified</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Award className="w-4 h-4" />
+                        <span>{course.certification}</span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <p className="text-sm font-semibold mb-2">Course Coverage:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {course.topics.map((topic, topicIndex) => (
+                          <span 
+                            key={topicIndex}
+                            className="px-2 py-1 bg-orange-50 rounded-full text-sm"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* CTA Section */}
+      <Card className="mt-8 bg-gradient-to-r from-orange-50 to-orange-100">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center space-x-4">
+              <Shield className="w-8 h-8 text-orange-600" />
+              <div>
+                <h3 className="text-xl font-semibold">Ensure Workplace Safety</h3>
+                <p className="text-gray-600">Get certified with industry-recognized safety programs</p>
+              </div>
+            </div>
+            <button className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+              Start Training
+            </button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default CourseOffice;
