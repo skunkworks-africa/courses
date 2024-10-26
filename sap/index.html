@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Certifications | Skunkworks Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" 
+          rel="icon" 
+          type="image/png" />
+
+    <!-- Carbon Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --skunkworks-blue: #0f62fe;
+            --skunkworks-gray: #393939;
+            --sap-blue: #008FD3;
+            --sap-gold: #F0AB00;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #161616;
+        }
+
+        header {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--sap-blue);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://github.com/Skunkworks-Africa/Courses/blob/main/sap/assets/sap-banner.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .learning-paths {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .path-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .path-header {
+            background-color: var(--sap-blue);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .path-content {
+            padding: 1.5rem;
+        }
+
+        .path-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .path-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .path-features li::before {
+            content: "✓";
+            color: var(--sap-blue);
+            margin-right: 0.5rem;
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-card img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .stats-section {
+            background-color: var(--sap-blue);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--sap-gold);
+        }
+
+        footer {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .badge {
+            background-color: var(--sap-gold);
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Academy - SAP Training</h1>
+        <nav>
+            <ul class="bx--tabs">
+                <li><a href="/" class="bx--link">Home</a></li>
+                <li><a href="/courses" class="bx--link">Courses</a></li>
+                <li><a href="/contact" class="bx--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="bx--type-display-01">SAP Certification Training</h2>
+        <p class="bx--type-body-long-02">Become an SAP certified professional and transform your career with industry-leading training</p>
+        <button class="bx--btn bx--btn--primary">Explore Courses</button>
+    </section>
+
+    <section class="learning-paths">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center;">SAP Learning Paths</h2>
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-header">
+                    <h3>SAP S/4HANA</h3>
+                    <span class="badge">Most Popular</span>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>Financial Accounting</li>
+                        <li>Materials Management</li>
+                        <li>Sales and Distribution</li>
+                        <li>Production Planning</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <h3>SAP FICO</h3>
+                    <span class="badge">Finance</span>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>Financial Accounting</li>
+                        <li>Controlling</li>
+                        <li>Asset Accounting</li>
+                        <li>Cost Center Accounting</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <h3>SAP MM</h3>
+                    <span class="badge">Logistics</span>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>Procurement</li>
+                        <li>Inventory Management</li>
+                        <li>Material Valuation</li>
+                        <li>Vendor Management</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1000+</div>
+                <p>Certified Professionals</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <p>Pass Rate</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <p>SAP Modules</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="certification-grid">
+        <div class="cert-card">
+            <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/sap/assets/s4hana.png?raw=true" alt="SAP S/4HANA">
+            <h3>SAP S/4HANA</h3>
+            <p>Next-generation business suite</p>
+        </div>
+        <div class="cert-card">
+            <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/sap/assets/fico.png?raw=true" alt="SAP FICO">
+            <h3>SAP FICO</h3>
+            <p>Financial and Controlling</p>
+        </div>
+        <div class="cert-card">
+            <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/sap/assets/mm.png?raw=true" alt="SAP MM">
+            <h3>SAP MM</h3>
+            <p>Materials Management</p>
+        </div>
+        <div class="cert-card">
+            <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/sap/assets/sd.png?raw=true" alt="SAP SD">
+            <h3>SAP SD</h3>
+            <p>Sales and Distribution</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Authorized SAP Training Partner</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa" class="bx--link">info@skunkworks.africa</a></p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
