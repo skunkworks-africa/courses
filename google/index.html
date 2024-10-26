@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Certifications | Skunkworks Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" 
+          rel="icon" 
+          type="image/png" />
+
+    <!-- Carbon Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #DB4437;
+            --google-yellow: #F4B400;
+            --google-green: #0F9D58;
+            --skunkworks-gray: #393939;
+        }
+
+        body {
+            font-family: 'Google Sans', 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #202124;
+        }
+
+        header {
+            background-color: white;
+            color: var(--skunkworks-gray);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--google-blue) 0%, var(--google-green) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .certification-paths {
+            max-width: 1200px;
+            margin: -4rem auto 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .path-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .path-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .path-header img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .path-content {
+            padding: 1.5rem;
+        }
+
+        .path-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .path-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            color: #5f6368;
+        }
+
+        .path-features li::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234285F4"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+        }
+
+        .badge {
+            background-color: #e8f0fe;
+            color: var(--google-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .learning-tracks {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .track-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .track-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .track-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 1rem;
+        }
+
+        footer {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+
+            .path-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Academy - Google Certifications</h1>
+        <nav>
+            <ul class="bx--tabs">
+                <li><a href="/" class="bx--link">Home</a></li>
+                <li><a href="/courses" class="bx--link">Courses</a></li>
+                <li><a href="/contact" class="bx--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="bx--type-display-01">Google Cloud & Workspace Certifications</h2>
+        <p class="bx--type-body-long-02">Advance your career with industry-recognized Google certifications</p>
+        <button class="bx--btn bx--btn--primary">Get Started</button>
+    </section>
+
+    <section class="certification-paths">
+        <div class="path-grid">
+            <div class="path-card">
+                <div class="path-header">
+                    <img src="path/to/cloud-architect-icon.png" alt="Cloud Architect">
+                    <span class="badge">Most Popular</span>
+                    <h3>Cloud Architect</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>Design and plan cloud solutions</li>
+                        <li>Security and compliance</li>
+                        <li>Infrastructure management</li>
+                        <li>Hands-on labs included</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <img src="path/to/data-engineer-icon.png" alt="Data Engineer">
+                    <span class="badge">High Demand</span>
+                    <h3>Data Engineer</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>Big Query and Data Studio</li>
+                        <li>Data processing systems</li>
+                        <li>Machine learning models</li>
+                        <li>Real-world projects</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+
+            <div class="path-card">
+                <div class="path-header">
+                    <img src="path/to/workspace-admin-icon.png" alt="Workspace Admin">
+                    <span class="badge">Essential</span>
+                    <h3>Workspace Administrator</h3>
+                </div>
+                <div class="path-content">
+                    <ul class="path-features">
+                        <li>User and security settings</li>
+                        <li>Domain management</li>
+                        <li>App configuration</li>
+                        <li>Practice exams included</li>
+                    </ul>
+                    <button class="bx--btn bx--btn--primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-grid">
+        <div class="feature-card">
+            <img src="path/to/hands-on-icon.svg" alt="Hands-on Learning" class="feature-icon">
+            <h3>Hands-on Learning</h3>
+            <p>Practice in real Google Cloud environments</p>
+        </div>
+        <div class="feature-card">
+            <img src="path/to/expert-icon.svg" alt="Expert Instructors" class="feature-icon">
+            <h3>Expert Instructors</h3>
+            <p>Learn from Google certified professionals</p>
+        </div>
+        <div class="feature-card">
+            <img src="path/to/projects-icon.svg" alt="Real Projects" class="feature-icon">
+            <h3>Real Projects</h3>
+            <p>Build portfolio-ready projects</p>
+        </div>
+        <div class="feature-card">
+            <img src="path/to/support-icon.svg" alt="24/7 Support" class="feature-icon">
+            <h3>24/7 Support</h3>
+            <p>Get help whenever you need it</p>
+        </div>
+    </section>
+
+    <section class="learning-tracks">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Learning Tracks</h2>
+        <div class="track-card">
+            <div class="track-header">
+                <img src="path/to/beginner-icon.png" alt="Beginner Track" class="track-icon">
+                <h3>Beginner Track</h3>
+            </div>
+            <p>Start your Google Cloud journey with foundational courses</p>
+            <ul class="path-features">
+                <li>Cloud Digital Leader</li>
+                <li>Cloud Engineer Fundamentals</li>
+                <li>Basic Workspace Administration</li>
+            </ul>
+        </div>
+        <div class="track-card">
+            <div class="track-header">
+                <img src="path/to/advanced-icon.png" alt="Advanced Track" class="track-icon">
+                <h3>Advanced Track</h3>
+            </div>
+            <p>Deep dive into specialized Google Cloud services</p>
+            <ul class="path-features">
+                <li>Professional Cloud Architect</li>
+                <li>Professional Data Engineer</li>
+                <li>Professional Cloud Security Engineer</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Authorized Google Cloud Training Partner</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa" class="bx--link">info@skunkworks.africa</a></p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
