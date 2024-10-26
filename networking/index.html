@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cisco Networking Certifications | Skunkworks Academy</title>
+
+    <!-- Favicon -->
+    <link href="https://github.com/skunkworksza/www/blob/main/assets/skunkworks/logo-skunkworks-trans%2040%20%C3%97%2040%20px.png?raw=true" 
+          rel="icon" 
+          type="image/png" />
+
+    <!-- Carbon Design System -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --cisco-blue: #005073;
+            --cisco-light-blue: #0086CE;
+            --skunkworks-gray: #393939;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: var(--cisco-blue);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cisco-badge {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: -2rem auto 2rem;
+            max-width: fit-content;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cisco-badge img {
+            height: 40px;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 80, 115, 0.9), rgba(0, 80, 115, 0.9)),
+                        url('https://github.com/Skunkworks-Africa/Courses/blob/main/cisco/assets/networking-banner.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-header {
+            background-color: var(--cisco-blue);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cert-content {
+            padding: 1.5rem;
+        }
+
+        .features-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .pathway-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .pathway-timeline {
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .pathway-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--cisco-blue);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            background-color: #e8f0fe;
+            color: var(--cisco-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--skunkworks-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .certification-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pathway-timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skunkworks Academy - Networking</h1>
+        <nav>
+            <ul class="bx--tabs">
+                <li><a href="/" class="bx--link">Home</a></li>
+                <li><a href="/courses" class="bx--link">Courses</a></li>
+                <li><a href="/contact" class="bx--link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2 class="bx--type-display-01">Cisco Networking Academy</h2>
+        <p class="bx--type-body-long-02">Official Learning Centre for Cisco Networking Certifications</p>
+    </section>
+
+    <div class="cisco-badge">
+        <img src="https://github.com/Skunkworks-Africa/Courses/blob/main/cisco/assets/cisco-logo.png?raw=true" 
+             alt="Cisco Networking Academy">
+        <p>Authorized Learning Center</p>
+    </div>
+
+    <section class="certification-grid">
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="badge">Entry Level</span>
+                <h3>CCNA</h3>
+            </div>
+            <div class="cert-content">
+                <ul>
+                    <li>Network Fundamentals</li>
+                    <li>Network Access</li>
+                    <li>IP Connectivity</li>
+                    <li>Security Fundamentals</li>
+                    <li>Automation and Programmability</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="badge">Professional</span>
+                <h3>CCNP Enterprise</h3>
+            </div>
+            <div class="cert-content">
+                <ul>
+                    <li>Advanced Routing</li>
+                    <li>SD-WAN Solutions</li>
+                    <li>Enterprise Network Design</li>
+                    <li>Network Services</li>
+                    <li>Automation</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-header">
+                <span class="badge">Expert</span>
+                <h3>CCIE Enterprise</h3>
+            </div>
+            <div class="cert-content">
+                <ul>
+                    <li>Complex Network Solutions</li>
+                    <li>Infrastructure Security</li>
+                    <li>Network Optimization</li>
+                    <li>Troubleshooting</li>
+                    <li>Lab Exam Preparation</li>
+                </ul>
+                <button class="bx--btn bx--btn--primary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center; margin-bottom: 2rem;">Why Choose Our Program</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="path/to/lab-icon.svg" alt="Hands-on Labs" style="width: 64px; height: 64px;">
+                <h3>Hands-on Labs</h3>
+                <p>Access to Cisco Packet Tracer and real networking equipment</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/instructor-icon.svg" alt="Expert Instructors" style="width: 64px; height: 64px;">
+                <h3>Certified Instructors</h3>
+                <p>Learn from Cisco certified professionals</p>
+            </div>
+            <div class="feature-card">
+                <img src="path/to/career-icon.svg" alt="Career Support" style="width: 64px; height: 64px;">
+                <h3>Career Support</h3>
+                <p>Job placement assistance and interview preparation</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pathway-section">
+        <h2 class="bx--type-productive-heading-04" style="text-align: center;">Certification Pathway</h2>
+        <div class="pathway-timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>CCNA</h3>
+                    <p>Start your networking journey with fundamental concepts and skills</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>CCNP Enterprise</h3>
+                    <p>Advance your skills with professional-level networking expertise</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>CCIE Enterprise</h3>
+                    <p>Achieve expert-level certification and master complex networking solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Skunkworks Academy | All Rights Reserved</p>
+        <p>Official Cisco Networking Academy Learning Centre</p>
+        <p>Contact: <a href="mailto:info@skunkworks.africa" class="bx--link">info@skunkworks.africa</a></p>
+    </footer>
+
+    <!-- Carbon Components JavaScript -->
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+</body>
+</html>
