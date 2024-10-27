@@ -1,218 +1,282 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  Target, Users, Clock, Award, BarChart, 
-  Kanban, FileCheck, BookOpen, Calendar,
-  Layers, Workflow, Building, Gift, CheckCircle
+  LayoutDashboard, Users, Calendar, Clock, 
+  CheckCircle2, AlertCircle, ArrowUp, ArrowDown,
+  BarChart2, PieChart, List, Search, Filter,
+  Plus, MoreVertical, Tag, MessageCircle
 } from 'lucide-react';
 
-const CourseOffice = () => {
-  const methodologies = [
+const ProjectManagement = () => {
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  
+  const projects = [
     {
-      title: "Agile & Scrum",
-      icon: <Kanban className="w-6 h-6 text-blue-600" />,
-      courses: [
-        {
-          name: "Professional Scrum Master (PSM)",
-          duration: "40 hours",
-          certification: "PSM I",
-          students: 3245,
-          rating: 4.8,
-          topics: ["Scrum Framework", "Sprint Planning", "Agile Leadership", "Retrospectives"],
-          level: "Professional"
-        },
-        {
-          name: "Agile Project Management",
-          duration: "35 hours",
-          certification: "PMI-ACP",
-          students: 2876,
-          rating: 4.7,
-          topics: ["Agile Principles", "Kanban", "User Stories", "Continuous Delivery"],
-          level: "Intermediate"
-        }
-      ]
+      title: "Website Redesign",
+      status: "In Progress",
+      priority: "High",
+      progress: 65,
+      team: 8,
+      tasks: { completed: 24, total: 36 },
+      dueDate: "Nov 15",
+      category: "Design"
     },
     {
-      title: "Traditional PM",
-      icon: <Layers className="w-6 h-6 text-blue-600" />,
-      courses: [
-        {
-          name: "Project Management Professional",
-          duration: "60 hours",
-          certification: "PMP",
-          students: 4532,
-          rating: 4.9,
-          topics: ["Project Lifecycle", "Risk Management", "Stakeholder Management", "Quality"],
-          level: "Advanced"
-        },
-        {
-          name: "CAPM Preparation",
-          duration: "30 hours",
-          certification: "CAPM",
-          students: 1876,
-          rating: 4.6,
-          topics: ["PM Fundamentals", "Project Planning", "Execution", "Monitoring"],
-          level: "Beginner"
-        }
-      ]
+      title: "Mobile App Development",
+      status: "On Track",
+      priority: "Medium",
+      progress: 45,
+      team: 12,
+      tasks: { completed: 18, total: 42 },
+      dueDate: "Dec 1",
+      category: "Development"
     },
     {
-      title: "Specialized Methods",
-      icon: <Target className="w-6 h-6 text-blue-600" />,
-      courses: [
-        {
-          name: "PRINCE2 Foundation",
-          duration: "25 hours",
-          certification: "PRINCE2",
-          students: 1543,
-          rating: 4.7,
-          topics: ["Process Approach", "Business Case", "Organization", "Controls"],
-          level: "Foundation"
-        },
-        {
-          name: "Lean Six Sigma",
-          duration: "45 hours",
-          certification: "Green Belt",
-          students: 2123,
-          rating: 4.8,
-          topics: ["Process Improvement", "DMAIC", "Waste Reduction", "Quality Tools"],
-          level: "Intermediate"
-        }
-      ]
+      title: "Marketing Campaign",
+      status: "At Risk",
+      priority: "High",
+      progress: 30,
+      team: 6,
+      tasks: { completed: 12, total: 28 },
+      dueDate: "Nov 25",
+      category: "Marketing"
+    },
+    {
+      title: "Product Launch",
+      status: "On Hold",
+      priority: "Medium",
+      progress: 80,
+      team: 15,
+      tasks: { completed: 32, total: 45 },
+      dueDate: "Dec 10",
+      category: "Product"
     }
   ];
 
-  const features = [
+  const getStatusColor = (status) => {
+    const colors = {
+      'On Track': 'bg-emerald-500',
+      'In Progress': 'bg-violet-500',
+      'At Risk': 'bg-rose-500',
+      'On Hold': 'bg-amber-500'
+    };
+    return colors[status] || 'bg-gray-500';
+  };
+
+  const getPriorityIcon = (priority) => {
+    return priority === 'High' ? 
+      <ArrowUp className="w-4 h-4 text-rose-500" /> : 
+      <ArrowDown className="w-4 h-4 text-amber-500" />;
+  };
+
+  const stats = [
     {
-      icon: <Calendar className="w-5 h-5" />,
-      title: "Flexible Schedule",
-      description: "Learn at your own pace"
+      title: "Total Projects",
+      value: "12",
+      change: "+2",
+      trend: "up",
+      icon: <LayoutDashboard className="w-6 h-6" />
     },
     {
-      icon: <Gift className="w-5 h-5" />,
-      title: "PDU Credits",
-      description: "Maintain certification"
+      title: "Team Members",
+      value: "32",
+      change: "+5",
+      trend: "up",
+      icon: <Users className="w-6 h-6" />
     },
     {
-      icon: <CheckCircle className="w-5 h-5" />,
-      title: "Exam Prep",
-      description: "Practice tests included"
+      title: "Tasks Completed",
+      value: "286",
+      change: "+24",
+      trend: "up",
+      icon: <CheckCircle2 className="w-6 h-6" />
     },
     {
-      icon: <Users className="w-5 h-5" />,
-      title: "Study Groups",
-      description: "Collaborative learning"
+      title: "Overdue Tasks",
+      value: "8",
+      change: "-3",
+      trend: "down",
+      icon: <AlertCircle className="w-6 h-6" />
     }
   ];
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="mb-8">
-        <div className="flex items-center space-x-3 mb-2">
-          <Building className="w-10 h-10 text-blue-600" />
-          <h1 className="text-3xl font-bold">Project Management Academy</h1>
-        </div>
-        <p className="text-gray-600">Master project management methodologies and earn recognized certifications</p>
-      </div>
-
-      {/* Feature Highlights */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {features.map((feature, index) => (
-          <Card key={index} className="bg-blue-50">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="text-blue-600">
-                  {feature.icon}
-                </div>
-                <div>
-                  <p className="font-semibold">{feature.title}</p>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Course Categories */}
-      {methodologies.map((category, index) => (
-        <div key={index} className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            {category.icon}
-            <h2 className="text-2xl font-semibold">{category.title}</h2>
+    <div className="bg-gray-50 min-h-screen text-gray-900 p-6">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">Project Dashboard</h1>
+            <p className="text-gray-600">Track and manage your projects efficiently</p>
           </div>
+          <button className="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors">
+            <Plus className="w-5 h-5" />
+            New Project
+          </button>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {category.courses.map((course, courseIndex) => (
-              <Card key={courseIndex} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-lg">{course.name}</CardTitle>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                      {course.level}
-                    </span>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {stats.map((stat, index) => (
+            <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex justify-between items-start">
+                  <div className="text-violet-600">
+                    {stat.icon}
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-gray-600">
-                      <div className="flex items-center space-x-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Users className="w-4 h-4" />
-                        <span>{course.students} enrolled</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <BarChart className="w-4 h-4" />
-                        <span>{course.rating} / 5</span>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex items-center space-x-2 mb-2">
-                        <Award className="w-4 h-4 text-blue-600" />
-                        <p className="text-sm font-semibold">Certification: {course.certification}</p>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {course.topics.map((topic, topicIndex) => (
-                          <span 
-                            key={topicIndex}
-                            className="px-2 py-1 bg-blue-50 rounded-full text-sm"
-                          >
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <span className={`flex items-center text-sm ${
+                    stat.trend === 'up' ? 'text-emerald-600' : 'text-rose-600'
+                  }`}>
+                    {stat.change}
+                    {stat.trend === 'up' ? 
+                      <ArrowUp className="w-4 h-4 ml-1" /> : 
+                      <ArrowDown className="w-4 h-4 ml-1" />
+                    }
+                  </span>
+                </div>
+                <div className="mt-4">
+                  <h2 className="text-2xl font-bold text-gray-900">{stat.value}</h2>
+                  <p className="text-gray-600 text-sm">{stat.title}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Projects Section */}
+        <div className="flex flex-wrap gap-4 items-center mb-6">
+          <div className="flex-1 min-w-[300px] relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Search projects..."
+              className="w-full bg-white border border-gray-200 rounded-lg py-2 pl-10 pr-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+            />
+          </div>
+          <div className="flex gap-2">
+            {['all', 'active', 'completed', 'on hold'].map(filter => (
+              <button
+                key={filter}
+                onClick={() => setSelectedFilter(filter)}
+                className={`px-4 py-2 rounded-lg text-sm transition-colors ${
+                  selectedFilter === filter
+                    ? 'bg-violet-600 text-white'
+                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                }`}
+              >
+                {filter.charAt(0).toUpperCase() + filter.slice(1)}
+              </button>
             ))}
           </div>
         </div>
-      ))}
 
-      {/* CTA Section */}
-      <Card className="mt-8 bg-gradient-to-r from-blue-50 to-blue-100">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center space-x-4">
-              <FileCheck className="w-8 h-8 text-blue-600" />
-              <div>
-                <h3 className="text-xl font-semibold">Advance Your PM Career</h3>
-                <p className="text-gray-600">Get certified with globally recognized credentials</p>
-              </div>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <Card 
+              key={index}
+              className="bg-white border-none shadow-sm hover:shadow-md transition-all group"
+            >
+              <CardContent className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                    <div className="flex items-center gap-3 text-sm text-gray-600">
+                      <span className="flex items-center gap-1">
+                        <Tag className="w-4 h-4" />
+                        {project.category}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Users className="w-4 h-4" />
+                        {project.team}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {project.dueDate}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className={`px-3 py-1 rounded-full text-xs ${getStatusColor(project.status)} bg-opacity-15 text-gray-900`}>
+                      {project.status}
+                    </span>
+                    {getPriorityIcon(project.priority)}
+                    <button className="text-gray-400 hover:text-gray-600 transition-colors">
+                      <MoreVertical className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <span>Progress</span>
+                      <span>{project.progress}%</span>
+                    </div>
+                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 group-hover:animate-pulse"
+                        style={{ width: `${project.progress}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <span className="flex items-center gap-1">
+                        <CheckCircle2 className="w-4 h-4" />
+                        {project.tasks.completed}/{project.tasks.total} Tasks
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MessageCircle className="w-4 h-4" />
+                        12 Comments
+                      </span>
+                    </div>
+                    <button className="text-violet-600 hover:text-violet-700 transition-colors text-sm font-medium">
+                      View Details →
+                    </button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Activity Timeline */}
+      <div className="max-w-7xl mx-auto mt-8">
+        <Card className="bg-white border-none shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-gray-900">Recent Activity</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {[
+                { user: "Sarah Chen", action: "completed task", item: "Homepage Design", time: "2h ago" },
+                { user: "Mike Wilson", action: "commented on", item: "API Integration", time: "3h ago" },
+                { user: "Anna Lee", action: "created task", item: "User Testing", time: "5h ago" },
+                { user: "James Miller", action: "updated status of", item: "Mobile App", time: "6h ago" }
+              ].map((activity, index) => (
+                <div key={index} className="flex items-center gap-4 text-sm">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium">
+                    {activity.user.charAt(0)}
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-900">
+                      <span className="font-medium">{activity.user}</span>
+                      {" "}{activity.action}{" "}
+                      <span className="text-violet-600">{activity.item}</span>
+                    </p>
+                    <p className="text-gray-500">{activity.time}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              Start Learning
-            </button>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
 
-export default CourseOffice;
+export default ProjectManagement;
