@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  LayoutDashboard, Users, Calendar, Clock, 
-  CheckCircle2, AlertCircle, ArrowUp, ArrowDown,
-  BarChart2, PieChart, List, Search, Filter,
-  Plus, MoreVertical, Tag, MessageCircle
+  Users, Calendar, Clock, CheckCircle2,
+  AlertCircle, Plus, Tag, MessageCircle
 } from 'lucide-react';
 
 const ProjectManagement = () => {
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  
   const projects = [
     {
       title: "Website Redesign",
@@ -40,241 +36,154 @@ const ProjectManagement = () => {
       tasks: { completed: 12, total: 28 },
       dueDate: "Nov 25",
       category: "Marketing"
-    },
-    {
-      title: "Product Launch",
-      status: "On Hold",
-      priority: "Medium",
-      progress: 80,
-      team: 15,
-      tasks: { completed: 32, total: 45 },
-      dueDate: "Dec 10",
-      category: "Product"
     }
   ];
 
   const getStatusColor = (status) => {
     const colors = {
-      'On Track': 'bg-emerald-500',
-      'In Progress': 'bg-violet-500',
-      'At Risk': 'bg-rose-500',
-      'On Hold': 'bg-amber-500'
+      'On Track': 'bg-green-500',
+      'In Progress': 'bg-blue-500',
+      'At Risk': 'bg-red-500'
     };
     return colors[status] || 'bg-gray-500';
   };
 
-  const getPriorityIcon = (priority) => {
-    return priority === 'High' ? 
-      <ArrowUp className="w-4 h-4 text-rose-500" /> : 
-      <ArrowDown className="w-4 h-4 text-amber-500" />;
-  };
-
-  const stats = [
-    {
-      title: "Total Projects",
-      value: "12",
-      change: "+2",
-      trend: "up",
-      icon: <LayoutDashboard className="w-6 h-6" />
-    },
-    {
-      title: "Team Members",
-      value: "32",
-      change: "+5",
-      trend: "up",
-      icon: <Users className="w-6 h-6" />
-    },
-    {
-      title: "Tasks Completed",
-      value: "286",
-      change: "+24",
-      trend: "up",
-      icon: <CheckCircle2 className="w-6 h-6" />
-    },
-    {
-      title: "Overdue Tasks",
-      value: "8",
-      change: "-3",
-      trend: "down",
-      icon: <AlertCircle className="w-6 h-6" />
-    }
-  ];
-
   return (
-    <div className="bg-gray-50 min-h-screen text-gray-900 p-6">
-      {/* Header Section */}
-      <div className="max-w-7xl mx-auto mb-8">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold mb-2 text-gray-900">Project Dashboard</h1>
-            <p className="text-gray-600">Track and manage your projects efficiently</p>
-          </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors">
-            <Plus className="w-5 h-5" />
-            New Project
-          </button>
+    <div className="p-6 max-w-6xl mx-auto">
+      {/* Simple Header */}
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-2xl font-bold">Projects</h1>
+          <p className="text-gray-600">Track your project progress</p>
         </div>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {stats.map((stat, index) => (
-            <Card key={index} className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div className="text-violet-600">
-                    {stat.icon}
-                  </div>
-                  <span className={`flex items-center text-sm ${
-                    stat.trend === 'up' ? 'text-emerald-600' : 'text-rose-600'
-                  }`}>
-                    {stat.change}
-                    {stat.trend === 'up' ? 
-                      <ArrowUp className="w-4 h-4 ml-1" /> : 
-                      <ArrowDown className="w-4 h-4 ml-1" />
-                    }
-                  </span>
-                </div>
-                <div className="mt-4">
-                  <h2 className="text-2xl font-bold text-gray-900">{stat.value}</h2>
-                  <p className="text-gray-600 text-sm">{stat.title}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Projects Section */}
-        <div className="flex flex-wrap gap-4 items-center mb-6">
-          <div className="flex-1 min-w-[300px] relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              className="w-full bg-white border border-gray-200 rounded-lg py-2 pl-10 pr-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
-            />
-          </div>
-          <div className="flex gap-2">
-            {['all', 'active', 'completed', 'on hold'].map(filter => (
-              <button
-                key={filter}
-                onClick={() => setSelectedFilter(filter)}
-                className={`px-4 py-2 rounded-lg text-sm transition-colors ${
-                  selectedFilter === filter
-                    ? 'bg-violet-600 text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-                }`}
-              >
-                {filter.charAt(0).toUpperCase() + filter.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <Card 
-              key={index}
-              className="bg-white border-none shadow-sm hover:shadow-md transition-all group"
-            >
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                    <div className="flex items-center gap-3 text-sm text-gray-600">
-                      <span className="flex items-center gap-1">
-                        <Tag className="w-4 h-4" />
-                        {project.category}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Users className="w-4 h-4" />
-                        {project.team}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {project.dueDate}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className={`px-3 py-1 rounded-full text-xs ${getStatusColor(project.status)} bg-opacity-15 text-gray-900`}>
-                      {project.status}
-                    </span>
-                    {getPriorityIcon(project.priority)}
-                    <button className="text-gray-400 hover:text-gray-600 transition-colors">
-                      <MoreVertical className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between text-sm text-gray-600 mb-2">
-                      <span>Progress</span>
-                      <span>{project.progress}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 group-hover:animate-pulse"
-                        style={{ width: `${project.progress}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
-                      <span className="flex items-center gap-1">
-                        <CheckCircle2 className="w-4 h-4" />
-                        {project.tasks.completed}/{project.tasks.total} Tasks
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MessageCircle className="w-4 h-4" />
-                        12 Comments
-                      </span>
-                    </div>
-                    <button className="text-violet-600 hover:text-violet-700 transition-colors text-sm font-medium">
-                      View Details →
-                    </button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded">
+          <Plus className="w-4 h-4" />
+          New Project
+        </button>
       </div>
 
-      {/* Activity Timeline */}
-      <div className="max-w-7xl mx-auto mt-8">
-        <Card className="bg-white border-none shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-gray-900">Recent Activity</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {[
-                { user: "Sarah Chen", action: "completed task", item: "Homepage Design", time: "2h ago" },
-                { user: "Mike Wilson", action: "commented on", item: "API Integration", time: "3h ago" },
-                { user: "Anna Lee", action: "created task", item: "User Testing", time: "5h ago" },
-                { user: "James Miller", action: "updated status of", item: "Mobile App", time: "6h ago" }
-              ].map((activity, index) => (
-                <div key={index} className="flex items-center gap-4 text-sm">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium">
-                    {activity.user.charAt(0)}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-gray-900">
-                      <span className="font-medium">{activity.user}</span>
-                      {" "}{activity.action}{" "}
-                      <span className="text-violet-600">{activity.item}</span>
-                    </p>
-                    <p className="text-gray-500">{activity.time}</p>
-                  </div>
-                </div>
-              ))}
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex justify-between items-start">
+              <div>
+                <p className="text-gray-600 text-sm">Total Projects</p>
+                <h2 className="text-2xl font-bold">12</h2>
+              </div>
+              <span className="text-green-500 text-sm">+2 this month</span>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex justify-between items-start">
+              <div>
+                <p className="text-gray-600 text-sm">Completed Tasks</p>
+                <h2 className="text-2xl font-bold">286</h2>
+              </div>
+              <span className="text-green-500 text-sm">92% done</span>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex justify-between items-start">
+              <div>
+                <p className="text-gray-600 text-sm">Active Team Members</p>
+                <h2 className="text-2xl font-bold">32</h2>
+              </div>
+              <span className="text-blue-500 text-sm">8 teams</span>
             </div>
           </CardContent>
         </Card>
       </div>
+
+      {/* Projects List */}
+      <div className="space-y-4">
+        {projects.map((project, index) => (
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <span className="flex items-center gap-1">
+                      <Tag className="w-4 h-4" />
+                      {project.category}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Users className="w-4 h-4" />
+                      {project.team} members
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      Due {project.dueDate}
+                    </span>
+                  </div>
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs text-white ${getStatusColor(project.status)}`}>
+                  {project.status}
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>Progress</span>
+                    <span>{project.progress}%</span>
+                  </div>
+                  <div className="h-2 bg-gray-100 rounded-full">
+                    <div 
+                      className="h-full bg-blue-500 rounded-full"
+                      style={{ width: `${project.progress}%` }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-gray-600">
+                    {project.tasks.completed}/{project.tasks.total} tasks completed
+                  </span>
+                  <button className="text-blue-500 hover:underline">
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Recent Activity - Simple List */}
+      <Card className="mt-8">
+        <CardHeader>
+          <CardTitle>Recent Activity</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {[
+              { user: "Sarah", action: "completed task", item: "Homepage Design", time: "2h ago" },
+              { user: "Mike", action: "created task", item: "API Integration", time: "3h ago" },
+              { user: "Anna", action: "updated", item: "Mobile App", time: "5h ago" }
+            ].map((activity, index) => (
+              <div key={index} className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+                  {activity.user.charAt(0)}
+                </div>
+                <div>
+                  <p>
+                    <span className="font-medium">{activity.user}</span>
+                    {" "}{activity.action}{" "}
+                    <span className="text-blue-500">{activity.item}</span>
+                  </p>
+                  <p className="text-gray-500">{activity.time}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
