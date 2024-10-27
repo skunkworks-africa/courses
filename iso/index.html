@@ -1,163 +1,467 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ClipboardCheck, Users, Clock, Award, BookOpen, Shield, FileCheck, Settings, Database, Building } from 'lucide-react';
-
-const CourseOffice = () => {
-  const categories = [
-    {
-      title: "Quality Management",
-      description: "ISO 9001 certification and implementation courses",
-      icon: <Award className="w-6 h-6" />,
-      courses: [
-        {
-          name: "ISO 9001:2015 Foundation",
-          duration: "16 hours",
-          students: 2456,
-          certified: true
-        },
-        {
-          name: "QMS Lead Auditor",
-          duration: "40 hours",
-          students: 1823,
-          certified: true
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO Certification Training</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
         }
-      ]
-    },
-    {
-      title: "Information Security",
-      description: "ISO 27001 information security management",
-      icon: <Shield className="w-6 h-6" />,
-      courses: [
-        {
-          name: "ISO 27001 Implementation",
-          duration: "24 hours",
-          students: 1654,
-          certified: true
-        },
-        {
-          name: "ISMS Lead Auditor",
-          duration: "40 hours",
-          students: 982,
-          certified: true
+        .course-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
-      ]
-    },
-    {
-      title: "Environmental Management",
-      description: "ISO 14001 environmental standards",
-      icon: <Building className="w-6 h-6" />,
-      courses: [
-        {
-          name: "ISO 14001 Essentials",
-          duration: "16 hours",
-          students: 1245,
-          certified: true
-        },
-        {
-          name: "EMS Internal Auditor",
-          duration: "24 hours",
-          students: 876,
-          certified: true
+        .course-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: #0369a1;
         }
-      ]
-    }
-  ];
-
-  return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="mb-8">
-        <div className="flex items-center space-x-3 mb-2">
-          <ClipboardCheck className="w-8 h-8 text-blue-600" />
-          <h1 className="text-3xl font-bold">ISO Standards Training Center</h1>
-        </div>
-        <p className="text-gray-600">Accredited courses for ISO standards implementation and auditing</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-blue-50">
-          <CardContent className="flex items-center space-x-4 p-6">
-            <FileCheck className="w-8 h-8 text-blue-600" />
-            <div>
-              <h3 className="font-semibold">Accredited Training</h3>
-              <p className="text-sm text-gray-600">Official ISO certification courses</p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="bg-blue-50">
-          <CardContent className="flex items-center space-x-4 p-6">
-            <Settings className="w-8 h-8 text-blue-600" />
-            <div>
-              <h3 className="font-semibold">Practical Implementation</h3>
-              <p className="text-sm text-gray-600">Hands-on learning approach</p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="bg-blue-50">
-          <CardContent className="flex items-center space-x-4 p-6">
-            <Database className="w-8 h-8 text-blue-600" />
-            <div>
-              <h3 className="font-semibold">Complete Resources</h3>
-              <p className="text-sm text-gray-600">Templates and tools included</p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {categories.map((category, index) => (
-        <Card key={index} className="mb-6">
-          <CardHeader>
-            <div className="flex items-center space-x-3 mb-2">
-              {category.icon}
-              <CardTitle>{category.title}</CardTitle>
-            </div>
-            <p className="text-gray-600">{category.description}</p>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {category.courses.map((course, courseIndex) => (
-                <div key={courseIndex} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold mb-2">{course.name}</h3>
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                    <div className="flex items-center space-x-2">
-                      <Clock className="w-4 h-4" />
-                      <span>{course.duration}</span>
+        .standard-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .cert-type-lead { background: #dbeafe; color: #1e40af; }
+        .cert-type-internal { background: #dcfce7; color: #166534; }
+        .cert-type-foundation { background: #fef3c7; color: #92400e; }
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: #0369a1;
+            box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.1);
+        }
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            display: inline-block;
+            margin: 2px;
+        }
+        .iso-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            color: #0369a1;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .certification-path {
+            background: linear-gradient(to right, #0369a1, #0891b2);
+            border-radius: 12px;
+            padding: 2px;
+            transition: transform 0.3s ease;
+        }
+        .certification-path:hover {
+            transform: translateY(-2px);
+        }
+        .certification-path-inner {
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+        }
+        .filter-button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .filter-button.active {
+            background-color: #0369a1;
+            color: white;
+        }
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 50;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #0369a1;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <nav class="flex justify-between items-center">
+                <div class="flex items-center gap-8">
+                    <span class="text-xl font-bold text-gray-900">ISO Training</span>
+                    <div class="hidden sm:flex gap-4">
+                        <a href="#" class="text-gray-600 hover:text-gray-900">Courses</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900">Standards</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900">Certification</a>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Users className="w-4 h-4" />
-                      <span>{course.students} enrolled</span>
-                    </div>
-                    {course.certified && (
-                      <div className="flex items-center space-x-2">
-                        <Award className="w-4 h-4 text-green-600" />
-                        <span className="text-green-600">Certified</span>
-                      </div>
-                    )}
-                  </div>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-
-      <Card className="bg-gradient-to-r from-blue-50 to-blue-100">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center space-x-4">
-              <BookOpen className="w-8 h-8 text-blue-600" />
-              <div>
-                <h3 className="text-xl font-semibold">Begin Your ISO Certification Journey</h3>
-                <p className="text-gray-600">Expert-led courses with practical implementation guidance</p>
-              </div>
-            </div>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              Explore Courses
-            </button>
-          </div>
-        </CardContent>
-      </Card>
+                <div class="flex items-center gap-4">
+                    <button class="text-gray-600 hover:text-gray-900">Sign In</button>
+                    <button class="bg-sky-700 text-white px-4 py-2 rounded-lg hover:bg-sky-800 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+            </nav>
+        </div>
     </div>
-  );
-};
 
-export default CourseOffice;
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">ISO Certification Training</h1>
+            <p class="text-xl text-gray-600">Master International Standards and Advance Your Career</p>
+        </div>
+
+        <!-- Certification Paths -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Certification Paths</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="certification-path">
+                    <div class="certification-path-inner">
+                        <div class="flex items-center gap-4">
+                            <div class="iso-icon">27001</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Information Security</h3>
+                                <p class="text-sm text-gray-600">ISO/IEC 27001 ISMS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-path">
+                    <div class="certification-path-inner">
+                        <div class="flex items-center gap-4">
+                            <div class="iso-icon">9001</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Quality Management</h3>
+                                <p class="text-sm text-gray-600">ISO 9001 QMS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification-path">
+                    <div class="certification-path-inner">
+                        <div class="flex items-center gap-4">
+                            <div class="iso-icon">14001</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Environmental Management</h3>
+                                <p class="text-sm text-gray-600">ISO 14001 EMS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Search and Filters -->
+        <section class="mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="w-full sm:w-auto">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Search courses..."
+                        class="search-input"
+                    >
+                </div>
+                <div class="flex flex-wrap gap-2" id="filterButtons">
+                    <button class="filter-button active" data-filter="all">All Courses</button>
+                    <button class="filter-button" data-filter="lead">Lead Auditor</button>
+                    <button class="filter-button" data-filter="internal">Internal Auditor</button>
+                    <button class="filter-button" data-filter="foundation">Foundation</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Grid -->
+        <section>
+            <div id="courseCount" class="text-sm text-gray-600 mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="coursesContainer">
+                <!-- Courses will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Alert Component -->
+    <div id="alert" class="alert"></div>
+
+    <script>
+        // Course Data
+        const courses = [
+            {
+                id: 1,
+                title: "ISO/IEC 27001 Lead Auditor",
+                standard: "27001",
+                certType: "lead",
+                certTypeDisplay: "Lead Auditor",
+                description: "Master information security management system auditing",
+                duration: "5 days",
+                price: "$2,995",
+                topics: [
+                    "ISMS Framework",
+                    "Audit Principles",
+                    "Risk Assessment",
+                    "Controls Implementation"
+                ],
+                skills: [
+                    "Audit Planning",
+                    "ISMS Evaluation",
+                    "Nonconformity Management",
+                    "Continuous Improvement"
+                ],
+                prerequisites: "27001 Foundation",
+                accreditation: "IAS Accredited",
+                startDate: "2024-11-15",
+                progress: 0
+            },
+            {
+                id: 2,
+                title: "ISO 9001 Internal Auditor",
+                standard: "9001",
+                certType: "internal",
+                certTypeDisplay: "Internal Auditor",
+                description: "Quality management system internal auditing",
+                duration: "3 days",
+                price: "$1,795",
+                topics: [
+                    "QMS Principles",
+                    "Internal Audit Process",
+                    "Documentation",
+                    "Process Approach"
+                ],
+                skills: [
+                    "Audit Techniques",
+                    "Report Writing",
+                    "Process Evaluation",
+                    "Finding Classification"
+                ],
+                prerequisites: "9001 Foundation",
+                accreditation: "IAS Accredited",
+                startDate: "2024-11-20",
+                progress: 0
+            },
+            {
+                id: 3,
+                title: "ISO 14001 Foundation",
+                standard: "14001",
+                certType: "foundation",
+                certTypeDisplay: "Foundation",
+                description: "Environmental management system fundamentals",
+                duration: "2 days",
+                price: "$995",
+                topics: [
+                    "EMS Basics",
+                    "Environmental Aspects",
+                    "Compliance Obligations",
+                    "Management Commitment"
+                ],
+                skills: [
+                    "EMS Understanding",
+                    "Requirements Interpretation",
+                    "Environmental Impact",
+                    "Basic Documentation"
+                ],
+                prerequisites: "None",
+                accreditation: "IAS Accredited",
+                startDate: "2024-11-25",
+                progress: 0
+            }
+        ];
+
+        // Utility Functions
+        function showAlert(message, type = 'info') {
+            const alert = document.getElementById('alert');
+            alert.textContent = message;
+            alert.style.display = 'block';
+            alert.style.backgroundColor = type === 'error' ? '#fee2e2' : '#f0fdf4';
+            alert.style.color = type === 'error' ? '#991b1b' : '#166534';
+
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Create Course Card
+        function createCourseCard(course) {
+            return `
+                <div class="course-card" data-course-id="${course.id}">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="iso-icon">
+                                ${course.standard}
+                            </div>
+                            <span class="standard-badge cert-type-${course.certType}">
+                                ${course.certTypeDisplay}
+                            </span>
+                        </div>
+
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">${course.title}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${course.description}</p>
+
+                        <div class="space-y-4">
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span>${course.duration}</span>
+                                <span>${course.price}</span>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-medium text-gray-900 mb-2">Key Topics:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${course.topics.map(topic => `
+                                        <span class="tag">${topic}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-medium text-gray-900 mb-2">Skills Gained:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${course.skills.map(skill => `
+                                        <span class="tag">${skill}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100">
+                                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                    <span>Start Date: ${formatDate(course.startDate)}</span>
+                                    <span>${course.accreditation}</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Prerequisites: ${course.prerequisites}</p>
+                            </div>
+
+                            <button class="w-full text-center bg-sky-700 text-white py-2 rounded-lg hover:bg-sky-800 transition-colors enroll-button">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filter and Display Functions
+        function filterCourses(certType = 'all') {
+            return certType === 'all' 
+                ? courses 
+                : courses.filter(course => course.certType === certType);
+        }
+
+        function updateDisplay(filteredCourses) {
+            const container = document.getElementById('coursesContainer');
+            const countDisplay = document.getElementById('courseCount');
+            
+            if (container && countDisplay) {
+                container.innerHTML = filteredCourses.map(course => createCourseCard(course)).join('');
+                countDisplay.textContent = `Showing ${filteredCourses.length} of ${courses.length} courses`;
+            }
+        }
+
+        // Search Function
+        function searchCourses(query, currentFilter = 'all') {
+            const searchTerm = query.toLowerCase();
+            let filtered = filterCourses(currentFilter);
+            
+            return filtered.filter(course => 
+                course.title.toLowerCase().includes(searchTerm) ||
+                course.description.toLowerCase().includes(searchTerm) ||
+                course.topics.some(topic => topic.toLowerCase().includes(searchTerm)) ||
+                course.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+            );
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial display
+            updateDisplay(courses);
+
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-button');
+            let currentFilter = 'all';
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Apply filter
+                    currentFilter = button.dataset.filter;
+                    const searchInput = document.getElementById('searchInput');
+                    const filtered = searchCourses(searchInput.value, currentFilter);
+                    updateDisplay(filtered);
+                });
+            });
+
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                const filtered = searchCourses(e.target.value, currentFilter);
+                updateDisplay(filtered);
+            });
+
+            // Enroll buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('enroll-button')) {
+                    const courseCard = e.target.closest('.course-card');
+                    if (courseCard) {
+                        const courseId = parseInt(courseCard.dataset.courseId);
+                        const course = courses.find(c => c.id === courseId);
+                        if (course) {
+                            showAlert(`Successfully enrolled in ${course.title}!`);
+                            
+                            // Update progress (example functionality)
+                            course.progress = 0;
+                            const progressInterval = setInterval(() => {
+                                course.progress += 25;
+                                if (course.progress >= 100) {
+                                    clearInterval(progressInterval);
+                                    showAlert('Enrollment process completed!');
+                                }
+                            }, 500);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
