@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainframe Training</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .course-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-color: #1e40af;
+        }
+        .level-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .level-fundamental { background: #dbeafe; color: #1e40af; }
+        .level-intermediate { background: #e0e7ff; color: #3730a3; }
+        .level-advanced { background: #ede9fe; color: #5b21b6; }
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: #1e40af;
+            box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
+        }
+        .topic-tag {
+            background: #f3f4f6;
+            color: #4b5563;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+        }
+        .path-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .path-card:hover {
+            border-color: #1e40af;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .cert-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3f4f6;
+            color: #1e40af;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="p-6">
+        <!-- Header -->
+        <header class="max-w-7xl mx-auto mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold">Mainframe Training & Certification</h1>
+                    <p class="text-gray-600">Master z/OS, COBOL, JCL, and Enterprise Computing</p>
+                </div>
+                <button class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
+                    Start Learning
+                </button>
+            </div>
+        </header>
+
+        <!-- Career Paths -->
+        <div class="max-w-7xl mx-auto mb-8">
+            <h2 class="text-lg font-semibold mb-4">Career Paths</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="path-card p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="cert-badge">z/OS</div>
+                        <div>
+                            <h3 class="font-semibold">z/OS System Programmer</h3>
+                            <p class="text-sm text-gray-600">System Management & Administration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-card p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="cert-badge">DEV</div>
+                        <div>
+                            <h3 class="font-semibold">Mainframe Developer</h3>
+                            <p class="text-sm text-gray-600">COBOL, JCL, & DB2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-card p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="cert-badge">SEC</div>
+                        <div>
+                            <h3 class="font-semibold">Security Administrator</h3>
+                            <p class="text-sm text-gray-600">RACF & Security Management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Search -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Search courses..." 
+                    class="search-input"
+                >
+                <div class="flex gap-2">
+                    <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">All</button>
+                    <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">z/OS</button>
+                    <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">COBOL</button>
+                    <button class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">DB2</button>
+                </div>
+            </div>
+
+            <!-- Course Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="coursesContainer">
+                <!-- Courses will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const courses = [
+            {
+                title: "z/OS Fundamentals",
+                level: "fundamental",
+                levelDisplay: "Fundamental",
+                description: "Introduction to z/OS operating system and mainframe concepts",
+                duration: "40 hours",
+                topics: ["MVS Concepts", "TSO/ISPF", "JCL Basics", "System Utilities"],
+                skills: ["z/OS Navigation", "Basic Commands", "Job Management"],
+                prerequisites: "IT Background",
+                certification: "IBM Z Fundamentals"
+            },
+            {
+                title: "Enterprise COBOL Programming",
+                level: "intermediate",
+                levelDisplay: "Intermediate",
+                description: "Modern COBOL programming for enterprise applications",
+                duration: "60 hours",
+                topics: ["COBOL Syntax", "File Handling", "Batch Processing", "Debug"],
+                skills: ["COBOL Programming", "Problem Solving", "Testing"],
+                prerequisites: "Programming Basics",
+                certification: "IBM Certified COBOL Developer"
+            },
+            {
+                title: "Advanced z/OS System Programming",
+                level: "advanced",
+                levelDisplay: "Advanced",
+                description: "Deep dive into z/OS system programming and administration",
+                duration: "80 hours",
+                topics: ["SMP/E", "System Services", "Performance", "Security"],
+                skills: ["System Management", "Problem Analysis", "Performance Tuning"],
+                prerequisites: "z/OS Fundamentals",
+                certification: "IBM Certified System Programmer"
+            },
+            {
+                title: "DB2 for z/OS Administration",
+                level: "intermediate",
+                levelDisplay: "Intermediate",
+                description: "Database administration for DB2 on z/OS",
+                duration: "50 hours",
+                topics: ["DB2 Architecture", "SQL", "Recovery", "Performance"],
+                skills: ["Database Admin", "SQL Development", "Backup/Recovery"],
+                prerequisites: "z/OS Basics",
+                certification: "IBM DB2 Administrator"
+            },
+            {
+                title: "RACF Security Management",
+                level: "advanced",
+                levelDisplay: "Advanced",
+                description: "Security administration using RACF",
+                duration: "40 hours",
+                topics: ["Access Control", "User Management", "Audit", "Compliance"],
+                skills: ["Security Admin", "Policy Management", "Auditing"],
+                prerequisites: "z/OS Experience",
+                certification: "IBM Security Admin"
+            },
+            {
+                title: "JCL & Utilities",
+                level: "fundamental",
+                levelDisplay: "Fundamental",
+                description: "Job Control Language and system utilities",
+                duration: "30 hours",
+                topics: ["JCL Syntax", "SORT", "IDCAMS", "Procedures"],
+                skills: ["Job Setup", "Data Management", "Automation"],
+                prerequisites: "None",
+                certification: "IBM Z Operations"
+            }
+        ];
+
+        function createCourseCard(course) {
+            return `
+                <div class="course-card">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <span class="level-badge level-${course.level}">
+                                ${course.levelDisplay}
+                            </span>
+                        </div>
+
+                        <h3 class="text-lg font-semibold mb-2">${course.title}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${course.description}</p>
+
+                        <div class="space-y-4">
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span>Duration: ${course.duration}</span>
+                                <span>Certification: ${course.certification}</span>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-medium mb-2">Key Topics:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${course.topics.map(topic => `
+                                        <span class="topic-tag">${topic}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-medium mb-2">Skills Gained:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${course.skills.map(skill => `
+                                        <span class="topic-tag">${skill}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100">
+                                <p class="text-sm text-gray-600">Prerequisites: ${course.prerequisites}</p>
+                            </div>
+
+                            <button class="w-full text-center bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
+                                Enroll Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('coursesContainer');
+            if (container) {
+                container.innerHTML = courses.map(createCourseCard).join('');
+            }
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filteredCourses = courses.filter(course => 
+                        course.title.toLowerCase().includes(searchTerm) ||
+                        course.description.toLowerCase().includes(searchTerm) ||
+                        course.topics.some(topic => topic.toLowerCase().includes(searchTerm)) ||
+                        course.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+                    );
+                    container.innerHTML = filteredCourses.map(createCourseCard).join('');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
