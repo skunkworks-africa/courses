@@ -1,209 +1,295 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  Shield, HardHat, Users, Clock, Award, AlertTriangle, 
-  Heart, FileCheck, Headphones, BookOpen, HardDrive, 
-  Building
+  ShieldCheck, AlertTriangle, HardHat, Clock,
+  Calendar, Users, CheckCircle2, XCircle,
+  BarChart2, ArrowUp, ArrowDown, FileCheck,
+  AlertCircle, BookOpen, ClipboardCheck, Timer,
+  Search, Filter, BadgeAlert, Activity
 } from 'lucide-react';
 
-const CourseOffice = () => {
-  const courseCategories = [
+const OccupationalSafety = () => {
+  const [selectedPeriod, setSelectedPeriod] = useState('month');
+  
+  const safetyMetrics = {
+    incidentRate: 1.2,
+    trend: "down",
+    complianceRate: 98.5,
+    trainingCompletion: 94,
+    activeAlerts: 3,
+    daysWithoutIncident: 45,
+    pendingInspections: 2,
+    certifiedEmployees: 156
+  };
+
+  const recentIncidents = [
     {
-      title: "Workplace Safety",
-      icon: <HardHat className="w-6 h-6 text-orange-600" />,
-      courses: [
-        {
-          name: "OSHA Safety Fundamentals",
-          duration: "30 hours",
-          certification: "OSHA 30",
-          students: 3245,
-          compliance: "OSHA Certified",
-          topics: ["Hazard Recognition", "Fall Protection", "PPE", "Safety Culture"]
-        },
-        {
-          name: "Construction Safety",
-          duration: "20 hours",
-          certification: "OSHA 20",
-          students: 2876,
-          compliance: "OSHA Certified",
-          topics: ["Equipment Safety", "Site Management", "Risk Assessment"]
-        }
-      ]
+      type: "Near Miss",
+      location: "Manufacturing Floor B",
+      date: "Oct 25, 2024",
+      severity: "Low",
+      status: "Resolved",
+      assignedTo: "Sarah Chen"
     },
     {
-      title: "Industrial Hygiene",
-      icon: <Shield className="w-6 h-6 text-orange-600" />,
-      courses: [
-        {
-          name: "Chemical Safety Management",
-          duration: "15 hours",
-          certification: "HAZMAT",
-          students: 1543,
-          compliance: "EPA Compliant",
-          topics: ["Chemical Handling", "Storage", "Emergency Response"]
-        },
-        {
-          name: "Environmental Monitoring",
-          duration: "12 hours",
-          certification: "EHS",
-          students: 982,
-          compliance: "EPA Compliant",
-          topics: ["Air Quality", "Noise Levels", "Exposure Limits"]
-        }
-      ]
+      type: "Equipment Malfunction",
+      location: "Assembly Line 3",
+      date: "Oct 23, 2024",
+      severity: "Medium",
+      status: "In Progress",
+      assignedTo: "Mike Wilson"
     },
+    {
+      type: "Slip and Fall",
+      location: "Warehouse A",
+      date: "Oct 20, 2024",
+      severity: "Medium",
+      status: "Under Review",
+      assignedTo: "James Miller"
+    }
+  ];
+
+  const upcomingTraining = [
     {
       title: "Emergency Response",
-      icon: <AlertTriangle className="w-6 h-6 text-orange-600" />,
-      courses: [
-        {
-          name: "First Aid & CPR",
-          duration: "8 hours",
-          certification: "First Aid",
-          students: 4532,
-          compliance: "Red Cross Certified",
-          topics: ["Basic Life Support", "Emergency Care", "AED Use"]
-        },
-        {
-          name: "Emergency Planning",
-          duration: "10 hours",
-          certification: "EP",
-          students: 1234,
-          compliance: "FEMA Aligned",
-          topics: ["Evacuation", "Communication", "Crisis Management"]
-        }
-      ]
+      date: "Nov 5, 2024",
+      participants: 25,
+      duration: "2 hours",
+      mandatory: true
+    },
+    {
+      title: "Chemical Safety",
+      date: "Nov 8, 2024",
+      participants: 18,
+      duration: "3 hours",
+      mandatory: true
+    },
+    {
+      title: "Ergonomics Workshop",
+      date: "Nov 12, 2024",
+      participants: 30,
+      duration: "1.5 hours",
+      mandatory: false
     }
   ];
 
-  const certificationBenefits = [
-    {
-      icon: <Award className="w-5 h-5" />,
-      title: "Recognized Certification",
-      description: "Industry-standard credentials"
-    },
-    {
-      icon: <FileCheck className="w-5 h-5" />,
-      title: "Compliance Guarantee",
-      description: "Meet regulatory requirements"
-    },
-    {
-      icon: <HardDrive className="w-5 h-5" />,
-      title: "Digital Records",
-      description: "Track training history"
-    },
-    {
-      icon: <Headphones className="w-5 h-5" />,
-      title: "24/7 Support",
-      description: "Expert guidance available"
-    }
-  ];
+  const getSeverityColor = (severity) => {
+    const colors = {
+      'Low': 'bg-emerald-500',
+      'Medium': 'bg-amber-500',
+      'High': 'bg-rose-500'
+    };
+    return colors[severity] || 'bg-gray-500';
+  };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="mb-8">
-        <div className="flex items-center space-x-3 mb-2">
-          <Building className="w-10 h-10 text-orange-600" />
-          <h1 className="text-3xl font-bold">Occupational Safety & Health Training</h1>
+    <div className="bg-gray-50 min-h-screen text-gray-900 p-6">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">Occupational Safety Dashboard</h1>
+            <p className="text-gray-600">Monitor workplace safety metrics and compliance</p>
+          </div>
+          <button className="flex items-center gap-2 px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition-colors">
+            <AlertTriangle className="w-5 h-5" />
+            Report Incident
+          </button>
         </div>
-        <p className="text-gray-600">Comprehensive workplace safety and health certification programs</p>
-      </div>
 
-      {/* Certification Benefits */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {certificationBenefits.map((benefit, index) => (
-          <Card key={index} className="bg-orange-50">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="text-orange-600">
-                  {benefit.icon}
+        {/* Key Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start">
+                <div className="text-emerald-600">
+                  <ShieldCheck className="w-6 h-6" />
                 </div>
-                <div>
-                  <p className="font-semibold">{benefit.title}</p>
-                  <p className="text-sm text-gray-600">{benefit.description}</p>
-                </div>
+                <span className={`flex items-center text-sm ${
+                  safetyMetrics.trend === 'down' ? 'text-emerald-600' : 'text-rose-600'
+                }`}>
+                  -0.3
+                  <ArrowDown className="w-4 h-4 ml-1" />
+                </span>
+              </div>
+              <div className="mt-4">
+                <h2 className="text-2xl font-bold text-gray-900">{safetyMetrics.incidentRate}</h2>
+                <p className="text-gray-600 text-sm">Incident Rate (IR)</p>
               </div>
             </CardContent>
           </Card>
-        ))}
-      </div>
 
-      {/* Course Categories */}
-      {courseCategories.map((category, index) => (
-        <div key={index} className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            {category.icon}
-            <h2 className="text-2xl font-semibold">{category.title}</h2>
-          </div>
+          <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start">
+                <div className="text-violet-600">
+                  <FileCheck className="w-6 h-6" />
+                </div>
+                <span className="text-emerald-600 text-sm">
+                  {safetyMetrics.complianceRate}%
+                </span>
+              </div>
+              <div className="mt-4">
+                <h2 className="text-2xl font-bold text-gray-900">{safetyMetrics.daysWithoutIncident}</h2>
+                <p className="text-gray-600 text-sm">Days Without Incident</p>
+              </div>
+            </CardContent>
+          </Card>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {category.courses.map((course, courseIndex) => (
-              <Card key={courseIndex} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-lg">{course.name}</CardTitle>
-                    <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">
-                      {course.compliance}
+          <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start">
+                <div className="text-amber-600">
+                  <HardHat className="w-6 h-6" />
+                </div>
+                <span className="text-violet-600 text-sm">
+                  {safetyMetrics.trainingCompletion}%
+                </span>
+              </div>
+              <div className="mt-4">
+                <h2 className="text-2xl font-bold text-gray-900">{safetyMetrics.certifiedEmployees}</h2>
+                <p className="text-gray-600 text-sm">Certified Employees</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start">
+                <div className="text-rose-600">
+                  <AlertCircle className="w-6 h-6" />
+                </div>
+                <span className="text-amber-600 text-sm">
+                  {safetyMetrics.activeAlerts} Active
+                </span>
+              </div>
+              <div className="mt-4">
+                <h2 className="text-2xl font-bold text-gray-900">{safetyMetrics.pendingInspections}</h2>
+                <p className="text-gray-600 text-sm">Pending Inspections</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Recent Incidents and Training Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <Card className="bg-white border-none shadow-sm">
+            <CardHeader>
+              <CardTitle className="text-gray-900">Recent Incidents</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {recentIncidents.map((incident, index) => (
+                  <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div className={`w-2 h-2 rounded-full ${getSeverityColor(incident.severity)}`} />
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h3 className="font-medium text-gray-900">{incident.type}</h3>
+                        <span className={`px-2 py-1 rounded-full text-xs ${
+                          incident.status === 'Resolved' ? 'bg-emerald-100 text-emerald-800' :
+                          incident.status === 'In Progress' ? 'bg-amber-100 text-amber-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {incident.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {incident.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          {incident.assignedTo}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white border-none shadow-sm">
+            <CardHeader>
+              <CardTitle className="text-gray-900">Upcoming Training Sessions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {upcomingTraining.map((training, index) => (
+                  <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div className="w-10 h-10 rounded-lg bg-violet-100 text-violet-600 flex items-center justify-center">
+                      <BookOpen className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h3 className="font-medium text-gray-900">{training.title}</h3>
+                        {training.mandatory && (
+                          <span className="px-2 py-1 rounded-full text-xs bg-rose-100 text-rose-800">
+                            Mandatory
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {training.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          {training.participants} participants
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {training.duration}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Compliance Checklist */}
+        <Card className="bg-white border-none shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-gray-900">Safety Compliance Checklist</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { title: "Emergency Exits Clear", status: "Compliant", lastCheck: "Today" },
+                { title: "First Aid Supplies", status: "Attention Needed", lastCheck: "2 days ago" },
+                { title: "Fire Extinguishers", status: "Compliant", lastCheck: "Yesterday" },
+                { title: "PPE Inventory", status: "Compliant", lastCheck: "Today" },
+                { title: "Hazard Signage", status: "Under Review", lastCheck: "3 days ago" },
+                { title: "Equipment Inspection", status: "Compliant", lastCheck: "Today" }
+              ].map((item, index) => (
+                <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-medium text-gray-900">{item.title}</h3>
+                    <span className={`flex items-center gap-1 text-sm ${
+                      item.status === 'Compliant' ? 'text-emerald-600' :
+                      item.status === 'Attention Needed' ? 'text-rose-600' :
+                      'text-amber-600'
+                    }`}>
+                      {item.status === 'Compliant' ? <CheckCircle2 className="w-4 h-4" /> :
+                       item.status === 'Attention Needed' ? <AlertCircle className="w-4 h-4" /> :
+                       <AlertTriangle className="w-4 h-4" />}
+                      {item.status}
                     </span>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-gray-600">
-                      <div className="flex items-center space-x-2">
-                        <Clock className="w-4 h-4" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Users className="w-4 h-4" />
-                        <span>{course.students} certified</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Award className="w-4 h-4" />
-                        <span>{course.certification}</span>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <p className="text-sm font-semibold mb-2">Course Coverage:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {course.topics.map((topic, topicIndex) => (
-                          <span 
-                            key={topicIndex}
-                            className="px-2 py-1 bg-orange-50 rounded-full text-sm"
-                          >
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      ))}
-
-      {/* CTA Section */}
-      <Card className="mt-8 bg-gradient-to-r from-orange-50 to-orange-100">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center space-x-4">
-              <Shield className="w-8 h-8 text-orange-600" />
-              <div>
-                <h3 className="text-xl font-semibold">Ensure Workplace Safety</h3>
-                <p className="text-gray-600">Get certified with industry-recognized safety programs</p>
-              </div>
+                  <p className="text-sm text-gray-600">Last checked: {item.lastCheck}</p>
+                </div>
+              ))}
             </div>
-            <button className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
-              Start Training
-            </button>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
 
-export default CourseOffice;
+export default OccupationalSafety;
