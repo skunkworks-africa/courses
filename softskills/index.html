@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  MessageCircle, Brain, Target, Users, Clock, 
-  Award, Heart, Puzzle, Lightbulb, BookOpen,
-  Search, Filter, Star, Calendar
+  MessageCircle, Brain, Target, Users, Award,
+  Heart, Puzzle, BookOpen
 } from 'lucide-react';
 
 const CourseOffice = () => {
-  const [selectedLevel, setSelectedLevel] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   
   const courses = [
@@ -16,267 +14,98 @@ const CourseOffice = () => {
       level: "Fundamental",
       description: "Master interpersonal communication skills",
       icon: <MessageCircle className="w-6 h-6" />,
-      progress: 100,
       skills: ["Public Speaking", "Active Listening", "Body Language"],
-      students: 2453,
-      rating: 4.8,
-      duration: "8 weeks",
-      nextStart: "Nov 15"
+      students: 2453
     },
     {
       title: "Emotional Intelligence",
       level: "Specialized",
-      description: "Develop advanced emotional awareness and management",
+      description: "Develop advanced emotional awareness",
       icon: <Heart className="w-6 h-6" />,
-      progress: 85,
-      skills: ["Self-Awareness", "Empathy", "Relationship Management"],
-      students: 1876,
-      rating: 4.9,
-      duration: "10 weeks",
-      nextStart: "Nov 1"
+      skills: ["Self-Awareness", "Empathy", "Relationship"],
+      students: 1876
     },
     {
       title: "Critical Thinking",
       level: "Advanced",
-      description: "Enhanced problem-solving and analytical skills",
+      description: "Enhanced problem-solving skills",
       icon: <Brain className="w-6 h-6" />,
-      progress: 90,
       skills: ["Analysis", "Decision Making", "Logic"],
-      students: 1543,
-      rating: 4.7,
-      duration: "12 weeks",
-      nextStart: "Nov 8"
+      students: 1543
     },
     {
       title: "Leadership Skills",
       level: "Business",
-      description: "Lead teams effectively and inspire growth",
+      description: "Lead teams effectively",
       icon: <Target className="w-6 h-6" />,
-      progress: 80,
-      skills: ["Team Management", "Motivation", "Strategy"],
-      students: 3211,
-      rating: 4.9,
-      duration: "10 weeks",
-      nextStart: "Nov 22"
-    },
-    {
-      title: "Problem Solving",
-      level: "Advanced",
-      description: "Systematic approaches to complex challenges",
-      icon: <Puzzle className="w-6 h-6" />,
-      progress: 95,
-      skills: ["Creative Solutions", "Analysis", "Implementation"],
-      students: 2765,
-      rating: 4.8,
-      duration: "8 weeks",
-      nextStart: "Nov 29"
-    },
-    {
-      title: "Professional Growth",
-      level: "Practical",
-      description: "Career development and personal branding",
-      icon: <BookOpen className="w-6 h-6" />,
-      progress: 88,
-      skills: ["Personal Branding", "Networking", "Career Planning"],
-      students: 1987,
-      rating: 4.6,
-      duration: "6 weeks",
-      nextStart: "Nov 5"
+      skills: ["Team Management", "Strategy"],
+      students: 3211
     }
   ];
 
-  const levels = ['all', ...new Set(courses.map(course => course.level))];
-
-  const filteredCourses = courses.filter(course => {
-    const matchesLevel = selectedLevel === 'all' || course.level === selectedLevel;
-    const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         course.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         course.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesLevel && matchesSearch;
-  });
-
   return (
-    <div className="bg-[#0d1117] min-h-screen text-white p-6">
-      {/* Enhanced Banner */}
-      <div className="relative mb-12 rounded-lg overflow-hidden bg-gradient-to-r from-[#8957e5] to-[#58a6ff]">
-        <div className="absolute inset-0 bg-white/70 z-20" />
-        <div className="absolute inset-0 opacity-30">
-          <div 
-            className="absolute inset-0 animate-gradient"
-            style={{
-              background: `
-                radial-gradient(circle at 20% 20%, rgba(137, 87, 229, 0.5) 0%, transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(88, 166, 255, 0.5) 0%, transparent 30%)
-              `
-            }}
-          />
-        </div>
-        <div className="relative z-30 py-16 px-8 text-center">
-          <h1 className="text-5xl font-bold mb-4 text-black">
-            Soft Skills Development
-          </h1>
-          <p className="text-xl text-black/80 font-medium mb-8">
-            Master essential interpersonal and professional skills
-          </p>
-          <div className="flex justify-center gap-4">
-            <div className="bg-white/90 rounded-lg p-4 text-black text-center">
-              <div className="text-3xl font-bold mb-1">{courses.length}</div>
-              <div className="text-sm">Courses</div>
-            </div>
-            <div className="bg-white/90 rounded-lg p-4 text-black text-center">
-              <div className="text-3xl font-bold mb-1">
-                {courses.reduce((sum, course) => sum + course.students, 0).toLocaleString()}
-              </div>
-              <div className="text-sm">Students</div>
-            </div>
-            <div className="bg-white/90 rounded-lg p-4 text-black text-center">
-              <div className="text-3xl font-bold mb-1">4.8</div>
-              <div className="text-sm">Avg. Rating</div>
-            </div>
-          </div>
-        </div>
+    <div className="p-6 max-w-6xl mx-auto">
+      {/* Simple Header */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold mb-2">Soft Skills Development</h1>
+        <p className="text-gray-600">Master essential interpersonal skills</p>
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        {/* Search and Filter Bar */}
-        <div className="mb-8 flex flex-wrap gap-4 items-center">
-          <div className="flex-1 min-w-[300px] relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#8b949e] w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search courses or skills..."
-              className="w-full bg-[#21262d] border border-[#30363d] rounded-lg py-2 pl-10 pr-4 text-white placeholder-[#8b949e] focus:outline-none focus:border-[#8957e5]"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <div className="flex gap-2">
-            {levels.map(level => (
-              <button
-                key={level}
-                onClick={() => setSelectedLevel(level)}
-                className={`px-4 py-2 rounded-lg text-sm transition-colors ${
-                  selectedLevel === level
-                    ? 'bg-[#8957e5] text-white'
-                    : 'bg-[#21262d] text-[#8b949e] hover:bg-[#30363d]'
-                }`}
-              >
-                {level.charAt(0).toUpperCase() + level.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
+      {/* Search */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search courses..."
+          className="w-full p-2 border rounded"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
-        {/* Course Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map((course, index) => (
-            <Card 
-              key={index} 
-              className="group bg-[#21262d] border border-[#30363d] hover:border-[#8957e5] transition-all hover:transform hover:-translate-y-1 hover:shadow-lg"
-            >
+      {/* Course Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {courses
+          .filter(course => 
+            course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            course.description.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map((course, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <div className="text-[#8957e5] group-hover:scale-110 transition-transform">
-                    {course.icon}
-                  </div>
-                  <span className="px-3 py-1 bg-opacity-10 bg-[#8957e5] text-[#8957e5] rounded-full text-sm">
+                <div className="flex items-center justify-between mb-2">
+                  {course.icon}
+                  <span className="text-sm bg-gray-100 px-2 py-1 rounded">
                     {course.level}
                   </span>
                 </div>
-                <CardTitle className="text-white mb-2">{course.title}</CardTitle>
-                <p className="text-[#8b949e]">{course.description}</p>
+                <CardTitle>{course.title}</CardTitle>
+                <p className="text-gray-600">{course.description}</p>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4 text-sm text-[#8b949e]">
-                    <div className="flex items-center space-x-2">
-                      <Users className="w-4 h-4" />
-                      <span>{course.students.toLocaleString()}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Star className="w-4 h-4 text-yellow-500" />
-                      <span>{course.rating}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Clock className="w-4 h-4" />
-                      <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4" />
-                      <span>{course.nextStart}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="h-1 bg-[#30363d] rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-[#8957e5] to-[#58a6ff] group-hover:animate-pulse"
-                        style={{ width: `${course.progress}%` }}
-                      />
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {course.skills.map((skill, skillIndex) => (
-                        <span 
-                          key={skillIndex}
-                          className="px-2 py-1 bg-[#30363d] rounded-full text-sm text-[#8b949e] group-hover:bg-[#8957e5] group-hover:text-white transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <button className="w-full py-2 mt-4 bg-[#30363d] text-white rounded-lg hover:bg-[#8957e5] transition-colors">
-                    Enroll Now
-                  </button>
+                <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+                  <span className="flex items-center gap-1">
+                    <Users className="w-4 h-4" />
+                    {course.students} students
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Award className="w-4 h-4" />
+                    Certificate
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {course.skills.map((skill, i) => (
+                    <span 
+                      key={i}
+                      className="text-sm bg-gray-100 px-2 py-1 rounded"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Enhanced CTA Card */}
-        <Card className="mt-12 bg-[#21262d] border border-[#30363d] overflow-hidden">
-          <CardContent className="p-8 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8957e5]/10 to-[#58a6ff]/10" />
-            <div className="relative flex items-center justify-between flex-wrap gap-6">
-              <div className="flex items-center space-x-6">
-                <div className="p-4 bg-[#8957e5]/20 rounded-full">
-                  <Lightbulb className="w-8 h-8 text-[#8957e5]" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold text-white mb-2">Ready to Transform Your Career?</h3>
-                  <p className="text-[#8b949e] max-w-xl">
-                    Join our community of {courses.reduce((sum, course) => sum + course.students, 0).toLocaleString()}+ professionals 
-                    enhancing their careers through practical skill development
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <button className="px-6 py-3 bg-[#30363d] text-white rounded-lg hover:bg-[#404958] transition-colors">
-                  Browse Courses
-                </button>
-                <button className="px-6 py-3 bg-gradient-to-r from-[#8957e5] to-[#58a6ff] text-white rounded-lg hover:opacity-90 transition-opacity">
-                  Start Learning
-                </button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
-
-      <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 15s ease infinite;
-        }
-      `}</style>
     </div>
   );
 };
