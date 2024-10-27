@@ -1,183 +1,371 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
-  Users, Calendar, Clock, CheckCircle2,
-  AlertCircle, Plus, Tag, MessageCircle
+  Users, Calendar, Clock, CheckCircle2, AlertCircle, 
+  Plus, Tag, MessageCircle, Flag, BarChart2, 
+  GitBranch, Star, Settings, Filter
 } from 'lucide-react';
 
-const ProjectManagement = () => {
-  const projects = [
+// Separate data file in practice - projectData.js
+const projectData = {
+  overview: {
+    totalProjects: 24,
+    activeProjects: 18,
+    completedProjects: 6,
+    totalTasks: 486,
+    completedTasks: 312,
+    teamMembers: 45,
+    activeIssues: 28,
+    upcomingDeadlines: 8
+  },
+  projects: [
     {
-      title: "Website Redesign",
+      id: "PRJ-001",
+      title: "E-Commerce Platform Redesign",
+      description: "Complete overhaul of the main e-commerce platform with focus on mobile responsiveness and user experience",
       status: "In Progress",
       priority: "High",
       progress: 65,
-      team: 8,
-      tasks: { completed: 24, total: 36 },
-      dueDate: "Nov 15",
-      category: "Design"
+      team: {
+        size: 8,
+        leads: ["Sarah Chen", "Mike Ross"],
+        departments: ["Design", "Frontend", "Backend"]
+      },
+      tasks: {
+        completed: 24,
+        total: 36,
+        categories: {
+          design: 12,
+          development: 18,
+          testing: 6
+        }
+      },
+      timeline: {
+        startDate: "2024-01-15",
+        dueDate: "2024-11-15",
+        milestones: [
+          { title: "Design System", date: "2024-03-01", completed: true },
+          { title: "Frontend MVP", date: "2024-06-15", completed: false },
+          { title: "Backend Integration", date: "2024-09-01", completed: false }
+        ]
+      },
+      metrics: {
+        commitCount: 286,
+        issuesResolved: 45,
+        pullRequests: 68,
+        codeReviews: 92
+      },
+      category: "Design & Development",
+      tags: ["e-commerce", "mobile-first", "high-priority"],
+      repository: {
+        name: "ecommerce-platform",
+        branch: "main",
+        lastCommit: "2 hours ago"
+      }
     },
     {
+      id: "PRJ-002",
       title: "Mobile App Development",
+      description: "Native mobile application development for iOS and Android platforms with cross-platform compatibility",
       status: "On Track",
       priority: "Medium",
       progress: 45,
-      team: 12,
-      tasks: { completed: 18, total: 42 },
-      dueDate: "Dec 1",
-      category: "Development"
+      team: {
+        size: 12,
+        leads: ["Alex Wong", "Jessica Park"],
+        departments: ["Mobile", "Backend", "QA"]
+      },
+      tasks: {
+        completed: 18,
+        total: 42,
+        categories: {
+          ios: 15,
+          android: 15,
+          backend: 12
+        }
+      },
+      timeline: {
+        startDate: "2024-02-01",
+        dueDate: "2024-12-01",
+        milestones: [
+          { title: "iOS Beta", date: "2024-05-15", completed: true },
+          { title: "Android Beta", date: "2024-07-01", completed: false }
+        ]
+      },
+      metrics: {
+        commitCount: 324,
+        issuesResolved: 56,
+        pullRequests: 73,
+        codeReviews: 108
+      },
+      category: "Mobile Development",
+      tags: ["ios", "android", "cross-platform"],
+      repository: {
+        name: "mobile-app",
+        branch: "development",
+        lastCommit: "5 hours ago"
+      }
+    }
+  ],
+  recentActivity: [
+    {
+      id: 1,
+      user: "Sarah Chen",
+      action: "merged pull request",
+      item: "Feature: Shopping Cart Optimization",
+      project: "E-Commerce Platform",
+      time: "2h ago",
+      details: {
+        type: "pull-request",
+        number: "#123",
+        changes: "+2,456 -789",
+        reviewers: 3
+      }
     },
     {
-      title: "Marketing Campaign",
-      status: "At Risk",
-      priority: "High",
-      progress: 30,
-      team: 6,
-      tasks: { completed: 12, total: 28 },
-      dueDate: "Nov 25",
-      category: "Marketing"
+      id: 2,
+      user: "Alex Wong",
+      action: "deployed",
+      item: "iOS Beta v0.8.5",
+      project: "Mobile App",
+      time: "3h ago",
+      details: {
+        type: "deployment",
+        environment: "TestFlight",
+        version: "0.8.5",
+        status: "successful"
+      }
     }
-  ];
+  ]
+};
 
-  const getStatusColor = (status) => {
-    const colors = {
-      'On Track': 'bg-green-500',
-      'In Progress': 'bg-blue-500',
-      'At Risk': 'bg-red-500'
-    };
-    return colors[status] || 'bg-gray-500';
-  };
+const ProjectManagement = () => {
+  const [selectedView, setSelectedView] = useState('board');
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter projects based on status and search query
+  const filteredProjects = projectData.projects.filter(project => {
+    const matchesStatus = filterStatus === 'all' || project.status.toLowerCase() === filterStatus;
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesStatus && matchesSearch;
+  });
+
+  const ProjectMetrics = ({ metrics }) => (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div className="flex items-center gap-2">
+        <GitBranch className="w-4 h-4 text-gray-500" />
+        <span>{metrics.commitCount} commits</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <AlertCircle className="w-4 h-4 text-gray-500" />
+        <span>{metrics.issuesResolved} issues</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <CheckCircle2 className="w-4 h-4 text-gray-500" />
+        <span>{metrics.pullRequests} PRs</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Star className="w-4 h-4 text-gray-500" />
+        <span>{metrics.codeReviews} reviews</span>
+      </div>
+    </div>
+  );
+
+  const ProjectCard = ({ project }) => (
+    <Card className="hover:shadow-lg transition-shadow">
+      <CardContent className="p-6">
+        <div className="flex justify-between items-start mb-4">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                {project.id}
+              </span>
+              <span className={`px-2 py-1 rounded text-xs ${
+                project.status === 'In Progress' ? 'bg-yellow-100 text-yellow-800' :
+                project.status === 'On Track' ? 'bg-green-100 text-green-800' :
+                'bg-red-100 text-red-800'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+            <h3 className="text-lg font-semibold">{project.title}</h3>
+            <p className="text-gray-600 text-sm">{project.description}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Flag className={`w-4 h-4 ${
+              project.priority === 'High' ? 'text-red-500' : 'text-yellow-500'
+            }`} />
+            <Settings className="w-4 h-4 text-gray-400 hover:text-gray-600 cursor-pointer" />
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag, index) => (
+              <span key={index} className="text-xs bg-gray-100 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1">
+                <Users className="w-4 h-4" />
+                {project.team.size}
+              </span>
+              <span className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                {project.timeline.dueDate}
+              </span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CheckCircle2 className="w-4 h-4" />
+              {project.tasks.completed}/{project.tasks.total}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between text-sm text-gray-600 mb-1">
+              <span>Progress</span>
+              <span>{project.progress}%</span>
+            </div>
+            <div className="h-2 bg-gray-100 rounded-full">
+              <div 
+                className="h-full bg-blue-500 rounded-full transition-all duration-300"
+                style={{ width: `${project.progress}%` }}
+              />
+            </div>
+          </div>
+
+          <ProjectMetrics metrics={project.metrics} />
+
+          <div className="flex justify-between items-center pt-2 border-t">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <GitBranch className="w-4 h-4" />
+              <span>{project.repository.branch}</span>
+              <span className="text-gray-400">•</span>
+              <span>{project.repository.lastCommit}</span>
+            </div>
+            <button className="text-blue-500 hover:text-blue-600 text-sm font-medium">
+              View Details →
+            </button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      {/* Simple Header */}
-      <div className="flex justify-between items-center mb-8">
+    <div className="p-6 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-8">
         <div>
-          <h1 className="text-2xl font-bold">Projects</h1>
-          <p className="text-gray-600">Track your project progress</p>
+          <h1 className="text-2xl font-bold mb-2">Project Dashboard</h1>
+          <p className="text-gray-600">
+            Managing {projectData.overview.activeProjects} active projects across {projectData.overview.teamMembers} team members
+          </p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded">
+        <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
           <Plus className="w-4 h-4" />
           New Project
         </button>
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-gray-600 text-sm">Total Projects</p>
-                <h2 className="text-2xl font-bold">12</h2>
-              </div>
-              <span className="text-green-500 text-sm">+2 this month</span>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-gray-600 text-sm">Completed Tasks</p>
-                <h2 className="text-2xl font-bold">286</h2>
-              </div>
-              <span className="text-green-500 text-sm">92% done</span>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <p className="text-gray-600 text-sm">Active Team Members</p>
-                <h2 className="text-2xl font-bold">32</h2>
-              </div>
-              <span className="text-blue-500 text-sm">8 teams</span>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Projects List */}
-      <div className="space-y-4">
-        {projects.map((project, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-                  <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <Tag className="w-4 h-4" />
-                      {project.category}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      {project.team} members
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      Due {project.dueDate}
-                    </span>
-                  </div>
-                </div>
-                <span className={`px-3 py-1 rounded-full text-xs text-white ${getStatusColor(project.status)}`}>
-                  {project.status}
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between text-sm text-gray-600 mb-1">
-                    <span>Progress</span>
-                    <span>{project.progress}%</span>
-                  </div>
-                  <div className="h-2 bg-gray-100 rounded-full">
-                    <div 
-                      className="h-full bg-blue-500 rounded-full"
-                      style={{ width: `${project.progress}%` }}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-600">
-                    {project.tasks.completed}/{project.tasks.total} tasks completed
-                  </span>
-                  <button className="text-blue-500 hover:underline">
-                    View Details
-                  </button>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        {[
+          { label: "Active Projects", value: projectData.overview.activeProjects, trend: "+2" },
+          { label: "Completed Tasks", value: projectData.overview.completedTasks, trend: "92%" },
+          { label: "Active Issues", value: projectData.overview.activeIssues, trend: "-5" },
+          { label: "Upcoming Deadlines", value: projectData.overview.upcomingDeadlines, trend: "Next week" }
+        ].map((stat, index) => (
+          <Card key={index}>
+            <CardContent className="p-4">
+              <p className="text-gray-600 text-sm">{stat.label}</p>
+              <div className="flex justify-between items-end mt-1">
+                <span className="text-2xl font-bold">{stat.value}</span>
+                <span className="text-sm text-gray-500">{stat.trend}</span>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      {/* Recent Activity - Simple List */}
-      <Card className="mt-8">
+      {/* Filters */}
+      <div className="flex flex-wrap gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search projects..."
+          className="flex-1 min-w-[200px] px-4 py-2 border rounded-lg"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <div className="flex gap-2">
+          {['all', 'in progress', 'on track', 'at risk'].map(status => (
+            <button
+              key={status}
+              onClick={() => setFilterStatus(status)}
+              className={`px-3 py-1 rounded ${
+                filterStatus === status
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              {status.charAt(0).toUpperCase() + status.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+
+      {/* Activity Feed */}
+      <Card>
         <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
+          <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {[
-              { user: "Sarah", action: "completed task", item: "Homepage Design", time: "2h ago" },
-              { user: "Mike", action: "created task", item: "API Integration", time: "3h ago" },
-              { user: "Anna", action: "updated", item: "Mobile App", time: "5h ago" }
-            ].map((activity, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+            {projectData.recentActivity.map((activity) => (
+              <div key={activity.id} className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                   {activity.user.charAt(0)}
                 </div>
-                <div>
-                  <p>
+                <div className="flex-1">
+                  <p className="text-sm">
                     <span className="font-medium">{activity.user}</span>
                     {" "}{activity.action}{" "}
-                    <span className="text-blue-500">{activity.item}</span>
+                    <span className="text-blue-600">{activity.item}</span>
+                    {" in "}<span className="text-gray-600">{activity.project}</span>
                   </p>
-                  <p className="text-gray-500">{activity.time}</p>
+                  <div className="flex items-center gap-2 mt-1 text-xs text-gray-500">
+                    <span>{activity.time}</span>
+                    {activity.details.type === 'pull-request' && (
+                      <>
+                        <span>•</span>
+                        <span>{activity.details.number}</span>
+                        <span>•</span>
+                        <span>{activity.details.changes}</span>
+                      </>
+                    )}
+                    {activity.details.type === 'deployment' && (
+                      <>
+                        <span>•</span>
+                        <span>{activity.details.environment}</span>
+                        <span>•</span>
+                        <span>v{activity.details.version}</span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
