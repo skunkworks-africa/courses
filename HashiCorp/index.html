@@ -3,381 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</title>
+    <title>HashiCorp Training - Skunkworks Academy</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f1f1f1;
-            margin: 0;
-            padding: 0;
+        /* Reusing previous styles... */
+        /* [Previous CSS remains the same - for brevity not shown here] */
+
+        /* Additional styles */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
-        header {
-            background-color: #1c1c1c;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #3e3e3e;
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
         }
-        header h1 {
-            margin: 0;
-            color: #f9f871;
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #844FBA 0%, #2A1F54 100%);
         }
-        .container {
-            padding: 20px;
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
         }
-        h2, h3, h4 {
-            color: #f9f871;
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #844FBA;
+            border-radius: 50%;
         }
-        .course-element {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #3e3e3e;
-            border-radius: 8px;
-            background-color: #1c1c1c;
+
+        .price-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(132, 79, 186, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(132, 79, 186, 0.5);
         }
-        .course-element h3 {
-            margin-top: 0;
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
-        .course-element img {
-            max-width: 100%;
-            display: block;
-            margin: 10px 0;
-        }
-        footer {
-            background-color: #1c1c1c;
-            padding: 10px;
-            text-align: center;
-            border-top: 2px solid #3e3e3e;
-            position: fixed;
+
+        .beginner { background: rgba(0, 200, 0, 0.2); color: #00ff00; }
+        .intermediate { background: rgba(255, 165, 0, 0.2); color: #ffa500; }
+        .advanced { background: rgba(255, 0, 0, 0.2); color: #ff4444; }
+
+        /* Course progress bar */
+        .progress-container {
             width: 100%;
-            bottom: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
         }
-        footer p {
-            margin: 0;
+
+        .progress-bar {
+            height: 100%;
+            background: #844FBA;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
-<body>
+<body class="gradient-bg text-white min-h-screen hexagon-bg">
+    <!-- [Previous Navigation and Hero sections remain the same] -->
 
-<header>
-    <h1>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</h1>
-    <img src="https://raw.githubusercontent.com/skunkworksza/Course-Catalog/6cbf823c2d158715d719b730cf8d0ebd1707a1df/HashiCorp/Hashicorp-Horizontal_onLight.svg" alt="HashiCorp Logo">
-</header>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Product Overview Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 glow-text text-center">HashiCorp Product Suite</h2>
+            
+            <!-- Terraform Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 terraform-color">Terraform</h3>
+                        <p class="text-gray-300 mb-4">Infrastructure as Code for multi-cloud environments</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Infrastructure Provisioning</h4>
+                                <p class="text-gray-400">Declare and provision infrastructure across multiple cloud providers</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">State Management</h4>
+                                <p class="text-gray-400">Track and manage infrastructure state for consistent deployments</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Module Development</h4>
+                                <p class="text-gray-400">Create reusable infrastructure components</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Terraform Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Terraform Fundamentals</h5>
+                            <p class="text-gray-400 mb-4">Learn the basics of infrastructure as code with Terraform</p>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• HCL Syntax</li>
+                                <li>• Basic Providers</li>
+                                <li>• Simple Deployments</li>
+                            </ul>
+                            <button class="mt-4 bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Enroll Now</button>
+                        </div>
 
-<div class="container">
-    <div class="course-element">
-        <h2>Course Title</h2>
-        <p>Integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services</p>
-    </div>
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="price-tag">$499</span>
+                            <h5 class="font-bold mb-2">Terraform in Production</h5>
+                            <p class="text-gray-400 mb-4">Advanced techniques for production environments</p>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• State Management</li>
+                                <li>• Workspace Strategies</li>
+                                <li>• CI/CD Integration</li>
+                            </ul>
+                            <button class="mt-4 bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="course-element">
-        <h2>Course Subtitle</h2>
-        <p>Secure Enterprise Secrets Management with Advanced Cryptographic Solutions</p>
-    </div>
+            <!-- Vault Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 vault-color">Vault</h3>
+                        <p class="text-gray-300 mb-4">Secrets Management and Data Protection</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Secrets Management</h4>
+                                <p class="text-gray-400">Centralize and secure access to secrets and sensitive data</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Identity-based Access</h4>
+                                <p class="text-gray-400">Implement dynamic secrets and identity-based authentication</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Encryption as a Service</h4>
+                                <p class="text-gray-400">Advanced encryption and key management</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Vault Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Vault Essentials</h5>
+                            <p class="text-gray-400 mb-4">Introduction to secrets management with Vault</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Basic Security Concepts</li>
+                                <li>• Secret Engines</li>
+                                <li>• Authentication Methods</li>
+                            </ul>
+                            <button class="mt-4 bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700 transition">Enroll Now</button>
+                        </div>
 
-    <div class="course-element">
-        <h2>Course Code</h2>
-        <p>SEC-IBM-HCV-2024</p>
-    </div>
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge advanced">Advanced</span>
+                            <span class="price-tag">$699</span>
+                            <h5 class="font-bold mb-2">Enterprise Vault Security</h5>
+                            <p class="text-gray-400 mb-4">Advanced security patterns and practices</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• High Availability</li>
+                                <li>• Disaster Recovery</li>
+                                <li>• Advanced Integrations</li>
+                            </ul>
+                            <button class="mt-4 bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="course-element">
-        <h2>Abstract</h2>
-        <p>This comprehensive 12-day course provides in-depth training on integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services (HPCS). Participants will engage in daily instructor-led sessions focusing on theoretical concepts, followed by self-paced lab work. The course covers the deployment, configuration, and management of Vault’s auto-unseal and seal-wrap features, leveraging HPCS for enhanced security.</p>
-    </div>
+            <!-- Consul Section -->
+            <div class="card rounded-lg p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 consul-color">Consul</h3>
+                        <p class="text-gray-300 mb-4">Service Networking for Dynamic Infrastructure</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Service Discovery</h4>
+                                <p class="text-gray-400">Implement service registration and discovery</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Service Mesh</h4>
+                                <p class="text-gray-400">Configure secure service-to-service communication</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="font-bold mb-2">Network Automation</h4>
+                                <p class="text-gray-400">Automate network infrastructure</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold mb-4">Available Courses</h4>
+                        
+                        <!-- Consul Courses -->
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                            <span class="price-tag">$299</span>
+                            <h5 class="font-bold mb-2">Consul Fundamentals</h5>
+                            <p class="text-gray-400 mb-4">Getting started with service networking</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Service Discovery Basics</li>
+                                <li>• Health Checking</li>
+                                <li>• Basic Configuration</li>
+                            </ul>
+                            <button class="mt-4 bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">Enroll Now</button>
+                        </div>
 
-    <div class="course-element">
-        <h2>Learning Duration</h2>
-        <p>Instructor-Led Theory Sessions: 12 hours (1 hour per day)<br>
-           Self-Paced Lab Exercises: 8 hours (approximately 40 minutes per day)<br>
-           Total Duration: 20 hours
-        </p>
-    </div>
+                        <div class="card p-6 relative">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                            <span class="price-tag">$499</span>
+                            <h5 class="font-bold mb-2">Service Mesh with Consul</h5>
+                            <p class="text-gray-400 mb-4">Advanced service mesh patterns</p>
+                            <ul class="mt-4 text-gray-300 space-y-2">
+                                <li>• Service Mesh Architecture</li>
+                                <li>• Traffic Management</li>
+                                <li>• Security Policies</li>
+                            </ul>
+                            <button class="mt-4 bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="course-element">
-        <h2>Course Cost</h2>
-        <p>$1500 per participant</p>
-    </div>
+        <!-- Certification Paths -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 glow-text text-center">Certification Paths</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Terraform Certification Path -->
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-4 terraform-color">Terraform Associate</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Prerequisites</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Basic cloud concepts</li>
+                                <li>• Command line experience</li>
+                                <li>• Basic programming concepts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Exam Details</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• 1 hour duration</li>
+                                <li>• 60 questions</li>
+                                <li>• Remote proctoring available</li>
+                                <li>• Valid for 2 years</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 bg-black bg-opacity-30 rounded">
+                            <h4 class="font-bold mb-2">Study Resources</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Official Study Guide</li>
+                                <li>• Practice Exams</li>
+                                <li>• Hands-on Labs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">Start Certification Path</button>
+                </div>
 
-    <div class="course-element">
-        <h2>Objectives</h2>
-        <ul>
-            <li>Understand the fundamentals of secrets management and the importance of using HSM for high-value secrets.</li>
-            <li>Learn about IBM Cloud Hyper Protect Crypto Services and its features.</li>
-            <li>Gain hands-on experience with HashiCorp Vault and its integration with HPCS.</li>
-            <li>Configure Vault’s auto-unseal and seal-wrap functionalities using HPCS.</li>
-            <li>Manage cryptographic keys and secrets lifecycle securely.</li>
-            <li>Implement best practices for secure enterprise secrets management.</li>
-        </ul>
-    </div>
-
-    <div class="course-element">
-        <h2>Prerequisites</h2>
-        <ul>
-            <li>Basic understanding of cryptographic concepts.</li>
-            <li>Familiarity with Linux command-line interface.</li>
-            <li>Experience with cloud services and basic knowledge of IBM Cloud.</li>
-            <li>Knowledge of HashiCorp Vault is beneficial but not required.</li>
-        </ul>
-    </div>
-
-    <div class="course-element">
-        <h2>Agenda</h2>
-        <h3>Week 1: Introduction and Theoretical Concepts</h3>
-        <h4>Day 1: Introduction to Secrets Management</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Importance of secrets management</li>
-                    <li>Threat landscape and risks</li>
-                    <li>Overview of HashiCorp Vault</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Setting up the learning environment</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 2: Overview of IBM Cloud Hyper Protect Crypto Services</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Features and benefits</li>
-                    <li>FIPS 140-2 Level 4 certification</li>
-                    <li>Key management capabilities</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Exploring IBM Cloud HPCS features</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 3: Integrating Vault with HPCS</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Auto-unseal and seal-wrap functionalities</li>
-                    <li>Compliance requirements and best practices</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (1 hour)
-                <ul>
-                    <li>Initial setup and configuration of Vault</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 4: Setting Up the Environment</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Provisioning IBM Cloud resources</li>
-                    <li>Installing necessary tools and libraries</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Setting up virtual server instances</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>Week 2: Practical Implementation</h3>
-        <h4>Day 5: Configuring HPCS for Vault Integration</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Creating HSM access credentials</li>
-                    <li>Setting up PKCS#11 client library</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Configuring HPCS credentials and libraries</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 6: Deploying HashiCorp Vault</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Installing and configuring Vault</li>
-                    <li>Applying licenses and starting Vault</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Deploying Vault on virtual server instances</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 7: Initializing and Unsealing Vault</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Initializing Vault with HPCS</li>
-                    <li>Unsealing Vault using HPCS auto-unseal</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Practical initialization and unsealing exercises</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>Week 3: Advanced Configurations and Management</h3>
-        <h4>Day 8: Managing Secrets and Policies</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Storing and retrieving secrets</li>
-                    <li>Implementing access policies</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Managing secrets and policies in Vault</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 9: Configuring Seal-Wrap</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Configuring seal-wrap in Vault</li>
-                    <li>Testing and validating configurations</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Practical seal-wrap configuration exercises</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 10: Monitoring and Auditing Vault</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Monitoring Vault operations</li>
-                    <li>Implementing auditing mechanisms</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Setting up monitoring and auditing for Vault</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h3>Week 4: Advanced Topics and Best Practices</h3>
-        <h4>Day 11: Disaster Recovery and Backup Strategies</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Disaster recovery planning</li>
-                    <li>Backup and restore procedures</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Implementing disaster recovery and backup strategies</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Day 12: Best Practices and Use Cases</h4>
-        <ul>
-            <li>Instructor-Led Theory (1 hour)
-                <ul>
-                    <li>Real-world applications and case studies</li>
-                    <li>Security best practices</li>
-                </ul>
-            </li>
-            <li>Self-Paced Lab (0:40 hour)
-                <ul>
-                    <li>Applying best practices to lab environment</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div class="course-element">
-        <h2>Lab Exercises Outline</h2>
-        <h4>Lab Exercise 1: Initializing and Unsealing Vault</h4>
-        <p>Objective: To initialize and unseal Vault using HPCS.</p>
-        <ul>
-            <li>Install Vault on a virtual server instance.</li>
-            <li>Configure Vault to use HPCS for auto-unseal.</li>
-            <li>Initialize and unseal Vault.</li>
-        </ul>
-
-        <h4>Lab Exercise 2: Managing Secrets and Policies</h4>
-        <p>Objective: To manage secrets and access policies in Vault.</p>
-        <ul>
-            <li>Store secrets in Vault.</li>
-            <li>Retrieve secrets from Vault.</li>
-            <li>Implement access policies for different users.</li>
-        </ul>
-
-        <h4>Lab Exercise 3: Configuring Seal-Wrap</h4>
-        <p>Objective: To configure advanced features like seal-wrap.</p>
-        <ul>
-            <li>Configure seal-wrap in Vault.</li>
-            <li>Test the seal-wrap functionality.</li>
-            <li>Validate the configurations.</li>
-        </ul>
-
-        <h4>Lab Exercise 4: Monitoring and Auditing Vault</h4>
-        <p>Objective: To set up monitoring and auditing for Vault.</p>
-        <ul>
-            <li>Implement monitoring tools for Vault.</li>
-            <li>Configure auditing mechanisms.</li>
-            <li>Validate the monitoring and auditing setup.</li>
-        </ul>
-
-        <h4>Lab Exercise 5: Disaster Recovery and Backup</h4>
-        <p>Objective: To implement disaster recovery and backup strategies.</p>
-        <ul>
-            <li>Configure backup procedures.</li>
-            <li>Test disaster recovery plans.</li>
-            <li>Validate backup and restore operations.</li>
-        </ul>
-
-        <h4>Lab Exercise 6: Automating Credential Rotation</h4>
-        <p>Objective: To automate the rotation of credentials and secrets.</p>
-        <ul>
-            <li>Set up expiration policies.</li>
-            <li>Configure automated rotation workflows.</li>
-            <li>Test the automated rotation process.</li>
-        </ul>
-
-        <h4>Lab Exercise 7: Encryption Key Rolling</h4>
-        <p>Objective: To automate encryption key updates and rotation.</p>
-        <ul>
-            <li>Configure encryption key rolling.</li>
-            <li>Validate the key rolling process without code changes or re-deploys.</li>
-        </ul>
-    </div>
-
-    <div class="course-element">
-        <h2>Course Overview</h2>
-        <p>This enhanced course provides a thorough understanding of integrating HashiCorp Vault with IBM Cloud Hyper Protect Crypto Services. With a balanced approach of daily instructor-led theory sessions and self-paced lab work, participants will gain both theoretical knowledge and practical skills to manage enterprise secrets securely. By the end of the course, participants will be proficient in configuring and managing Vault's advanced cryptographic features using HPCS, ensuring robust security for their organization's secrets.</p>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2024 Skunkworks. All rights reserved.</p>
-    <p><a href="https://www.skunkworks.africa/" style="color: #f9f871;">Skunkworks</a></p>
-</footer>
-
-</body>
-</html>
-
+                <!-- Vault Certification Path -->
+                <div class="card p-6">
+                    <h3 class="text

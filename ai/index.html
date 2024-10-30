@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Training - Skunkworks Academy</title>
+    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
             --primary-bg: #0d1117;
@@ -103,6 +106,33 @@
             opacity: 0.1;
         }
 
+        .breadcrumb {
+            background: black;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* color: var(--accent-purple); */
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            /* margin: 0 auto; */
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo:hover {
+            color: var(--accent-color);
+        }
+
         .course-level {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -151,27 +181,84 @@
             border-radius: 50%;
             animation: neuralPulse 3s infinite;
         }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+                /* Navigation Styles */
+                nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
     </style>
 </head>
 <body>
    <header>
-        <div class="header-content">
+        <div class="header-content ">
             <a href="/" class="logo">
                 <i class="fas fa-graduation-cap"></i>
                 Skunkworks Academy
             </a>
         </div>
-    <div class="breadcrumb">
-        <div class="breadcrumb-content">
-            <a href="/">Home</a> / <span>Artificial Intelligence Courses</span>
-        </div>
-    </div>
+    </header>
+
+    
+    <nav>
+        <ul>
+            <li><a href="adobe/index.html"><i class="fas fa-palette"></i>Adobe</a></li>
+            <li><a href="ai/index.html"><i class="fas fa-robot"></i>AI</a></li>
+            <li><a href="app-dev/index.html"><i class="fas fa-code"></i>Application Development</a></li>
+            <li><a href="automation/index.html"><i class="fas fa-cogs"></i>Automation</a></li>
+            <li><a href="cloud/index.html"><i class="fas fa-cloud"></i>Cloud</a></li>
+            <li><a href="security/index.html"><i class="fas fa-shield-alt"></i>Security</a></li>
+        </ul>
+    </nav>
+    
     <header class="header">
         <div class="neural-bg"></div>
         <h1>Artificial Intelligence Training</h1>
         <p>Master AI concepts, from fundamentals to advanced applications</p>
     </header>
-
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="/">Home</a> / <span>Artificial Intelligence Courses</span>
+        </div>
+    </div>
     <main class="container">
         <div class="course-grid">
             <!-- Fundamentals Track -->
