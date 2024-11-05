@@ -87,8 +87,10 @@
         nav {
             background-color: var(--primary-color);
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+            border-bottom: 1px solid rgba(/* Add this CSS rule for the navbar */
+            position: relative; /* or 'fixed' if the navbar should stay on top when scrolling */
+            z-index: 99996666; /* Ensure this is higher than any other element's z-index */
+}
 
         nav ul {
             list-style: none;
